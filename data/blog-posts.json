@@ -1,0 +1,42 @@
+{
+  "siteName": "WaApply",
+  "siteBaseUrl": "https://example.github.io/waapply",
+  "posts": [
+    {
+      "id": "best-ai-tools-beginners-2026",
+      "title": "Best AI Tools for Beginners to Make Money Online in 2026",
+      "date": "2026-03-28",
+      "tag": "Getting started",
+      "excerpt": "A practical shortlist of affordable AI tools you can learn in a weekend and use for freelancing, content, or micro-SaaS ideas.",
+      "paragraphs": [
+        "You do not need a computer science degree to earn with AI. Many beginners start with writing assistants, image generators, and automation tools that have free tiers or low monthly costs.",
+        "Pick one problem you can solve for others—social posts, product descriptions, simple chatbots—and stack one tool for text, one for visuals, and one for workflow automation.",
+        "Consistency beats novelty: document your prompts, reuse templates, and raise prices as you get faster. That is how side income turns into a real online business."
+      ]
+    },
+    {
+      "id": "prompts-that-sell-freelance",
+      "title": "Prompt Frameworks That Actually Sell on Freelance Marketplaces",
+      "date": "2026-03-26",
+      "tag": "Freelancing",
+      "excerpt": "Structure your prompts like a brief: outcome, audience, tone, and format—so clients see clear value and you deliver faster.",
+      "paragraphs": [
+        "Clients buy outcomes, not jargon. Start every prompt with the role (“You are a marketing copywriter…”), the goal (“Write a landing hero…”), and constraints (word limit, tone, brand words to avoid).",
+        "Save winning prompts as reusable blocks. Over time you build a library you can adapt in minutes, which protects your hourly rate.",
+        "Test outputs in public samples (blur sensitive data) to build trust. Proof beats promises when you compete with hundreds of other sellers."
+      ]
+    },
+    {
+      "id": "avoid-ai-scams-side-income",
+      "title": "How to Spot AI “Get Rich Quick” Scams When You Are Starting Out",
+      "date": "2026-03-22",
+      "tag": "Safety",
+      "excerpt": "Red flags: guaranteed income, secret models, and upsells before you have shipped a single paid project. Here is a sober checklist.",
+      "paragraphs": [
+        "Legitimate AI skills take practice. Anyone promising fixed daily earnings with no portfolio or reviews is selling hope, not a system.",
+        "Never pay for “exclusive” API access you cannot verify. Use known providers with clear pricing and documentation.",
+        "Your first goal should be one small paid deliverable—a logo pack, ten product descriptions, a simple FAQ bot—not a luxury course certificate."
+      ]
+    }
+  ]
+}

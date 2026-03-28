@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "WaApply — AI tools for online income",
+  "short_name": "WaApply",
+  "description": "Artificial intelligence tools for beginners who want to make money online.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080c10",
+  "theme_color": "#080c10",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
