@@ -1,5 +1,5 @@
 /* WaApply — PWA cache (same pattern as INVOOffice landing) */
-const CACHE = 'waapply-blog-1e1197f874';
+const CACHE = 'waapply-blog-3f318644f0';
 
 const REL_ASSETS = [
   'index.html',

@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "generate-blog": "node scripts/generate-blog.mjs",
+    "stagger-dates": "node scripts/stagger-post-dates.mjs",
     "build": "node scripts/generate-blog.mjs && node scripts/bump-sw-cache.mjs && npx --yes clean-css-cli -o styles.min.css styles.css && npx --yes terser main.js -c -m -o main.min.js && node scripts/cache-bust.mjs",
     "fonts:copy": "node scripts/copy-fonts.mjs"
   },

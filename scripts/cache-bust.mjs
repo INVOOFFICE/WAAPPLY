@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,19 +15,28 @@ function shortHash(filePath) {
 
 const vCss = shortHash(join(root, 'styles.min.css'));
 const vJs = shortHash(join(root, 'main.min.js'));
-const indexPath = join(root, 'index.html');
 
-if (existsSync(indexPath)) {
-  let html = readFileSync(indexPath, 'utf8');
-  html = html.replace(
-    /href="styles\.min\.css(\?v=[^"]*)?"/g,
-    () => `href="styles.min.css?v=${vCss}"`
-  );
-  html = html.replace(
-    /src="main\.min\.js(\?v=[^"]*)?"/g,
-    () => `src="main.min.js?v=${vJs}"`
-  );
-  writeFileSync(indexPath, html, 'utf8');
+function applyAssetVersions(html) {
+  return html
+    .replace(/href="\/styles\.min\.css(\?v=[^"]*)?"/g, () => `href="/styles.min.css?v=${vCss}"`)
+    .replace(/href="styles\.min\.css(\?v=[^"]*)?"/g, () => `href="styles.min.css?v=${vCss}"`)
+    .replace(/src="\/main\.min\.js(\?v=[^"]*)?"/g, () => `src="/main.min.js?v=${vJs}"`)
+    .replace(/src="main\.min\.js(\?v=[^"]*)?"/g, () => `src="main.min.js?v=${vJs}"`);
+}
+
+function bustHtmlFile(filePath) {
+  if (!existsSync(filePath)) return;
+  const html = applyAssetVersions(readFileSync(filePath, 'utf8'));
+  writeFileSync(filePath, html, 'utf8');
+}
+
+bustHtmlFile(join(root, 'index.html'));
+
+const blogDir = join(root, 'blog');
+if (existsSync(blogDir)) {
+  for (const name of readdirSync(blogDir)) {
+    if (name.endsWith('.html')) bustHtmlFile(join(blogDir, name));
+  }
 }
 
 console.log('cache-bust:', { 'styles.min.css': vCss, 'main.min.js': vJs });
