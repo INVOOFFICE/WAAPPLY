@@ -362,12 +362,11 @@ function buildArticleBody(post) {
 function buildBlogGridHtml(posts, siteName, siteBaseUrl, siteDescription) {
   return posts
     .map((post, i) => {
-      const delay = i === 0 ? '' : ` style="transition-delay:${(i * 0.06).toFixed(2)}s"`;
       const display = post.dateDisplay || formatDateDisplay(post.date);
       const metaDesc = metaDescriptionForPost(post, siteDescription);
       const absUrl = escapeHtmlAttr(articleUrlAbsolute(siteBaseUrl, post));
       const docTitle = escapeHtmlAttr(`${post.title} | ${siteName}`);
-      return `      <article class="blog-card reveal"${delay} itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeHtmlAttr(metaDesc)}" data-wa-meta-title="${escapeHtmlAttr(post.title)}" data-wa-doc-title="${docTitle}" data-wa-article-url="${absUrl}" data-wa-article-id="${escapeHtmlAttr(post.id)}">
+      return `      <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeHtmlAttr(metaDesc)}" data-wa-meta-title="${escapeHtmlAttr(post.title)}" data-wa-doc-title="${docTitle}" data-wa-article-url="${absUrl}" data-wa-article-id="${escapeHtmlAttr(post.id)}">
         <div class="blog-card-meta">
           <time class="blog-card-date" datetime="${escapeHtml(post.date)}" itemprop="datePublished">${escapeHtml(display)}</time>
           <span class="blog-card-tag">${escapeHtml(post.tag)}</span>
@@ -383,7 +382,6 @@ function buildBlogGridHtml(posts, siteName, siteBaseUrl, siteDescription) {
 function buildBlogArticlesHtml(posts, siteName, siteBaseUrl, siteDescription) {
   return posts
     .map((post, i) => {
-      const delay = i === 0 ? '' : ` style="transition-delay:${(i * 0.06).toFixed(2)}s"`;
       const display = post.dateDisplay || formatDateDisplay(post.date);
       const body = buildArticleBody(post);
       const postUrl = articleUrlAbsolute(siteBaseUrl, post);
@@ -392,7 +390,7 @@ function buildBlogArticlesHtml(posts, siteName, siteBaseUrl, siteDescription) {
       const pageHref = escapeHtmlAttr(articlePathRoot(post));
       const metaDesc = metaDescriptionForPost(post, siteDescription);
       const docTitle = escapeHtmlAttr(`${post.title} | ${siteName}`);
-      return `  <article id="${escapeHtml(post.id)}" class="blog-article blog-article--expandable reveal"${delay} itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeHtmlAttr(metaDesc)}" data-wa-meta-title="${escapeHtmlAttr(post.title)}" data-wa-doc-title="${docTitle}" data-wa-article-url="${escapeHtmlAttr(postUrl)}" data-wa-article-id="${escapeHtmlAttr(post.id)}">
+      return `  <article id="${escapeHtml(post.id)}" class="blog-article blog-article--expandable reveal" itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeHtmlAttr(metaDesc)}" data-wa-meta-title="${escapeHtmlAttr(post.title)}" data-wa-doc-title="${docTitle}" data-wa-article-url="${escapeHtmlAttr(postUrl)}" data-wa-article-id="${escapeHtmlAttr(post.id)}">
     <div class="blog-article-meta">
       <time datetime="${escapeHtml(post.date)}" itemprop="datePublished">${escapeHtml(display)}</time>
       <span class="blog-card-tag">${escapeHtml(post.tag)}</span>

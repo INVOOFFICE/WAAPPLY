@@ -300,3 +300,75 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
     schedule();
   }
 })();
+
+(function initNewsTicker() {
+  const bar = document.getElementById('news-ticker');
+  const track = document.getElementById('news-ticker-track');
+  const btn = document.getElementById('news-ticker-pause');
+  if (!bar || !track || !btn) return;
+
+  function truncateWords(s, max) {
+    let t = String(s || '')
+      .trim()
+      .replace(/\s+/g, ' ');
+    if (t.length <= max) return t;
+    const cut = t.substring(0, max);
+    const sp = cut.lastIndexOf(' ');
+    if (sp > max * 0.55) return `${cut.substring(0, sp)}…`;
+    return `${cut}…`;
+  }
+
+  function buildGroup(duplicate) {
+    const wrap = document.createElement('div');
+    wrap.className = 'news-ticker-group';
+    if (duplicate) wrap.setAttribute('aria-hidden', 'true');
+    posts.forEach((p) => {
+      const item = document.createElement('span');
+      item.className = 'news-ticker-item';
+      const link = document.createElement('a');
+      link.href = `/blog/${encodeURIComponent(p.id)}.html`;
+      const strong = document.createElement('strong');
+      strong.className = 'news-ticker-title';
+      strong.textContent = p.title;
+      link.appendChild(strong);
+      const sep = document.createElement('span');
+      sep.className = 'news-ticker-sep';
+      sep.textContent = ' — ';
+      const desc = document.createElement('span');
+      desc.className = 'news-ticker-desc';
+      desc.textContent = truncateWords(p.excerpt, 100);
+      item.appendChild(link);
+      item.appendChild(sep);
+      item.appendChild(desc);
+      wrap.appendChild(item);
+    });
+    return wrap;
+  }
+
+  let posts = [];
+
+  fetch('data/blog-posts.json', { credentials: 'same-origin' })
+    .then((r) => {
+      if (!r.ok) throw new Error('blog json');
+      return r.json();
+    })
+    .then((data) => {
+      posts = (data.posts || []).filter((p) => String(p.tag || '').trim() === 'AI News');
+      posts.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+      posts = posts.slice(0, 14);
+      if (!posts.length) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      track.appendChild(buildGroup(false));
+      if (!reduceMotion) track.appendChild(buildGroup(true));
+
+      bar.removeAttribute('hidden');
+
+      btn.addEventListener('click', () => {
+        const paused = bar.classList.toggle('is-paused');
+        btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        btn.textContent = paused ? 'Play' : 'Pause';
+      });
+    })
+    .catch(() => {});
+})();
