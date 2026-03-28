@@ -20,16 +20,50 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const observer = new IntersectionObserver(
+const REVEAL_STAGGER_STEP = 0.05;
+const REVEAL_STAGGER_MAX = 0.3;
+
+function revealUsesViewportStagger(el) {
+  return el.matches('#blog-grid .blog-card.reveal, #articles .blog-article.reveal');
+}
+
+function setRevealStaggerDelays(elements) {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sorted = [...elements].sort((a, b) => {
+    const ar = a.getBoundingClientRect();
+    const br = b.getBoundingClientRect();
+    return ar.top - br.top || ar.left - br.left;
+  });
+  sorted.forEach((el, i) => {
+    const d = reduce ? 0 : Math.min(i * REVEAL_STAGGER_STEP, REVEAL_STAGGER_MAX);
+    el.style.transitionDelay = `${d}s`;
+  });
+}
+
+const revealObserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+    const entering = entries.filter((e) => e.isIntersecting).map((e) => e.target);
+    if (!entering.length) return;
+
+    const stagger = entering.filter(revealUsesViewportStagger);
+    const instant = entering.filter((el) => !revealUsesViewportStagger(el));
+
+    instant.forEach((el) => {
+      el.style.transitionDelay = '0s';
+      el.classList.add('visible');
     });
+
+    if (stagger.length) {
+      setRevealStaggerDelays(stagger);
+      stagger.forEach((el) => el.classList.add('visible'));
+    }
+
+    entering.forEach((el) => revealObserver.unobserve(el));
   },
   { threshold: 0.1 }
 );
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
 (function initBlogGridPagination() {
   const grid = document.getElementById('blog-grid');
@@ -50,11 +84,18 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
   function apply() {
     const start = page * PAGE_SIZE;
+    const onPageCards = [];
     cards.forEach((card, i) => {
       const onPage = i >= start && i < start + PAGE_SIZE;
       card.classList.toggle('is-page-hidden', !onPage);
-      if (onPage) card.classList.add('visible');
+      if (!onPage) {
+        card.style.transitionDelay = '';
+        return;
+      }
+      onPageCards.push(card);
     });
+    setRevealStaggerDelays(onPageCards);
+    onPageCards.forEach((card) => card.classList.add('visible'));
     btnPrev.disabled = page <= 0;
     btnNext.disabled = page >= totalPages - 1;
     statusEl.textContent = 'Page ' + (page + 1) + ' / ' + totalPages;
