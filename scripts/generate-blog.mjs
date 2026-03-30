@@ -703,10 +703,12 @@ ${body}
 function syncBlogArticleFiles(siteName, siteBaseUrl, siteDescription, posts) {
   mkdirSync(blogDir, { recursive: true });
   const wanted = new Set(posts.map((p) => `${blogFileBase(p)}.html`));
+  /** Keep these files: client-side viewer for posts when only blog-posts.json updates (Apps Script). */
+  const BLOG_HTML_FILES_TO_KEEP = new Set(['post.html']);
   if (existsSync(blogDir)) {
     for (const name of readdirSync(blogDir)) {
       if (!name.endsWith('.html')) continue;
-      if (!wanted.has(name)) {
+      if (!wanted.has(name) && !BLOG_HTML_FILES_TO_KEEP.has(name)) {
         unlinkSync(join(blogDir, name));
       }
     }

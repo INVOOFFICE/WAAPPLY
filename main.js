@@ -65,7 +65,7 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-(function initBlogGridPagination() {
+function setupBlogGridPagination() {
   const grid = document.getElementById('blog-grid');
   const nav = document.getElementById('blog-pagination');
   const btnPrev = document.getElementById('blog-pagination-prev');
@@ -74,16 +74,32 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
   if (!grid || !nav || !btnPrev || !btnNext || !statusEl) return;
 
   const PAGE_SIZE = 6;
-  const cards = Array.from(grid.querySelectorAll('.blog-card'));
-  if (cards.length <= PAGE_SIZE) return;
-
-  nav.hidden = false;
-  let page = 0;
-  const totalPages = Math.ceil(cards.length / PAGE_SIZE);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  if (!nav._waPagState) nav._waPagState = { page: 0 };
+  const state = nav._waPagState;
+  state.page = 0;
+
+  function getCards() {
+    return Array.from(grid.querySelectorAll('.blog-card'));
+  }
+
   function apply() {
-    const start = page * PAGE_SIZE;
+    const cards = getCards();
+    const totalPages = Math.max(1, Math.ceil(cards.length / PAGE_SIZE));
+    if (state.page >= totalPages) state.page = Math.max(0, totalPages - 1);
+
+    if (cards.length <= PAGE_SIZE) {
+      nav.hidden = true;
+      cards.forEach((card) => {
+        card.classList.remove('is-page-hidden');
+        card.classList.add('visible');
+      });
+      return;
+    }
+
+    nav.hidden = false;
+    const start = state.page * PAGE_SIZE;
     const onPageCards = [];
     cards.forEach((card, i) => {
       const onPage = i >= start && i < start + PAGE_SIZE;
@@ -96,34 +112,41 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
     });
     setRevealStaggerDelays(onPageCards);
     onPageCards.forEach((card) => card.classList.add('visible'));
-    btnPrev.disabled = page <= 0;
-    btnNext.disabled = page >= totalPages - 1;
-    statusEl.textContent = 'Page ' + (page + 1) + ' / ' + totalPages;
+    btnPrev.disabled = state.page <= 0;
+    btnNext.disabled = state.page >= totalPages - 1;
+    statusEl.textContent = 'Page ' + (state.page + 1) + ' / ' + totalPages;
   }
 
   function scrollToGrid() {
     grid.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest' });
   }
 
-  btnPrev.addEventListener('click', () => {
-    if (page <= 0) return;
-    page--;
-    apply();
-    scrollToGrid();
-  });
-  btnNext.addEventListener('click', () => {
-    if (page >= totalPages - 1) return;
-    page++;
-    apply();
-    scrollToGrid();
-  });
+  if (!nav.dataset.waPaginationBound) {
+    nav.dataset.waPaginationBound = '1';
+    btnPrev.addEventListener('click', () => {
+      if (state.page <= 0) return;
+      state.page--;
+      apply();
+      scrollToGrid();
+    });
+    btnNext.addEventListener('click', () => {
+      const cards = getCards();
+      const totalPages = Math.max(1, Math.ceil(cards.length / PAGE_SIZE));
+      if (state.page >= totalPages - 1) return;
+      state.page++;
+      apply();
+      scrollToGrid();
+    });
+  }
 
   apply();
-})();
+}
+
+setupBlogGridPagination();
 
 (function initGuideExpandables() {
   const section = document.getElementById('articles');
-  if (!section || !section.querySelector('.blog-article-toggle')) return;
+  if (!section) return;
 
   const articles = () => Array.from(section.querySelectorAll('.blog-article--expandable'));
 
@@ -301,6 +324,155 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
   }
 })();
 
+(function hydrateBlogFromLiveJson() {
+  const JSON_URL = 'data/blog-posts.json';
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/'/g, '&#39;');
+  }
+
+  function formatDateDisplay(isoDate) {
+    const d = new Date(`${isoDate}T12:00:00Z`);
+    return new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }).format(d);
+  }
+
+  function sortPosts(posts) {
+    return [...posts].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  }
+
+  function buildArticleBody(post) {
+    if (post.bodyHtml && String(post.bodyHtml).trim()) {
+      return post.bodyHtml.trim();
+    }
+    const paras = Array.isArray(post.paragraphs) ? post.paragraphs : [];
+    return paras
+      .map((p) => {
+        const t = String(p || '').trim();
+        return t ? `<p>${escapeHtml(t)}</p>` : '';
+      })
+      .filter(Boolean)
+      .join('\n      ');
+  }
+
+  function dedicatedPageHref(postId) {
+    return `/blog/post.html?id=${encodeURIComponent(postId)}`;
+  }
+
+  function buildCard(post, siteBaseUrl) {
+    const id = String(post.id || '').trim();
+    if (!id) return '';
+    const display = formatDateDisplay(post.date || '');
+    const href = dedicatedPageHref(id);
+    const base = siteBaseUrl.replace(/\/$/, '');
+    const absUrl = `${base}/blog/post.html?id=${encodeURIComponent(id)}`;
+    const sum = (post.short_description || post.shortDescription || post.excerpt || '').trim();
+    const metaDesc = sum.length > 158 ? `${sum.slice(0, 157)}…` : sum;
+    const docTitle = `${post.title} | WaApply`;
+    return `      <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeAttr(metaDesc)}" data-wa-meta-title="${escapeAttr(post.title || '')}" data-wa-doc-title="${escapeAttr(docTitle)}" data-wa-article-url="${escapeAttr(absUrl)}" data-wa-article-id="${escapeAttr(id)}">
+        <div class="blog-card-meta">
+          <time class="blog-card-date" datetime="${escapeAttr(post.date || '')}" itemprop="datePublished">${escapeHtml(display)}</time>
+          <span class="blog-card-tag">${escapeHtml(post.tag || '')}</span>
+        </div>
+        <h3 class="blog-card-title" itemprop="headline">${escapeHtml(post.title || '')}</h3>
+        <p class="blog-card-excerpt" itemprop="description">${escapeHtml(post.excerpt || '')}</p>
+        <a href="${escapeAttr(href)}" class="blog-card-link" itemprop="url" hreflang="en" title="Read: ${escapeAttr(post.title || '')}">Read guide <span aria-hidden="true">→</span></a>
+      </article>`;
+  }
+
+  function buildArticleBlock(post, siteBaseUrl) {
+    const id = String(post.id || '').trim();
+    if (!id) return '';
+    const display = formatDateDisplay(post.date || '');
+    const href = dedicatedPageHref(id);
+    const base = siteBaseUrl.replace(/\/$/, '');
+    const absUrl = `${base}/blog/post.html?id=${encodeURIComponent(id)}`;
+    const bodyId = `article-body-${id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+    const sum = (post.short_description || post.shortDescription || post.excerpt || '').trim();
+    const metaDesc = sum.length > 158 ? `${sum.slice(0, 157)}…` : sum;
+    const docTitle = `${post.title} | WaApply`;
+    const modified = post.dateModified || post.date || '';
+    const body = buildArticleBody(post);
+    return `  <article id="${escapeAttr(id)}" class="blog-article blog-article--expandable reveal" itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeAttr(metaDesc)}" data-wa-meta-title="${escapeAttr(post.title || '')}" data-wa-doc-title="${escapeAttr(docTitle)}" data-wa-article-url="${escapeAttr(absUrl)}" data-wa-article-id="${escapeAttr(id)}">
+    <div class="blog-article-meta">
+      <time datetime="${escapeAttr(post.date || '')}" itemprop="datePublished">${escapeHtml(display)}</time>
+      <span class="blog-card-tag">${escapeHtml(post.tag || '')}</span>
+    </div>
+    <h2 class="blog-article-title" itemprop="headline">${escapeHtml(post.title || '')}</h2>
+    <p class="blog-article-dek" itemprop="description">${escapeHtml(post.excerpt || '')}</p>
+    <p class="blog-article-permalink"><a href="${escapeAttr(href)}" hreflang="en" class="blog-article-permalink-link">Dedicated page</a> <span class="blog-article-permalink-hint" aria-hidden="true">(shareable URL)</span></p>
+    <meta itemprop="dateModified" content="${escapeAttr(modified)}">
+    <meta itemprop="url" content="${escapeAttr(absUrl)}">
+    <div class="blog-article-actions">
+      <button type="button" class="blog-article-toggle" aria-expanded="false" aria-controls="${escapeAttr(bodyId)}">
+        <span class="blog-article-toggle-label">Read full guide</span>
+        <span class="blog-article-toggle-chevron" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="blog-article-body-wrap">
+      <div id="${escapeAttr(bodyId)}" class="blog-article-body" itemprop="articleBody">
+      ${body}
+      </div>
+    </div>
+  </article>`;
+  }
+
+  fetch(JSON_URL, { credentials: 'same-origin', cache: 'no-store' })
+    .then((r) => {
+      if (!r.ok) throw new Error('blog json');
+      return r.json();
+    })
+    .then((data) => {
+      const posts = sortPosts((data.posts || []).filter((p) => String(p.id || '').trim()));
+      if (!posts.length) return;
+
+      const siteBaseUrl = data.siteBaseUrl || 'https://waapply.com';
+      const grid = document.getElementById('blog-grid');
+      const section = document.getElementById('articles');
+      const header = section && section.querySelector('.blog-page-header');
+      if (!grid || !section || !header) return;
+
+      grid.innerHTML = posts.map((p) => buildCard(p, siteBaseUrl)).filter(Boolean).join('\n\n');
+      section.querySelectorAll('.blog-article').forEach((el) => el.remove());
+      header.insertAdjacentHTML('afterend', posts.map((p) => buildArticleBlock(p, siteBaseUrl)).filter(Boolean).join('\n\n'));
+
+      grid.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      section.querySelectorAll('.blog-article.reveal').forEach((el) => revealObserver.observe(el));
+
+      setupBlogGridPagination();
+
+      const raw = location.hash.replace(/^#/, '');
+      if (raw) {
+        const target = document.getElementById(raw);
+        if (target && target.classList.contains('blog-article')) {
+          const wrap = target.querySelector('.blog-article-body-wrap');
+          const btn = target.querySelector('.blog-article-toggle');
+          if (wrap && btn) {
+            wrap.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+            const label = btn.querySelector('.blog-article-toggle-label');
+            if (label) label.textContent = 'Hide full guide';
+            requestAnimationFrame(() =>
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            );
+          }
+        }
+      }
+    })
+    .catch(() => {});
+})();
+
 (function initNewsTicker() {
   const bar = document.getElementById('news-ticker');
   const track = document.getElementById('news-ticker-track');
@@ -326,7 +498,7 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
       const item = document.createElement('span');
       item.className = 'news-ticker-item';
       const link = document.createElement('a');
-      link.href = `/blog/${encodeURIComponent(p.id)}.html`;
+      link.href = `/blog/post.html?id=${encodeURIComponent(p.id)}`;
       const strong = document.createElement('strong');
       strong.className = 'news-ticker-title';
       strong.textContent = p.title;
@@ -347,7 +519,7 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
 
   let posts = [];
 
-  fetch('data/blog-posts.json', { credentials: 'same-origin' })
+  fetch('data/blog-posts.json', { credentials: 'same-origin', cache: 'no-store' })
     .then((r) => {
       if (!r.ok) throw new Error('blog json');
       return r.json();
