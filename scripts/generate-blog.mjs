@@ -19,6 +19,9 @@ const CSP_HEAD =
 
 const ADSENSE_SCRIPT_SNIPPET = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>`;
 
+/** Primary brand mark (PNG) — used in nav, OG image, JSON-LD, favicon on article pages. */
+const SITE_LOGO_PATH = 'icon512x512.png';
+
 const DEFAULT_SITE_DESCRIPTION =
   'Learn to make money online with AI tools, freelance prompts, and side-income guides—clear, beginner-friendly advice on freelancing and honest online work.';
 
@@ -453,7 +456,7 @@ function buildJsonLd(siteName, siteBaseUrl, siteDescription, posts) {
         description: siteDescription,
         logo: {
           '@type': 'ImageObject',
-          url: `${base}/favicon.svg`,
+          url: `${base}/${SITE_LOGO_PATH}`,
         },
       },
       {
@@ -508,7 +511,7 @@ function buildSeoHeadTags(siteName, siteBaseUrl, siteDescription, posts) {
     `<meta property="og:description" content="${escapeHtmlAttr(metaDesc)}">`,
     `<meta property="og:url" content="${escapeHtmlAttr(pageUrl)}">`,
     `<meta property="og:locale" content="en_US">`,
-    `<meta property="og:image" content="${escapeHtmlAttr(`${base}/favicon.svg`)}">`,
+    `<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_LOGO_PATH}`)}">`,
     `<meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' logo')}">`,
     `<meta name="twitter:card" content="summary">`,
     `<meta name="twitter:title" content="${escapeHtmlAttr(title)}">`,
@@ -614,12 +617,12 @@ ${ADSENSE_SCRIPT_SNIPPET}
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="${escapeHtmlAttr(post.date)}">
 <meta property="article:modified_time" content="${escapeHtmlAttr(modified)}">
-<meta property="og:image" content="${escapeHtmlAttr(`${base}/favicon.svg`)}">
+<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_LOGO_PATH}`)}">
 <meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' logo')}">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="${escapeHtmlAttr(post.title)}">
 <meta name="twitter:description" content="${escapeHtmlAttr(metaDesc)}">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/${SITE_LOGO_PATH}" type="image/png" sizes="512x512">
 <link rel="manifest" href="/manifest.json">
 <script type="application/ld+json">
 ${jsonLd}
@@ -633,7 +636,7 @@ ${jsonLd}
 
 <nav class="site-nav" aria-label="Main navigation">
   <a href="/" class="nav-logo" aria-label="${escapeHtmlAttr(siteName)} — home">
-    <div class="nav-logo-icon" aria-hidden="true">W</div>
+    <img class="nav-logo-icon" src="/${SITE_LOGO_PATH}" alt="" width="40" height="40" decoding="async" fetchpriority="high" aria-hidden="true">
     <span class="nav-logo-name">${escapeHtml(siteName)}</span>
     <span class="nav-badge">AI · freelance · income</span>
   </a>

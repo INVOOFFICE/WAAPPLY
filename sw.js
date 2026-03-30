@@ -7,6 +7,8 @@ const REL_ASSETS = [
   'main.min.js',
   'manifest.json',
   'favicon.svg',
+  'icon512x512.png',
+  'icon192x192.png',
   'fonts/syne-latin-400-normal.woff2',
   'fonts/syne-latin-600-normal.woff2',
   'fonts/syne-latin-700-normal.woff2',

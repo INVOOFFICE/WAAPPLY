@@ -278,11 +278,12 @@ body::before {
 }
 
 .nav-logo-icon {
-  width: 34px; height: 34px;
-  background: var(--teal);
+  width: 34px;
+  height: 34px;
   border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 900; color: #080c10;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
 }
 
 .nav-badge {
