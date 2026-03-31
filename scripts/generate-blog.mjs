@@ -24,6 +24,68 @@ const SITE_LOGO_PATH = 'icon512x512.png';
 
 const DEFAULT_SITE_DESCRIPTION =
   'Learn to make money online with AI tools, freelance prompts, and side-income guides—clear, beginner-friendly advice on freelancing and honest online work.';
+const AUTHOR_NAME = 'Maya Carter';
+const AUTHOR_ROLE = 'AI Growth Operator';
+const AUTHOR_BIO_SHORT =
+  'US-focused AI operations strategist specializing in practical monetization systems, automation workflows, and content-led growth.';
+const AUTHOR_IMAGE = 'icon512x512.png';
+const AUTHOR_SAME_AS = [
+  'https://www.linkedin.com/',
+  'https://twitter.com/',
+];
+const ALLOWED_EDITORIAL_CATEGORIES = [
+  'Make Money Online',
+  'AI Tools Reviews',
+  'Freelancing Guides',
+  'Side Hustle Ideas',
+];
+const TAG_CANONICAL_MAP = {
+  // Canonical tags
+  'make money online': 'Make Money Online',
+  'ai tools reviews': 'AI Tools Reviews',
+  'freelancing guides': 'Freelancing Guides',
+  'side hustle ideas': 'Side Hustle Ideas',
+  // Legacy aliases accepted and normalized
+  'money & income': 'Side Hustle Ideas',
+  'ai & income': 'Side Hustle Ideas',
+  'personal finance': 'Make Money Online',
+  investing: 'Make Money Online',
+  'business & income': 'Make Money Online',
+  'business & marketing': 'Make Money Online',
+  'career & jobs': 'Freelancing Guides',
+  'career & job': 'Freelancing Guides',
+  'work & income': 'Freelancing Guides',
+  'ai freelance and side hustle': 'Freelancing Guides',
+  'ai freelance': 'Freelancing Guides',
+  'ai tools': 'AI Tools Reviews',
+  'ai tools comparison': 'AI Tools Reviews',
+  'ai coding tools': 'AI Tools Reviews',
+  'ai image generators': 'AI Tools Reviews',
+  'ai automation tools': 'AI Tools Reviews',
+  'chatgpt use cases': 'AI Tools Reviews',
+  'gemini ai': 'AI Tools Reviews',
+  // Explicitly blocked categories
+  'ai news': null,
+};
+
+function normalizedEditorialCategory(rawTag) {
+  const key = String(rawTag || '').trim().toLowerCase();
+  if (!key) return null;
+  if (Object.prototype.hasOwnProperty.call(TAG_CANONICAL_MAP, key)) {
+    return TAG_CANONICAL_MAP[key];
+  }
+  return null;
+}
+
+function normalizeSitePosts(rawPosts) {
+  return (rawPosts || [])
+    .map((p) => {
+      const cat = normalizedEditorialCategory(p.tag);
+      if (!cat) return null;
+      return { ...p, tag: cat };
+    })
+    .filter(Boolean);
+}
 
 function escapeHtml(s) {
   return String(s)
@@ -375,6 +437,7 @@ function buildBlogGridHtml(posts, siteName, siteBaseUrl, siteDescription) {
           <span class="blog-card-tag">${escapeHtml(post.tag)}</span>
         </div>
         <h3 class="blog-card-title" itemprop="headline">${escapeHtml(post.title)}</h3>
+        <p class="blog-card-byline">By ${escapeHtml(AUTHOR_NAME)} · ${escapeHtml(AUTHOR_ROLE)}</p>
         <p class="blog-card-excerpt" itemprop="description">${escapeHtml(post.excerpt)}</p>
         <a href="${escapeHtmlAttr(articlePathRoot(post))}" class="blog-card-link" itemprop="url" hreflang="en" title="Read: ${escapeHtmlAttr(post.title)}">Read guide <span aria-hidden="true">→</span></a>
       </article>`;
@@ -399,6 +462,7 @@ function buildBlogArticlesHtml(posts, siteName, siteBaseUrl, siteDescription) {
       <span class="blog-card-tag">${escapeHtml(post.tag)}</span>
     </div>
     <h2 class="blog-article-title" itemprop="headline">${escapeHtml(post.title)}</h2>
+    <p class="blog-article-byline">By ${escapeHtml(AUTHOR_NAME)} · ${escapeHtml(AUTHOR_ROLE)}</p>
     <p class="blog-article-dek" itemprop="description">${escapeHtml(post.excerpt)}</p>
     <p class="blog-article-permalink"><a href="${pageHref}" hreflang="en" class="blog-article-permalink-link">Dedicated page</a> <span class="blog-article-permalink-hint" aria-hidden="true">(shareable URL)</span></p>
     <meta itemprop="dateModified" content="${escapeHtmlAttr(modified)}">
@@ -423,6 +487,7 @@ function buildJsonLd(siteName, siteBaseUrl, siteDescription, posts) {
   const base = siteBaseUrl.replace(/\/$/, '');
   const pageUrl = `${base}/`;
   const orgId = `${base}/#organization`;
+  const authorId = `${base}/#author`;
   const blogId = `${pageUrl}#blog`;
 
   const blogPosting = posts.map((p) => {
@@ -437,7 +502,7 @@ function buildJsonLd(siteName, siteBaseUrl, siteDescription, posts) {
       dateModified: modified,
       url,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: { '@type': 'Organization', name: siteName, url: pageUrl },
+      author: { '@id': authorId },
       publisher: { '@id': orgId },
       isPartOf: { '@id': blogId },
       inLanguage: 'en-US',
@@ -458,6 +523,15 @@ function buildJsonLd(siteName, siteBaseUrl, siteDescription, posts) {
           '@type': 'ImageObject',
           url: `${base}/${SITE_LOGO_PATH}`,
         },
+      },
+      {
+        '@type': 'Person',
+        '@id': authorId,
+        name: AUTHOR_NAME,
+        description: AUTHOR_BIO_SHORT,
+        image: `${base}/${AUTHOR_IMAGE}`,
+        url: `${base}/about.html`,
+        sameAs: AUTHOR_SAME_AS,
       },
       {
         '@type': 'Blog',
@@ -502,7 +576,7 @@ function buildSeoHeadTags(siteName, siteBaseUrl, siteDescription, posts) {
   const title = `${siteName} | AI tools, prompts & freelancing for beginners`;
   const lines = [
     `<meta name="description" content="${escapeHtmlAttr(metaDesc)}">`,
-    `<meta name="author" content="${escapeHtmlAttr(siteName)}">`,
+    `<meta name="author" content="${escapeHtmlAttr(AUTHOR_NAME)}">`,
     `<link rel="alternate" hreflang="en" href="${escapeHtmlAttr(pageUrl)}">`,
     `<link rel="alternate" hreflang="x-default" href="${escapeHtmlAttr(pageUrl)}">`,
     `<meta property="og:type" content="website">`,
@@ -524,12 +598,22 @@ function buildArticlePageJsonLd(siteName, siteBaseUrl, siteDescription, post) {
   const base = siteBaseUrl.replace(/\/$/, '');
   const pageUrl = `${base}/`;
   const orgId = `${base}/#organization`;
+  const authorId = `${base}/#author`;
   const blogId = `${pageUrl}#blog`;
   const articleUrl = articleUrlAbsolute(siteBaseUrl, post);
   const modified = post.dateModified || post.date;
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      {
+        '@type': 'Person',
+        '@id': authorId,
+        name: AUTHOR_NAME,
+        description: AUTHOR_BIO_SHORT,
+        image: `${base}/${AUTHOR_IMAGE}`,
+        url: `${base}/about.html`,
+        sameAs: AUTHOR_SAME_AS,
+      },
       {
         '@type': 'Organization',
         '@id': orgId,
@@ -545,7 +629,7 @@ function buildArticlePageJsonLd(siteName, siteBaseUrl, siteDescription, post) {
         dateModified: modified,
         url: articleUrl,
         mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-        author: { '@type': 'Organization', name: siteName, url: pageUrl },
+        author: { '@id': authorId },
         publisher: { '@id': orgId },
         isPartOf: { '@id': blogId },
         inLanguage: 'en-US',
@@ -606,7 +690,7 @@ ${ADSENSE_SCRIPT_SNIPPET}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="${escapeHtmlAttr(articleUrl)}">
 <meta name="description" content="${escapeHtmlAttr(metaDesc)}">
-<meta name="author" content="${escapeHtmlAttr(siteName)}">
+<meta name="author" content="${escapeHtmlAttr(AUTHOR_NAME)}">
 <link rel="alternate" hreflang="en" href="${escapeHtmlAttr(articleUrl)}">
 <link rel="alternate" hreflang="x-default" href="${escapeHtmlAttr(articleUrl)}">
 <meta property="og:type" content="article">
@@ -643,6 +727,7 @@ ${jsonLd}
   <div class="nav-links">
     <a href="/#posts">Post grid</a>
     <a href="/#articles">Full guides</a>
+    <a href="/about.html">About</a>
   </div>
   <div class="nav-cta">
     <a href="/#posts" class="btn-wa btn-wa--accent">
@@ -668,6 +753,7 @@ ${jsonLd}
         <span class="blog-card-tag">${escapeHtml(post.tag)}</span>
       </div>
       <h1 class="blog-article-title" itemprop="headline">${escapeHtml(post.title)}</h1>
+      <p class="blog-article-byline">By ${escapeHtml(AUTHOR_NAME)} · ${escapeHtml(AUTHOR_ROLE)}</p>
       <p class="blog-article-dek" itemprop="description">${escapeHtml(post.excerpt)}</p>
       <meta itemprop="dateModified" content="${escapeHtmlAttr(modified)}">
       <meta itemprop="url" content="${escapeHtmlAttr(articleUrl)}">
@@ -689,6 +775,10 @@ ${body}
     <nav class="footer-nav" aria-label="Footer">
       <a href="/#posts">Post grid</a>
       <a href="/#articles">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
       <a href="/">Home</a>
     </nav>
   </div>
@@ -790,7 +880,8 @@ const data = JSON.parse(raw);
 const siteBaseUrl = data.siteBaseUrl || 'https://waapply.com';
 const siteName = data.siteName || 'WaApply';
 const siteDescription = (data.siteDescription && String(data.siteDescription).trim()) || DEFAULT_SITE_DESCRIPTION;
-const posts = sortPosts(data.posts || []);
+const rawPosts = data.posts || [];
+const posts = sortPosts(normalizeSitePosts(rawPosts));
 const pageUrl = `${siteBaseUrl.replace(/\/$/, '')}/`;
 
 const canonicalHref = pageUrl;
@@ -830,4 +921,16 @@ syncBlogArticleFiles(siteName, siteBaseUrl, siteDescription, posts);
 writeSitemap(pageUrl, posts);
 
 const lastmod = latestPostDate(posts) || new Date().toISOString().slice(0, 10);
-console.log('generate-blog:', posts.length, 'post(s),', siteName, siteBaseUrl, '| sitemap', posts.length + 1, 'URL(s), home lastmod', lastmod);
+console.log(
+  'generate-blog:',
+  posts.length,
+  'publishable post(s) from',
+  rawPosts.length,
+  'raw row(s),',
+  siteName,
+  siteBaseUrl,
+  '| sitemap',
+  posts.length + 1,
+  'URL(s), home lastmod',
+  lastmod
+);

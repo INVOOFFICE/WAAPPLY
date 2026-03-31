@@ -170,7 +170,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
-  color-scheme: dark;
+  color-scheme: dark light;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -480,6 +480,80 @@ body::before {
 
 .nav-cta {
   display: flex; align-items: center; gap: 12px;
+}
+
+.theme-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--teal-glow);
+  color: var(--text);
+}
+
+html[data-theme='light'] {
+  --bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface2: #eef3f9;
+  --surface-elevated: #f8fbff;
+  --surface-read: #ffffff;
+  --border: rgba(10, 20, 34, 0.12);
+  --border2: rgba(10, 20, 34, 0.2);
+  --text: #132235;
+  --text2: #334a63;
+  --text3: #4e6580;
+  --text-reading: #1c2d42;
+  --teal: #129f82;
+  --teal-muted: #0f8f75;
+  --teal-dim: rgba(18, 159, 130, 0.12);
+  --teal-glow: rgba(18, 159, 130, 0.28);
+  --shadow-card: 0 4px 22px rgba(20, 36, 58, 0.08);
+  --shadow-card-hover: 0 14px 34px rgba(20, 36, 58, 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme='dark']) {
+    --bg: #f5f8fc;
+    --surface: #ffffff;
+    --surface2: #eef3f9;
+    --surface-elevated: #f8fbff;
+    --surface-read: #ffffff;
+    --border: rgba(10, 20, 34, 0.12);
+    --border2: rgba(10, 20, 34, 0.2);
+    --text: #132235;
+    --text2: #334a63;
+    --text3: #4e6580;
+    --text-reading: #1c2d42;
+    --teal: #129f82;
+    --teal-muted: #0f8f75;
+    --teal-dim: rgba(18, 159, 130, 0.12);
+    --teal-glow: rgba(18, 159, 130, 0.28);
+    --shadow-card: 0 4px 22px rgba(20, 36, 58, 0.08);
+    --shadow-card-hover: 0 14px 34px rgba(20, 36, 58, 0.14);
+  }
+}
+
+html[data-theme='light'] body::before {
+  opacity: 0.08;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme='dark']) body::before {
+    opacity: 0.08;
+  }
 }
 
 .btn-wa {
@@ -2079,4 +2153,60 @@ footer {
     padding-left: max(40px, env(safe-area-inset-left, 0px));
     padding-right: max(40px, env(safe-area-inset-right, 0px));
   }
+}
+
+/* Newsletter CTA blocks */
+.newsletter-section { margin-block: 2.5rem 3rem; }
+.newsletter-box {
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  border-radius: 16px;
+  padding: 1.1rem;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--surface) 84%, transparent), color-mix(in srgb, var(--surface-2) 88%, transparent));
+}
+.newsletter-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.newsletter-title { margin: 0 0 0.4rem; font-size: clamp(1.25rem, 2.1vw, 1.65rem); }
+.newsletter-lead, .newsletter-note { margin: 0; color: var(--muted); }
+.newsletter-form { display: flex; gap: 0.55rem; flex-wrap: wrap; margin: 0.75rem 0 0.4rem; }
+.newsletter-input {
+  flex: 1 1 260px;
+  min-width: 220px;
+  padding: 0.68rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  color: var(--text);
+}
+.inline-newsletter-cta {
+  margin: 1rem 0 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  border-radius: 14px;
+  padding: 0.8rem;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+}
+.inline-newsletter-title { margin: 0 0 0.35rem; font-size: 1rem; }
+.inline-newsletter-text, .inline-newsletter-note { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.inline-newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.65rem 0 0.4rem; }
+.inline-newsletter-input {
+  flex: 1 1 220px;
+  min-width: 180px;
+  padding: 0.55rem 0.65rem;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--surface-2) 82%, transparent);
+  color: var(--text);
+}
+.inline-newsletter-btn {
+  border: 0;
+  border-radius: 9px;
+  padding: 0.56rem 0.74rem;
+  background: var(--accent);
+  color: #05181a;
+  font-weight: 700;
+  cursor: pointer;
 }

@@ -20,6 +20,96 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+(function initThemeMode() {
+  const STORAGE_KEY = 'waapply.theme';
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const CHOICES = ['system', 'dark', 'light'];
+
+  function resolveTheme(choice) {
+    if (choice === 'light' || choice === 'dark') return choice;
+    return mql.matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(choice) {
+    const resolved = resolveTheme(choice);
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.style.colorScheme = resolved;
+    if (metaColorScheme) metaColorScheme.setAttribute('content', resolved);
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', resolved === 'dark' ? '#0a0e14' : '#f5f8fc');
+    }
+    return resolved;
+  }
+
+  function getChoice() {
+    const saved = String(localStorage.getItem(STORAGE_KEY) || '').trim();
+    if (saved === 'light' || saved === 'dark') return saved;
+    return 'system';
+  }
+
+  function setChoice(choice) {
+    if (choice === 'light' || choice === 'dark') {
+      localStorage.setItem(STORAGE_KEY, choice);
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+    return applyTheme(choice);
+  }
+
+  function renderToggle() {
+    if (document.querySelector('.theme-toggle')) return;
+    const navCta = document.querySelector('.nav-cta');
+    const nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    const host = navCta || nav;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle theme mode');
+
+    function paint(choice, activeTheme) {
+      const labels = {
+        system: `Auto (${activeTheme})`,
+        dark: 'Dark',
+        light: 'Light',
+      };
+      btn.textContent = labels[choice] || 'Auto';
+      btn.setAttribute('aria-pressed', choice === 'dark' ? 'true' : 'false');
+      btn.title = `Theme: ${labels[choice] || choice}`;
+    }
+
+    let currentChoice = getChoice();
+    let initial = setChoice(currentChoice);
+    paint(currentChoice, initial);
+
+    btn.addEventListener('click', () => {
+      const idx = CHOICES.indexOf(currentChoice);
+      const nextIdx = idx >= 0 ? (idx + 1) % CHOICES.length : 0;
+      currentChoice = CHOICES[nextIdx];
+      const applied = setChoice(currentChoice);
+      paint(currentChoice, applied);
+    });
+
+    host.appendChild(btn);
+
+    mql.addEventListener('change', () => {
+      if (getChoice() !== 'system') return;
+      const applied = applyTheme('system');
+      currentChoice = 'system';
+      paint(currentChoice, applied);
+    });
+  }
+
+  applyTheme(getChoice());
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderToggle, { once: true });
+  } else {
+    renderToggle();
+  }
+})();
+
 const REVEAL_STAGGER_STEP = 0.05;
 const REVEAL_STAGGER_MAX = 0.3;
 
@@ -143,6 +233,64 @@ function setupBlogGridPagination() {
 }
 
 setupBlogGridPagination();
+
+(function initInlineNewsletterCta() {
+  const NEWSLETTER_ACTION = 'https://waapply.beehiiv.com/subscribe';
+
+  function buildInlineCta() {
+    const box = document.createElement('aside');
+    box.className = 'inline-newsletter-cta';
+    box.innerHTML =
+      '<h3 class="inline-newsletter-title">Free AI Prompt Pack for Freelancers</h3>' +
+      '<p class="inline-newsletter-text">Get practical prompts for client work, proposals, and delivery workflows.</p>' +
+      '<form class="inline-newsletter-form" method="post" target="_blank" novalidate>' +
+      '<input class="inline-newsletter-input" type="email" name="email" placeholder="Enter your email" required>' +
+      '<button class="inline-newsletter-btn" type="submit">Get the free pack</button>' +
+      '</form>' +
+      '<p class="inline-newsletter-note">No spam. 1-click unsubscribe.</p>';
+
+    const form = box.querySelector('form');
+    if (NEWSLETTER_ACTION) {
+      form.action = NEWSLETTER_ACTION;
+    } else {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.alert(
+          'Newsletter endpoint not set yet. Configure NEWSLETTER_ACTION in main.js.'
+        );
+      });
+    }
+    return box;
+  }
+
+  function injectIntoBodies() {
+    document.querySelectorAll('.blog-article-body').forEach((body) => {
+      if (body.querySelector('.inline-newsletter-cta')) return;
+      const paras = Array.from(body.querySelectorAll(':scope > p'));
+      if (paras.length < 3) return;
+      const cta = buildInlineCta();
+      paras[2].insertAdjacentElement('afterend', cta);
+    });
+  }
+
+  const mainForm = document.getElementById('newsletter-form');
+  if (mainForm) {
+    if (NEWSLETTER_ACTION) {
+      mainForm.action = NEWSLETTER_ACTION;
+      mainForm.target = '_blank';
+    } else {
+      mainForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.alert(
+          'Newsletter endpoint not set yet. Configure NEWSLETTER_ACTION in main.js.'
+        );
+      });
+    }
+  }
+
+  injectIntoBodies();
+  window.addEventListener('wa:articleRendered', injectIntoBodies);
+})();
 
 (function initGuideExpandables() {
   const section = document.getElementById('articles');
@@ -326,6 +474,31 @@ setupBlogGridPagination();
 
 (function hydrateBlogFromLiveJson() {
   const JSON_URL = 'data/blog-posts.json';
+  const TAG_CANONICAL_MAP = {
+    'make money online': 'Make Money Online',
+    'ai tools reviews': 'AI Tools Reviews',
+    'freelancing guides': 'Freelancing Guides',
+    'side hustle ideas': 'Side Hustle Ideas',
+    'money & income': 'Side Hustle Ideas',
+    'ai & income': 'Side Hustle Ideas',
+    'personal finance': 'Make Money Online',
+    investing: 'Make Money Online',
+    'business & income': 'Make Money Online',
+    'business & marketing': 'Make Money Online',
+    'career & jobs': 'Freelancing Guides',
+    'career & job': 'Freelancing Guides',
+    'work & income': 'Freelancing Guides',
+    'ai freelance and side hustle': 'Freelancing Guides',
+    'ai freelance': 'Freelancing Guides',
+    'ai tools': 'AI Tools Reviews',
+    'ai tools comparison': 'AI Tools Reviews',
+    'ai coding tools': 'AI Tools Reviews',
+    'ai image generators': 'AI Tools Reviews',
+    'ai automation tools': 'AI Tools Reviews',
+    'chatgpt use cases': 'AI Tools Reviews',
+    'gemini ai': 'AI Tools Reviews',
+    'ai news': null,
+  };
 
   function escapeHtml(s) {
     return String(s)
@@ -350,6 +523,15 @@ setupBlogGridPagination();
 
   function sortPosts(posts) {
     return [...posts].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  }
+
+  function normalizedCategory(rawTag) {
+    const key = String(rawTag || '').trim().toLowerCase();
+    if (!key) return null;
+    if (Object.prototype.hasOwnProperty.call(TAG_CANONICAL_MAP, key)) {
+      return TAG_CANONICAL_MAP[key];
+    }
+    return null;
   }
 
   function buildArticleBody(post) {
@@ -434,7 +616,15 @@ setupBlogGridPagination();
       return r.json();
     })
     .then((data) => {
-      const posts = sortPosts((data.posts || []).filter((p) => String(p.id || '').trim()));
+      const posts = sortPosts(
+        (data.posts || [])
+          .map((p) => {
+            const tag = normalizedCategory(p.tag);
+            if (!tag) return null;
+            return { ...p, tag };
+          })
+          .filter((p) => p && String(p.id || '').trim())
+      );
       if (!posts.length) return;
 
       const siteBaseUrl = data.siteBaseUrl || 'https://waapply.com';
@@ -451,6 +641,7 @@ setupBlogGridPagination();
       section.querySelectorAll('.blog-article.reveal').forEach((el) => revealObserver.observe(el));
 
       setupBlogGridPagination();
+      window.dispatchEvent(new CustomEvent('wa:articleRendered'));
 
       const raw = location.hash.replace(/^#/, '');
       if (raw) {
@@ -525,7 +716,13 @@ setupBlogGridPagination();
       return r.json();
     })
     .then((data) => {
-      posts = (data.posts || []).filter((p) => String(p.tag || '').trim() === 'AI News');
+      posts = (data.posts || [])
+        .map((p) => {
+          const cat = normalizedCategory(p.tag);
+          if (!cat) return null;
+          return { ...p, tag: cat };
+        })
+        .filter((p) => p && String(p.id || '').trim() !== '');
       posts.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
       posts = posts.slice(0, 14);
       if (!posts.length) return;
