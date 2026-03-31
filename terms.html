@@ -11,32 +11,96 @@
 <link rel="canonical" href="https://waapply.com/terms.html">
 <link rel="icon" href="/icon512x512.png" type="image/png" sizes="512x512">
 <link rel="stylesheet" href="/styles.min.css">
+<style>
+  .terms-hero {
+    max-width: 760px;
+    margin-bottom: 1rem;
+  }
+  .terms-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .terms-grid {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 860px;
+  }
+  .terms-card {
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface-elevated), var(--surface));
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-card);
+  }
+  .terms-card h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.25rem;
+  }
+  .terms-card p {
+    margin: 0;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .terms-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+</style>
 </head>
 <body>
 <main class="site-main blog-post-page-main" id="main-content" tabindex="-1">
   <div class="container blog-post-page-inner">
-    <h1 class="blog-page-header-title">Terms of Use</h1>
-    <p class="blog-article-dek"><strong>Effective date:</strong> 2026-03-31</p>
-    <p class="blog-article-dek">By using WaApply, you agree to these terms.</p>
+    <div class="terms-hero">
+      <p class="terms-kicker">WaApply legal</p>
+      <h1 class="blog-page-header-title">Terms of Use</h1>
+      <p class="blog-article-dek"><strong>Effective date:</strong> 2026-03-31</p>
+      <p class="blog-article-dek">By using WaApply, you agree to these terms.</p>
+    </div>
 
-    <h2 class="blog-body-heading">Educational Content</h2>
-    <p>WaApply provides educational information about AI tools, freelancing, and income workflows. Content is not legal, tax, or financial advice.</p>
+    <section class="terms-grid" aria-label="Terms sections">
+      <article class="terms-card">
+        <h2 class="blog-body-heading">Educational Content</h2>
+        <p>WaApply provides educational information about AI tools, freelancing, and income workflows. Content is not legal, tax, or financial advice.</p>
+      </article>
 
-    <h2 class="blog-body-heading">No Guarantees</h2>
-    <p>Results mentioned in guides vary by market, skill level, execution quality, and external factors. No earnings or ranking outcomes are guaranteed.</p>
+      <article class="terms-card">
+        <h2 class="blog-body-heading">No Guarantees</h2>
+        <p>Results mentioned in guides vary by market, skill level, execution quality, and external factors. No earnings or ranking outcomes are guaranteed.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Intellectual Property</h2>
-    <p>Unless otherwise stated, all text and original assets on this site are owned by WaApply and may not be republished without permission.</p>
+      <article class="terms-card">
+        <h2 class="blog-body-heading">Intellectual Property</h2>
+        <p>Unless otherwise stated, all text and original assets on this site are owned by WaApply and may not be republished without permission.</p>
+      </article>
 
-    <h2 class="blog-body-heading">External Links</h2>
-    <p>Our site may link to third-party services. We are not responsible for their content, policies, or availability.</p>
+      <article class="terms-card">
+        <h2 class="blog-body-heading">External Links</h2>
+        <p>Our site may link to third-party services. We are not responsible for their content, policies, or availability.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Limitation of Liability</h2>
-    <p>WaApply is provided “as is” without warranties. To the maximum extent allowed by law, we are not liable for indirect or consequential damages from use of this site.</p>
+      <article class="terms-card">
+        <h2 class="blog-body-heading">Limitation of Liability</h2>
+        <p>WaApply is provided "as is" without warranties. To the maximum extent allowed by law, we are not liable for indirect or consequential damages from use of this site.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Contact</h2>
-    <p>Questions about these terms: <a href="mailto:hello@waapply.com">hello@waapply.com</a>.</p>
-    <p><a href="/" class="btn-wa btn-wa--ghost">Back to homepage</a></p>
+      <article class="terms-card">
+        <h2 class="blog-body-heading">Contact</h2>
+        <p>If you have questions about these terms, use our contact form and we will reply as soon as possible.</p>
+        <div class="terms-actions">
+          <a href="/contact.html" class="btn-wa">Contact support</a>
+          <a href="/" class="btn-wa btn-wa--ghost">Back to homepage</a>
+        </div>
+      </article>
+    </section>
   </div>
 </main>
 </body>

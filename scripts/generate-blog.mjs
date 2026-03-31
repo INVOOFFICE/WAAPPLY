@@ -21,6 +21,8 @@ const ADSENSE_SCRIPT_SNIPPET = `<script async src="https://pagead2.googlesyndica
 
 /** Primary brand mark (PNG) — used in nav, OG image, JSON-LD, favicon on article pages. */
 const SITE_LOGO_PATH = 'icon512x512.png';
+/** Social preview image (1200x630) for Open Graph + Twitter cards. */
+const SITE_OG_IMAGE_PATH = '1200x630.jpeg';
 
 const DEFAULT_SITE_DESCRIPTION =
   'Learn to make money online with AI tools, freelance prompts, and side-income guides—clear, beginner-friendly advice on freelancing and honest online work.';
@@ -66,6 +68,11 @@ const TAG_CANONICAL_MAP = {
   'gemini ai': 'AI Tools Reviews',
   // Explicitly blocked categories
   'ai news': null,
+};
+
+const INTERNAL_LINK_PRIORITIES = {
+  'chatgpt-make-money-2026': ['freelancing-with-ai-guide-2026'],
+  'passive-income-ideas-america-2026': ['passive-income-ai-2026'],
 };
 
 function normalizedEditorialCategory(rawTag) {
@@ -424,6 +431,53 @@ function buildArticleBody(post) {
   return structurePlainArticleBody(raw, post.title);
 }
 
+function pickRelatedPosts(post, posts, maxLinks = 3) {
+  const byId = new Map(posts.map((p) => [String(p.id), p]));
+  const selected = [];
+  const used = new Set([String(post.id)]);
+  const preferred = INTERNAL_LINK_PRIORITIES[String(post.id)] || [];
+  for (const id of preferred) {
+    const match = byId.get(String(id));
+    if (match && !used.has(String(match.id))) {
+      selected.push(match);
+      used.add(String(match.id));
+    }
+    if (selected.length >= maxLinks) return selected;
+  }
+  for (const p of posts) {
+    if (selected.length >= maxLinks) break;
+    if (used.has(String(p.id))) continue;
+    if (String(p.tag) === String(post.tag)) {
+      selected.push(p);
+      used.add(String(p.id));
+    }
+  }
+  for (const p of posts) {
+    if (selected.length >= maxLinks) break;
+    if (used.has(String(p.id))) continue;
+    selected.push(p);
+    used.add(String(p.id));
+  }
+  return selected;
+}
+
+function buildRelatedLinksHtml(post, posts) {
+  const links = pickRelatedPosts(post, posts, 3);
+  if (!links.length) return '';
+  const items = links
+    .map(
+      (p) =>
+        `<li><a href="${escapeHtmlAttr(articlePathRoot(p))}" class="blog-article-permalink-link">${escapeHtml(p.title)}</a></li>`
+    )
+    .join('\n      ');
+  return `<section class="blog-article-internal-links" aria-label="Related guides">
+      <h3 class="blog-body-subheading">Related guides</h3>
+      <ul>
+      ${items}
+      </ul>
+    </section>`;
+}
+
 function buildBlogGridHtml(posts, siteName, siteBaseUrl, siteDescription) {
   return posts
     .map((post, i) => {
@@ -450,6 +504,7 @@ function buildBlogArticlesHtml(posts, siteName, siteBaseUrl, siteDescription) {
     .map((post, i) => {
       const display = post.dateDisplay || formatDateDisplay(post.date);
       const body = buildArticleBody(post);
+      const related = buildRelatedLinksHtml(post, posts);
       const postUrl = articleUrlAbsolute(siteBaseUrl, post);
       const modified = post.dateModified || post.date;
       const bodyId = 'article-body-' + escapeHtml(post.id);
@@ -476,6 +531,7 @@ function buildBlogArticlesHtml(posts, siteName, siteBaseUrl, siteDescription) {
     <div class="blog-article-body-wrap">
       <div id="${bodyId}" class="blog-article-body" itemprop="articleBody">
       ${body}
+      ${related}
       </div>
     </div>
   </article>`;
@@ -585,9 +641,11 @@ function buildSeoHeadTags(siteName, siteBaseUrl, siteDescription, posts) {
     `<meta property="og:description" content="${escapeHtmlAttr(metaDesc)}">`,
     `<meta property="og:url" content="${escapeHtmlAttr(pageUrl)}">`,
     `<meta property="og:locale" content="en_US">`,
-    `<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_LOGO_PATH}`)}">`,
-    `<meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' logo')}">`,
-    `<meta name="twitter:card" content="summary">`,
+    `<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_OG_IMAGE_PATH}`)}">`,
+    `<meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' social preview')}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${escapeHtmlAttr(title)}">`,
     `<meta name="twitter:description" content="${escapeHtmlAttr(metaDesc)}">`,
   ];
@@ -657,12 +715,13 @@ function buildArticlePageJsonLd(siteName, siteBaseUrl, siteDescription, post) {
   };
 }
 
-function buildArticlePageHtml(siteName, siteBaseUrl, siteDescription, post) {
+function buildArticlePageHtml(siteName, siteBaseUrl, siteDescription, post, posts) {
   const base = siteBaseUrl.replace(/\/$/, '');
   const pageUrl = `${base}/`;
   const articleUrl = articleUrlAbsolute(siteBaseUrl, post);
   const display = post.dateDisplay || formatDateDisplay(post.date);
   const body = buildArticleBody(post);
+  const related = buildRelatedLinksHtml(post, posts);
   const modified = post.dateModified || post.date;
   const metaDesc = metaDescriptionForPost(post, siteDescription);
   const title = `${post.title} | ${siteName}`;
@@ -701,9 +760,11 @@ ${ADSENSE_SCRIPT_SNIPPET}
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="${escapeHtmlAttr(post.date)}">
 <meta property="article:modified_time" content="${escapeHtmlAttr(modified)}">
-<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_LOGO_PATH}`)}">
-<meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' logo')}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${escapeHtmlAttr(`${base}/${SITE_OG_IMAGE_PATH}`)}">
+<meta property="og:image:alt" content="${escapeHtmlAttr(siteName + ' social preview')}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtmlAttr(post.title)}">
 <meta name="twitter:description" content="${escapeHtmlAttr(metaDesc)}">
 <link rel="icon" href="/${SITE_LOGO_PATH}" type="image/png" sizes="512x512">
@@ -760,6 +821,7 @@ ${jsonLd}
       <p class="blog-post-home-link"><a href="${homeHashHref}">Open this guide on the homepage</a> <span aria-hidden="true">(expandable with other guides)</span></p>
       <div class="blog-article-body blog-article-body--standalone" itemprop="articleBody">
 ${body}
+      ${related}
       </div>
     </article>
 
@@ -805,7 +867,7 @@ function syncBlogArticleFiles(siteName, siteBaseUrl, siteDescription, posts) {
   }
   for (const post of posts) {
     const name = `${blogFileBase(post)}.html`;
-    const html = buildArticlePageHtml(siteName, siteBaseUrl, siteDescription, post);
+    const html = buildArticlePageHtml(siteName, siteBaseUrl, siteDescription, post, posts);
     writeFileSync(join(blogDir, name), html, 'utf8');
   }
 }

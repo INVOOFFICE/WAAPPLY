@@ -236,6 +236,80 @@ setupBlogGridPagination();
 
 (function initInlineNewsletterCta() {
   const NEWSLETTER_ACTION = 'https://waapply.beehiiv.com/subscribe';
+  // Optional backend endpoint (proxy) to subscribe without redirect.
+  // Example payload: { email: "user@example.com", source: "waapply-inline" }
+  const NEWSLETTER_API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxa8OflaUsi78xqH6OZsP6xoQi-hrKcm7sYooU9JeAAQXxtJf3H9r4rhEmiwcjnDbQC/exec';
+  const LEAD_MAGNET_URL = '/lead-magnet-50-ai-prompts.txt';
+
+  function wireNewsletterForm(form, statusClassName) {
+    if (!form) return;
+    const useApiMode = !!NEWSLETTER_API_ENDPOINT;
+
+    function ensureStatusEl() {
+      let status = form.parentElement.querySelector(`.${statusClassName}`);
+      if (!status) {
+        status = document.createElement('p');
+        status.className = statusClassName;
+        form.insertAdjacentElement('afterend', status);
+      }
+      return status;
+    }
+
+    if (useApiMode) {
+      form.removeAttribute('action');
+      form.removeAttribute('target');
+      form.setAttribute('data-newsletter-provider', 'beehiiv-api');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector('input[type="email"]');
+        if (!emailInput || !emailInput.checkValidity()) return;
+        const status = ensureStatusEl();
+        status.textContent = 'Submitting...';
+        try {
+          const resp = await fetch(NEWSLETTER_API_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: emailInput.value.trim(),
+              source: statusClassName === 'inline-newsletter-status' ? 'waapply-inline' : 'waapply-main',
+            }),
+          });
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+          status.innerHTML =
+            'Subscription confirmed. Download your free pack: ' +
+            `<a href="${LEAD_MAGNET_URL}" target="_blank" rel="noopener">50 AI prompts (TXT)</a>.`;
+          form.reset();
+        } catch (err) {
+          status.textContent =
+            'Could not confirm subscription right now. Please try again in a moment.';
+        }
+      });
+      return;
+    }
+
+    if (NEWSLETTER_ACTION) {
+      form.action = NEWSLETTER_ACTION;
+      form.target = '_blank';
+      form.setAttribute('data-newsletter-provider', 'beehiiv');
+    } else {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.alert(
+          'Newsletter endpoint not set yet. Configure NEWSLETTER_ACTION in main.js.'
+        );
+      });
+      return;
+    }
+
+    form.addEventListener('submit', () => {
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput && !emailInput.checkValidity()) return;
+      const status = ensureStatusEl();
+      status.innerHTML =
+        'Subscription page opened in a new tab. Confirm your email there, then download your free pack: ' +
+        `<a href="${LEAD_MAGNET_URL}" target="_blank" rel="noopener">50 AI prompts (TXT)</a>.`;
+    });
+  }
 
   function buildInlineCta() {
     const box = document.createElement('aside');
@@ -250,16 +324,7 @@ setupBlogGridPagination();
       '<p class="inline-newsletter-note">No spam. 1-click unsubscribe.</p>';
 
     const form = box.querySelector('form');
-    if (NEWSLETTER_ACTION) {
-      form.action = NEWSLETTER_ACTION;
-    } else {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        window.alert(
-          'Newsletter endpoint not set yet. Configure NEWSLETTER_ACTION in main.js.'
-        );
-      });
-    }
+    wireNewsletterForm(form, 'inline-newsletter-status');
     return box;
   }
 
@@ -274,19 +339,7 @@ setupBlogGridPagination();
   }
 
   const mainForm = document.getElementById('newsletter-form');
-  if (mainForm) {
-    if (NEWSLETTER_ACTION) {
-      mainForm.action = NEWSLETTER_ACTION;
-      mainForm.target = '_blank';
-    } else {
-      mainForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        window.alert(
-          'Newsletter endpoint not set yet. Configure NEWSLETTER_ACTION in main.js.'
-        );
-      });
-    }
-  }
+  wireNewsletterForm(mainForm, 'newsletter-status');
 
   injectIntoBodies();
   window.addEventListener('wa:articleRendered', injectIntoBodies);
@@ -499,6 +552,10 @@ setupBlogGridPagination();
     'gemini ai': 'AI Tools Reviews',
     'ai news': null,
   };
+  const INTERNAL_LINK_PRIORITIES = {
+    'chatgpt-make-money-2026': ['freelancing-with-ai-guide-2026'],
+    'passive-income-ideas-america-2026': ['passive-income-ai-2026'],
+  };
 
   function escapeHtml(s) {
     return String(s)
@@ -552,6 +609,48 @@ setupBlogGridPagination();
     return `/blog/post.html?id=${encodeURIComponent(postId)}`;
   }
 
+  function pickRelatedPosts(post, posts, maxLinks = 3) {
+    const byId = new Map(posts.map((p) => [String(p.id || ''), p]));
+    const selected = [];
+    const used = new Set([String(post.id || '')]);
+    const preferred = INTERNAL_LINK_PRIORITIES[String(post.id || '')] || [];
+    for (const id of preferred) {
+      const match = byId.get(String(id));
+      if (match && !used.has(String(match.id || ''))) {
+        selected.push(match);
+        used.add(String(match.id || ''));
+      }
+      if (selected.length >= maxLinks) return selected;
+    }
+    for (const p of posts) {
+      if (selected.length >= maxLinks) break;
+      if (used.has(String(p.id || ''))) continue;
+      if (String(p.tag || '') === String(post.tag || '')) {
+        selected.push(p);
+        used.add(String(p.id || ''));
+      }
+    }
+    for (const p of posts) {
+      if (selected.length >= maxLinks) break;
+      if (used.has(String(p.id || ''))) continue;
+      selected.push(p);
+      used.add(String(p.id || ''));
+    }
+    return selected;
+  }
+
+  function buildRelatedLinks(post, posts) {
+    const links = pickRelatedPosts(post, posts, 3);
+    if (!links.length) return '';
+    const items = links
+      .map(
+        (p) =>
+          `<li><a href="${escapeAttr(dedicatedPageHref(String(p.id || '')))}" class="blog-article-permalink-link">${escapeHtml(p.title || '')}</a></li>`
+      )
+      .join('\n');
+    return `<section class="blog-article-internal-links" aria-label="Related guides"><h3 class="blog-body-subheading">Related guides</h3><ul>${items}</ul></section>`;
+  }
+
   function buildCard(post, siteBaseUrl) {
     const id = String(post.id || '').trim();
     if (!id) return '';
@@ -573,7 +672,7 @@ setupBlogGridPagination();
       </article>`;
   }
 
-  function buildArticleBlock(post, siteBaseUrl) {
+  function buildArticleBlock(post, siteBaseUrl, posts) {
     const id = String(post.id || '').trim();
     if (!id) return '';
     const display = formatDateDisplay(post.date || '');
@@ -586,6 +685,7 @@ setupBlogGridPagination();
     const docTitle = `${post.title} | WaApply`;
     const modified = post.dateModified || post.date || '';
     const body = buildArticleBody(post);
+    const related = buildRelatedLinks(post, posts);
     return `  <article id="${escapeAttr(id)}" class="blog-article blog-article--expandable reveal" itemscope itemtype="https://schema.org/BlogPosting" data-wa-meta-desc="${escapeAttr(metaDesc)}" data-wa-meta-title="${escapeAttr(post.title || '')}" data-wa-doc-title="${escapeAttr(docTitle)}" data-wa-article-url="${escapeAttr(absUrl)}" data-wa-article-id="${escapeAttr(id)}">
     <div class="blog-article-meta">
       <time datetime="${escapeAttr(post.date || '')}" itemprop="datePublished">${escapeHtml(display)}</time>
@@ -605,6 +705,7 @@ setupBlogGridPagination();
     <div class="blog-article-body-wrap">
       <div id="${escapeAttr(bodyId)}" class="blog-article-body" itemprop="articleBody">
       ${body}
+      ${related}
       </div>
     </div>
   </article>`;
@@ -635,7 +736,7 @@ setupBlogGridPagination();
 
       grid.innerHTML = posts.map((p) => buildCard(p, siteBaseUrl)).filter(Boolean).join('\n\n');
       section.querySelectorAll('.blog-article').forEach((el) => el.remove());
-      header.insertAdjacentHTML('afterend', posts.map((p) => buildArticleBlock(p, siteBaseUrl)).filter(Boolean).join('\n\n'));
+      header.insertAdjacentHTML('afterend', posts.map((p) => buildArticleBlock(p, siteBaseUrl, posts)).filter(Boolean).join('\n\n'));
 
       grid.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
       section.querySelectorAll('.blog-article.reveal').forEach((el) => revealObserver.observe(el));

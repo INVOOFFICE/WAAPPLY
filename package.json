@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "generate-blog": "node scripts/generate-blog.mjs",
+    "validate-social-meta": "node scripts/validate-social-meta.mjs",
     "stagger-dates": "node scripts/stagger-post-dates.mjs",
-    "build": "node scripts/generate-blog.mjs && node scripts/bump-sw-cache.mjs && npx --yes clean-css-cli -o styles.min.css styles.css && npx --yes terser main.js -c -m -o main.min.js && node scripts/cache-bust.mjs",
+    "build": "node scripts/generate-blog.mjs && node scripts/validate-social-meta.mjs && node scripts/bump-sw-cache.mjs && npx --yes clean-css-cli -o styles.min.css styles.css && npx --yes terser main.js -c -m -o main.min.js && node scripts/cache-bust.mjs",
     "fonts:copy": "node scripts/copy-fonts.mjs"
   },
   "devDependencies": {

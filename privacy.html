@@ -11,35 +11,101 @@
 <link rel="canonical" href="https://waapply.com/privacy.html">
 <link rel="icon" href="/icon512x512.png" type="image/png" sizes="512x512">
 <link rel="stylesheet" href="/styles.min.css">
+<style>
+  .privacy-hero {
+    max-width: 780px;
+    margin-bottom: 1rem;
+  }
+  .privacy-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .privacy-grid {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 900px;
+  }
+  .privacy-card {
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface-elevated), var(--surface));
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-card);
+  }
+  .privacy-card h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.25rem;
+  }
+  .privacy-card p {
+    margin: 0;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .privacy-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+</style>
 </head>
 <body>
 <main class="site-main blog-post-page-main" id="main-content" tabindex="-1">
   <div class="container blog-post-page-inner">
-    <h1 class="blog-page-header-title">Privacy Policy</h1>
-    <p class="blog-article-dek"><strong>Effective date:</strong> 2026-03-31</p>
-    <p class="blog-article-dek">WaApply collects limited data to operate the site, measure performance, and serve advertising.</p>
+    <div class="privacy-hero">
+      <p class="privacy-kicker">WaApply legal</p>
+      <h1 class="blog-page-header-title">Privacy Policy</h1>
+      <p class="blog-article-dek"><strong>Effective date:</strong> 2026-03-31</p>
+      <p class="blog-article-dek">WaApply collects limited data to operate the site, measure performance, and serve advertising.</p>
+    </div>
 
-    <h2 class="blog-body-heading">Information We Collect</h2>
-    <p>We may collect non-personal usage data (pages viewed, referrer, browser type, approximate location) and information you submit voluntarily (for example newsletter email address).</p>
+    <section class="privacy-grid" aria-label="Privacy sections">
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Information We Collect</h2>
+        <p>We may collect non-personal usage data (pages viewed, referrer, browser type, approximate location) and information you submit voluntarily (for example newsletter email address).</p>
+      </article>
 
-    <h2 class="blog-body-heading">Cookies and Tracking Technologies</h2>
-    <p>WaApply uses cookies and similar technologies for site functionality, analytics, and advertising. You can control cookies via your browser settings.</p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Cookies and Tracking Technologies</h2>
+        <p>WaApply uses cookies and similar technologies for site functionality, analytics, and advertising. You can control cookies via your browser settings.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Google Analytics</h2>
-    <p>We use Google Analytics to understand audience behavior and improve content quality. Google Analytics may use cookies and process IP/device data according to Google policies.</p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Google Analytics</h2>
+        <p>We use Google Analytics to understand audience behavior and improve content quality. Google Analytics may use cookies and process IP/device data according to Google policies.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Google AdSense</h2>
-    <p>We use Google AdSense to display ads. AdSense may use cookies (including personalized advertising cookies where applicable) to serve and measure ads. Learn more in Google advertising policies and controls.</p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Google AdSense</h2>
+        <p>We use Google AdSense to display ads. AdSense may use cookies (including personalized advertising cookies where applicable) to serve and measure ads. Learn more in Google advertising policies and controls.</p>
+      </article>
 
-    <h2 class="blog-body-heading">CCPA / US Privacy Rights</h2>
-    <p>California residents may have rights under the California Consumer Privacy Act (CCPA), including rights to know, delete, and opt out of certain data sharing where applicable. To submit a privacy request, contact us at <a href="mailto:privacy@waapply.com">privacy@waapply.com</a>.</p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">CCPA / US Privacy Rights</h2>
+        <p>California residents may have rights under the California Consumer Privacy Act (CCPA), including rights to know, delete, and opt out of certain data sharing where applicable. To submit a privacy request, use our contact page.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Data Retention and Security</h2>
-    <p>We retain data only as needed for analytics, operations, and legal requirements. We apply reasonable safeguards, but no internet transmission is 100% secure.</p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Data Retention and Security</h2>
+        <p>We retain data only as needed for analytics, operations, and legal requirements. We apply reasonable safeguards, but no internet transmission is 100% secure.</p>
+      </article>
 
-    <h2 class="blog-body-heading">Contact</h2>
-    <p>For privacy questions, email <a href="mailto:privacy@waapply.com">privacy@waapply.com</a>.</p>
-    <p><a href="/" class="btn-wa btn-wa--ghost">Back to homepage</a></p>
+      <article class="privacy-card">
+        <h2 class="blog-body-heading">Contact</h2>
+        <p>For privacy requests or questions, use our contact page and select the privacy topic in your message.</p>
+        <div class="privacy-actions">
+          <a href="/contact.html" class="btn-wa">Contact support</a>
+          <a href="/" class="btn-wa btn-wa--ghost">Back to homepage</a>
+        </div>
+      </article>
+    </section>
   </div>
 </main>
 </body>
