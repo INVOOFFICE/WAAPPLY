@@ -18,12 +18,14 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Parse JSON (syntax)
@@ -43,7 +45,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          if node -e "const fs=require('fs');try{const j=JSON.parse(fs.readFileSync('package-lock.json','utf8'));if(typeof j.lockfileVersion!=='number'||j.lockfileVersion<1)process.exit(1);}catch(e){process.exit(1)}"; then
+            npm ci
+          else
+            echo "::warning::Invalid or missing package-lock.json — using npm install"
+            npm install
+          fi
 
       - name: Run generate-blog (schema + index + blog/*.html + sitemap)
         run: npm run generate-blog
