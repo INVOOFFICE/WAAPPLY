@@ -41,7 +41,9 @@ jobs:
             console.log('OK: JSON valid,', n, 'post(s)');
           "
 
-      - run: npm ci
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
       - name: Run generate-blog (schema + index + blog/*.html + sitemap)
         run: npm run generate-blog

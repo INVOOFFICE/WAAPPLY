@@ -23,7 +23,10 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-      - run: npm ci
+      # npm ci requires package-lock.json; use npm install if the lockfile was never committed.
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
       - run: npm run build
       - run: rm -rf node_modules
       - uses: actions/configure-pages@v5
