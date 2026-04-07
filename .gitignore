@@ -5,4 +5,4 @@ desktop.ini
 *.log
 .env
 .env.*
-data/blog-posts.json
+
