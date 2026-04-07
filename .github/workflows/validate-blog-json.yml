@@ -1,0 +1,47 @@
+# Fails fast when blog-posts.json is invalid or breaks the static generator (backup HTML + sitemap).
+# L’affichage live sur le site utilise aussi ce fichier ; un JSON cassé bloque la chaîne ici avant merge.
+name: Validate blog data
+
+on:
+  push:
+    paths:
+      - "data/blog-posts.json"
+      - "scripts/generate-blog.mjs"
+  pull_request:
+    paths:
+      - "data/blog-posts.json"
+      - "scripts/generate-blog.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Parse JSON (syntax)
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = 'data/blog-posts.json';
+            const raw = fs.readFileSync(p, 'utf8');
+            if (raw.trimStart().charAt(0) !== '{') {
+              console.error('FAIL: file must start with { (no text/HTML before JSON).');
+              process.exit(1);
+            }
+            const j = JSON.parse(raw);
+            const n = (j.posts && j.posts.length) || 0;
+            console.log('OK: JSON valid,', n, 'post(s)');
+          "
+
+      - run: npm ci
+
+      - name: Run generate-blog (schema + index + blog/*.html + sitemap)
+        run: npm run generate-blog

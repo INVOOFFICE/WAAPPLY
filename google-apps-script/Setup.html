@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        font-size: 13px;
+        color: #202124;
+        padding: 12px 16px 20px;
+        margin: 0;
+      }
+      h1 {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 12px;
+      }
+      p.hint {
+        color: #5f6368;
+        margin: 0 0 14px;
+        line-height: 1.45;
+      }
+      .row {
+        margin-bottom: 12px;
+      }
+      label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      label .req {
+        color: #c5221f;
+      }
+      select {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        border: 1px solid #dadce0;
+        border-radius: 6px;
+        font-size: 13px;
+        background: #fff;
+      }
+      .actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      button {
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        border: none;
+      }
+      button.primary {
+        background: #1a73e8;
+        color: #fff;
+      }
+      button.secondary {
+        background: #f1f3f4;
+        color: #202124;
+      }
+      .err {
+        color: #c5221f;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Map columns</h1>
+    <p class="hint">
+      Row 1 of sheet « <strong><?= sheetName ?></strong> »: choose which column maps to each field. Fields marked
+      <span class="req">*</span> are required. « Published » is optional (row filter). If row 1 was empty, headers were created automatically.
+    </p>
+
+    <? for (var i = 0; i < fields.length; i++) { var f = fields[i]; ?>
+    <div class="row">
+      <label for="<?= f.key ?>"><?= f.label ?><? if (f.required) { ?><span class="req"> *</span><? } ?></label>
+      <select id="<?= f.key ?>">
+        <option value=""><?= f.required ? '— Select a column —' : '— Skip —' ?></option>
+        <? for (var c = 0; c < headers.length; c++) { ?>
+        <option value="<?= c + 1 ?>"<? if (current && String(current[f.key]) === String(c + 1)) { ?> selected<? } ?>>
+          <?= labels[c] ?> — <?= headers[c] === '' ? '(empty)' : headers[c] ?>
+        </option>
+        <? } ?>
+      </select>
+    </div>
+    <? } ?>
+
+    <div class="err" id="err"></div>
+
+    <div class="actions">
+      <button type="button" class="primary" onclick="save()">Save</button>
+      <button type="button" class="secondary" onclick="google.script.host.close()">Cancel</button>
+    </div>
+
+    <script>
+      var FIELD_KEYS = ['id', 'title', 'date', 'tag', 'excerpt', 'body', 'published'];
+
+      function collect() {
+        var map = {};
+        for (var i = 0; i < FIELD_KEYS.length; i++) {
+          var k = FIELD_KEYS[i];
+          var el = document.getElementById(k);
+          var v = el && el.value ? parseInt(el.value, 10) : '';
+          if (k === 'published') {
+            if (v) map.published = v;
+          } else {
+            map[k] = v;
+          }
+        }
+        return map;
+      }
+
+      function save() {
+        document.getElementById('err').style.display = 'none';
+        var map = collect();
+        google.script.run
+          .withSuccessHandler(function () {
+            google.script.host.close();
+          })
+          .withFailureHandler(function (e) {
+            var el = document.getElementById('err');
+            el.textContent = e.message || String(e);
+            el.style.display = 'block';
+          })
+          .saveBlogColumnMap(map);
+      }
+    </script>
+  </body>
+</html>

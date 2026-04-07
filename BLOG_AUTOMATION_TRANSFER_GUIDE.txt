@@ -1,0 +1,209 @@
+WAAPPLY - GUIDE DE TRANSFERT AUTOMATISATION BLOG (Sheet -> GitHub)
+Version: stable (projet courant fonctionnel)
+
+OBJECTIF
+- Reprendre exactement le flux qui marche dans ce projet
+- L'appliquer rapidement a un 2e projet similaire
+- Eviter les erreurs classiques (404 GitHub, token Facebook expire, posts non affiches, sitemap desynchronise)
+
+==================================================================
+1) ARCHITECTURE QUI FONCTIONNE
+==================================================================
+
+Source contenu:
+- Google Sheet (colonnes type: id, title, date, tag, excerpt, body, published)
+
+Automatisation:
+- Google Apps Script:
+  - lit le Sheet
+  - normalise les tags editoriaux
+  - construit data/blog-posts.json
+  - push vers GitHub (API contents)
+  - log dans feuille "Rapport"
+  - publication planifiee + publication Facebook
+  - ping sitemap Google/Bing apres sync/publish
+
+Site:
+- data/blog-posts.json = source vivante
+- index rendu dynamiquement (hydrateBlogFromLiveJson dans main.js)
+- page article universelle: /blog/post.html?id=<id>
+- redirection des anciens liens /blog/<id>.html via 404.html
+
+Build:
+- npm run build:
+  - generate-blog.mjs
+  - bump-sw-cache.mjs
+  - minify css/js
+  - cache-bust.mjs
+
+==================================================================
+2) FICHIERS CLES A REUTILISER / ADAPTER
+==================================================================
+
+Google Apps Script:
+- google-apps-script/BlogSyncToGitHub.gs
+  - validation stricte config GitHub
+  - sync JSON vers GitHub
+  - filtre tags editoriaux
+  - sitemap ping status (stockage Script Properties)
+  - dashboard snapshot backend
+
+- google-apps-script/FacebookPublisher.gs
+  - detection token expire (OAuth 190 / subcode 463)
+  - arret publication batch si token invalide
+  - mode lien article "query" -> /blog/post.html?id=<id>
+
+- google-apps-script/Dashboard.html
+  - KPIs, health score, alertes
+  - statut Sitemap ping (codes HTTP Google/Bing)
+
+Frontend:
+- main.js
+  - hydrate blog depuis data/blog-posts.json (cache: no-store)
+  - filtrage tags stricts
+  - pagination dynamique
+  - CTA newsletter inline
+  - theme toggle 3 etats: Auto / Dark / Light (pref system + localStorage)
+
+- blog/post.html
+  - article dynamique par id
+  - noindex si categorie interdite
+
+- scripts/generate-blog.mjs
+  - conserve blog/post.html
+  - auteur Person + byline + schema
+  - categories editoriales strictes
+  - generation sitemap.xml
+
+CI:
+- .github/workflows/validate-blog-json.yml
+  - valide JSON
+  - verifie generate-blog
+
+==================================================================
+3) CONFIG MINIMALE A REGLER DANS LE NOUVEAU PROJET
+==================================================================
+
+Apps Script Properties (OBLIGATOIRE):
+- GITHUB_TOKEN
+- GITHUB_OWNER
+- GITHUB_REPO
+- GITHUB_BRANCH
+- WAAPPLY_SITE_BASE_URL (ex: https://example.com)
+- FACEBOOK_ARTICLE_LINK_MODE = query
+
+Points critiques:
+- Repo/branch exacts (sinon 404 GitHub PUT)
+- PAT GitHub avec scope repo
+- Structure JSON propre (pas de texte parasite)
+- Tags alignes au mapping editorial (sinon posts ignores volontairement)
+
+==================================================================
+4) TAXONOMIE EDITORIALE (MODE STRICT)
+==================================================================
+
+Categories finales recommandees:
+- Make Money Online
+- AI Tools Reviews
+- Freelancing Guides
+- Side Hustle Ideas
+
+Regle:
+- "AI News" generique = exclu/noindex
+- Toute categorie non mappee = rejetee a la publication
+
+==================================================================
+5) CHECKLIST DE MIGRATION VERS PROJET #2
+==================================================================
+
+ETAPE A - Base technique
+[ ] Copier les fichiers GAS (BlogSyncToGitHub, FacebookPublisher, Dashboard)
+[ ] Copier main.js / blog/post.html / scripts/generate-blog.mjs / workflow validate-blog-json
+[ ] Verifier package.json scripts build
+
+ETAPE B - Config
+[ ] Definir toutes les Script Properties
+[ ] Creer/valider la feuille "Rapport"
+[ ] Verifier URL siteBase et chemin data/blog-posts.json
+
+ETAPE C - Flux contenu
+[ ] Lancer validation GitHub depuis menu GAS
+[ ] Lancer sync manuel -> verifier commit GitHub
+[ ] Verifier que data/blog-posts.json est valide
+[ ] Lancer build -> verifier index/blog affichent les nouveaux posts
+
+ETAPE D - Publication sociale
+[ ] Verifier token Facebook (long-lived page token)
+[ ] Verifier mode lien = query
+[ ] Publier 1 post test et ouvrir le lien depuis Facebook
+
+ETAPE E - SEO/Indexation
+[ ] Verifier sitemap.xml regenere a chaque build
+[ ] Verifier ping sitemap (Google/Bing) dans dashboard
+[ ] Verifier pages legales + about + contact
+
+==================================================================
+6) DEPANNAGE RAPIDE (ERREURS CLASSIQUES)
+==================================================================
+
+Probleme: GitHub PUT 404
+Cause probable:
+- owner/repo/branch faux
+- token sans droits
+Action:
+- revalider Script Properties + PAT
+
+Probleme: posts dans blog-posts.json mais absents du site
+Cause probable:
+- JSON invalide
+- tag non autorise par mapping
+- build non relance / cache
+Action:
+- valider JSON + regenerate build + hard refresh
+
+Probleme: lien Facebook pointe vers /blog/<id>.html
+Cause probable:
+- mode legacy
+Action:
+- FACEBOOK_ARTICLE_LINK_MODE = query
+
+Probleme: Facebook OAuth 190/463
+Cause probable:
+- token expire
+Action:
+- regenarer long-lived page token + retester validateFacebookToken
+
+Probleme: nouveaux posts indexes lentement
+Cause probable:
+- sitemap non ping
+Action:
+- verifier bloc "Sitemap ping status" dashboard
+
+==================================================================
+7) MODE OPERATOIRE RECOMMANDE (RUNBOOK)
+==================================================================
+
+Daily:
+1) Capture trends IA (si active)
+2) Publish batch planifie
+3) Push JSON GitHub
+4) Ping sitemap
+5) Log rapport
+
+Hebdo:
+1) Revue erreurs 7 jours (dashboard)
+2) Revue tags rejetes
+3) Revue CTR titres/excerpts
+4) Refresh 3-5 articles piliers
+
+==================================================================
+8) NOTE POUR L'ASSISTANT (REUTILISATION RAPIDE)
+==================================================================
+
+Quand j'ouvre un 2e projet similaire:
+- Lire ce fichier en premier
+- Reproduire cette stack avant toute "amelioration"
+- Prioriser stabilite flux (Sheet -> JSON -> Render -> Publish)
+- Puis seulement optimiser UX/SEO
+
+Fin du guide.
