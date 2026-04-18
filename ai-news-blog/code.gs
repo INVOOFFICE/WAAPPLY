@@ -25,9 +25,9 @@ const AI_NEWS_CONFIG = {
 
   // Export targets inside this repo
   GITHUB_BRANCH: 'main',
-  GITHUB_NEWS_JSON_PATH: 'ai-news/news.json',
-  GITHUB_SITEMAP_PATH: 'ai-news/sitemap.xml',
-  GITHUB_FEED_PATH: 'ai-news/feed.xml',
+  GITHUB_NEWS_JSON_PATH: 'news.json',
+  GITHUB_SITEMAP_PATH: 'sitemap.xml',
+  GITHUB_FEED_PATH: 'feed.xml',
 
   // Canonical origin used in sitemap + JSON
   SITE_ORIGIN_FALLBACK: '',
