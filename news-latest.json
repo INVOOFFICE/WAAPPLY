@@ -16,6 +16,53 @@
   },
   "articles": [
     {
+      "id": "u7sLqYoJ0HaURRWy",
+      "title": "New Movie Trailer Shows First AI-Generated Performance By a Major Star: the Late Val Kilmer - Slashdot",
+      "seoTitle": "New Movie Trailer Shows First AI-Generated Performance By a Major?",
+      "metaDescription": "\"A trailer has been released for the first film to star an authorised generative AI version of a major Hollywood actor,\" writes The Guardian: Val Kilmer was?",
+      "category": "technology",
+      "image": "https://a.fsdn.com/sd/topics/ai_64.png",
+      "imageAlt": "New Movie Trailer Shows First AI-Generated Performance By a Major Star: the Late Val Kilmer - Slashdot",
+      "url": "https://entertainment.slashdot.org/story/26/04/18/2010257/new-movie-trailer-shows-first-ai-generated-performance-by-a-major-star-the-late-val-kilmer",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T22:34:00.000Z",
+      "description": "\"A trailer has been released for the first film to star an authorised generative AI version of a major Hollywood actor,\" writes The Guardian: Val Kilmer was cast in western As Deep As the Grave before his death in April 2025. Production delays meant he never shot any scenes, but the creative team w....",
+      "summary": "\"A trailer has been released for the first film to star an authorised generative AI version of a major Hollywood actor,\" writes The Guardian: Val Kilmer was cast in western As Deep As the Grave before his death in April 2025. Production delays meant he never shot any scenes, but the creative team w....",
+      "intro": "\"A trailer has been released for the first film to star an authorised generative AI version of a major Hollywood actor,\" writes The Guardian: Val Kilmer was cast in western As Deep As the Grave before his death in April 2025.",
+      "bullets": [
+        "\"A trailer has been released for the first film to star an authorised generative AI version of a major Hollywood actor,\" writes The?",
+        "Production delays meant he never shot any scenes, but the creative team w...."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "movie, trailer, shows, first, generated, performance, major, star, artificial intelligence, machine learning",
+      "slug": "new-movie-trailer-shows-first-ai-generated-performance-by-a-major"
+    },
+    {
+      "id": "mvIJAY5hYH5kt_83",
+      "title": "Building an AI Travel Planner with Claude: and Using Claude Code to Build It",
+      "seoTitle": "Building an AI Travel Planner with Claude: and Using Claude Code to?",
+      "metaDescription": "Building an AI Travel Planner with Claude: and Using Claude Code to Build It ? We built TripMind: an AI travel planner that generates a full day-by-day?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcnju72ttpo88auyjbemv.png",
+      "imageAlt": "Building an AI Travel Planner with Claude: and Using Claude Code to Build It",
+      "url": "https://dev.to/kelson_qu/building-an-ai-travel-planner-with-claude-and-using-claude-code-to-build-it-1nfh",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T22:18:37.000Z",
+      "description": "We built TripMind: an AI travel planner that generates a full day-by-day itinerary from a...",
+      "summary": "We built TripMind: an AI travel planner that generates a full day-by-day itinerary from a... We built TripMind: an AI travel planner that generates a full day-by-day itinerary from a...",
+      "intro": "We built TripMind: an AI travel planner that generates a full day-by-day itinerary from a...",
+      "bullets": [
+        "We built TripMind: an AI travel planner that generates a full day-by-day itinerary from a..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "claude, building, travel, planner, using, code, build, artificial intelligence, machine learning",
+      "slug": "building-an-ai-travel-planner-with-claude-and-using-claude-code-to"
+    },
+    {
       "id": "YKyBkagzB32q6n8K",
       "title": "\"Code Red\": Microsoft CEO Satya Nadella Is Reportedly Leading an Overhaul of Copilot. Should Investors Buy the Stock?",
       "seoTitle": "\"Code Red\": Microsoft CEO Satya Nadella Is Reportedly Leading an?",
@@ -106,6 +153,83 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
       "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
+    },
+    {
+      "id": "Wsa5jPdwAnnHTb0r",
+      "title": "Show HN: AI agents should browse your site, not call your API",
+      "seoTitle": "Show HN: AI agents should browse your site, not call your API",
+      "metaDescription": "We compared four architectures for putting AI agents on websites ? RAG bots, API-tool agents(WebMCP), code-writing sandboxes (Cloudflare Agent Lee), and?",
+      "category": "Tools",
+      "image": "https://www.rtrvr.ai/four-architectures.svg",
+      "imageAlt": "Show HN: AI agents should browse your site, not call your API",
+      "url": "https://www.rtrvr.ai/rover/blog/four-architectures-website-ai-agents",
+      "source": {
+        "name": "Rtrvr.ai"
+      },
+      "publishedAt": "2026-04-17T23:14:00.000Z",
+      "description": "We compared four architectures for putting AI agents on websites ? RAG bots, API-tool agents(WebMCP), code-writing sandboxes (Cloudflare Agent Lee), and DOM-native execution. Three of them force you to maintain a parallel engineering surface. The DOM already ? A research thesis on where embedded agents are headed, what's structurally broken, and why DOM-native execution is the only architecture that composes with how the web actually ships. rtrvr.ai | Apr? [+13501 chars]",
+      "summary": "We compared four architectures for putting AI agents on websites ? RAG bots, API-tool agents(WebMCP), code-writing sandboxes (Cloudflare Agent Lee), and DOM-native execution. Three of them force you to maintain a parallel engineering surface. The DOM already ? A research thesis on where embedded agents are headed, what's structurally broken, and why DOM-native execution is the only architecture that composes with how the web actually ships. rtrvr.ai | Apr? [+13501 chars]",
+      "intro": "We compared four architectures for putting AI agents on websites ? RAG bots, API-tool agents(WebMCP), code-writing sandboxes (Cloudflare Agent Lee), and DOM-native execution.",
+      "bullets": [
+        "We compared four architectures for putting AI agents on websites ? RAG bots, API-tool agents(WebMCP), code-writing sandboxes (Cloudflare?",
+        "Three of them force you to maintain a parallel engineering surface.",
+        "The DOM already ? A research thesis on where embedded agents are headed, what's structurally broken, and why DOM-native execution is the?",
+        "rtrvr.ai | Apr? [+13501 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "your, show, agents, should, browse, site, not, call, artificial intelligence, machine learning",
+      "slug": "show-hn-ai-agents-should-browse-your-site-not-call-your-api"
+    },
+    {
+      "id": "67yM3yn6YBYohQit",
+      "title": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL?",
+      "seoTitle": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL?",
+      "metaDescription": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL? (Second column, 1st story, link) Related stories:iTunes Gamed Again with Another Bot Singer at Number 1! Signs of?",
+      "category": "Tools",
+      "image": "https://theaircurrent.com/wp-content/uploads/2026/04/Alaska_Airlines_Air_Space_Intelligence.jpg",
+      "imageAlt": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL?",
+      "url": "https://theaircurrent.com/air-traffic-control/faa-smart-ai-predictive-air-traffic-management-system-palantir-thales/",
+      "source": {
+        "name": "The Air Current"
+      },
+      "publishedAt": "2026-04-17T22:49:37.000Z",
+      "description": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL? (Second column, 1st story, link) Related stories:iTunes Gamed Again with Another Bot Singer at Number 1! Signs of Massive AI Backlash... Drudge Report Feed needs your support! Become? Log-in here if you?re already a subscriber The Federal Aviation Administration is quietly developing a new artificial intelligence-powered software tool for air traffic management that could fundame? [+1939 chars]",
+      "summary": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL? (Second column, 1st story, link) Related stories:iTunes Gamed Again with Another Bot Singer at Number 1! Signs of Massive AI Backlash... Drudge Report Feed needs your support! Become? Log-in here if you?re already a subscriber The Federal Aviation Administration is quietly developing a new artificial intelligence-powered software tool for air traffic management that could fundame? [+1939 chars]",
+      "intro": "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL?",
+      "bullets": [
+        "PALANTIR TO OVERSEE AIR TRAFFIC CONTROL?",
+        "(Second column, 1st story, link) Related stories:iTunes Gamed Again with Another Bot Singer at Number 1!",
+        "Signs of Massive AI Backlash...",
+        "Drudge Report Feed needs your support!",
+        "Become? Log-in here if you?re already a subscriber The Federal Aviation Administration is quietly developing a new artificial?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "palantir, oversee, air, traffic, control, artificial intelligence, machine learning",
+      "slug": "palantir-to-oversee-air-traffic-control"
+    },
+    {
+      "id": "dma9nPirW38ysBsa",
+      "title": "White House Chief Of Staff Meets With Anthropic CEO Over Its New AI Technology",
+      "seoTitle": "White House Chief Of Staff Meets With Anthropic CEO Over Its New AI?",
+      "metaDescription": "The White House said afterward that the meeting was productive and constructive. WASHINGTON (AP) White House chief of staff Susie Wiles on Friday sounded out?",
+      "category": "Tools",
+      "image": "https://img.huffingtonpost.com/asset/69e2b3d8140000a37ceca668.jpeg?cache=M6yh9XV7P6&ops=500_281%2Cscalefit_1200_630",
+      "imageAlt": "White House Chief Of Staff Meets With Anthropic CEO Over Its New AI Technology",
+      "url": "https://www.huffpost.com/entry/white-house-chief-staff-meets-anthropic-ceo-new-ai-technology_n_69e2b343e4b0555d213c4f1e",
+      "source": {
+        "name": "HuffPost"
+      },
+      "publishedAt": "2026-04-17T22:35:32.000Z",
+      "description": "The White House said afterward that the meeting was productive and constructive. WASHINGTON (AP) White House chief of staff Susie Wiles on Friday sounded out Anthropic CEO Dario Amodei about the artificial intelligence companys new Mythos model, which has attracted attention from? [+5736 chars]",
+      "summary": "The White House said afterward that the meeting was productive and constructive. WASHINGTON (AP) White House chief of staff Susie Wiles on Friday sounded out Anthropic CEO Dario Amodei about the artificial intelligence companys new Mythos model, which has attracted attention from? [+5736 chars]",
+      "intro": "The White House said afterward that the meeting was productive and constructive.",
+      "bullets": [
+        "The White House said afterward that the meeting was productive and constructive.",
+        "WASHINGTON (AP) White House chief of staff Susie Wiles on Friday sounded out Anthropic CEO Dario Amodei about the artificial intelligence?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "white, house, chief, staff, meets, anthropic, ceo, over, artificial intelligence, machine learning",
+      "slug": "white-house-chief-of-staff-meets-with-anthropic-ceo-over-its-new-ai"
     },
     {
       "id": "FJV_oTqWFWJHs2j-",
@@ -378,56 +502,6 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "admin, streamlining, controls, gemini, enterprise, google, workspace, console, artificial intelligence, machine learning",
       "slug": "streamlining-admin-controls-for-gemini-enterprise-in-the-google"
-    },
-    {
-      "id": "CeadY908Nf5wiEyC",
-      "title": "Perspective: AI demand is inflated, and only Anthropic is being realistic",
-      "seoTitle": "Perspective: AI demand is inflated, and only Anthropic is being?",
-      "metaDescription": "The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated. The main demand signal for?",
-      "category": "Tools",
-      "image": "https://image.cnbcfm.com/api/v1/image/108269270-1771956501559-gettyimages-2261854833-AFP_98666EE.jpeg?v=1776444231&w=1920&h=1080",
-      "imageAlt": "Perspective: AI demand is inflated, and only Anthropic is being realistic",
-      "url": "https://www.cnbc.com/2026/04/17/ai-tokens-anthropic-openai-nvidia.html",
-      "source": {
-        "name": "CNBC"
-      },
-      "publishedAt": "2026-04-17T19:10:15.000Z",
-      "description": "The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated. The main demand signal for artificial intelligence looks explosive on paper, but it may be significantly overstated. Anthropic, by pricing its tools for that reality, might be the best-positioned AI ? [+5677 chars]",
-      "summary": "The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated. The main demand signal for artificial intelligence looks explosive on paper, but it may be significantly overstated. Anthropic, by pricing its tools for that reality, might be the best-positioned AI ? [+5677 chars]",
-      "intro": "The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated.",
-      "bullets": [
-        "The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated.",
-        "The main demand signal for artificial intelligence looks explosive on paper, but it may be significantly overstated.",
-        "Anthropic, by pricing its tools for that reality, might be the best-positioned AI ? [+5677 chars]"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "perspective, demand, inflated, only, anthropic, being, realistic, artificial intelligence, machine learning",
-      "slug": "perspective-ai-demand-is-inflated-and-only-anthropic-is-being"
-    },
-    {
-      "id": "1k2rtT_vP7kx5BCj",
-      "title": "Monzo founder makes dark prediction about your job in AI future",
-      "seoTitle": "Monzo founder makes dark prediction about your job in AI future",
-      "metaDescription": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?",
-      "category": "Business",
-      "image": "https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg",
-      "imageAlt": "Monzo founder makes dark prediction about your job in AI future",
-      "url": "https://www.ladbible.com/news/technology/ai-job-loss-future-forecast-monzo-founder-tom-blomfield-employment-681086-20260417",
-      "source": {
-        "name": "LADbible"
-      },
-      "publishedAt": "2026-04-17T18:49:00.000Z",
-      "description": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over. Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]",
-      "summary": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over. Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]",
-      "intro": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant.",
-      "bullets": [
-        "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of?",
-        "The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over.",
-        "Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "monzo, founder, makes, dark, prediction, about, your, job, artificial intelligence, machine learning",
-      "slug": "monzo-founder-makes-dark-prediction-about-your-job-in-ai-future"
     }
   ]
 }
