@@ -59,20 +59,33 @@
             <li><strong>Privacy</strong>: questions about cookies, analytics, or data deletion.</li>
           </ul>
 
-          <h2>Email</h2>
+          <h2>Send us a Message</h2>
           <p>
-            Send email to:
-            <a href="mailto:contact@example.com?subject=waapply%20—%20Contact">contact@example.com</a>
-          </p>
-          <p style="color: rgba(255, 255, 255, 0.72); font-size: 13px; margin-top: 6px;">
-            Replace <code>contact@example.com</code> with your real email address.
+            Please use the form below to send your feedback directly to our WhatsApp support line.
           </p>
 
-          <h2>Content removal / takedown</h2>
-          <p>
-            If you believe a summary links to content that should not be referenced, include the URL and a short explanation. We will review and,
-            if appropriate, remove the link or adjust the summary.
-          </p>
+          <form id="wa-form" class="contact-form">
+            <div class="form-group">
+              <label for="wa-name">Your Name</label>
+              <input type="text" id="wa-name" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="wa-message">Your Message</label>
+              <textarea id="wa-message" required rows="5" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn">Send via WhatsApp</button>
+          </form>
+
+          <script>
+            document.getElementById('wa-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              var name = encodeURIComponent(document.getElementById('wa-name').value);
+              var msg = encodeURIComponent(document.getElementById('wa-message').value);
+              var phone = "212630230803";
+              var text = "Name: " + name + "%0A%0A" + msg;
+              window.open("https://api.whatsapp.com/send?phone=" + phone + "&text=" + text, "_blank");
+            });
+          </script>
         </div>
       </section>
     </main>
