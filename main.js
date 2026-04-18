@@ -2,35 +2,6 @@
   "use strict";
 
   var PAGE_SIZE = 12;
-  var DEFAULT_CATEGORIES = ["AI", "ML", "Tools", "ChatGPT", "Generative AI", "Research", "Business"];
-  var AI_ALLOWED_CATEGORIES = new Set(DEFAULT_CATEGORIES.map(function (c) { return String(c).toLowerCase(); }));
-  var AI_KEYWORDS = [
-    "artificial intelligence",
-    "ai ",
-    " ai",
-    "machine learning",
-    "ml ",
-    " llm",
-    "llm ",
-    "large language model",
-    "gpt",
-    "chatgpt",
-    "openai",
-    "anthropic",
-    "google deepmind",
-    "deepmind",
-    "gemini",
-    "claude",
-    "mistral",
-    "llama",
-    "transformer",
-    "diffusion",
-    "generative",
-    "rag",
-    "retrieval augmented",
-    "agentic",
-    "ai agent",
-  ];
 
   function $(sel, root) {
     return (root || document).querySelector(sel);
@@ -80,27 +51,6 @@
       .join("");
     grid.classList.remove("stagger-in");
     grid.innerHTML = html;
-  }
-
-  function isAiArticle(a) {
-    if (!a) return false;
-    var cat = String(a.category || "").trim().toLowerCase();
-    if (cat && AI_ALLOWED_CATEGORIES.has(cat)) return true;
-    var text =
-      String(a.title || "") +
-      " " +
-      String(a.keywords || "") +
-      " " +
-      String(a.summary || "") +
-      " " +
-      String(a.description || "") +
-      " " +
-      String(a.metaDescription || "");
-    text = text.toLowerCase();
-    for (var i = 0; i < AI_KEYWORDS.length; i++) {
-      if (text.indexOf(AI_KEYWORDS[i]) >= 0) return true;
-    }
-    return false;
   }
 
   function articleUrl(article) {
@@ -220,18 +170,12 @@
     fromSite.forEach(function (t) {
       if (t) out.add(String(t));
     });
-    DEFAULT_CATEGORIES.forEach(function (t) {
-      out.add(t);
-    });
     (articles || []).forEach(function (a) {
       if (a && a.category) out.add(String(a.category));
     });
     return Array.prototype.slice
       .call(out)
-      .filter(Boolean)
-      .filter(function (c) {
-        return AI_ALLOWED_CATEGORIES.has(String(c).toLowerCase());
-      });
+      .filter(Boolean);
   }
 
   function renderPills(categories, active) {
@@ -434,7 +378,6 @@
     var cat = String(query.cat || "all").trim() || "all";
     var filtered = (articles || []).filter(function (a) {
       if (!a) return false;
-      if (!isAiArticle(a)) return false;
       if (cat !== "all" && String(a.category || "") !== cat) return false;
       if (!q) return true;
       return scoreMatch(a, q) > 0;
@@ -487,7 +430,7 @@
 
   function processNewsData(data) {
     var site = data.site || {};
-    var articles = (data.articles || []).filter(isAiArticle);
+    var articles = (data.articles || []);
     applyCanonicalHome_(site);
     $$("[data-site-name]").forEach(function (el) {
       el.textContent = site.name || "waapply";
