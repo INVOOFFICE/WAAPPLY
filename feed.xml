@@ -1,12 +1,523 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0">
 <channel>
   <title>waapply</title>
   <link></link>
-  <description>Latest Artificial Intelligence news and editorial summaries.</description>
+  <description>Artificial Intelligence news updates from waapply.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 18 Apr 2026 14:29:03 GMT</lastBuildDate>
-  <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
-
+  <lastBuildDate>Sat, 18 Apr 2026 14:31:22 GMT</lastBuildDate>
+  <item>
+    <title>How a fiery attack on Sam Altman?s home unfolded</title>
+    <link>/ai-news/articles/how-a-fiery-attack-on-sam-altmans-home-unfolded/</link>
+    <description>How a fiery attack on Sam Altman?s home unfolded ? Molotov cocktail attack on OpenAI CEO?s home comes amid growing discontent against artificial intelligence</description>
+    <pubDate>Sat, 18 Apr 2026 14:00:15 GMT</pubDate>
+    <category>regional</category>
+    <guid isPermaLink="true">/ai-news/articles/how-a-fiery-attack-on-sam-altmans-home-unfolded/</guid>
+    <enclosure url="https://i.guim.co.uk/img/media/af5e5b63414c297b7c53918738413a13af0a0664/397_0_4164_3330/master/4164.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=3a4bf893c2bb2e76eaeb7bcbfee21a54" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>How to Check If You</title>
+    <link>/ai-news/articles/how-to-check-if-you/</link>
+    <description>How to Check If You ? A friend messaged me last week asking why his documentation site wasn't showing up in ChatGPT's...</description>
+    <pubDate>Sat, 18 Apr 2026 14:00:05 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/how-to-check-if-you/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5ledzau1jcmc7xx0aw2u.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Centre sets up expert panel to steer AI governance framework | India News - The Times of India</title>
+    <link>/ai-news/articles/centre-sets-up-expert-panel-to-steer-ai-governance-framework-india/</link>
+    <description>India News: New Delhi: As India sharpens its push to build a rules-based framework for artificial intelligence amid rapid technological advances and rising?</description>
+    <pubDate>Sat, 18 Apr 2026 13:46:31 GMT</pubDate>
+    <category>regional</category>
+    <guid isPermaLink="true">/ai-news/articles/centre-sets-up-expert-panel-to-steer-ai-governance-framework-india/</guid>
+    <enclosure url="https://static.toiimg.com/thumb/msid-130355356,width-1280,height-720,imgsize-586288,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>KTGHR leverages AI-powered real-time transaction capabilities to expand its e-commerce infrastructure, reshaping the engine of enterprise growth.</title>
+    <link>/ai-news/articles/ktghr-leverages-ai-powered-real-time-transaction-capabilities-to/</link>
+    <description>/PRNewswire-PRWeb/ -- Against the backdrop of artificial intelligence continuously reshaping the global business landscape, KTGHR officially launched its new...</description>
+    <pubDate>Sat, 18 Apr 2026 13:41:00 GMT</pubDate>
+    <category>company</category>
+    <guid isPermaLink="true">/ai-news/articles/ktghr-leverages-ai-powered-real-time-transaction-capabilities-to/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Resurface Claude Code Usage Across Your Team with CloudWatch OTEL (No Lambda)</title>
+    <link>/ai-news/articles/resurface-claude-code-usage-across-your-team-with-cloudwatch-otel/</link>
+    <description>Resurface Claude Code Usage Across Your Team with CloudWatch OTEL (No Lambda) ? I've been building AI tooling infrastructure to empower a team of 50+ software?</description>
+    <pubDate>Sat, 18 Apr 2026 12:59:36 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/resurface-claude-code-usage-across-your-team-with-cloudwatch-otel/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fraw.githubusercontent.com%2Fgabrielkoo%2Fotlp-cloudwatch-proxy%2Fmain%2Fcover.png%3Fv%3D2" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Beauty Industry Uses AI to Help Consumers</title>
+    <link>/ai-news/articles/beauty-industry-uses-ai-to-help-consumers/</link>
+    <description>Artificial Intelligence in the beauty industry is becoming increasingly common, both in consumer-facing offerings and behind the scenes in research and?</description>
+    <pubDate>Sat, 18 Apr 2026 12:53:31 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/beauty-industry-uses-ai-to-help-consumers/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Portable LLM on a USB Stick: I Built Offline AI That Runs Anywhere [2026 Guide]</title>
+    <link>/ai-news/articles/portable-llm-on-a-usb-stick-i-built-offline-ai-that-runs-anywhere/</link>
+    <description>I built a fully portable LLM setup on a USB drive that runs offline on any laptop ? no internet, no cloud, no data leaving your machine. Here's the exact setup.</description>
+    <pubDate>Sat, 18 Apr 2026 12:49:50 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/portable-llm-on-a-usb-stick-i-built-offline-ai-that-runs-anywhere/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fzzxbqmvepv0dkmmkwhfw.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I Built a Skill Registration Framework for AI Agents in 3000 Lines of TypeScript</title>
+    <link>/ai-news/articles/i-built-a-skill-registration-framework-for-ai-agents-in-3000-lines/</link>
+    <description>I Built a Skill Registration Framework for AI Agents in 3000 Lines of TypeScript ? I was tired of every AI agent framework having a different way to register?</description>
+    <pubDate>Sat, 18 Apr 2026 12:29:00 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/i-built-a-skill-registration-framework-for-ai-agents-in-3000-lines/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv5kbk2bon4rja1jxjee2.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Things You Told ChatGPT or Claude My Have Already Doomed You in Court</title>
+    <link>/ai-news/articles/things-you-told-chatgpt-or-claude-my-have-already-doomed-you-in-court/</link>
+    <description>Things You Told ChatGPT or Claude My Have Already Doomed You in Court ? A new federal ruling on attorney-client privilege has grim implications for anyone?</description>
+    <pubDate>Sat, 18 Apr 2026 12:15:00 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/things-you-told-chatgpt-or-claude-my-have-already-doomed-you-in-court/</guid>
+    <enclosure url="https://futurism.com/wp-content/uploads/2026/04/lawyer-claude-ai-chatbot.jpg?quality=85&w=1200" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Iran's jaw-dropping 'slopaganda' that's humiliating Trump</title>
+    <link>/ai-news/articles/irans-jaw-dropping-slopaganda-thats-humiliating-trump/</link>
+    <description>Iran's jaw-dropping 'slopaganda' that's humiliating Trump ? Artificial intelligence has officially infiltrated the battlefield - and it's getting weird, wild,?</description>
+    <pubDate>Sat, 18 Apr 2026 12:13:23 GMT</pubDate>
+    <category>general</category>
+    <guid isPermaLink="true">/ai-news/articles/irans-jaw-dropping-slopaganda-thats-humiliating-trump/</guid>
+    <enclosure url="https://i.dailymail.co.uk/1s/2026/04/17/17/107974745-0-image-m-21_1776444421127.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>How to Write a Business Continuity Plan with AI: Step-by-Step Prompts and Tools (2026)</title>
+    <link>/ai-news/articles/how-to-write-a-business-continuity-plan-with-ai-step-by-step/</link>
+    <description>Write a complete business continuity plan using Claude or ChatGPT. Five exact prompts, one per BCP section, plus honest takes on what AI can't do for you.</description>
+    <pubDate>Sat, 18 Apr 2026 12:01:23 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/how-to-write-a-business-continuity-plan-with-ai-step-by-step/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6xt4b0mf2b9ypoiavpch.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I canceled ChatGPT Plus and 2 other AI subscriptions ? here?s what I replaced them with</title>
+    <link>/ai-news/articles/i-canceled-chatgpt-plus-and-2-other-ai-subscriptions-heres-what-i/</link>
+    <description>I was paying for Adobe Firefly, ChatGPT Plus, and Perplexity Pro at the same time. Here's why I canceled all three, and what replaced them.</description>
+    <pubDate>Sat, 18 Apr 2026 12:00:33 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/i-canceled-chatgpt-plus-and-2-other-ai-subscriptions-heres-what-i/</guid>
+    <enclosure url="https://www.androidauthority.com/wp-content/uploads/2026/04/claude-on-mac-scaled.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Paging Dr. Algorithm: AI steps into medicine, but not without concerns</title>
+    <link>/ai-news/articles/paging-dr-algorithm-ai-steps-into-medicine-but-not-without-concerns/</link>
+    <description>Utah has become the first state to let an artificial intelligence system renew certain prescriptions without human oversight, a move officials say could?</description>
+    <pubDate>Sat, 18 Apr 2026 12:00:00 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/paging-dr-algorithm-ai-steps-into-medicine-but-not-without-concerns/</guid>
+    <enclosure url="https://san.com/wp-content/uploads/2026/04/GettyImages-2199274571_Getty_Images_clean.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>ChatGPT and Gemini apps are coming for your PC</title>
+    <link>/ai-news/articles/chatgpt-and-gemini-apps-are-coming-for-your-pc/</link>
+    <description>ChatGPT and Gemini apps are coming for your PC ? Plus: Coachella week two, Beef season two, the DJI Osmo Pocket 4, and more in this week?s Installer newsletter.</description>
+    <pubDate>Sat, 18 Apr 2026 12:00:00 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/chatgpt-and-gemini-apps-are-coming-for-your-pc/</guid>
+    <enclosure url="https://platform.theverge.com/wp-content/uploads/sites/2/2026/04/Installer-124.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>To Make a Tech Unicorn, Mix a Few Workers With Some AI Hype</title>
+    <link>/ai-news/articles/to-make-a-tech-unicorn-mix-a-few-workers-with-some-ai-hype/</link>
+    <description>Sam Altman, the chief executive officer of OpenAI, said at a finance conference in October 2023 that he and his ?CEO friends? were running a betting pool on?</description>
+    <pubDate>Sat, 18 Apr 2026 11:58:36 GMT</pubDate>
+    <category>finance</category>
+    <guid isPermaLink="true">/ai-news/articles/to-make-a-tech-unicorn-mix-a-few-workers-with-some-ai-hype/</guid>
+    <enclosure url="https://www.advisorperspectives.com/articles/thumbnails/642541626e727e900096a3955f0b740c528035ad.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Google makes Gemini?s notebooks feature free for all</title>
+    <link>/ai-news/articles/google-makes-geminis-notebooks-feature-free-for-all/</link>
+    <description>The feature can now be found on Gemini, where a new ?Notebooks? section appears in the side panel, just above Gems and Chats.</description>
+    <pubDate>Sat, 18 Apr 2026 11:42:06 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/google-makes-geminis-notebooks-feature-free-for-all/</guid>
+    <enclosure url="https://images.indianexpress.com/2026/03/Google-Gemini-Express-Photo.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Meta Platforms (NASDAQ:META) Director Sells 580 Shares</title>
+    <link>/ai-news/articles/meta-platforms-nasdaq-meta-director-sells-580-shares/</link>
+    <description>Meta Platforms, Inc. (NASDAQ:META - Get Free Report) Director Robert Kimmitt sold 580 shares of Meta Platforms stock in a transaction that occurred on?</description>
+    <pubDate>Sat, 18 Apr 2026 11:25:55 GMT</pubDate>
+    <category>regional</category>
+    <guid isPermaLink="true">/ai-news/articles/meta-platforms-nasdaq-meta-director-sells-580-shares/</guid>
+    <enclosure url="https://www.marketbeat.com/logos/meta-platforms-inc-logo-1200x675.png?v=20220609084126" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>? Planetary Pulse ? AI-Powered Earth Dashboard with 6 Prize Tech Integrations</title>
+    <link>/ai-news/articles/planetary-pulse-ai-powered-earth-dashboard-with-6-prize-tech/</link>
+    <description>A full-stack Node.js app combining Backboard memory, Auth0 agents, Gemini AI, Snowflake data, Solana blockchain, and GitHub Copilot for Earth Day.</description>
+    <pubDate>Sat, 18 Apr 2026 11:24:51 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/planetary-pulse-ai-powered-earth-dashboard-with-6-prize-tech/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foipyhdrsj97is0jf7x8d.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Researchers Just Made AI 100x More Energy-Efficient. The Method Is What You Should Be Watching.</title>
+    <link>/ai-news/articles/researchers-just-made-ai-100x-more-energy-efficient-the-method-is/</link>
+    <description>100x less energy with higher accuracy. The breakthrough is not a new transformer. It is a different architecture entirely.</description>
+    <pubDate>Sat, 18 Apr 2026 11:17:13 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/researchers-just-made-ai-100x-more-energy-efficient-the-method-is/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbrm049mnhc82qj2p8ckd.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>These 2 Genius AI Stocks Are Your Best Way to Own Anthropic Before Its IPO</title>
+    <link>/ai-news/articles/these-2-genius-ai-stocks-are-your-best-way-to-own-anthropic-before/</link>
+    <description>These 2 Genius AI Stocks Are Your Best Way to Own Anthropic Before Its IPO ? Key PointsAnthropic uses Amazon and Alphabet's cloud computing platforms to train?</description>
+    <pubDate>Sat, 18 Apr 2026 11:15:00 GMT</pubDate>
+    <category>finance</category>
+    <guid isPermaLink="true">/ai-news/articles/these-2-genius-ai-stocks-are-your-best-way-to-own-anthropic-before/</guid>
+    <enclosure url="https://www.nasdaq.com/sites/acquia.prod/files/2019-05/0902-Q19%20Total%20Markets%20photos%20and%20gif_CC8.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>The hidden risks of vibe coding: 4 steps to protect your organization</title>
+    <link>/ai-news/articles/the-hidden-risks-of-vibe-coding-4-steps-to-protect-your-organization/</link>
+    <description>You can?t be sure where that AI-generated code came from or what malware it might contain. These 4 steps help mitigate vibe-coding risk. You?ve likely heard?</description>
+    <pubDate>Sat, 18 Apr 2026 11:00:00 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/the-hidden-risks-of-vibe-coding-4-steps-to-protect-your-organization/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Original home of ChatGPT hits the market for $1.5M</title>
+    <link>/ai-news/articles/original-home-of-chatgpt-hits-the-market-for-1-5m/</link>
+    <description>Original home of ChatGPT hits the market for $1.5M ? Original home of ChatGPT hits the market for $1.5M ? The home "served as the original 'office' for the?</description>
+    <pubDate>Sat, 18 Apr 2026 11:00:00 GMT</pubDate>
+    <category>real-estate</category>
+    <guid isPermaLink="true">/ai-news/articles/original-home-of-chatgpt-hits-the-market-for-1-5m/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>These 2 Genius AI Stocks Are Your Best Way to Own Anthropic Before Its IPO | The Motley Fool</title>
+    <link>/ai-news/articles/these-2-genius-ai-stocks-are-your-best-way-to-own-anthropic-before/</link>
+    <description>These 2 Genius AI Stocks Are Your Best Way to Own Anthropic Before Its IPO | The Motley Fool ? Anthropic isn't public, but these two companies will make a?</description>
+    <pubDate>Sat, 18 Apr 2026 10:55:00 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/these-2-genius-ai-stocks-are-your-best-way-to-own-anthropic-before/</guid>
+    <enclosure url="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F865274%2Fai-artificial-intelligence-neural-network-technology.jpg&w=1200&op=resize" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>They Built the ?Cursor for Hardware.? Now, Anthropic Wants In</title>
+    <link>/ai-news/articles/they-built-the-cursor-for-hardware-now-anthropic-wants-in/</link>
+    <description>They Built the ?Cursor for Hardware.? Now, Anthropic Wants In ? Schematik is a program that aims to help people vibe code for physical devices. Hopefully, it?</description>
+    <pubDate>Sat, 18 Apr 2026 10:30:00 GMT</pubDate>
+    <category>general</category>
+    <guid isPermaLink="true">/ai-news/articles/they-built-the-cursor-for-hardware-now-anthropic-wants-in/</guid>
+    <enclosure url="https://media.wired.com/photos/69e261f2c08b65b67742964b/191:100/w_1280,c_limit/IMG_0608%202.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I asked ChatGPT what ?1 crore in my savings account will be worth after 20 years?the answer was baffling? | Mint</title>
+    <link>/ai-news/articles/i-asked-chatgpt-what-1-crore-in-my-savings-account-will-be-worth/</link>
+    <description>At 6% inflation, ?1 crore will lose significant purchasing power over 20 years, equating to roughly ?31 lakh today. Investing wisely can help maintain value,?</description>
+    <pubDate>Sat, 18 Apr 2026 09:25:29 GMT</pubDate>
+    <category>economy</category>
+    <guid isPermaLink="true">/ai-news/articles/i-asked-chatgpt-what-1-crore-in-my-savings-account-will-be-worth/</guid>
+    <enclosure url="https://www.livemint.com/lm-img/img/2026/04/18/1600x900/logo/3-0-45337860-iStock-1152974275-0_1679813429320_1776498530902.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I Asked ChatGPT To Plan the Perfect Costco Budget for Retirees</title>
+    <link>/ai-news/articles/i-asked-chatgpt-to-plan-the-perfect-costco-budget-for-retirees/</link>
+    <description>ChatGPT says retirees should spend $250-$400 a month at Costco. Here's how to budget for protein, pantry staples and frozen meals without wasting ?</description>
+    <pubDate>Sat, 18 Apr 2026 09:23:05 GMT</pubDate>
+    <category>lifestyle</category>
+    <guid isPermaLink="true">/ai-news/articles/i-asked-chatgpt-to-plan-the-perfect-costco-budget-for-retirees/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>What is RAG? A Beginner's Guide to Retrieval-Augmented Generation (With a Full Pipeline Walkthrough)</title>
+    <link>/ai-news/articles/what-is-rag-a-beginners-guide-to-retrieval-augmented-generation/</link>
+    <description>If you've ever wondered how ChatGPT-style apps can suddenly "know" about your company's internal documents, product manuals, or legal files without being?</description>
+    <pubDate>Sat, 18 Apr 2026 09:21:50 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/what-is-rag-a-beginners-guide-to-retrieval-augmented-generation/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Embeddings Explained: The Secret Language AI Uses to Understand the World</title>
+    <link>/ai-news/articles/embeddings-explained-the-secret-language-ai-uses-to-understand-the/</link>
+    <description>If you've ever wondered how ChatGPT "knows" that king and queen are related, or how Spotify recommends songs you actually like, the answer is almost always?</description>
+    <pubDate>Sat, 18 Apr 2026 09:20:32 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/embeddings-explained-the-secret-language-ai-uses-to-understand-the/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>QA Engineers Have an Unfair Advantage in Machine Learning</title>
+    <link>/ai-news/articles/qa-engineers-have-an-unfair-advantage-in-machine-learning/</link>
+    <description>QA Engineers Have an Unfair Advantage in Machine Learning ? Most ML models don?t fail because of bad algorithms. They fail because no one properly evaluates...</description>
+    <pubDate>Sat, 18 Apr 2026 01:07:34 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/qa-engineers-have-an-unfair-advantage-in-machine-learning/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fk6kbihhkrqrmhb09i48z.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Machine learning detects more than 60,000 earthquakes during 2025 Santorini sequence</title>
+    <link>/ai-news/articles/machine-learning-detects-more-than-60-000-earthquakes-during-2025/</link>
+    <description>The seismic crisis that gripped the Greek island of Santorini and its neighbors in 2025 contained more than 60,000 earthquakes, according to a unique machine?</description>
+    <pubDate>Fri, 17 Apr 2026 22:00:01 GMT</pubDate>
+    <category>science</category>
+    <guid isPermaLink="true">/ai-news/articles/machine-learning-detects-more-than-60-000-earthquakes-during-2025/</guid>
+    <enclosure url="None" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Agentic AI's Infrastructure Boom Meets Its Reliability Problem</title>
+    <link>/ai-news/articles/agentic-ais-infrastructure-boom-meets-its-reliability-problem/</link>
+    <description>Agentic AI's Infrastructure Boom Meets Its Reliability Problem ? Brief roundup of the day's top AI stories. Skim in under a minute.</description>
+    <pubDate>Fri, 17 Apr 2026 19:33:28 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/agentic-ais-infrastructure-boom-meets-its-reliability-problem/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwwj8lgoaqkddga20vun7.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>5 Things I Learned Reverse-Engineering Claude Code's Architecture</title>
+    <link>/ai-news/articles/5-things-i-learned-reverse-engineering-claude-codes-architecture/</link>
+    <description>5 Things I Learned Reverse-Engineering Claude Code's Architecture ? What production AI Agents actually look like under the hood ? lessons from analyzing?</description>
+    <pubDate>Fri, 17 Apr 2026 19:27:52 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/5-things-i-learned-reverse-engineering-claude-codes-architecture/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F40ifu05mltz0gg6nwqek.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>3 ?Strong Buy? Data Center Stocks Ready to Power Up at Least by 30% - TipRanks.com</title>
+    <link>/ai-news/articles/3-strong-buy-data-center-stocks-ready-to-power-up-at-least-by-30/</link>
+    <description>Data centers remain critical to the artificial intelligence boom. Outside the Big Tech companies, several players also play an important role in helping to?</description>
+    <pubDate>Fri, 17 Apr 2026 17:46:57 GMT</pubDate>
+    <category>technology</category>
+    <guid isPermaLink="true">/ai-news/articles/3-strong-buy-data-center-stocks-ready-to-power-up-at-least-by-30/</guid>
+    <enclosure url="https://blog.tipranks.com/wp-content/uploads/2026/04/shutterstock_1601963533-750x406.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Ad buyers say ad rates for ChatGPT are falling from $60 CPM to as low as $25 and the minimum spend to advertise is down to $50K from $250K at launch (Krystal Scanlon/Digiday)</title>
+    <link>/ai-news/articles/ad-buyers-say-ad-rates-for-chatgpt-are-falling-from-60-cpm-to-as/</link>
+    <description>Krystal Scanlon / Digiday: Ad buyers say ad rates for ChatGPT are falling from $60 CPM to as low as $25 and the minimum spend to advertise is down to $50K?</description>
+    <pubDate>Fri, 17 Apr 2026 14:30:01 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/ad-buyers-say-ad-rates-for-chatgpt-are-falling-from-60-cpm-to-as/</guid>
+    <enclosure url="https://digiday.com/wp-content/uploads/sites/3/2025/10/openai-ads-digiday.jpg?w=1030&h=579&crop=1" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>What is Mythos and why are experts worried about Anthropic?s AI model</title>
+    <link>/ai-news/articles/what-is-mythos-and-why-are-experts-worried-about-anthropics-ai-model/</link>
+    <description>The company says Mythos is too dangerous to release publicly. Cybersecurity experts agree the model's capabilities matter, but not all of them are buying the?</description>
+    <pubDate>Fri, 17 Apr 2026 14:30:00 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/what-is-mythos-and-why-are-experts-worried-about-anthropics-ai-model/</guid>
+    <enclosure url="https://static.scientificamerican.com/dam/asset/6b0b9d18-678d-4aa6-9911-7a734fa665d2/Anthropic-Mythos-Project-Glasswing.jpg?m=1776372286.189&w=1200" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>agent-rbac added to PyPI</title>
+    <link>/ai-news/articles/agent-rbac-added-to-pypi/</link>
+    <description>agent-rbac added to PyPI ? agent-rbac added to PyPI ? Role-Based Access Control for AI Agents with ML-Powered Anomaly Detection</description>
+    <pubDate>Fri, 17 Apr 2026 14:27:59 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/agent-rbac-added-to-pypi/</guid>
+    <enclosure url="https://pypi.org/static/images/twitter.abaf4b19.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>$2.27 Bn Data Center Storage Global Market Forecasts, 2026-2032 - Innovations in Flash and NVMe Technologies are Enhancing Performance Capabilities, Allowing New Applications to Emerge</title>
+    <link>/ai-news/articles/2-27-bn-data-center-storage-global-market-forecasts-2026-2032/</link>
+    <description>Key opportunities: Embrace hybrid models, focus on NVMe and software-defined solutions, enhance energy efficiency, improve data protection, and adapt to?</description>
+    <pubDate>Fri, 17 Apr 2026 14:20:00 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/2-27-bn-data-center-storage-global-market-forecasts-2026-2032/</guid>
+    <enclosure url="https://ml.globenewswire.com/Resource/Download/c50679a9-6bdd-4793-b8ae-9e40825d83cf" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Apple?s CarPlay feature now supports multiple AI chatbot apps from iPhone</title>
+    <link>/ai-news/articles/apples-carplay-feature-now-supports-multiple-ai-chatbot-apps-from/</link>
+    <description>Starting with iOS 26.4, Apple supports using AI chatbot apps on the iPhone through CarPlay. ChatGPT was the first AI app to arrive shortly after iOS 26.4?s?</description>
+    <pubDate>Fri, 17 Apr 2026 14:19:43 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/apples-carplay-feature-now-supports-multiple-ai-chatbot-apps-from/</guid>
+    <enclosure url="https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/04/perplexity-carplay.webp?resize=1200%2C628&quality=82&strip=all&ssl=1" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>We Reproduced Anthropic's Mythos Findings with Public Models</title>
+    <link>/ai-news/articles/we-reproduced-anthropics-mythos-findings-with-public-models/</link>
+    <description>Anthropic framed Mythos and Project Glasswing as proof that frontier AI vulnerability research now needs gated access. We tested the public, patched cases?</description>
+    <pubDate>Fri, 17 Apr 2026 14:09:32 GMT</pubDate>
+    <category>Research</category>
+    <guid isPermaLink="true">/ai-news/articles/we-reproduced-anthropics-mythos-findings-with-public-models/</guid>
+    <enclosure url="https://blog.vidocsecurity.com/og/we-reproduced-anthropics-mythos-findings-with-public-models" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>LeBron No. 1, Jordan No. 6: Grok AI Drops Objective NBA All-Time Top 10 by Win Shares Sparking GOAT Debate</title>
+    <link>/ai-news/articles/lebron-no-1-jordan-no-6-grok-ai-drops-objective-nba-all-time-top/</link>
+    <description>AUSTIN, Texas ? xAI's Grok artificial intelligence has thrust itself into the heart of basketball's greatest debate, releasing a data-driven ranking of the?</description>
+    <pubDate>Fri, 17 Apr 2026 14:01:24 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/lebron-no-1-jordan-no-6-grok-ai-drops-objective-nba-all-time-top/</guid>
+    <enclosure url="https://d.ibtimes.com.au/en/full/200566/michael-jordan-chicago-bulls-right-action-forward-brian-williams-detroit-pistons.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I Vibe Coded a Tool to That Analyzes Customer Sentiment and Topics From Call Recordings</title>
+    <link>/ai-news/articles/i-vibe-coded-a-tool-to-that-analyzes-customer-sentiment-and-topics/</link>
+    <description>Build an AI customer sentiment analyzer for call recordings using Whisper, BERTopic & Streamlit with this open-source step-by-step guide with code.</description>
+    <pubDate>Fri, 17 Apr 2026 14:00:54 GMT</pubDate>
+    <category>Tools</category>
+    <guid isPermaLink="true">/ai-news/articles/i-vibe-coded-a-tool-to-that-analyzes-customer-sentiment-and-topics/</guid>
+    <enclosure url="https://www.kdnuggets.com/wp-content/uploads/kdn-olumide-vibe-coded-tool-analyzes-customer-sentiment-topics-call-recordings.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>AI literacy among basic school teachers in Ghana: A structural equation modelling analysis</title>
+    <link>/ai-news/articles/ai-literacy-among-basic-school-teachers-in-ghana-a-structural/</link>
+    <description>Understanding the synergy of Artificial Intelligence (AI) literacy among teachers is imperative for successful integration in educational settings. This study?</description>
+    <pubDate>Fri, 17 Apr 2026 14:00:00 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/ai-literacy-among-basic-school-teachers-in-ghana-a-structural/</guid>
+    <enclosure url="https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0347117.g004&size=inline" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Govt expanding capacity building to scientists, academics: Union Minister Jitendra Singh</title>
+    <link>/ai-news/articles/govt-expanding-capacity-building-to-scientists-academics-union/</link>
+    <description>India is enhancing training for scientists and academics. This initiative aims to equip institutions for future governance needs. Artificial intelligence and?</description>
+    <pubDate>Fri, 17 Apr 2026 13:51:35 GMT</pubDate>
+    <category>Tools</category>
+    <guid isPermaLink="true">/ai-news/articles/govt-expanding-capacity-building-to-scientists-academics-union/</guid>
+    <enclosure url="https://img.etimg.com/thumb/msid-130335137,width-1200,height-630,imgsize-113586,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Best Enterprise SEO Agencies Helping Tech Startups Scale in 2026</title>
+    <link>/ai-news/articles/best-enterprise-seo-agencies-helping-tech-startups-scale-in-2026/</link>
+    <description>Tech startups in 2026 are operating in a radically different search landscape. Traditional SEO is no longer enough. With the rise of AI-driven search,?</description>
+    <pubDate>Fri, 17 Apr 2026 12:25:35 GMT</pubDate>
+    <category>Tools</category>
+    <guid isPermaLink="true">/ai-news/articles/best-enterprise-seo-agencies-helping-tech-startups-scale-in-2026/</guid>
+    <enclosure url="https://www.geeky-gadgets.com/wp-content/uploads/2026/03/5-1.webp" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Why Separating ?Speed Tasks? is the Secret to Mastering AI at Work</title>
+    <link>/ai-news/articles/why-separating-speed-tasks-is-the-secret-to-mastering-ai-at-work/</link>
+    <description>Artificial Intelligence (AI) has emerged as a key player in reshaping how we approach productivity, offering new ways to streamline tasks and amplify?</description>
+    <pubDate>Fri, 17 Apr 2026 12:15:00 GMT</pubDate>
+    <category>Tools</category>
+    <guid isPermaLink="true">/ai-news/articles/why-separating-speed-tasks-is-the-secret-to-mastering-ai-at-work/</guid>
+    <enclosure url="https://www.geeky-gadgets.com/wp-content/uploads/2026/04/a-comparison-chart-of-ai-tools-like-claude-chatgpt-perplexity-and-gemini.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>You can now talk to JioHotstar about what you feel like watching and it will answer</title>
+    <link>/ai-news/articles/you-can-now-talk-to-jiohotstar-about-what-you-feel-like-watching-and/</link>
+    <description>JioHotstar introduces Conversational Voice Discovery, a new feature using ChatGPT to help users find content. Users can describe their mood or desired genre,?</description>
+    <pubDate>Fri, 17 Apr 2026 12:07:16 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/you-can-now-talk-to-jiohotstar-about-what-you-feel-like-watching-and/</guid>
+    <enclosure url="https://img.etimg.com/thumb/msid-130331682,width-1200,height-630,imgsize-76930,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Codex can now operate your computer alongside you' OpenAI takes major shot at Claude Code with major workplace updates</title>
+    <link>/ai-news/articles/codex-can-now-operate-your-computer-alongside-you-openai-takes/</link>
+    <description>Codex can now operate your computer alongside you' OpenAI takes major shot at Claude Code with major workplace updates ? OpenAI wants Codex to be an even?</description>
+    <pubDate>Fri, 17 Apr 2026 12:05:00 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/codex-can-now-operate-your-computer-alongside-you-openai-takes/</guid>
+    <enclosure url="https://cdn.mos.cms.futurecdn.net/ZCDcEdyxcTC8Gjkj8RNUKK-1920-80.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>The best books about being a teenager ? according to our experts</title>
+    <link>/ai-news/articles/the-best-books-about-being-a-teenager-according-to-our-experts/</link>
+    <description>The best books about being a teenager ? according to our experts ? Battling raging hormones and learning to navigate the worlds they live in, these literary?</description>
+    <pubDate>Fri, 17 Apr 2026 12:02:43 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/the-best-books-about-being-a-teenager-according-to-our-experts/</guid>
+    <enclosure url="https://images.theconversation.com/files/727032/original/file-20260330-57-5m9tw2.jpg?ixlib=rb-4.1.0&rect=0%2C73%2C6000%2C3000&q=45&auto=format&w=1356&h=668&fit=crop" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>OSS Plans to Showcase Specialized High-Performance AI Computing Solutions at The Navy League?s Sea-Air-Space Exposition on April 19-22</title>
+    <link>/ai-news/articles/oss-plans-to-showcase-specialized-high-performance-ai-computing/</link>
+    <description>ESCONDIDO, Calif., April 17, 2026 (GLOBE NEWSWIRE) -- One Stop Systems, Inc. (?OSS? or the "Company") (Nasdaq: OSS), a leader in rugged high performance?</description>
+    <pubDate>Fri, 17 Apr 2026 12:00:00 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/oss-plans-to-showcase-specialized-high-performance-ai-computing/</guid>
+    <enclosure url="https://ml.globenewswire.com/Resource/Download/79e2cfd1-4552-49a9-85a0-a44777661e4f" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>CNCF Warns Kubernetes Alone Is Not Enough to Secure LLM Workloads</title>
+    <link>/ai-news/articles/cncf-warns-kubernetes-alone-is-not-enough-to-secure-llm-workloads/</link>
+    <description>A new blog from the Cloud Native Computing Foundation highlights a critical gap in how organizations are deploying large language models (LLMs) on Kubernetes:?</description>
+    <pubDate>Fri, 17 Apr 2026 12:00:00 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/cncf-warns-kubernetes-alone-is-not-enough-to-secure-llm-workloads/</guid>
+    <enclosure url="https://res.infoq.com/news/2026/04/kubernetes-secure-workloads/en/headerimage/generatedHeaderImage-1775830657737.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I Just Vibe Coded a Global Mass Surveillance Site in 2 Hours With OpenAI's Codex. It Was Terrifyingly Easy</title>
+    <link>/ai-news/articles/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours-with/</link>
+    <description>I have zero coding skills, but I was able to quickly assemble camera feeds from around the world into a single view. Here's how I did it?and what it means for?</description>
+    <pubDate>Fri, 17 Apr 2026 11:53:12 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours-with/</guid>
+    <enclosure url="https://sm.pcmag.com/t/pcmag_uk/news/i/i-just-vib/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours_chkm.1200.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>I Just Vibe Coded a Global Mass Surveillance Site in 2 Hours With OpenAI's Codex. It Was Terrifyingly Easy</title>
+    <link>/ai-news/articles/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours-with/</link>
+    <description>I have zero coding skills, but I was able to quickly assemble camera feeds from around the world into a single view. Here's how I did it?and what it means for?</description>
+    <pubDate>Fri, 17 Apr 2026 11:53:12 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours-with/</guid>
+    <enclosure url="https://sm.pcmag.com/t/pcmag_me/news/i/i-just-vib/i-just-vibe-coded-a-global-mass-surveillance-site-in-2-hours_ny8n.1200.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>From AI promise to business impact: building future-ready enterprise AI</title>
+    <link>/ai-news/articles/from-ai-promise-to-business-impact-building-future-ready-enterprise/</link>
+    <description>From AI promise to business impact: building future-ready enterprise AI ? A little more than three years after the launch of the ChatGPT that heralded an era?</description>
+    <pubDate>Fri, 17 Apr 2026 11:45:26 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/from-ai-promise-to-business-impact-building-future-ready-enterprise/</guid>
+    <enclosure url="https://www.techmonitor.ai/wp-content/uploads/sites/29/2026/04/Stockholm-AMD_edited.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Citizen developers are redefining enterprise AI development</title>
+    <link>/ai-news/articles/citizen-developers-are-redefining-enterprise-ai-development/</link>
+    <description>Generative AI is enabling nontechnical business users to build enterprise software, accelerating innovation while creating new risks around governance,?</description>
+    <pubDate>Fri, 17 Apr 2026 11:41:00 GMT</pubDate>
+    <category>Generative AI</category>
+    <guid isPermaLink="true">/ai-news/articles/citizen-developers-are-redefining-enterprise-ai-development/</guid>
+    <enclosure url="https://www.techtarget.com/rms/onlineimages/ai_a279596285.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Google wipes out 602 million scam ads with Gemini on duty</title>
+    <link>/ai-news/articles/google-wipes-out-602-million-scam-ads-with-gemini-on-duty/</link>
+    <description>Google claims that its security teams work around the clock using its Gemini AI models to detect and stop harmful ads. ?Bad actors are using generative AI to?</description>
+    <pubDate>Fri, 17 Apr 2026 10:59:38 GMT</pubDate>
+    <category>Generative AI</category>
+    <guid isPermaLink="true">/ai-news/articles/google-wipes-out-602-million-scam-ads-with-gemini-on-duty/</guid>
+    <enclosure url="https://img.helpnetsecurity.com/wp-content/uploads/2023/12/07063943/google_gemini.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Dropbox brings its files, Dash search, and Reclaim calendar into ChatGPT with three new apps</title>
+    <link>/ai-news/articles/dropbox-brings-its-files-dash-search-and-reclaim-calendar-into/</link>
+    <description>The storage company is launching a Dropbox file app, a Dropbox Dash enterprise search app, and a Reclaim AI calendar app inside ChatGPT, letting users access,?</description>
+    <pubDate>Fri, 17 Apr 2026 10:44:53 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/dropbox-brings-its-files-dash-search-and-reclaim-calendar-into/</guid>
+    <enclosure url="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/04/Dropbox.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>German TV Market Seriencamp Unveils Plot Next Tech Strand Featuring Showrunner Behind Netflix Portugal Series ?The Marquise?</title>
+    <link>/ai-news/articles/german-tv-market-seriencamp-unveils-plot-next-tech-strand-featuring/</link>
+    <description>EXCLUSIVE: German TV market Seriencamp is taking on artificial intelligence this year in a big way. The Cologne-based confab is launching a Plot Next strand?</description>
+    <pubDate>Fri, 17 Apr 2026 10:00:00 GMT</pubDate>
+    <category>Business</category>
+    <guid isPermaLink="true">/ai-news/articles/german-tv-market-seriencamp-unveils-plot-next-tech-strand-featuring/</guid>
+    <enclosure url="https://deadline.com/wp-content/uploads/2026/04/GERHARD_MAIER_Copyright_Midpoint_Institut.jpeg?w=1024" type="image/jpeg" length="0" />
+  </item>
 </channel>
 </rss>
