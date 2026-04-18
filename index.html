@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B1220" />
+    <!-- AdSense (optional) -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269008589730162"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="google-adsense-account" content="ca-pub-2269008589730162" />
+
+    <link rel="preload" href="news.json" as="fetch" type="application/json" crossorigin="anonymous" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>waapply — Artificial Intelligence News</title>
+    <meta
+      name="description"
+      content="Artificial Intelligence News in English: machine learning, generative AI, ChatGPT, AI tools, and research. Curated daily summaries with links to original sources."
+    />
+    <link rel="canonical" href="" id="canonical-link" />
+
+    <meta property="og:title" content="waapply — Artificial Intelligence News" />
+    <meta
+      property="og:description"
+      content="Artificial Intelligence News in English: machine learning, generative AI, ChatGPT, AI tools, and research."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" id="og-url" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop&q=80" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="waapply — Artificial Intelligence News" />
+    <meta
+      name="twitter:description"
+      content="Artificial Intelligence News in English: machine learning, generative AI, ChatGPT, AI tools, and research."
+    />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop&q=80" />
+
+    <script type="application/ld+json" id="site-schema">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "#organization",
+            "name": "waapply",
+            "url": ""
+          },
+          {
+            "@type": "WebSite",
+            "@id": "#website",
+            "url": "",
+            "name": "waapply",
+            "inLanguage": "en",
+            "publisher": { "@id": "#organization" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "index.html?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <nav class="nav container" aria-label="Primary">
+        <a class="nav__brand" href="index.html" data-site-name>waapply</a>
+        <div class="nav__right">
+          <a class="nav__link" href="contact.html">Contact</a>
+          <a class="nav__link" href="sitemap.xml">Sitemap</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <h1 class="hero__title" id="hero-title">Artificial Intelligence News</h1>
+          <p class="hero__sub">
+            Daily updates on machine learning, AI tools, ChatGPT, and generative AI — summarized and organized for fast reading.
+          </p>
+          <form class="search" id="search-form" role="search" aria-label="Search Artificial Intelligence news">
+            <input
+              class="search__input"
+              id="search-input"
+              name="q"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="Search (e.g. OpenAI, Llama, agents, RAG)…"
+            />
+            <button class="search__btn" type="submit">Search</button>
+          </form>
+          <div class="pillbar" id="category-pills" role="group" aria-label="Categories"></div>
+          <div class="hero__featured" id="hero-featured" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="container section" aria-labelledby="latest-heading">
+        <div class="section__head">
+          <h2 id="latest-heading">Latest</h2>
+          <p class="section__meta" id="latest-meta"></p>
+        </div>
+        <div class="grid" id="article-grid" aria-live="polite"></div>
+        <div class="pager" id="pager" hidden>
+          <button class="pager__btn" id="pager-prev" type="button">Prev</button>
+          <span class="pager__label" id="pager-label"></span>
+          <button class="pager__btn" id="pager-next" type="button">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <strong data-site-name>waapply</strong>
+          <p class="footer__text">Artificial Intelligence news, summarized.</p>
+        </div>
+        <div class="footer__links">
+          <a href="terms-of-use.html">Terms</a>
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="contact.html">Contact</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <button id="scroll-top" type="button" aria-label="Scroll to top">↑</button>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
+

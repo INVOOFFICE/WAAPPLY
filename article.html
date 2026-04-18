@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B1220" />
+    <!-- AdSense (optional) -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269008589730162"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="google-adsense-account" content="ca-pub-2269008589730162" />
+
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}" />
+    <link rel="canonical" href="{{CANONICAL_URL}}" />
+
+    <meta property="og:title" content="{{TITLE}}" />
+    <meta property="og:description" content="{{META_DESCRIPTION}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{CANONICAL_URL}}" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="{{OG_IMAGE}}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{TITLE}}" />
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}" />
+    <meta name="twitter:image" content="{{OG_IMAGE}}" />
+
+    <script type="application/ld+json">
+      {{JSON_LD}}
+    </script>
+  </head>
+  <body>
+    <div id="reading-progress" aria-hidden="true"></div>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <nav class="nav container" aria-label="Primary">
+        <a class="nav__brand" href="../index.html">{{SITE_NAME}}</a>
+        <div class="nav__right">
+          <a class="nav__link" href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container article">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol class="crumbs__list">
+          <li class="crumbs__item"><a href="../index.html">{{SITE_NAME}}</a></li>
+          <li class="crumbs__item" aria-current="page">{{TITLE}}</li>
+        </ol>
+      </nav>
+
+      <article class="article__card" itemscope itemtype="https://schema.org/Article">
+        <header class="article__head">
+          <p class="article__kicker">
+            <span class="badge">{{CATEGORY}}</span>
+            <span class="article__dot" aria-hidden="true">•</span>
+            <time datetime="{{PUBLISHED_ISO}}">{{PUBLISHED_PRETTY}}</time>
+            <span class="article__dot" aria-hidden="true">•</span>
+            <span>{{SOURCE}}</span>
+          </p>
+          <h1 class="article__title">{{TITLE}}</h1>
+          <p class="article__dek">{{DEK}}</p>
+        </header>
+
+        <div class="article__share">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?text={{TITLE}}&url={{CANONICAL_URL}}" target="_blank" rel="noopener" class="share-btn share-btn--twitter">𝕏 Twitter</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{CANONICAL_URL}}" target="_blank" rel="noopener" class="share-btn share-btn--linkedin">LinkedIn</a>
+          <button class="share-btn share-btn--copy" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy link',2000)">Copy link</button>
+        </div>
+
+        <div class="article__hero">
+          <figure class="article__media">
+            <img src="{{IMAGE_URL}}" alt="{{IMAGE_ALT}}" loading="lazy" width="1200" height="675" />
+          </figure>
+        </div>
+
+        <nav class="article__toc" aria-label="Table of contents" id="toc"></nav>
+
+        <section class="article__body">
+          <p class="article__intro">{{INTRO}}</p>
+          <h2>Summary</h2>
+          <p>{{SUMMARY}}</p>
+
+          <h2>Key points</h2>
+          <ul class="article__bullets">
+            {{BULLETS}}
+          </ul>
+
+          <h2>Why it matters</h2>
+          <p>{{WHY_IT_MATTERS}}</p>
+
+          <h2>Original source</h2>
+          <p>
+            Read the original coverage:
+            <a href="{{SOURCE_URL}}" target="_blank" rel="noopener noreferrer">open source article</a>.
+          </p>
+
+          <div class="ad-slot" aria-label="Advertisement">
+            <!-- Ad slot placeholder (AdSense) -->
+          </div>
+
+          <h2>More like this</h2>
+          <div class="related" role="list">
+            {{RELATED}}
+          </div>
+        </section>
+
+        <footer class="article__foot">
+          <p class="article__tags">{{KEYWORDS}}</p>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <strong>{{SITE_NAME}}</strong>
+          <p class="footer__text">Artificial Intelligence news, summarized.</p>
+        </div>
+        <div class="footer__links">
+          <a href="../index.html">Home</a>
+          <a href="../../terms-of-use.html">Terms</a>
+          <a href="../../privacy-policy.html">Privacy</a>
+          <a href="../../contact.html">Contact</a>
+          <a href="../sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+    <button id="scroll-top" type="button" aria-label="Scroll to top">↑</button>
+    <script>
+      (function () {
+        var progress = document.getElementById("reading-progress");
+        var scrollTopBtn = document.getElementById("scroll-top");
+        var tocEl = document.getElementById("toc");
+        var body = document.querySelector(".article__body");
+        var headings = body ? Array.prototype.slice.call(body.querySelectorAll("h2")) : [];
+
+        headings.forEach(function (h, i) {
+          if (!h.id) h.id = "section-" + (i + 1);
+        });
+
+        if (tocEl && headings.length) {
+          tocEl.innerHTML =
+            '<strong>On this page</strong><ul>' +
+            headings
+              .map(function (h) {
+                return '<li><a href="#' + h.id + '">' + h.textContent + "</a></li>";
+              })
+              .join("") +
+            "</ul>";
+        }
+
+        if (tocEl && "IntersectionObserver" in window) {
+          var links = Array.prototype.slice.call(tocEl.querySelectorAll("a"));
+          var map = {};
+          links.forEach(function (a) {
+            map[a.getAttribute("href").replace("#", "")] = a;
+          });
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                var id = entry.target.id;
+                var link = map[id];
+                if (!link) return;
+                if (entry.isIntersecting) {
+                  links.forEach(function (l) { l.classList.remove("is-active"); });
+                  link.classList.add("is-active");
+                }
+              });
+            },
+            { rootMargin: "-40% 0px -45% 0px", threshold: 0.01 }
+          );
+          headings.forEach(function (h) { io.observe(h); });
+        }
+
+        function onScroll() {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - window.innerHeight;
+          var ratio = max > 0 ? (window.scrollY / max) * 100 : 0;
+          if (progress) progress.style.width = Math.max(0, Math.min(100, ratio)) + "%";
+          if (scrollTopBtn) scrollTopBtn.classList.toggle("is-visible", window.scrollY > 400);
+        }
+
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>
+
