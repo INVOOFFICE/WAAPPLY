@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "waapply",
-    "canonicalOrigin": "https://waapply.com",
+    "canonicalOrigin": "",
     "language": "en",
     "defaultOgImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop&q=80",
     "topics": [
@@ -15,6 +15,29 @@
     ]
   },
   "articles": [
+    {
+      "id": "0L9clQwNNf4o42Kn",
+      "title": "Doctors couldn?t diagnose her for years but ChatGPT got it right in minutes",
+      "seoTitle": "Doctors couldn?t diagnose her for years but ChatGPT got it right in?",
+      "metaDescription": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her?",
+      "category": "general",
+      "image": "https://nypost.com/wp-content/uploads/sites/2/2026/04/phoebe-tesoriere-diagnosed-woman-used-125907947.jpg?quality=75&strip=all&w=1200",
+      "imageAlt": "Doctors couldn?t diagnose her for years but ChatGPT got it right in minutes",
+      "url": "https://nypost.com/2026/04/18/world-news/doctors-couldnt-diagnose-her-for-years-but-chatgpt-got-it-right-in-minutes/",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T21:04:29.000Z",
+      "description": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
+      "summary": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn?? After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
+      "intro": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
+      "bullets": [
+        "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "doctors, couldn, diagnose, her, years, but, chatgpt, got, artificial intelligence, machine learning",
+      "slug": "doctors-couldnt-diagnose-her-for-years-but-chatgpt-got-it-right-in"
+    },
     {
       "id": "yZey6LsZbM65zEDd",
       "title": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass",
@@ -37,6 +60,180 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
       "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
+    },
+    {
+      "id": "y-EdDRBXpmAj4zZb",
+      "title": "deviantART says artists made $23 million on its platform last year, boasts that it was ?100% right? to embrace generative AI",
+      "seoTitle": "deviantART says artists made $23 million on its platform last year,?",
+      "metaDescription": "Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans--from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Back?",
+      "category": "Generative AI",
+      "image": "https://www.tubefilter.com/wp-content/uploads/2026/04/towfiqu-barbhuiya-oZuBNC-6E2s-unsplash-scaled.jpg",
+      "imageAlt": "deviantART says artists made $23 million on its platform last year, boasts that it was ?100% right? to embrace?",
+      "url": "https://www.tubefilter.com/2026/04/17/deviantart-paying-artists-ai-controversy-user-increase/",
+      "source": {
+        "name": "Tubefilter"
+      },
+      "publishedAt": "2026-04-17T21:49:56.000Z",
+      "description": "Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans--from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans--from Fullme? Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans?from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Star Trek enthusiasts to Transformers aficiona? [+3794 chars]",
+      "summary": "Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans--from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans--from Fullme? Back in the very early 2000s, deviantART was a tentpole of digital fandom. All sorts of fans?from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Star Trek enthusiasts to Transformers aficiona? [+3794 chars]",
+      "intro": "Back in the very early 2000s, deviantART was a tentpole of digital fandom.",
+      "bullets": [
+        "Back in the very early 2000s, deviantART was a tentpole of digital fandom.",
+        "All sorts of fans--from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Back in the very early 2000s, deviantART was a tentpole of?",
+        "All sorts of fans--from Fullme? Back in the very early 2000s, deviantART was a tentpole of digital fandom.",
+        "All sorts of fans?from Fullmetal Alchemist enjoyers, Harry Potter lovers, and Star Trek enthusiasts to Transformers aficiona? [+3794 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "100, deviantart, says, artists, made, million, platform, last, artificial intelligence, machine learning",
+      "slug": "deviantart-says-artists-made-23-million-on-its-platform-last-year"
+    },
+    {
+      "id": "cxTfNaLMJs56IrYT",
+      "title": "AI Trusted Less Than Social Media and Airlines, With Grok Placing Last, Survey Says",
+      "seoTitle": "AI Trusted Less Than Social Media and Airlines, With Grok Placing?",
+      "metaDescription": "More Americans are concerned about the loss of personal interaction from AI than they are about potential job loss. Google Gemini is the most trusted AI?",
+      "category": "AI",
+      "image": "https://www.cnet.com/a/img/resize/8e130b98d71d7f5f92bd4fcf1397ffabab9ad57b/hub/2026/04/17/bd5bc8ca-fb90-4bf7-b8ae-cd23dbc61b6d/gettyimages-2265107174.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "imageAlt": "AI Trusted Less Than Social Media and Airlines, With Grok Placing Last, Survey Says",
+      "url": "https://www.cnet.com/tech/services-and-software/ai-trust-survey-acsi-gemini-grok/",
+      "source": {
+        "name": "CNET"
+      },
+      "publishedAt": "2026-04-17T21:45:08.000Z",
+      "description": "More Americans are concerned about the loss of personal interaction from AI than they are about potential job loss. Google Gemini is the most trusted AI platform among its competition, but many people still have concerns about the technology, according to an American Customer Satisfaction Index poll released Thurs? [+2399 chars]",
+      "summary": "More Americans are concerned about the loss of personal interaction from AI than they are about potential job loss. Google Gemini is the most trusted AI platform among its competition, but many people still have concerns about the technology, according to an American Customer Satisfaction Index poll released Thurs? [+2399 chars]",
+      "intro": "More Americans are concerned about the loss of personal interaction from AI than they are about potential job loss.",
+      "bullets": [
+        "More Americans are concerned about the loss of personal interaction from AI than they are about potential job loss.",
+        "Google Gemini is the most trusted AI platform among its competition, but many people still have concerns about the technology, according?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "trusted, less, than, social, media, airlines, grok, placing, artificial intelligence, machine learning",
+      "slug": "ai-trusted-less-than-social-media-and-airlines-with-grok-placing"
+    },
+    {
+      "id": "-4-YtI6OB3s3qLSO",
+      "title": "Tech bills of the week: Improving maternal health; Expanding access for disabled Americans; and more",
+      "seoTitle": "Tech bills of the week: Improving maternal health; Expanding access?",
+      "metaDescription": "Lawmakers rolled out legislative proposals to enhance the IRS? use of technology, require regulatory agencies overseeing financial systems to conduct?",
+      "category": "AI",
+      "image": "https://cdn.nextgov.com/media/img/cd/2026/04/17/GettyImages_1399560076/open-graph.jpg",
+      "imageAlt": "Tech bills of the week: Improving maternal health; Expanding access for disabled Americans; and more",
+      "url": "https://www.nextgov.com/policy/2026/04/tech-bills-week-improving-maternal-health-expanding-access-disabled-americans-and-more/412955/",
+      "source": {
+        "name": "Nextgov"
+      },
+      "publishedAt": "2026-04-17T21:45:00.000Z",
+      "description": "Lawmakers rolled out legislative proposals to enhance the IRS? use of technology, require regulatory agencies overseeing financial systems to conduct technology assessments and codify a biometric-based program to identify dangerous individuals before they rea? Tech for maternal health On Wednesday, Reps. Nikema Williams, D-Ga., Lauren Underwood, D-Ill., Ashley Hinson, R-Iowa, and David Joyce, R-Ohio, teamed up to introduce a bill that aims to leverage the? [+8193 chars]",
+      "summary": "Lawmakers rolled out legislative proposals to enhance the IRS? use of technology, require regulatory agencies overseeing financial systems to conduct technology assessments and codify a biometric-based program to identify dangerous individuals before they rea? Tech for maternal health On Wednesday, Reps. Nikema Williams, D-Ga., Lauren Underwood, D-Ill., Ashley Hinson, R-Iowa, and David Joyce, R-Ohio, teamed up to introduce a bill that aims to leverage the? [+8193 chars]",
+      "intro": "Lawmakers rolled out legislative proposals to enhance the IRS? use of technology, require regulatory agencies overseeing financial systems to conduct technology assessments and codify a biometric-based program to identify dangerous individuals before they rea? Tech for maternal health On Wednesday, Reps.",
+      "bullets": [
+        "Lawmakers rolled out legislative proposals to enhance the IRS? use of technology, require regulatory agencies overseeing financial systems?",
+        "Nikema Williams, D-Ga., Lauren Underwood, D-Ill., Ashley Hinson, R-Iowa, and David Joyce, R-Ohio, teamed up to introduce a bill that aims?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "tech, bills, week, improving, maternal, health, expanding, access, artificial intelligence, machine learning",
+      "slug": "tech-bills-of-the-week-improving-maternal-health-expanding-access"
+    },
+    {
+      "id": "nzWSeSD65s20wuNs",
+      "title": "OMB?s examination of Mythos is ?not giving access to anything to agencies,? official says",
+      "seoTitle": "OMB?s examination of Mythos is ?not giving access to anything to?",
+      "metaDescription": "Following the debut of Anthropic?s ultra-powerful AI, Mythos, the federal CIO told stakeholders the administration is meeting with industry and intelligence?",
+      "category": "ML",
+      "image": "https://cdn.nextgov.com/media/img/cd/2026/04/17/041726EisenhowerNG/open-graph.jpg",
+      "imageAlt": "OMB?s examination of Mythos is ?not giving access to anything to agencies,? official says",
+      "url": "https://www.nextgov.com/artificial-intelligence/2026/04/ombs-examination-mythos-not-giving-access-anything-agencies-official-says/412953/",
+      "source": {
+        "name": "Nextgov"
+      },
+      "publishedAt": "2026-04-17T21:32:00.000Z",
+      "description": "Following the debut of Anthropic?s ultra-powerful AI, Mythos, the federal CIO told stakeholders the administration is meeting with industry and intelligence partners to discuss guardrails and safeguards associated with ?potentially releasing a modified versio? The Office of Management and Budget isnt currently planning any policy changes related to granting federal agencies access to Anthropics powerful Mythos artificial intelligence model, despite an emai? [+2819 chars]",
+      "summary": "Following the debut of Anthropic?s ultra-powerful AI, Mythos, the federal CIO told stakeholders the administration is meeting with industry and intelligence partners to discuss guardrails and safeguards associated with ?potentially releasing a modified versio? The Office of Management and Budget isnt currently planning any policy changes related to granting federal agencies access to Anthropics powerful Mythos artificial intelligence model, despite an emai? [+2819 chars]",
+      "intro": "Following the debut of Anthropic?s ultra-powerful AI, Mythos, the federal CIO told stakeholders the administration is meeting with industry and intelligence partners to discuss guardrails and safeguards associated with ?potentially releasing a modified versio? The Office of Management and Budget isnt currently planning any policy changes related to granting federal agencies access to Anthropics?",
+      "bullets": [
+        "Following the debut of Anthropic?s ultra-powerful AI, Mythos, the federal CIO told stakeholders the administration is meeting with?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "omb, examination, mythos, not, giving, access, anything, agencies, artificial intelligence, machine learning",
+      "slug": "ombs-examination-of-mythos-is-not-giving-access-to-anything-to"
+    },
+    {
+      "id": "USIUzAQ-lwuIExhQ",
+      "title": "Anthropic Debuts Claude Design for Creating Prototypes, Pitch Decks, and Mockups",
+      "seoTitle": "Anthropic Debuts Claude Design for Creating Prototypes, Pitch Decks,?",
+      "metaDescription": "Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more. Claude Design uses Opus 4.7, a new AI model that?",
+      "category": "Tools",
+      "image": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+      "imageAlt": "Anthropic Debuts Claude Design for Creating Prototypes, Pitch Decks, and Mockups",
+      "url": "https://www.macrumors.com/2026/04/17/anthropic-claude-design/",
+      "source": {
+        "name": "MacRumors"
+      },
+      "publishedAt": "2026-04-17T20:01:35.000Z",
+      "description": "Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more. Claude Design uses Opus 4.7, a new AI model that was introduced earlier this week. Opus 4.7 is Anthropic's most capable vision model, and it ca? Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more. Claude Design uses Opus 4.7, a new AI model that was introduced earlier this week. Opus 4? [+1800 chars]",
+      "summary": "Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more. Claude Design uses Opus 4.7, a new AI model that was introduced earlier this week. Opus 4.7 is Anthropic's most capable vision model, and it ca? Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more. Claude Design uses Opus 4.7, a new AI model that was introduced earlier this week. Opus 4? [+1800 chars]",
+      "intro": "Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more.",
+      "bullets": [
+        "Anthropic today launched Claude Design, a new AI product for creating designs, prototypes, slides, and more.",
+        "Claude Design uses Opus 4.7, a new AI model that was introduced earlier this week.",
+        "Opus 4.7 is Anthropic's most capable vision model, and it ca? Anthropic today launched Claude Design, a new AI product for creating?",
+        "Opus 4? [+1800 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "anthropic, debuts, claude, design, creating, prototypes, pitch, decks, artificial intelligence, machine learning",
+      "slug": "anthropic-debuts-claude-design-for-creating-prototypes-pitch-decks"
+    },
+    {
+      "id": "pFgJ_ErEkLpMy4RX",
+      "title": "OpenAI Executive Kevin Weil Is Leaving the Company",
+      "seoTitle": "OpenAI Executive Kevin Weil Is Leaving the Company",
+      "metaDescription": "The former Instagram VP is departing the ChatGPT-maker, which is also sunsetting the ?OpenAI for Science? application he led. Kevin Weil, OpenAIs former chief?",
+      "category": "ChatGPT",
+      "image": "https://media.wired.com/photos/69e28bd5c90ceaca5deef659/191:100/w_1280,c_limit/Kevin-Weil-Leaving-OpenAI-Business-2212179127.jpg",
+      "imageAlt": "OpenAI Executive Kevin Weil Is Leaving the Company",
+      "url": "https://www.wired.com/story/openai-executive-kevin-weil-is-leaving-the-company/",
+      "source": {
+        "name": "Wired"
+      },
+      "publishedAt": "2026-04-17T19:56:42.000Z",
+      "description": "The former Instagram VP is departing the ChatGPT-maker, which is also sunsetting the ?OpenAI for Science? application he led. Kevin Weil, OpenAIs former chief product officer who was recently tapped to build a new AI workspace for scientists, Prism, is leaving the company, WIRED has confirmed. Weil was previously an early e? [+567 chars]",
+      "summary": "The former Instagram VP is departing the ChatGPT-maker, which is also sunsetting the ?OpenAI for Science? application he led. Kevin Weil, OpenAIs former chief product officer who was recently tapped to build a new AI workspace for scientists, Prism, is leaving the company, WIRED has confirmed. Weil was previously an early e? [+567 chars]",
+      "intro": "The former Instagram VP is departing the ChatGPT-maker, which is also sunsetting the ?OpenAI for Science? application he led.",
+      "bullets": [
+        "The former Instagram VP is departing the ChatGPT-maker, which is also sunsetting the ?OpenAI for Science? application he led.",
+        "Kevin Weil, OpenAIs former chief product officer who was recently tapped to build a new AI workspace for scientists, Prism, is leaving the?",
+        "Weil was previously an early e? [+567 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "openai, executive, kevin, weil, leaving, company, artificial intelligence, machine learning",
+      "slug": "openai-executive-kevin-weil-is-leaving-the-company"
+    },
+    {
+      "id": "qDFkVbzehtfz8ve-",
+      "title": "Reese Witherspoon Doubles Down on AI Comments After Fan Backlash",
+      "seoTitle": "Reese Witherspoon Doubles Down on AI Comments After Fan Backlash",
+      "metaDescription": "Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence. The answers ? and what she did next ? ignited a fierce?",
+      "category": "AI",
+      "image": "https://www.usmagazine.com/wp-content/uploads/2026/04/GettyImages-2234597473-Reese-Witherspoon-Doubles-Down-on-AI-After-Her-Wake-Up-Call-for-Women-Sparks-Backlash.jpg?crop=0px%2C0px%2C1998px%2C1051px&resize=1200%2C630&quality=86&strip=all",
+      "imageAlt": "Reese Witherspoon Doubles Down on AI Comments After Fan Backlash",
+      "url": "https://www.usmagazine.com/celebrity-news/news/reese-witherspoon-doubles-down-on-ai-after-fan-backlash/",
+      "source": {
+        "name": "Us Weekly"
+      },
+      "publishedAt": "2026-04-17T19:56:13.000Z",
+      "description": "Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence. The answers ? and what she did next ? ignited a fierce online debate about technology, the environment and who gets to decide what progress looks like. The 50-y? Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence. The answers ? and what she did next ? ignited a fierce online debate about technology, the environme? [+4243 chars]",
+      "summary": "Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence. The answers ? and what she did next ? ignited a fierce online debate about technology, the environment and who gets to decide what progress looks like. The 50-y? Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence. The answers ? and what she did next ? ignited a fierce online debate about technology, the environme? [+4243 chars]",
+      "intro": "Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence.",
+      "bullets": [
+        "Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence.",
+        "The answers ? and what she did next ? ignited a fierce online debate about technology, the environment and who gets to decide what?",
+        "The 50-y? Reese Witherspoon asked 10 women at her book club a simple question about artificial intelligence.",
+        "The answers ? and what she did next ? ignited a fierce online debate about technology, the environme? [+4243 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "reese, witherspoon, doubles, down, comments, after, fan, backlash, artificial intelligence, machine learning",
+      "slug": "reese-witherspoon-doubles-down-on-ai-comments-after-fan-backlash"
     },
     {
       "id": "DXjdm3m9_1357MCL",
