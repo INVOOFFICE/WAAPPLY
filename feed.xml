@@ -5,7 +5,16 @@
   <link></link>
   <description>Artificial Intelligence news updates from waapply.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 18 Apr 2026 18:33:26 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 18 Apr 2026 19:00:23 GMT</lastBuildDate>
+  <item>
+    <title>Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass</title>
+    <link>/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</link>
+    <description>Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?</description>
+    <pubDate>Sat, 18 Apr 2026 18:31:09 GMT</pubDate>
+    <category>finance</category>
+    <guid isPermaLink="true">/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
+    <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop" type="image/jpeg" length="0" />
+  </item>
   <item>
     <title>Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot</title>
     <link>/ai-news/articles/layer-1-of-the-agentic-os-building-always-on-context-for-github/</link>
@@ -43,40 +52,22 @@
     <enclosure url="https://img.etimg.com/thumb/msid-130357373,width-1200,height-630,imgsize-73454,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
   </item>
   <item>
-    <title>Starbucks now lets you pick your drink based on your mood using ChatGPT</title>
-    <link>/ai-news/articles/starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using/</link>
-    <description>You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.</description>
-    <pubDate>Sat, 18 Apr 2026 15:47:21 GMT</pubDate>
-    <category>general</category>
-    <guid isPermaLink="true">/ai-news/articles/starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using/</guid>
-    <enclosure url="https://media.wltx.com/assets/CCT/images/d26c7743-d24c-48ac-a343-21df1b892a0f/20260418T122210/d26c7743-d24c-48ac-a343-21df1b892a0f_1140x641.jpg" type="image/jpeg" length="0" />
+    <title>Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA NemoClaw</title>
+    <link>/ai-news/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</link>
+    <description>Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows.?</description>
+    <pubDate>Fri, 17 Apr 2026 18:59:40 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</guid>
+    <enclosure url="https://developer-blogs.nvidia.com/wp-content/uploads/2026/04/Claw-DGX-Spark.webp" type="image/jpeg" length="0" />
   </item>
   <item>
-    <title>Code Red' Author Wynton Hall: Anthropic's AI Threatened to Blackmail It's Boss</title>
-    <link>/ai-news/articles/code-red-author-wynton-hall-anthropics-ai-threatened-to/</link>
-    <description>During an appearance on One America News Network's "Fine Point," Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right,?</description>
-    <pubDate>Fri, 17 Apr 2026 18:26:24 GMT</pubDate>
-    <category>AI</category>
-    <guid isPermaLink="true">/ai-news/articles/code-red-author-wynton-hall-anthropics-ai-threatened-to/</guid>
-    <enclosure url="https://media.breitbart.com/media/2026/03/Screenshot-2026-03-20-043046-640x335.jpg" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Pope tells Catholic university students in Cameroon to ?search for truth?</title>
-    <link>/ai-news/articles/pope-tells-catholic-university-students-in-cameroon-to-search-for/</link>
-    <description>Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital revolution.? YAOUNDE,?</description>
-    <pubDate>Fri, 17 Apr 2026 18:26:00 GMT</pubDate>
-    <category>AI</category>
-    <guid isPermaLink="true">/ai-news/articles/pope-tells-catholic-university-students-in-cameroon-to-search-for/</guid>
-    <enclosure url="https://res.cloudinary.com/ewtn/image/upload/v1776448256/ewtn-news/en/_RIS4060_qmnkd3.jpg" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Show HN: How context engineering works, a runnable reference</title>
-    <link>/ai-news/articles/show-hn-how-context-engineering-works-a-runnable-reference/</link>
-    <description>I've been presenting at local meetups about Context Engineering, RAG, Skills, etc.. I even have a vbrownbag coming up on LinkedIn about this topic so I?</description>
-    <pubDate>Fri, 17 Apr 2026 18:20:49 GMT</pubDate>
-    <category>AI</category>
-    <guid isPermaLink="true">/ai-news/articles/show-hn-how-context-engineering-works-a-runnable-reference/</guid>
-    <enclosure url="https://opengraph.githubassets.com/e56f800cc3b2f6cb45ac8a87052149e588a9bb30431c88bd6bedcde96ba73fd2/outcomeops/context-engineering" type="image/jpeg" length="0" />
+    <title>Monzo founder makes dark prediction about your job in AI future</title>
+    <link>/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</link>
+    <description>The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?</description>
+    <pubDate>Fri, 17 Apr 2026 18:49:00 GMT</pubDate>
+    <category>Business</category>
+    <guid isPermaLink="true">/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</guid>
+    <enclosure url="https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg" type="image/jpeg" length="0" />
   </item>
 </channel>
 </rss>
