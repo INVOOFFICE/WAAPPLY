@@ -122,6 +122,25 @@
       </section>
     </main>
 
+
+    <!-- ══ NEWSLETTER ══════════════════════════════════════════ -->
+    <section class="nl container" aria-labelledby="nl-title">
+      <div class="nl__card">
+        <div>
+          <p class="nl__badge">Newsletter</p>
+          <h2 class="nl__title" id="nl-title">Stay ahead of AI — every day</h2>
+          <p class="nl__sub">Get the latest AI news, summaries, and breakthroughs delivered straight to your inbox. No spam, unsubscribe anytime.</p>
+          <p class="nl__msg" id="nl-msg-home" aria-live="polite"></p>
+        </div>
+        <div>
+          <form class="nl__form" id="nl-form-home" novalidate>
+            <input class="nl__input" id="nl-email-home" type="email" placeholder="your@email.com" autocomplete="email" required />
+            <button class="nl__btn" type="submit" id="nl-btn-home">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container footer__inner">
         <div>
@@ -140,6 +159,54 @@
     <button id="scroll-top" type="button" aria-label="Scroll to top">↑</button>
 
     <script src="main.js" defer></script>
-  </body>
+  
+    <script>
+    (function(){
+      var WA_NL_ENDPOINT = "YOUR_WEBAPP_URL"; // ← remplace par ton Web App URL
+      function nlSubmit(formId, emailId, btnId, msgId) {
+        var form = document.getElementById(formId);
+        var emailEl = document.getElementById(emailId);
+        var btn = document.getElementById(btnId);
+        var msg = document.getElementById(msgId);
+        if (!form) return;
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          var email = (emailEl ? emailEl.value : "").trim();
+          if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+            msg.textContent = "Please enter a valid email address.";
+            msg.className = "nl__msg nl__msg--err";
+            return;
+          }
+          btn.disabled = true;
+          btn.textContent = "Sending…";
+          msg.textContent = "Just a moment…";
+          msg.className = "nl__msg nl__msg--wait";
+          fetch(WA_NL_ENDPOINT + "?action=subscribe&email=" + encodeURIComponent(email), { method: "GET" })
+            .then(function(r){ return r.json(); })
+            .then(function(data){
+              if (data.status === "ok" || data.status === "exists") {
+                msg.textContent = data.status === "exists"
+                  ? "You're already subscribed — thanks!"
+                  : "🎉 Welcome aboard! Check your inbox for a confirmation.";
+                msg.className = "nl__msg nl__msg--ok";
+                if (emailEl) emailEl.value = "";
+                btn.textContent = "✓ Done";
+              } else {
+                throw new Error(data.message || "Error");
+              }
+            })
+            .catch(function(){
+              msg.textContent = "Something went wrong. Please try again.";
+              msg.className = "nl__msg nl__msg--err";
+              btn.disabled = false;
+              btn.textContent = "Subscribe";
+            });
+        });
+      }
+      nlSubmit("nl-form-home", "nl-email-home", "nl-btn-home", "nl-msg-home");
+      nlSubmit("nl-form-article", "nl-email-article", "nl-btn-article", "nl-msg-article");
+    })();
+    </script>
+</body>
 </html>
 
