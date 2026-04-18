@@ -127,6 +127,10 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
         "@id": orgId,
         name: siteName,
         url: base ? `${base}/ai-news/` : undefined,
+        logo: {
+          "@type": "ImageObject",
+          url: base ? `${base}/assets/favicon.svg` : ""
+        }
       },
       {
         "@type": "WebSite",
@@ -140,8 +144,9 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
         "@type": "BreadcrumbList",
         "@id": canonicalUrl + "#breadcrumb",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "AI News", item: base ? `${base}/ai-news/` : "" },
-          { "@type": "ListItem", position: 2, name: article.title || "Article", item: canonicalUrl },
+          { "@type": "ListItem", position: 1, name: "Home", item: base ? `${base}/ai-news/` : "" },
+          { "@type": "ListItem", position: 2, name: article.category || "AI Section", item: base ? `${base}/ai-news/?q=${encodeURIComponent(article.category || "AI")}` : "" },
+          { "@type": "ListItem", position: 3, name: article.title || "Article", item: canonicalUrl },
         ],
       },
       {
@@ -160,9 +165,13 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
           "@id": orgId,
         },
         publisher: { "@id": orgId },
-        keywords: buildKeywords(article) || undefined,
+        keywords: buildKeywords(article).split(",").map(k => k.trim()).filter(Boolean),
         isAccessibleForFree: true,
         articleSection: article.category || "AI",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".article__intro", ".article__body"]
+        }
       },
     ],
   };
