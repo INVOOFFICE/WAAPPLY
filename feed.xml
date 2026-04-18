@@ -1,73 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>waapply</title>
-  <link></link>
-  <description>Artificial Intelligence news updates from waapply.</description>
+  <link>https://waapply.com/</link>
+  <description>Latest Artificial Intelligence news and editorial summaries.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 18 Apr 2026 19:18:22 GMT</lastBuildDate>
-  <item>
-    <title>Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass</title>
-    <link>/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</link>
-    <description>Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?</description>
-    <pubDate>Sat, 18 Apr 2026 18:31:09 GMT</pubDate>
-    <category>finance</category>
-    <guid isPermaLink="true">/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
-    <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot</title>
-    <link>/ai-news/articles/layer-1-of-the-agentic-os-building-always-on-context-for-github/</link>
-    <description>Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot ? Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot In the?</description>
-    <pubDate>Sat, 18 Apr 2026 17:52:29 GMT</pubDate>
-    <category>programming</category>
-    <guid isPermaLink="true">/ai-news/articles/layer-1-of-the-agentic-os-building-always-on-context-for-github/</guid>
-    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsa0ju9c06k75m6pbv4tw.png" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Do AI Agent Costs Grow Exponentially? I Ran My Logs and the Answer Surprised Me</title>
-    <link>/ai-news/articles/do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer/</link>
-    <description>A Hacker News thread with 208 points asks whether AI agent costs grow exponentially. I have months of real production logs. The answer isn't what anyone?</description>
-    <pubDate>Sat, 18 Apr 2026 17:23:37 GMT</pubDate>
-    <category>programming</category>
-    <guid isPermaLink="true">/ai-news/articles/do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer/</guid>
-    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fimages.unsplash.com%2Fphoto-1730385349435-130ba6141e72%3Fcrop%3Dentropy%26cs%3Dtinysrgb%26fit%3Dmax%26fm%3Djpg%26ixid%3DM3w5MTc1Mjd8MHwxfHNlYXJjaHwyfHxjb3N0b3MlMjBhZ2VudGVzJTIwSUElMjAyMDI1fGVufDF8MHx8fDE3NzY1MDY5NzB8MA%26ixlib%3Drb-4.1.0%26q%3D80%26w%3D1080" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Promising Artificial Intelligence Stocks To Watch Today - April 18th</title>
-    <link>/ai-news/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</link>
-    <description>Hut 8, Tempus AI, SoundHound AI, Upstart, and BigBear.ai are the five Artificial Intelligence stocks to watch today, according to MarketBeat's stock screener?</description>
-    <pubDate>Sat, 18 Apr 2026 16:31:42 GMT</pubDate>
-    <category>regional</category>
-    <guid isPermaLink="true">/ai-news/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</guid>
-    <enclosure url="https://www.marketbeat.com/images/marketbeat-logo-1200-1200.jpg?v=1" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Meta layoffs: 16,000 jobs on the line as Mark Zuckerberg plans major cuts in looming workforce shake-up</title>
-    <link>/ai-news/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</link>
-    <description>Meta is set to cut 16,000 jobs soon. The first phase begins May 20, affecting 8,000 workers. This major restructuring follows the company's strong push into?</description>
-    <pubDate>Sat, 18 Apr 2026 16:03:28 GMT</pubDate>
-    <category>business</category>
-    <guid isPermaLink="true">/ai-news/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</guid>
-    <enclosure url="https://img.etimg.com/thumb/msid-130357373,width-1200,height-630,imgsize-73454,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA NemoClaw</title>
-    <link>/ai-news/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</link>
-    <description>Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows.?</description>
-    <pubDate>Fri, 17 Apr 2026 18:59:40 GMT</pubDate>
-    <category>AI</category>
-    <guid isPermaLink="true">/ai-news/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</guid>
-    <enclosure url="https://developer-blogs.nvidia.com/wp-content/uploads/2026/04/Claw-DGX-Spark.webp" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Monzo founder makes dark prediction about your job in AI future</title>
-    <link>/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</link>
-    <description>The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?</description>
-    <pubDate>Fri, 17 Apr 2026 18:49:00 GMT</pubDate>
-    <category>Business</category>
-    <guid isPermaLink="true">/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</guid>
-    <enclosure url="https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg" type="image/jpeg" length="0" />
-  </item>
+  <lastBuildDate>Sat, 18 Apr 2026 19:31:24 GMT</lastBuildDate>
+  <atom:link href="https://waapply.com/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue?</title>
+  <link>https://waapply.com/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</link>
+  <description>Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?</description>
+  <pubDate>Sat, 18 Apr 2026 18:31:09 GMT</pubDate>
+  <category>finance</category>
+  <guid isPermaLink="true">https://waapply.com/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
+  <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&amp;height=800&amp;fit=crop" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Layer 1 of the Agentic OS: Building Always-On Context for GitHub?</title>
+  <link>https://waapply.com/articles/layer-1-of-the-agentic-os-building-always-on-context-for-github/</link>
+  <description>Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot ? Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot In the?</description>
+  <pubDate>Sat, 18 Apr 2026 17:52:29 GMT</pubDate>
+  <category>programming</category>
+  <guid isPermaLink="true">https://waapply.com/articles/layer-1-of-the-agentic-os-building-always-on-context-for-github/</guid>
+  <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsa0ju9c06k75m6pbv4tw.png" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Do AI Agent Costs Grow Exponentially? I Ran My Logs and the Answer?</title>
+  <link>https://waapply.com/articles/do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer/</link>
+  <description>A Hacker News thread with 208 points asks whether AI agent costs grow exponentially. I have months of real production logs. The answer isn't what anyone?</description>
+  <pubDate>Sat, 18 Apr 2026 17:23:37 GMT</pubDate>
+  <category>programming</category>
+  <guid isPermaLink="true">https://waapply.com/articles/do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer/</guid>
+  <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fimages.unsplash.com%2Fphoto-1730385349435-130ba6141e72%3Fcrop%3Dentropy%26cs%3Dtinysrgb%26fit%3Dmax%26fm%3Djpg%26ixid%3DM3w5MTc1Mjd8MHwxfHNlYXJjaHwyfHxjb3N0b3MlMjBhZ2VudGVzJTIwSUElMjAyMDI1fGVufDF8MHx8fDE3NzY1MDY5NzB8MA%26ixlib%3Drb-4.1.0%26q%3D80%26w%3D1080" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Promising Artificial Intelligence Stocks To Watch Today - April 18th</title>
+  <link>https://waapply.com/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</link>
+  <description>Hut 8, Tempus AI, SoundHound AI, Upstart, and BigBear.ai are the five Artificial Intelligence stocks to watch today, according to MarketBeat's stock screener?</description>
+  <pubDate>Sat, 18 Apr 2026 16:31:42 GMT</pubDate>
+  <category>regional</category>
+  <guid isPermaLink="true">https://waapply.com/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</guid>
+  <enclosure url="https://www.marketbeat.com/images/marketbeat-logo-1200-1200.jpg?v=1" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Meta layoffs: 16,000 jobs on the line as Mark Zuckerberg plans major?</title>
+  <link>https://waapply.com/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</link>
+  <description>Meta is set to cut 16,000 jobs soon. The first phase begins May 20, affecting 8,000 workers. This major restructuring follows the company's strong push into?</description>
+  <pubDate>Sat, 18 Apr 2026 16:03:28 GMT</pubDate>
+  <category>business</category>
+  <guid isPermaLink="true">https://waapply.com/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</guid>
+  <enclosure url="https://img.etimg.com/thumb/msid-130357373,width-1200,height-630,imgsize-73454,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA?</title>
+  <link>https://waapply.com/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</link>
+  <description>Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows.?</description>
+  <pubDate>Fri, 17 Apr 2026 18:59:40 GMT</pubDate>
+  <category>AI</category>
+  <guid isPermaLink="true">https://waapply.com/articles/build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia/</guid>
+  <enclosure url="https://developer-blogs.nvidia.com/wp-content/uploads/2026/04/Claw-DGX-Spark.webp" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Monzo founder makes dark prediction about your job in AI future</title>
+  <link>https://waapply.com/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</link>
+  <description>The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?</description>
+  <pubDate>Fri, 17 Apr 2026 18:49:00 GMT</pubDate>
+  <category>Business</category>
+  <guid isPermaLink="true">https://waapply.com/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</guid>
+  <enclosure url="https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg" type="image/jpeg" length="0" />
+</item>
 </channel>
 </rss>
