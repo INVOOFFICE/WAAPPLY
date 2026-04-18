@@ -339,6 +339,38 @@
     featured.innerHTML = html;
   }
 
+  var carouselTimer = null;
+
+  function initHeroCarousel() {
+    if (carouselTimer) clearInterval(carouselTimer);
+    var slides = $$(".hero-carousel .featured-card");
+    if (!slides.length) return;
+    
+    slides[0].classList.add("is-active");
+    if (slides.length <= 1) return;
+    
+    var current = 0;
+    var wrapper = $(".hero-carousel");
+    
+    var startTimer = function() {
+      carouselTimer = setInterval(function() {
+        slides[current].classList.remove("is-active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("is-active");
+      }, 4500);
+    };
+    
+    startTimer();
+    
+    wrapper.addEventListener("mouseenter", function() {
+      clearInterval(carouselTimer);
+    });
+    wrapper.addEventListener("mouseleave", function() {
+      if (carouselTimer) clearInterval(carouselTimer);
+      startTimer();
+    });
+  }
+
   function initScrollTop() {
     var btn = $("#scroll-top");
     if (!btn) return;
@@ -446,6 +478,7 @@
         var filtered = filterAndSort(articles, q);
         var featuredList = filtered.slice(0, 5);
         renderFeatured(featuredList);
+        initHeroCarousel();
         var listForGrid = filtered.slice(featuredList.length);
         var page = q.page || 1;
         var start = (page - 1) * PAGE_SIZE;
