@@ -154,7 +154,7 @@
 
   function applyCanonicalHome_(site) {
     var base = canonicalBaseFromSite(site);
-    var canon = base ? base + "/ai-news/" : "";
+    var canon = base ? base + "/" : "";
     var cl = $("#canonical-link");
     var og = $("#og-url");
     if (cl) cl.href = canon;
@@ -176,7 +176,7 @@
         }
         if (node && node["@type"] === "WebSite") {
           node["@id"] = (base ? base + "/" : "") + "#website";
-          node.url = canon;
+          node.url = base ? base + "/" : "";
           node.name = site && site.name ? site.name : "waapply";
           node.publisher = { "@id": (base ? base + "/" : "") + "#organization" };
         }
@@ -349,6 +349,32 @@
     if (!slides.length) return;
     
     slides[0].classList.add("is-active");
+    
+    var carousel = slides[0].closest(".hero-carousel");
+    var dotsWrap = document.createElement("div");
+    dotsWrap.className = "hero-carousel-dots";
+    slides.forEach(function(_, i) {
+      var dot = document.createElement("button");
+      dot.className = "hero-carousel-dot" + (i === 0 ? " is-active" : "");
+      dot.setAttribute("aria-label", "Slide " + (i + 1));
+      dot.addEventListener("click", function() {
+        if (carouselTimer) clearInterval(carouselTimer);
+        slides[current].classList.remove("is-active");
+        current = i;
+        slides[current].classList.add("is-active");
+        updateDots(current);
+        startTimer();
+      });
+      dotsWrap.appendChild(dot);
+    });
+    if (carousel && carousel.parentNode) carousel.parentNode.insertBefore(dotsWrap, carousel.nextSibling);
+    
+    function updateDots(idx) {
+      Array.prototype.forEach.call(dotsWrap.querySelectorAll(".hero-carousel-dot"), function(d, i) {
+        d.classList.toggle("is-active", i === idx);
+      });
+    }
+    
     if (slides.length <= 1) return;
     
     var current = 0;
@@ -359,6 +385,7 @@
         slides[current].classList.remove("is-active");
         current = (current + 1) % slides.length;
         slides[current].classList.add("is-active");
+        if (typeof updateDots === "function") updateDots(current);
       }, 4500);
     };
     

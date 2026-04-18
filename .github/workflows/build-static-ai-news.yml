@@ -2,73 +2,40 @@ name: Build static AI news pages
 
 on:
   push:
-    branches: [main]
     paths:
-      - "news.json"
-      - "article.html"
-      - "scripts/build-ai-news-pages.mjs"
+      - 'news.json'          # ← racine du repo, pas ai-news/news.json
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: static-ai-news-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: "20"
+          fetch-depth: 0
 
-      - name: Generate articles, sitemap, and feed
-        run: node scripts/build-ai-news-pages.mjs
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Commit and push generated files if changed
-        env:
-          BRANCH: ${{ github.ref_name }}
+      - name: Build article pages
+        run: node scripts/build-ai-news-pages.mjs   # ← scripts/ à la racine
+
+      - name: Commit and push generated pages
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add articles sitemap.xml feed.xml news.json news-latest.json || true
-          if git diff --staged --quiet; then
-            echo "No static AI news changes to commit."
-            exit 0
-          fi
-          git commit -m "chore: regenerate static ai news pages"
-          for i in {1..5}; do
-            git pull --rebase origin "$BRANCH" && git push origin "HEAD:refs/heads/$BRANCH" && break || sleep 5
-          done
-
-      - name: Verify generated articles
-        run: |
-          node -e "
-            const fs = require('fs');
-            const data = JSON.parse(fs.readFileSync('news.json', 'utf8'));
-            const missing = [];
-            (data.articles || []).forEach(a => {
-              if(!a.slug && !a.title) return;
-              const slug = a.slug || a.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-              if(!fs.existsSync('articles/' + slug + '/index.html')) missing.push(slug);
-            });
-            if(missing.length > 0) {
-              console.warn('Missing articles detected: ' + missing.length);
-              process.exit(1);
-            }
-          " || { 
-            echo "Retrying build safely..."; 
-            node scripts/build-ai-news-pages.mjs; 
-            git add articles sitemap.xml feed.xml news-latest.json || true; 
-            git commit --amend --no-edit || true;
-            for i in {1..5}; do
-              git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:refs/heads/${{ github.ref_name }}" && break || sleep 5
-            done
-          }
-
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles/
+          git add sitemap.xml
+          git add feed.xml
+          git add news.json
+          git add news-latest.json
+          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "chore: rebuild static pages [skip ci]"
+          git push

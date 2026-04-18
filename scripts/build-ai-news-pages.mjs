@@ -1,7 +1,7 @@
 /**
  * Generates static SEO pages for AI news articles:
- * - ai-news/articles/<slug>/index.html
- * - ai-news/sitemap.xml
+ * - articles/<slug>/index.html
+ * - sitemap.xml
  *
  * Usage: node scripts/build-ai-news-pages.mjs
  */
@@ -67,7 +67,7 @@ function canonicalBase(site) {
 }
 
 function articlePagePath(slug) {
-  return `ai-news/articles/${encodeURIComponent(slug)}/`;
+  return `articles/${encodeURIComponent(slug)}/`;
 }
 
 function articleCanonicalUrl(site, slug) {
@@ -114,7 +114,7 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
   const base = canonicalBase(site);
   const siteName = site?.name || "AI News";
   const orgId = base ? `${base}/#organization` : "#organization";
-  const webId = base ? `${base}/ai-news/#website` : "#website";
+  const webId = base ? `${base}/#website` : "#website";
   const pubIso = (article.publishedAt && String(article.publishedAt)) || "";
   const pubDate = pubIso ? String(pubIso).slice(0, 10) : "2026-01-01";
   const desc = clampChars(article.metaDescription || article.description || article.summary || "", 160);
@@ -126,7 +126,7 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
         "@type": "Organization",
         "@id": orgId,
         name: siteName,
-        url: base ? `${base}/ai-news/` : undefined,
+        url: base ? `${base}/` : undefined,
         logo: {
           "@type": "ImageObject",
           url: base ? `${base}/assets/favicon.svg` : ""
@@ -135,7 +135,7 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
       {
         "@type": "WebSite",
         "@id": webId,
-        url: base ? `${base}/ai-news/` : undefined,
+        url: base ? `${base}/` : undefined,
         name: siteName,
         inLanguage: "en",
         publisher: { "@id": orgId },
@@ -144,8 +144,8 @@ function buildJsonLd(site, article, canonicalUrl, ogImage) {
         "@type": "BreadcrumbList",
         "@id": canonicalUrl + "#breadcrumb",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: base ? `${base}/ai-news/` : "" },
-          { "@type": "ListItem", position: 2, name: article.category || "AI Section", item: base ? `${base}/ai-news/?q=${encodeURIComponent(article.category || "AI")}` : "" },
+          { "@type": "ListItem", position: 1, name: "Home", item: base ? `${base}/` : "" },
+          { "@type": "ListItem", position: 2, name: article.category || "AI Section", item: base ? `${base}/?q=${encodeURIComponent(article.category || "AI")}` : "" },
           { "@type": "ListItem", position: 3, name: article.title || "Article", item: canonicalUrl },
         ],
       },
@@ -248,7 +248,7 @@ function buildRssFeed(site, articles) {
   const base = canonicalBase(site);
   const title = site.name || "waapply";
   const description = "Latest Artificial Intelligence news and editorial summaries.";
-  const channelLink = base ? `${base}/ai-news/` : "";
+  const channelLink = base ? `${base}/` : "";
   const items = (articles || [])
     .map((a) => {
       const link = base ? articleCanonicalUrl(site, a.slug) : "";
@@ -277,7 +277,7 @@ function buildRssFeed(site, articles) {
   <description>${escapeHtml(description)}</description>
   <language>en</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  <atom:link href="${escapeHtml(base ? `${base}/ai-news/feed.xml` : "feed.xml")}" rel="self" type="application/rss+xml" />
+  <atom:link href="${escapeHtml(base ? `${base}/feed.xml` : "feed.xml")}" rel="self" type="application/rss+xml" />
 ${items}
 </channel>
 </rss>
@@ -291,7 +291,7 @@ function buildSitemap(site, articles) {
   }
 
   const urls = [];
-  urls.push({ loc: `${base}/ai-news/`, lastmod: new Date().toISOString().slice(0, 10) });
+  urls.push({ loc: `${base}/`, lastmod: new Date().toISOString().slice(0, 10) });
   articles.forEach((a) => {
     if (!a.slug) return;
     const loc = articleCanonicalUrl(site, a.slug);
