@@ -1,101 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0">
 <channel>
   <title>waapply</title>
   <link></link>
-  <description>Latest Artificial Intelligence news and editorial summaries.</description>
+  <description>Artificial Intelligence news updates from waapply.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 18 Apr 2026 17:50:18 GMT</lastBuildDate>
-  <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>AI Agents Generate Code That Passes Your Tests. That Is the Problem.</title>
-  <link></link>
-  <description>AI coding agents excel at writing code that satisfies your test suite and at writing tests that game coverage metrics. Here is why your coverage numbers are?</description>
-  <pubDate>Sat, 18 Apr 2026 17:03:02 GMT</pubDate>
-  <category>programming</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fuqrppsr4yz2xz4kkrf2x.png" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>The AI Agent Ecosystem Needs a Public Market Layer</title>
-  <link></link>
-  <description>The AI Agent Ecosystem Needs a Public Market Layer ? Most of the AI agent ecosystem is still hard to search, hard to compare, and even harder to...</description>
-  <pubDate>Sat, 18 Apr 2026 16:58:30 GMT</pubDate>
-  <category>programming</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmncnt0dspo9qansizzyq.png" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Promising Artificial Intelligence Stocks To Watch Today - April 18th</title>
-  <link></link>
-  <description>Hut 8, Tempus AI, SoundHound AI, Upstart, and BigBear.ai are the five Artificial Intelligence stocks to watch today, according to MarketBeat's stock screener?</description>
-  <pubDate>Sat, 18 Apr 2026 16:31:42 GMT</pubDate>
-  <category>regional</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://www.marketbeat.com/images/marketbeat-logo-1200-1200.jpg?v=1" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Meta layoffs: 16,000 jobs on the line as Mark Zuckerberg plans major?</title>
-  <link></link>
-  <description>Meta is set to cut 16,000 jobs soon. The first phase begins May 20, affecting 8,000 workers. This major restructuring follows the company's strong push into?</description>
-  <pubDate>Sat, 18 Apr 2026 16:03:28 GMT</pubDate>
-  <category>business</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://img.etimg.com/thumb/msid-130357373,width-1200,height-630,imgsize-73454,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Starbucks now lets you pick your drink based on your mood using?</title>
-  <link></link>
-  <description>You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.</description>
-  <pubDate>Sat, 18 Apr 2026 15:47:21 GMT</pubDate>
-  <category>general</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://media.wltx.com/assets/CCT/images/d26c7743-d24c-48ac-a343-21df1b892a0f/20260418T122210/d26c7743-d24c-48ac-a343-21df1b892a0f_1140x641.jpg" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Khanna Asks Elon Musk If He's OK With Billionaire Tax After Latest?</title>
-  <link></link>
-  <description>Rep. Ro Khanna put the world's richest man on the spot on Friday after Elon Musk acknowledged that artificial intelligence and robotics advancements in the?</description>
-  <pubDate>Fri, 17 Apr 2026 17:37:12 GMT</pubDate>
-  <category>AI</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://www.commondreams.org/media-library/image.jpg?id=65565393&amp;width=1200&amp;height=600&amp;coordinates=0%2C85%2C0%2C86" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Steve Bannon says Anthropic 'had it right' in rejecting deal with?</title>
-  <link></link>
-  <description>During the Semafor World Economy Summit, Steve Bannon said we need to better understand how weapon manufacturers will use AI. At least one person in Trump?</description>
-  <pubDate>Fri, 17 Apr 2026 17:29:54 GMT</pubDate>
-  <category>AI</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://i.insider.com/69e24058a98bc8fdc096bc1d?width=1200&amp;format=jpeg" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>Iconiq, Go-To Wealth Adviser for Tech?s Elite, Is Putting Billions?</title>
-  <link></link>
-  <description>Last year, Anthropic PBC chief Dario Amodei and a handful of executives traveled 8,000 miles from San Francisco to the Middle East. Photos of Amodei and...?</description>
-  <pubDate>Fri, 17 Apr 2026 17:27:42 GMT</pubDate>
-  <category>AI</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://s.yimg.com/os/en/wealth_management_474/94df7e1627f0cb99d7f3449528ddba12" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>AI chipmaker Cerebras set to file for IPO as soon as today</title>
-  <link></link>
-  <description>Through the public offering, Cerebras could be worth three times more than what it was in a 2025 funding round, one person said. Cerebras, a producer of chips?</description>
-  <pubDate>Fri, 17 Apr 2026 17:26:56 GMT</pubDate>
-  <category>ML</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://image.cnbcfm.com/api/v1/image/108276391-1773186892442-gettyimages-2260125457-sk1_6091_df5c19kn.jpeg?v=1776444145&amp;w=1920&amp;h=1080" type="image/jpeg" length="0" />
-</item>
-<item>
-  <title>NVIDIA Stock Climbs 1.2% to $200 as AI Demand Fuels Continued?</title>
-  <link></link>
-  <description>NVIDIA Corp. shares rose more than 1% Friday, climbing to $200.67 in midday trading on the Nasdaq as investors continued to bet on the company's dominance in?</description>
-  <pubDate>Fri, 17 Apr 2026 17:07:05 GMT</pubDate>
-  <category>Business</category>
-  <guid isPermaLink="true"></guid>
-  <enclosure url="https://d.ibtimes.com.au/en/full/1885340/jensen-huang-co-founder-ceo-nvidia-recently-convinced-donald-trump-lift-restrictions-certain.jpg" type="image/jpeg" length="0" />
-</item>
+  <lastBuildDate>Sat, 18 Apr 2026 17:53:00 GMT</lastBuildDate>
+  <item>
+    <title>AI Agents Generate Code That Passes Your Tests. That Is the Problem.</title>
+    <link>/ai-news/articles/ai-agents-generate-code-that-passes-your-tests-that-is-the-problem/</link>
+    <description>AI coding agents excel at writing code that satisfies your test suite and at writing tests that game coverage metrics. Here is why your coverage numbers are?</description>
+    <pubDate>Sat, 18 Apr 2026 17:03:02 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/ai-agents-generate-code-that-passes-your-tests-that-is-the-problem/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fuqrppsr4yz2xz4kkrf2x.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>The AI Agent Ecosystem Needs a Public Market Layer</title>
+    <link>/ai-news/articles/the-ai-agent-ecosystem-needs-a-public-market-layer/</link>
+    <description>The AI Agent Ecosystem Needs a Public Market Layer ? Most of the AI agent ecosystem is still hard to search, hard to compare, and even harder to...</description>
+    <pubDate>Sat, 18 Apr 2026 16:58:30 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/the-ai-agent-ecosystem-needs-a-public-market-layer/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmncnt0dspo9qansizzyq.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Promising Artificial Intelligence Stocks To Watch Today - April 18th</title>
+    <link>/ai-news/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</link>
+    <description>Hut 8, Tempus AI, SoundHound AI, Upstart, and BigBear.ai are the five Artificial Intelligence stocks to watch today, according to MarketBeat's stock screener?</description>
+    <pubDate>Sat, 18 Apr 2026 16:31:42 GMT</pubDate>
+    <category>regional</category>
+    <guid isPermaLink="true">/ai-news/articles/promising-artificial-intelligence-stocks-to-watch-today-april-18th/</guid>
+    <enclosure url="https://www.marketbeat.com/images/marketbeat-logo-1200-1200.jpg?v=1" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Meta layoffs: 16,000 jobs on the line as Mark Zuckerberg plans major cuts in looming workforce shake-up</title>
+    <link>/ai-news/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</link>
+    <description>Meta is set to cut 16,000 jobs soon. The first phase begins May 20, affecting 8,000 workers. This major restructuring follows the company's strong push into?</description>
+    <pubDate>Sat, 18 Apr 2026 16:03:28 GMT</pubDate>
+    <category>business</category>
+    <guid isPermaLink="true">/ai-news/articles/meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major/</guid>
+    <enclosure url="https://img.etimg.com/thumb/msid-130357373,width-1200,height-630,imgsize-73454,overlay-economictimes/articleshow.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Starbucks now lets you pick your drink based on your mood using ChatGPT</title>
+    <link>/ai-news/articles/starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using/</link>
+    <description>You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.</description>
+    <pubDate>Sat, 18 Apr 2026 15:47:21 GMT</pubDate>
+    <category>general</category>
+    <guid isPermaLink="true">/ai-news/articles/starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using/</guid>
+    <enclosure url="https://media.wltx.com/assets/CCT/images/d26c7743-d24c-48ac-a343-21df1b892a0f/20260418T122210/d26c7743-d24c-48ac-a343-21df1b892a0f_1140x641.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Khanna Asks Elon Musk If He's OK With Billionaire Tax After Latest Claims About AI and Mass Layoffs</title>
+    <link>/ai-news/articles/khanna-asks-elon-musk-if-hes-ok-with-billionaire-tax-after-latest/</link>
+    <description>Rep. Ro Khanna put the world's richest man on the spot on Friday after Elon Musk acknowledged that artificial intelligence and robotics advancements in the?</description>
+    <pubDate>Fri, 17 Apr 2026 17:37:12 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/khanna-asks-elon-musk-if-hes-ok-with-billionaire-tax-after-latest/</guid>
+    <enclosure url="https://www.commondreams.org/media-library/image.jpg?id=65565393&width=1200&height=600&coordinates=0%2C85%2C0%2C86" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Steve Bannon says Anthropic 'had it right' in rejecting deal with the Pentagon</title>
+    <link>/ai-news/articles/steve-bannon-says-anthropic-had-it-right-in-rejecting-deal-with/</link>
+    <description>During the Semafor World Economy Summit, Steve Bannon said we need to better understand how weapon manufacturers will use AI. At least one person in Trump?</description>
+    <pubDate>Fri, 17 Apr 2026 17:29:54 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/steve-bannon-says-anthropic-had-it-right-in-rejecting-deal-with/</guid>
+    <enclosure url="https://i.insider.com/69e24058a98bc8fdc096bc1d?width=1200&format=jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Iconiq, Go-To Wealth Adviser for Tech?s Elite, Is Putting Billions Into AI</title>
+    <link>/ai-news/articles/iconiq-go-to-wealth-adviser-for-techs-elite-is-putting-billions/</link>
+    <description>Last year, Anthropic PBC chief Dario Amodei and a handful of executives traveled 8,000 miles from San Francisco to the Middle East. Photos of Amodei and...?</description>
+    <pubDate>Fri, 17 Apr 2026 17:27:42 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/iconiq-go-to-wealth-adviser-for-techs-elite-is-putting-billions/</guid>
+    <enclosure url="https://s.yimg.com/os/en/wealth_management_474/94df7e1627f0cb99d7f3449528ddba12" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>AI chipmaker Cerebras set to file for IPO as soon as today</title>
+    <link>/ai-news/articles/ai-chipmaker-cerebras-set-to-file-for-ipo-as-soon-as-today/</link>
+    <description>Through the public offering, Cerebras could be worth three times more than what it was in a 2025 funding round, one person said. Cerebras, a producer of chips?</description>
+    <pubDate>Fri, 17 Apr 2026 17:26:56 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/ai-chipmaker-cerebras-set-to-file-for-ipo-as-soon-as-today/</guid>
+    <enclosure url="https://image.cnbcfm.com/api/v1/image/108276391-1773186892442-gettyimages-2260125457-sk1_6091_df5c19kn.jpeg?v=1776444145&w=1920&h=1080" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>NVIDIA Stock Climbs 1.2% to $200 as AI Demand Fuels Continued Momentum in Chip Sector</title>
+    <link>/ai-news/articles/nvidia-stock-climbs-1-2-to-200-as-ai-demand-fuels-continued/</link>
+    <description>NVIDIA Corp. shares rose more than 1% Friday, climbing to $200.67 in midday trading on the Nasdaq as investors continued to bet on the company's dominance in?</description>
+    <pubDate>Fri, 17 Apr 2026 17:07:05 GMT</pubDate>
+    <category>Business</category>
+    <guid isPermaLink="true">/ai-news/articles/nvidia-stock-climbs-1-2-to-200-as-ai-demand-fuels-continued/</guid>
+    <enclosure url="https://d.ibtimes.com.au/en/full/1885340/jensen-huang-co-founder-ceo-nvidia-recently-convinced-donald-trump-lift-restrictions-certain.jpg" type="image/jpeg" length="0" />
+  </item>
 </channel>
 </rss>
