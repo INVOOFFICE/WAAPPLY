@@ -117,10 +117,33 @@
     return dt;
   }
 
-  function prettyDate(d) {
+  function timeAgo(d) {
     var dt = safeDate(d);
     if (!dt) return "";
-    return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+    var seconds = Math.floor((new Date() - dt) / 1000);
+    if (seconds < 0) seconds = 0;
+    var interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 2592000);
+    if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 2628000);
+    if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 86400);
+    if (interval >= 1) return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 3600);
+    if (interval >= 1) return interval + " hr" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) return interval + " min" + (interval === 1 ? "" : "s") + " ago";
+    return "Just now";
+  }
+
+  function highlightText(text, query) {
+    if (!query || typeof query !== "string") return escapeHtml(text);
+    var safeText = escapeHtml(text);
+    var q = query.trim();
+    if (!q) return safeText;
+    var pattern = new RegExp('(' + q.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
+    return safeText.replace(pattern, "<mark>$1</mark>");
   }
 
   function canonicalBaseFromSite(site) {
@@ -244,7 +267,7 @@
     });
   }
 
-  function renderGrid(items) {
+  function renderGrid(items, qObj) {
     var grid = $("#article-grid");
     if (!grid) return;
     if (!items.length) {
@@ -252,6 +275,7 @@
         '<div class="card" style="grid-column: span 12; padding: 18px;">No results yet. Try a different query.</div>';
       return;
     }
+    var q = qObj ? qObj.q : "";
     grid.innerHTML = items
       .map(function (a) {
         var url = articleUrl(a);
@@ -260,32 +284,18 @@
         var desc = a.metaDescription || a.description || a.summary || "";
         if (desc && String(desc).length > 180) desc = String(desc).slice(0, 177) + "…";
         return (
-          '<a class="card" href="' +
-          escapeHtml(url) +
-          '" role="listitem">' +
+          '<a class="card fade-in" href="' + escapeHtml(url) + '" role="listitem">' +
           '<div class="card__media" aria-hidden="true">' +
-          (img
-            ? '<img loading="lazy" src="' + escapeHtml(img) + '" alt="' + escapeHtml(a.imageAlt || title) + '" />'
-            : "") +
+          '<span class="badge">' + escapeHtml(normalizeCategory(a.category)) + "</span>" +
+          (img ? '<img loading="lazy" src="' + escapeHtml(img) + '" alt="' + escapeHtml(title) + '" />' : "") +
           "</div>" +
           '<div class="card__body">' +
-          '<p class="card__kicker"><span class="badge">' +
-          escapeHtml(normalizeCategory(a.category)) +
-          "</span><span>" +
-          escapeHtml(prettyDate(a.publishedAt)) +
-          "</span><span>" +
-          '<span class="card__read-time">' +
-          escapeHtml(readingTime(a)) +
-          "</span>" +
-          "</span><span>" +
-          escapeHtml((a.source && a.source.name) || a.source || "") +
-          "</span></p>" +
-          '<h3 class="card__title">' +
-          escapeHtml(title) +
-          "</h3>" +
-          '<p class="card__desc">' +
-          escapeHtml(desc) +
-          "</p>" +
+          '<p class="card__kicker"><span>' + escapeHtml(timeAgo(a.publishedAt)) + "</span>" +
+          '<span><span class="card__read-time">' + escapeHtml(readingTime(a)) + "</span></span>" +
+          "<span>" + highlightText((a.source && a.source.name) || a.source || "", q) + "</span></p>" +
+          '<h3 class="card__title">' + highlightText(title, q) + "</h3>" +
+          '<p class="card__desc">' + highlightText(desc, q) + "</p>" +
+          '<span class="card__read">Read more →</span>' +
           "</div>" +
           "</a>"
         );
@@ -294,7 +304,7 @@
     grid.classList.add("stagger-in");
   }
 
-  function renderFeatured(list) {
+  function renderFeatured(list, qObj) {
     var featured = $("#hero-featured");
     if (!featured) return;
     if (!list || !list.length) {
@@ -302,6 +312,7 @@
       return;
     }
     
+    var q = qObj ? qObj.q : "";
     var html = '<div class="hero-carousel">';
     
     list.forEach(function (article) {
@@ -310,27 +321,18 @@
       var image = article.image || "";
       var source = (article.source && article.source.name) || article.source || "";
       html +=
-        '<a class="featured-card fade-in" href="' +
-        escapeHtml(articleUrl(article)) +
-        '">' +
+        '<a class="featured-card fade-in" href="' + escapeHtml(articleUrl(article)) + '">' +
         '<div class="featured-card__body">' +
-        '<p class="card__kicker"><span class="badge">' +
-        escapeHtml(normalizeCategory(article.category)) +
-        "</span><span>" +
-        escapeHtml(prettyDate(article.publishedAt)) +
-        "</span><span>" +
-        escapeHtml(source) +
-        "</span></p>" +
-        '<h2 class="featured-card__title">' +
-        escapeHtml(title) +
-        "</h2>" +
-        '<p class="card__desc">' +
-        escapeHtml(desc) +
-        "</p>" +
+        '<p class="card__kicker">' +
+        "<span>" + escapeHtml(timeAgo(article.publishedAt)) + "</span>" +
+        "<span>" + highlightText(source, q) + "</span></p>" +
+        '<h2 class="featured-card__title">' + highlightText(title, q) + "</h2>" +
+        '<p class="card__desc">' + highlightText(desc, q) + "</p>" +
         '<span class="featured-card__read">Read more →</span>' +
         "</div>" +
         '<div class="featured-card__media">' +
-        (image ? '<img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.imageAlt || title) + '" />' : "") +
+        '<span class="badge">' + escapeHtml(normalizeCategory(article.category)) + "</span>" +
+        (image ? '<img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + '" />' : "") +
         "</div>" +
         "</a>";
     });
@@ -477,13 +479,13 @@
 
         var filtered = filterAndSort(articles, q);
         var featuredList = filtered.slice(0, 5);
-        renderFeatured(featuredList);
+        renderFeatured(featuredList, q);
         initHeroCarousel();
         var listForGrid = filtered.slice(featuredList.length);
         var page = q.page || 1;
         var start = (page - 1) * PAGE_SIZE;
         var slice = listForGrid.slice(start, start + PAGE_SIZE);
-        renderGrid(slice);
+        renderGrid(slice, q);
         renderPager(listForGrid.length, page, PAGE_SIZE);
 
         var meta = $("#latest-meta");
@@ -507,8 +509,19 @@
     if (!form || !input) return;
     var q = getQuery();
     if (q.q) input.value = q.q;
+    
+    var debounceTimer;
+    input.addEventListener("input", function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        setQuery({ q: input.value, page: 1 });
+        hydrate();
+      }, 300);
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      clearTimeout(debounceTimer);
       setQuery({ q: input.value, page: 1 });
       hydrate();
     });

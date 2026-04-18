@@ -408,6 +408,30 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   background: var(--surface);
   overflow: hidden;
+  position: relative;
+}
+
+.card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 18, 32, 0.8) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card__media .badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(99, 102, 241, 0.9);
+  color: white;
+  font-weight: 600;
 }
 
 .card__media img {
@@ -993,3 +1017,111 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ==========================================================================
+   Advanced UI Features (Search, Social, Paging)
+   ========================================================================== */
+
+mark {
+  background-color: rgba(99, 102, 241, 0.25);
+  color: var(--brand);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-weight: 500;
+}
+
+.card__read {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brand);
+  margin-top: 14px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all var(--transition);
+}
+
+.card:hover .card__read {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Article Page Sticky Back */
+.sticky-back {
+  position: fixed;
+  left: 24px;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  background: var(--surface);
+  padding: 10px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition);
+  z-index: 50;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.sticky-back:hover {
+  color: var(--text);
+  border-color: var(--brand);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.sticky-back svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Social Share Row */
+.social-share {
+  display: flex;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.social-share__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.social-share__btn:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.social-share__btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 1024px) {
+  .sticky-back {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-bottom: 24px;
+    display: inline-flex;
+  }
+}

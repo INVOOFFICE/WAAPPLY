@@ -361,6 +361,10 @@ function main() {
     const keywords = buildKeywords(a);
     const imageAlt = clampChars(a.imageAlt || a.title || "AI news image", 120);
 
+    const rawContent = String(summary) + " " + String(why) + " " + String(intro);
+    const wordsCount = rawContent.split(/\s+/).filter(Boolean).length;
+    const readingTime = Math.max(1, Math.ceil(wordsCount / 200)) + " min";
+
     const bullets = buildBullets(a)
       .map((b) => "<li>" + escapeHtml(clampChars(b, 140)) + "</li>")
       .join("");
@@ -376,6 +380,7 @@ function main() {
       .replaceAll("{{CANONICAL_URL}}", escapeHtml(canon || ""))
       .replaceAll("{{OG_IMAGE}}", escapeHtml(ogImage))
       .replaceAll("{{CATEGORY}}", escapeHtml(a.category))
+      .replaceAll("{{READING_TIME}}", escapeHtml(readingTime))
       .replaceAll("{{SOURCE}}", escapeHtml((a.source && a.source.name) || a.source || ""))
       .replaceAll("{{PUBLISHED_ISO}}", escapeHtml(safeDateIso(a.publishedAt) || ""))
       .replaceAll("{{PUBLISHED_PRETTY}}", escapeHtml(prettyDate(a.publishedAt) || ""))
