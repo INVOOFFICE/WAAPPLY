@@ -83,24 +83,8 @@
   }
 
   function isAiArticle(a) {
-    if (!a) return false;
-    var cat = String(a.category || "").trim().toLowerCase();
-    if (cat && AI_ALLOWED_CATEGORIES.has(cat)) return true;
-    var text =
-      String(a.title || "") +
-      " " +
-      String(a.keywords || "") +
-      " " +
-      String(a.summary || "") +
-      " " +
-      String(a.description || "") +
-      " " +
-      String(a.metaDescription || "");
-    text = text.toLowerCase();
-    for (var i = 0; i < AI_KEYWORDS.length; i++) {
-      if (text.indexOf(AI_KEYWORDS[i]) >= 0) return true;
-    }
-    return false;
+    // Articles from the pipeline are already AI-related — trust the feed
+    return !!(a && a.title && String(a.title).trim());
   }
 
   function articleUrl(article) {
@@ -228,10 +212,7 @@
     });
     return Array.prototype.slice
       .call(out)
-      .filter(Boolean)
-      .filter(function (c) {
-        return AI_ALLOWED_CATEGORIES.has(String(c).toLowerCase());
-      });
+      .filter(Boolean);
   }
 
   function renderPills(categories, active) {
