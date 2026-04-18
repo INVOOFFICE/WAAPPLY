@@ -456,51 +456,74 @@
     }
   }
 
+  var windowFullNewsData = null;
+
+  function processNewsData(data) {
+    var site = data.site || {};
+    var articles = (data.articles || []).filter(isAiArticle);
+    applyCanonicalHome_(site);
+    $$("[data-site-name]").forEach(function (el) {
+      el.textContent = site.name || "waapply";
+    });
+
+    var q = getQuery();
+    var input = $("#search-input");
+    if (input && q.q && input.value !== q.q) input.value = q.q;
+
+    var categories = buildCategorySet(articles, site);
+    renderPills(categories, q.cat || "all");
+
+    var filtered = filterAndSort(articles, q);
+    var featuredList = filtered.slice(0, 5);
+    renderFeatured(featuredList, q);
+    initHeroCarousel();
+    var listForGrid = filtered.slice(featuredList.length);
+    var page = q.page || 1;
+    var start = (page - 1) * PAGE_SIZE;
+    var slice = listForGrid.slice(start, start + PAGE_SIZE);
+    renderGrid(slice, q);
+    renderPager(listForGrid.length, page, PAGE_SIZE);
+
+    var meta = $("#latest-meta");
+    if (meta) {
+      meta.textContent =
+        listForGrid.length +
+        " articles" +
+        (q.cat && q.cat !== "all" ? " · " + q.cat : "") +
+        (q.q ? ' · search: "' + q.q + '"' : "");
+    }
+  }
+
   function hydrate() {
-    renderSkeletons();
-    return fetch("news.json", { cache: "no-store" })
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (data) {
-        var site = data.site || {};
-        var articles = (data.articles || []).filter(isAiArticle);
-        applyCanonicalHome_(site);
-        $$("[data-site-name]").forEach(function (el) {
-          el.textContent = site.name || "waapply";
+    var q = getQuery();
+    if (!windowFullNewsData && !q.q && (!q.cat || q.cat === "all") && (!q.page || Number(q.page) === 1)) {
+      renderSkeletons();
+      fetch("news-latest.json", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (latestData) {
+          if (!windowFullNewsData) processNewsData(latestData);
+          return fetch("news.json", { cache: "no-store" });
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (fullData) {
+          windowFullNewsData = fullData;
+          processNewsData(fullData);
+        })
+        .catch(function () {
+          var grid = $("#article-grid");
+          if (grid) grid.innerHTML = '<div class="card" style="grid-column: span 12; padding: 18px;">Failed to load <code>news.json</code>.</div>';
         });
-
-        var q = getQuery();
-        var input = $("#search-input");
-        if (input && q.q && input.value !== q.q) input.value = q.q;
-
-        var categories = buildCategorySet(articles, site);
-        renderPills(categories, q.cat || "all");
-
-        var filtered = filterAndSort(articles, q);
-        var featuredList = filtered.slice(0, 5);
-        renderFeatured(featuredList, q);
-        initHeroCarousel();
-        var listForGrid = filtered.slice(featuredList.length);
-        var page = q.page || 1;
-        var start = (page - 1) * PAGE_SIZE;
-        var slice = listForGrid.slice(start, start + PAGE_SIZE);
-        renderGrid(slice, q);
-        renderPager(listForGrid.length, page, PAGE_SIZE);
-
-        var meta = $("#latest-meta");
-        if (meta) {
-          meta.textContent =
-            listForGrid.length +
-            " articles" +
-            (q.cat && q.cat !== "all" ? " · " + q.cat : "") +
-            (q.q ? ' · search: "' + q.q + '"' : "");
-        }
-      })
-      .catch(function () {
+    } else {
+      if (!windowFullNewsData) renderSkeletons();
+      var loader = windowFullNewsData ? Promise.resolve(windowFullNewsData) : fetch("news.json", { cache: "no-store" }).then(function (r) { return r.json(); });
+      loader.then(function (data) {
+        windowFullNewsData = data;
+        processNewsData(data);
+      }).catch(function () {
         var grid = $("#article-grid");
         if (grid) grid.innerHTML = '<div class="card" style="grid-column: span 12; padding: 18px;">Failed to load <code>news.json</code>.</div>';
       });
+    }
   }
 
   function initSearch() {

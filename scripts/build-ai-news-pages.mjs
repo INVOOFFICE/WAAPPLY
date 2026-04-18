@@ -418,6 +418,14 @@ function main() {
       articles: normalized.map((a) => ({ ...a, slug: a.slug })),
     };
     writeFile(NEWS_JSON, JSON.stringify(outJson, null, 2) + "\n");
+    
+    // Create highly optimized fast-loading preview dataset
+    const latestJson = {
+      site: { ...site, canonicalOrigin: base },
+      articles: outJson.articles.slice(0, 20),
+    };
+    const latestPath = path.join(ROOT, "news-latest.json");
+    writeFile(latestPath, JSON.stringify(latestJson, null, 2) + "\n");
   }
 
   console.log(`✓ Built: ${normalized.length} article pages`);
