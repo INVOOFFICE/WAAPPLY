@@ -43,8 +43,9 @@ jobs:
             exit 0
           fi
           git commit -m "chore: regenerate static ai news pages"
-          git pull --rebase origin "$BRANCH"
-          git push origin "HEAD:refs/heads/$BRANCH"
+          for i in {1..5}; do
+            git pull --rebase origin "$BRANCH" && git push origin "HEAD:refs/heads/$BRANCH" && break || sleep 5
+          done
 
       - name: Verify generated articles
         run: |
@@ -61,5 +62,13 @@ jobs:
               console.warn('Missing articles detected: ' + missing.length);
               process.exit(1);
             }
-          " || { echo "Retrying build safely..."; node scripts/build-ai-news-pages.mjs; git add articles sitemap.xml feed.xml news-latest.json || true; git commit --amend --no-edit || true; git push --force-with-lease origin "HEAD:refs/heads/${{ github.ref_name }}" || true; }
+          " || { 
+            echo "Retrying build safely..."; 
+            node scripts/build-ai-news-pages.mjs; 
+            git add articles sitemap.xml feed.xml news-latest.json || true; 
+            git commit --amend --no-edit || true;
+            for i in {1..5}; do
+              git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:refs/heads/${{ github.ref_name }}" && break || sleep 5
+            done
+          }
 
