@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>waapply</title>
-  <link></link>
-  <description>Artificial Intelligence news updates from waapply.</description>
+  <link>https://waapply.com/</link>
+  <description>Latest Artificial Intelligence news and editorial summaries.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 18 Apr 2026 19:35:31 GMT</lastBuildDate>
-  <item>
-    <title>Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass</title>
-    <link>/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</link>
-    <description>Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?</description>
-    <pubDate>Sat, 18 Apr 2026 18:31:09 GMT</pubDate>
-    <category>finance</category>
-    <guid isPermaLink="true">/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
-    <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>OpenAI Has a New AI Model Built for Biology and Science</title>
-    <link>/ai-news/articles/openai-has-a-new-ai-model-built-for-biology-and-science/</link>
-    <description>GPT-Rosalind is intended to help scientists streamline their research and drug discovery. OpenAI's latest AI model is built to do far more than offer cooking?</description>
-    <pubDate>Fri, 17 Apr 2026 19:35:21 GMT</pubDate>
-    <category>ChatGPT</category>
-    <guid isPermaLink="true">/ai-news/articles/openai-has-a-new-ai-model-built-for-biology-and-science/</guid>
-    <enclosure url="https://www.cnet.com/a/img/resize/921f4f17206019f8083ca2c76d863626d890e0c5/hub/2026/04/17/8188e92b-f159-400c-9d0e-656f55473e79/gettyimages-2054866895.jpg?auto=webp&fit=crop&height=675&width=1200" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>A transformative moment': Research shows AI could become the "King of Babel" as LLMs master rare, obscure languages</title>
-    <link>/ai-news/articles/a-transformative-moment-research-shows-ai-could-become-the-king/</link>
-    <description>AI models are rapidly improving in rare languages through shared learning patterns, though real-world fluency still lags behind benchmark performance.?</description>
-    <pubDate>Fri, 17 Apr 2026 19:20:00 GMT</pubDate>
-    <category>Research</category>
-    <guid isPermaLink="true">/ai-news/articles/a-transformative-moment-research-shows-ai-could-become-the-king/</guid>
-    <enclosure url="https://cdn.mos.cms.futurecdn.net/UNrm4JDTpPRvxSLyfdvoJc-1920-80.png" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Streamlining admin controls for Gemini Enterprise in the Google Workspace Admin console</title>
-    <link>/ai-news/articles/streamlining-admin-controls-for-gemini-enterprise-in-the-google/</link>
-    <description>Managing generative AI tools that can access your Google Workspace data will be easier than before with dedicated controls to manage Gemini Enterprise access?</description>
-    <pubDate>Fri, 17 Apr 2026 19:11:00 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/streamlining-admin-controls-for-gemini-enterprise-in-the-google/</guid>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhB41ENSO1xpckEbsfNUi_OscJ4EsPeenQUHBAIvbjLYY4qNAxaBwvZFJ-PN_bGt86WAi9mRbTMXf7-8Ws6aJV9pQXgMMbAVdp56OAYCizNf-ncfUb2-x1CXj-fQ6Snwc5DZC-BzWTTgeUM9pQfbUNOfG7GWIjlIHWKStznob0h8uapwLIArk1nC7h8AFk/w1200-h630-p-k-no-nu/Streamlining%20admin%20controls%20for%20Gemini%20Enterprise%20in%20the%20Google%20Workspace%20Admin%20console.png" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Perspective: AI demand is inflated, and only Anthropic is being realistic</title>
-    <link>/ai-news/articles/perspective-ai-demand-is-inflated-and-only-anthropic-is-being/</link>
-    <description>The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated. The main demand signal for?</description>
-    <pubDate>Fri, 17 Apr 2026 19:10:15 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/perspective-ai-demand-is-inflated-and-only-anthropic-is-being/</guid>
-    <enclosure url="https://image.cnbcfm.com/api/v1/image/108269270-1771956501559-gettyimages-2261854833-AFP_98666EE.jpeg?v=1776444231&w=1920&h=1080" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Monzo founder makes dark prediction about your job in AI future</title>
-    <link>/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</link>
-    <description>The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?</description>
-    <pubDate>Fri, 17 Apr 2026 18:49:00 GMT</pubDate>
-    <category>Business</category>
-    <guid isPermaLink="true">/ai-news/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</guid>
-    <enclosure url="https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg" type="image/jpeg" length="0" />
-  </item>
+  <lastBuildDate>Sat, 18 Apr 2026 20:03:26 GMT</lastBuildDate>
+  <atom:link href="https://waapply.com/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue?</title>
+  <link>https://waapply.com/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</link>
+  <description>Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?</description>
+  <pubDate>Sat, 18 Apr 2026 18:31:09 GMT</pubDate>
+  <category>finance</category>
+  <guid isPermaLink="true">https://waapply.com/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
+  <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&amp;height=800&amp;fit=crop" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>OpenAI Has a New AI Model Built for Biology and Science</title>
+  <link>https://waapply.com/articles/openai-has-a-new-ai-model-built-for-biology-and-science/</link>
+  <description>GPT-Rosalind is intended to help scientists streamline their research and drug discovery. OpenAI's latest AI model is built to do far more than offer cooking?</description>
+  <pubDate>Fri, 17 Apr 2026 19:35:21 GMT</pubDate>
+  <category>ChatGPT</category>
+  <guid isPermaLink="true">https://waapply.com/articles/openai-has-a-new-ai-model-built-for-biology-and-science/</guid>
+  <enclosure url="https://www.cnet.com/a/img/resize/921f4f17206019f8083ca2c76d863626d890e0c5/hub/2026/04/17/8188e92b-f159-400c-9d0e-656f55473e79/gettyimages-2054866895.jpg?auto=webp&amp;fit=crop&amp;height=675&amp;width=1200" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>A transformative moment': Research shows AI could become the &quot;King?</title>
+  <link>https://waapply.com/articles/a-transformative-moment-research-shows-ai-could-become-the-king/</link>
+  <description>AI models are rapidly improving in rare languages through shared learning patterns, though real-world fluency still lags behind benchmark performance.?</description>
+  <pubDate>Fri, 17 Apr 2026 19:20:00 GMT</pubDate>
+  <category>Research</category>
+  <guid isPermaLink="true">https://waapply.com/articles/a-transformative-moment-research-shows-ai-could-become-the-king/</guid>
+  <enclosure url="https://cdn.mos.cms.futurecdn.net/UNrm4JDTpPRvxSLyfdvoJc-1920-80.png" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Streamlining admin controls for Gemini Enterprise in the Google?</title>
+  <link>https://waapply.com/articles/streamlining-admin-controls-for-gemini-enterprise-in-the-google/</link>
+  <description>Managing generative AI tools that can access your Google Workspace data will be easier than before with dedicated controls to manage Gemini Enterprise access?</description>
+  <pubDate>Fri, 17 Apr 2026 19:11:00 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true">https://waapply.com/articles/streamlining-admin-controls-for-gemini-enterprise-in-the-google/</guid>
+  <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhB41ENSO1xpckEbsfNUi_OscJ4EsPeenQUHBAIvbjLYY4qNAxaBwvZFJ-PN_bGt86WAi9mRbTMXf7-8Ws6aJV9pQXgMMbAVdp56OAYCizNf-ncfUb2-x1CXj-fQ6Snwc5DZC-BzWTTgeUM9pQfbUNOfG7GWIjlIHWKStznob0h8uapwLIArk1nC7h8AFk/w1200-h630-p-k-no-nu/Streamlining%20admin%20controls%20for%20Gemini%20Enterprise%20in%20the%20Google%20Workspace%20Admin%20console.png" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Perspective: AI demand is inflated, and only Anthropic is being?</title>
+  <link>https://waapply.com/articles/perspective-ai-demand-is-inflated-and-only-anthropic-is-being/</link>
+  <description>The main usage metric for artificial intelligence, called tokens, looks explosive on paper, but it may be significantly overstated. The main demand signal for?</description>
+  <pubDate>Fri, 17 Apr 2026 19:10:15 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true">https://waapply.com/articles/perspective-ai-demand-is-inflated-and-only-anthropic-is-being/</guid>
+  <enclosure url="https://image.cnbcfm.com/api/v1/image/108269270-1771956501559-gettyimages-2261854833-AFP_98666EE.jpeg?v=1776444231&amp;w=1920&amp;h=1080" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Monzo founder makes dark prediction about your job in AI future</title>
+  <link>https://waapply.com/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</link>
+  <description>The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?</description>
+  <pubDate>Fri, 17 Apr 2026 18:49:00 GMT</pubDate>
+  <category>Business</category>
+  <guid isPermaLink="true">https://waapply.com/articles/monzo-founder-makes-dark-prediction-about-your-job-in-ai-future/</guid>
+  <enclosure url="https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg" type="image/jpeg" length="0" />
+</item>
 </channel>
 </rss>
