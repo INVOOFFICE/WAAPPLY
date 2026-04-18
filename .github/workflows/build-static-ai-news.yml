@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Build article pages
         run: node scripts/build-ai-news-pages.mjs
@@ -35,5 +35,6 @@ jobs:
           git add news-latest.json
           git diff --cached --quiet && echo "Nothing to commit" && exit 0
           git commit -m "chore: rebuild static pages [skip ci]"
-          git pull --rebase origin main
+          git fetch origin main
+          git rebase origin/main
           git push
