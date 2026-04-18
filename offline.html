@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050811" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="waapply" />
+    <link rel="stylesheet" href="style.css" />
+    <title>You're offline — waapply</title>
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <nav class="nav container" aria-label="Primary">
+        <a class="nav__brand" href="index.html">waapply</a>
+      </nav>
+    </header>
+    <main class="container page" style="min-height:70vh;display:flex;align-items:center;">
+      <section class="page__card" style="text-align:center;padding:56px 32px;width:100%;">
+        <div style="font-size:64px;margin-bottom:16px;">📡</div>
+        <h1 class="page__title" style="margin-bottom:12px;">You're offline</h1>
+        <p style="color:var(--muted);max-width:40ch;margin:0 auto 28px;">
+          No internet connection detected. Check your network and try again — cached articles are still available.
+        </p>
+        <button class="btn" onclick="window.location.reload()">Try again</button>
+        <p style="margin-top:20px;font-size:13px;color:var(--muted);">
+          Or <a href="index.html" style="color:var(--brand);">browse cached articles</a>
+        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div><strong>waapply</strong><p class="footer__text">Artificial Intelligence news, summarized.</p></div>
+        <div class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

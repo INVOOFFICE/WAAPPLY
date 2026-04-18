@@ -587,3 +587,139 @@
   hydrate();
 })();
 
+
+/* ============================================================
+   PWA — Service Worker registration + Install banner
+   ============================================================ */
+(function () {
+  "use strict";
+
+  /* ── 1. Register service worker ──────────────────────── */
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js", { scope: "/" })
+        .then(function (reg) {
+          console.log("[PWA] SW registered, scope:", reg.scope);
+
+          // Check for updates every time the page loads
+          reg.addEventListener("updatefound", function () {
+            var newWorker = reg.installing;
+            if (!newWorker) return;
+            newWorker.addEventListener("statechange", function () {
+              if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+                showUpdateToast();
+              }
+            });
+          });
+        })
+        .catch(function (err) {
+          console.warn("[PWA] SW registration failed:", err);
+        });
+    });
+  }
+
+  /* ── 2. Install banner (A2HS) ────────────────────────── */
+  var deferredPrompt = null;
+  var DISMISSED_KEY  = "pwa_banner_dismissed_v1";
+
+  // Capture the browser's native install prompt
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Don't show if user dismissed recently (within 7 days)
+    var dismissed = localStorage.getItem(DISMISSED_KEY);
+    if (dismissed && Date.now() - parseInt(dismissed, 10) < 7 * 24 * 60 * 60 * 1000) return;
+
+    // Don't show if already running as standalone (already installed)
+    if (window.matchMedia("(display-mode: standalone)").matches) return;
+    if (window.navigator.standalone === true) return;
+
+    // Small delay so page content loads first
+    setTimeout(showInstallBanner, 2500);
+  });
+
+  // Hide banner if app is successfully installed
+  window.addEventListener("appinstalled", function () {
+    hideBanner();
+    deferredPrompt = null;
+    console.log("[PWA] App installed!");
+  });
+
+  function showInstallBanner() {
+    if (document.getElementById("pwa-banner")) return;
+
+    var banner = document.createElement("div");
+    banner.id = "pwa-banner";
+    banner.setAttribute("role", "complementary");
+    banner.setAttribute("aria-label", "Install waapply app");
+    banner.innerHTML =
+      '<div class="pwa-banner__inner">' +
+        '<img src="/favicon.svg" class="pwa-banner__icon" alt="" aria-hidden="true" width="40" height="40"/>' +
+        '<div class="pwa-banner__text">' +
+          '<strong>Add waapply to your home screen</strong>' +
+          '<span>Fast, offline-ready AI news — no app store needed.</span>' +
+        '</div>' +
+        '<div class="pwa-banner__actions">' +
+          '<button class="pwa-banner__btn pwa-banner__btn--install" id="pwa-install-btn">Install</button>' +
+          '<button class="pwa-banner__btn pwa-banner__btn--dismiss" id="pwa-dismiss-btn" aria-label="Dismiss">✕</button>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(banner);
+
+    // Animate in
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        banner.classList.add("pwa-banner--visible");
+      });
+    });
+
+    document.getElementById("pwa-install-btn").addEventListener("click", function () {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function (choice) {
+        if (choice.outcome === "accepted") {
+          console.log("[PWA] User accepted install");
+        } else {
+          localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+        }
+        deferredPrompt = null;
+        hideBanner();
+      });
+    });
+
+    document.getElementById("pwa-dismiss-btn").addEventListener("click", function () {
+      localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+      hideBanner();
+    });
+  }
+
+  function hideBanner() {
+    var banner = document.getElementById("pwa-banner");
+    if (!banner) return;
+    banner.classList.remove("pwa-banner--visible");
+    setTimeout(function () {
+      if (banner.parentNode) banner.parentNode.removeChild(banner);
+    }, 350);
+  }
+
+  function showUpdateToast() {
+    var toast = document.createElement("div");
+    toast.id = "pwa-update-toast";
+    toast.innerHTML =
+      '<span>⚡ New version available.</span>' +
+      '<button id="pwa-update-btn">Update now</button>';
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        toast.classList.add("pwa-toast--visible");
+      });
+    });
+
+    document.getElementById("pwa-update-btn").addEventListener("click", function () {
+      window.location.reload();
+    });
+  }
+})();
