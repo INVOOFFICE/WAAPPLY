@@ -83,8 +83,24 @@
   }
 
   function isAiArticle(a) {
-    // Articles from the pipeline are already AI-related — trust the feed
-    return !!(a && a.title && String(a.title).trim());
+    if (!a) return false;
+    var cat = String(a.category || "").trim().toLowerCase();
+    if (cat && AI_ALLOWED_CATEGORIES.has(cat)) return true;
+    var text =
+      String(a.title || "") +
+      " " +
+      String(a.keywords || "") +
+      " " +
+      String(a.summary || "") +
+      " " +
+      String(a.description || "") +
+      " " +
+      String(a.metaDescription || "");
+    text = text.toLowerCase();
+    for (var i = 0; i < AI_KEYWORDS.length; i++) {
+      if (text.indexOf(AI_KEYWORDS[i]) >= 0) return true;
+    }
+    return false;
   }
 
   function articleUrl(article) {
@@ -212,7 +228,10 @@
     });
     return Array.prototype.slice
       .call(out)
-      .filter(Boolean);
+      .filter(Boolean)
+      .filter(function (c) {
+        return AI_ALLOWED_CATEGORIES.has(String(c).toLowerCase());
+      });
   }
 
   function renderPills(categories, active) {
@@ -312,8 +331,8 @@
         '<span class="featured-card__read">Read more →</span>' +
         "</div>" +
         '<div class="featured-card__media">' +
-        '<span class="badge">' + escapeHtml(normalizeCategory(article.category)) + "</span>" +
         (image ? '<img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(title) + '" />' : "") +
+        '<span class="badge featured-card__badge">' + escapeHtml(normalizeCategory(article.category)) + "</span>" +
         "</div>" +
         "</a>";
     });
