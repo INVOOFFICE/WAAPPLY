@@ -16,6 +16,29 @@
   },
   "articles": [
     {
+      "id": "yZey6LsZbM65zEDd",
+      "title": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass",
+      "seoTitle": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue?",
+      "metaDescription": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?",
+      "category": "finance",
+      "image": "https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop",
+      "imageAlt": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass",
+      "url": "https://www.benzinga.com/news/politics/26/04/51902572/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue-dollars-to-people-or-there-will-be-massive-disinflation",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T18:31:09.000Z",
+      "description": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
+      "summary": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
+      "intro": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
+      "bullets": [
+        "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
+      "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
+    },
+    {
       "id": "G5rlCt7DGeMstmBC",
       "title": "Layer 1 of the Agentic OS: Building Always-On Context for GitHub Copilot",
       "seoTitle": "Layer 1 of the Agentic OS: Building Always-On Context for GitHub?",
@@ -116,100 +139,54 @@
       "slug": "meta-layoffs-16-000-jobs-on-the-line-as-mark-zuckerberg-plans-major"
     },
     {
-      "id": "I4J3PxVNFWLazdtE",
-      "title": "Starbucks now lets you pick your drink based on your mood using ChatGPT",
-      "seoTitle": "Starbucks now lets you pick your drink based on your mood using?",
-      "metaDescription": "You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.",
-      "category": "general",
-      "image": "https://media.wltx.com/assets/CCT/images/d26c7743-d24c-48ac-a343-21df1b892a0f/20260418T122210/d26c7743-d24c-48ac-a343-21df1b892a0f_1140x641.jpg",
-      "imageAlt": "Starbucks now lets you pick your drink based on your mood using ChatGPT",
-      "url": "https://www.wltx.com/article/life/food/starbucks-rolls-out-ai-feature-for-personalized-drink-picks-chatgpt/507-cf3f0647-934b-4e7d-8322-bb7e9943a942",
+      "id": "x942PGt6fYWpXwrR",
+      "title": "Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA NemoClaw",
+      "seoTitle": "Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA?",
+      "metaDescription": "Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows.?",
+      "category": "AI",
+      "image": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/04/Claw-DGX-Spark.webp",
+      "imageAlt": "Build a Secure, Always-On Local AI Agent with OpenClaw and NVIDIA NemoClaw",
+      "url": "https://developer.nvidia.com/blog/build-a-secure-always-on-local-ai-agent-with-nvidia-nemoclaw-and-openclaw/",
       "source": {
-        "name": "Currents"
+        "name": "Nvidia.com"
       },
-      "publishedAt": "2026-04-18T15:47:21.000Z",
-      "description": "You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.",
-      "summary": "You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience. You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion. Some wonder what it means for the barista experience.",
-      "intro": "You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion.",
+      "publishedAt": "2026-04-17T18:59:40.000Z",
+      "description": "Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows. However? Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows. However, deploying an agent to execute code an? [+13414 chars]",
+      "summary": "Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows. However? Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows. However, deploying an agent to execute code an? [+13414 chars]",
+      "intro": "Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive multi-step workflows.",
       "bullets": [
-        "You can describe a craving, share a photo or type a feeling and get a personalized drink suggestion.",
-        "Some wonder what it means for the barista experience."
+        "Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and drive?",
+        "However? Agents are evolving from question-and-answer systems into long-running autonomous assistants that read files, call APIs, and?",
+        "However, deploying an agent to execute code an? [+13414 chars]"
       ],
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "your, starbucks, now, lets, you, pick, drink, based, artificial intelligence, machine learning",
-      "slug": "starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using"
+      "keywords": "build, secure, always, local, agent, openclaw, nvidia, nemoclaw, artificial intelligence, machine learning",
+      "slug": "build-a-secure-always-on-local-ai-agent-with-openclaw-and-nvidia"
     },
     {
-      "id": "qIVpHYKk8Gmh6jwo",
-      "title": "Code Red' Author Wynton Hall: Anthropic's AI Threatened to Blackmail It's Boss",
-      "seoTitle": "Code Red' Author Wynton Hall: Anthropic's AI Threatened to?",
-      "metaDescription": "During an appearance on One America News Network's \"Fine Point,\" Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right,?",
-      "category": "AI",
-      "image": "https://media.breitbart.com/media/2026/03/Screenshot-2026-03-20-043046-640x335.jpg",
-      "imageAlt": "Code Red' Author Wynton Hall: Anthropic's AI Threatened to Blackmail It's Boss",
-      "url": "https://www.breitbart.com/clips/2026/04/17/code-red-author-wynton-hall-anthropics-ai-threatened-to-blackmail-its-boss/",
+      "id": "1k2rtT_vP7kx5BCj",
+      "title": "Monzo founder makes dark prediction about your job in AI future",
+      "seoTitle": "Monzo founder makes dark prediction about your job in AI future",
+      "metaDescription": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The?",
+      "category": "Business",
+      "image": "https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/blt1a23e30c24124f3e/69e27745b2b4e68241651850/ai-job-market.jpg",
+      "imageAlt": "Monzo founder makes dark prediction about your job in AI future",
+      "url": "https://www.ladbible.com/news/technology/ai-job-loss-future-forecast-monzo-founder-tom-blomfield-employment-681086-20260417",
       "source": {
-        "name": "Breitbart News"
+        "name": "LADbible"
       },
-      "publishedAt": "2026-04-17T18:26:24.000Z",
-      "description": "During an appearance on One America News Network's \"Fine Point,\" Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right, China, and the Race to Control AI, said Anthropic's artificial intelligence \"threatened to blackmail, i? During an appearance on One America News Network?s ?Fine Point,? Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right, China, and the Race to Control AI, said Ant? [+1748 chars]",
-      "summary": "During an appearance on One America News Network's \"Fine Point,\" Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right, China, and the Race to Control AI, said Anthropic's artificial intelligence \"threatened to blackmail, i? During an appearance on One America News Network?s ?Fine Point,? Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right, China, and the Race to Control AI, said Ant? [+1748 chars]",
-      "intro": "During an appearance on One America News Network's \"Fine Point,\" Breitbart News social media director Wynton Hall, author of Code Red: The Left, the Right, China, and the Race to Control AI, said Anthropic's artificial intelligence \"threatened to blackmail, i? During an appearance on One America News Network?s ?Fine Point,? Breitbart News social media director Wynton Hall, author of Code Red:?",
+      "publishedAt": "2026-04-17T18:49:00.000Z",
+      "description": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over. Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]",
+      "summary": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant. The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over. Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]",
+      "intro": "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of roles redundant.",
       "bullets": [
-        "During an appearance on One America News Network's \"Fine Point,\" Breitbart News social media director Wynton Hall, author of Code Red: The?"
+        "The future job market doesn't look very bright, according to Tom Blomfield, who believes that artificial intelligence will make a host of?",
+        "The man behind the digital banking app Monzo has shared a bleak forecast about what the future holds now that AI is taking over.",
+        "Tom Blomfield has chimed in on the debate around how the world's eve? [+3888 chars]"
       ],
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "code, red, author, wynton, hall, anthropic, threatened, blackmail, artificial intelligence, machine learning",
-      "slug": "code-red-author-wynton-hall-anthropics-ai-threatened-to"
-    },
-    {
-      "id": "9TskV3vw9b0qTnAA",
-      "title": "Pope tells Catholic university students in Cameroon to ?search for truth?",
-      "seoTitle": "Pope tells Catholic university students in Cameroon to ?search for?",
-      "metaDescription": "Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital revolution.? YAOUNDE,?",
-      "category": "AI",
-      "image": "https://res.cloudinary.com/ewtn/image/upload/v1776448256/ewtn-news/en/_RIS4060_qmnkd3.jpg",
-      "imageAlt": "Pope tells Catholic university students in Cameroon to ?search for truth?",
-      "url": "https://www.ewtnnews.com/vatican/pope-tells-catholic-university-students-in-cameroon-to-search-for-truth",
-      "source": {
-        "name": "Ewtnnews.com"
-      },
-      "publishedAt": "2026-04-17T18:26:00.000Z",
-      "description": "Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital revolution.? YAOUNDE, Cameroon Pope Leo XIV on Friday encouraged Catholic university students in Cameroon to let their study be informed by the light of faith, joined to the truth of love as St. John Henry Newman? [+5733 chars]",
-      "summary": "Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital revolution.? YAOUNDE, Cameroon Pope Leo XIV on Friday encouraged Catholic university students in Cameroon to let their study be informed by the light of faith, joined to the truth of love as St. John Henry Newman? [+5733 chars]",
-      "intro": "Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital revolution.? YAOUNDE, Cameroon Pope Leo XIV on Friday encouraged Catholic university students in Cameroon to let their study be informed by the light of faith, joined to the truth of love as St.",
-      "bullets": [
-        "Leo also addressed artificial intelligence and invited the students to be pioneers of ?a new humanism in the context of the digital?",
-        "John Henry Newman? [+5733 chars]"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "pope, tells, catholic, university, students, cameroon, search, truth, artificial intelligence, machine learning",
-      "slug": "pope-tells-catholic-university-students-in-cameroon-to-search-for"
-    },
-    {
-      "id": "Kx_SvSx4_nVrqrs7",
-      "title": "Show HN: How context engineering works, a runnable reference",
-      "seoTitle": "Show HN: How context engineering works, a runnable reference",
-      "metaDescription": "I've been presenting at local meetups about Context Engineering, RAG, Skills, etc.. I even have a vbrownbag coming up on LinkedIn about this topic so I?",
-      "category": "AI",
-      "image": "https://opengraph.githubassets.com/e56f800cc3b2f6cb45ac8a87052149e588a9bb30431c88bd6bedcde96ba73fd2/outcomeops/context-engineering",
-      "imageAlt": "Show HN: How context engineering works, a runnable reference",
-      "url": "https://github.com/outcomeops/context-engineering",
-      "source": {
-        "name": "Github.com"
-      },
-      "publishedAt": "2026-04-17T18:20:49.000Z",
-      "description": "I've been presenting at local meetups about Context Engineering, RAG, Skills, etc.. I even have a vbrownbag coming up on LinkedIn about this topic so I figured I would make a basic example that uses bedrock so I can use it in my talks or vbrownbags. Hopefully? A working reference implementation of context engineering the discipline of designing, retrieving, and injecting the information an AI system needs to produce accurate, organization-specific outputs.? [+4938 chars]",
-      "summary": "I've been presenting at local meetups about Context Engineering, RAG, Skills, etc.. I even have a vbrownbag coming up on LinkedIn about this topic so I figured I would make a basic example that uses bedrock so I can use it in my talks or vbrownbags. Hopefully? A working reference implementation of context engineering the discipline of designing, retrieving, and injecting the information an AI system needs to produce accurate, organization-specific outputs.? [+4938 chars]",
-      "intro": "I've been presenting at local meetups about Context Engineering, RAG, Skills, etc..",
-      "bullets": [
-        "I've been presenting at local meetups about Context Engineering, RAG, Skills, etc..",
-        "I even have a vbrownbag coming up on LinkedIn about this topic so I figured I would make a basic example that uses bedrock so I can use it?",
-        "Hopefully? A working reference implementation of context engineering the discipline of designing, retrieving, and injecting the?"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "show, how, context, engineering, works, runnable, reference, artificial intelligence, machine learning",
-      "slug": "show-hn-how-context-engineering-works-a-runnable-reference"
+      "keywords": "monzo, founder, makes, dark, prediction, about, your, job, artificial intelligence, machine learning",
+      "slug": "monzo-founder-makes-dark-prediction-about-your-job-in-ai-future"
     }
   ]
 }
