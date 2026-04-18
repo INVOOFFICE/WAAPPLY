@@ -173,9 +173,7 @@
     (articles || []).forEach(function (a) {
       if (a && a.category) out.add(String(a.category));
     });
-    return Array.prototype.slice
-      .call(out)
-      .filter(Boolean);
+    return Array.prototype.slice.call(out).filter(Boolean);
   }
 
   function renderPills(categories, active) {
@@ -444,7 +442,7 @@
     renderPills(categories, q.cat || "all");
 
     var filtered = filterAndSort(articles, q);
-    var featuredList = filtered.slice(0, 5);
+    var featuredList = filtered.slice(0, 3);
     renderFeatured(featuredList, q);
     initHeroCarousel();
     var listForGrid = filtered.slice(featuredList.length);
