@@ -857,6 +857,52 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: var(--transition);
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.contact-form .btn {
+  margin-top: 8px;
+  align-self: flex-start;
+  padding: 14px 28px;
+  cursor: pointer;
+}
+
 .skeleton {
   background: linear-gradient(90deg, var(--surface) 25%, rgba(255, 255, 255, 0.06) 50%, var(--surface) 75%);
   background-size: 200% 100%;
