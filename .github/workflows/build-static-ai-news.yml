@@ -6,6 +6,11 @@ on:
       - 'news.json'
   workflow_dispatch:
 
+# 1. Sérialise tous les runs sur main — annule le run en attente si un nouveau arrive
+concurrency:
+  group: build-static-${{ github.ref }}
+  cancel-in-progress: false   # false = on attend que le run précédent se termine
+
 permissions:
   contents: write
 
@@ -17,7 +22,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0           # historique complet pour le rebase
+          ref: main                # checkout explicite de main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,9 +37,30 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add articles/ news-latest.json sitemap.xml feed.xml robots.txt
-          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+
+          # Rien à committer → on s'arrête proprement
+          if git diff --cached --quiet; then
+            echo "✅ Nothing to commit, skipping push."
+            exit 0
+          fi
+
           git commit -m "chore: rebuild static pages [skip ci]"
-          git fetch origin main
-          git rebase -X theirs origin/main
-          git push
+
+          # Boucle retry : jusqu'à 5 tentatives en cas de race condition résiduelle
+          MAX=5
+          COUNT=0
+          until git push origin main; do
+            COUNT=$((COUNT + 1))
+            if [ "$COUNT" -ge "$MAX" ]; then
+              echo "❌ Push failed after $MAX attempts."
+              exit 1
+            fi
+            echo "⚠️  Push rejected (attempt $COUNT/$MAX), pulling and rebasing…"
+            git fetch origin main
+            # -X theirs = nos fichiers générés gagnent toujours en cas de conflit
+            git rebase -X theirs origin/main
+          done
+
+          echo "✅ Pages pushed successfully."
