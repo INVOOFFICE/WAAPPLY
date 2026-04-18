@@ -227,6 +227,45 @@
         onScroll();
       })();
     </script>
+    <script>
+    (function(){
+      var WA = "https://script.google.com/macros/s/AKfycbxa8OflaUsi78xqH6OZsP6xoQi-hrKcm7sYooU9JeAAQXxtJf3H9r4rhEmiwcjnDbQC/exec";
+      var form  = document.getElementById("nl-form-article");
+      var email = document.getElementById("nl-email-article");
+      var btn   = document.getElementById("nl-btn-article");
+      var msg   = document.getElementById("nl-msg-article");
+      if (!form) return;
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var val = (email ? email.value : "").trim();
+        if (!val || val.indexOf("@") < 1) {
+          msg.textContent = "Please enter a valid email address.";
+          msg.className = "nl__msg nl__msg--err";
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+        msg.textContent = "Just a moment...";
+        msg.className = "nl__msg nl__msg--wait";
+        fetch(WA + "?action=subscribe&email=" + encodeURIComponent(val))
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if (d.status === "ok" || d.status === "exists") {
+              msg.textContent = d.status === "exists" ? "Already subscribed - thanks!" : "Welcome! Check your inbox.";
+              msg.className = "nl__msg nl__msg--ok";
+              if (email) email.value = "";
+              btn.textContent = "Done!";
+            } else { throw new Error(d.message || "Error"); }
+          })
+          .catch(function(){
+            msg.textContent = "Something went wrong. Please try again.";
+            msg.className = "nl__msg nl__msg--err";
+            btn.disabled = false;
+            btn.textContent = "Subscribe free";
+          });
+      });
+    })();
+    </script>
   </body>
 </html>
 
