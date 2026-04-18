@@ -1,0 +1,9 @@
+# Ignorer les scripts de commande Windows
+*.bat
+
+# Ignorer le code source de Google Apps Script car il contient potentiellement des donnees privees ou ne sert qu'a la configuration
+ai-news-blog/code.gs
+
+# Autres fichiers systemes classiques a ignorer
+.DS_Store
+Thumbs.db
