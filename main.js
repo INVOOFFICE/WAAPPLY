@@ -294,41 +294,49 @@
     grid.classList.add("stagger-in");
   }
 
-  function renderFeatured(article) {
+  function renderFeatured(list) {
     var featured = $("#hero-featured");
     if (!featured) return;
-    if (!article) {
+    if (!list || !list.length) {
       featured.innerHTML = "";
       return;
     }
-    var title = article.title || "";
-    var desc = article.metaDescription || article.description || article.summary || "";
-    var image = article.image || "";
-    var source = (article.source && article.source.name) || article.source || "";
-    featured.innerHTML =
-      '<a class="featured-card fade-in" href="' +
-      escapeHtml(articleUrl(article)) +
-      '">' +
-      '<div class="featured-card__body">' +
-      '<p class="card__kicker"><span class="badge">' +
-      escapeHtml(normalizeCategory(article.category)) +
-      "</span><span>" +
-      escapeHtml(prettyDate(article.publishedAt)) +
-      "</span><span>" +
-      escapeHtml(source) +
-      "</span></p>" +
-      '<h2 class="featured-card__title">' +
-      escapeHtml(title) +
-      "</h2>" +
-      '<p class="card__desc">' +
-      escapeHtml(desc) +
-      "</p>" +
-      '<span class="featured-card__read">Read more →</span>' +
-      "</div>" +
-      '<div class="featured-card__media">' +
-      (image ? '<img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.imageAlt || title) + '" />' : "") +
-      "</div>" +
-      "</a>";
+    
+    var html = '<div class="hero-carousel">';
+    
+    list.forEach(function (article) {
+      var title = article.title || "";
+      var desc = article.metaDescription || article.description || article.summary || "";
+      var image = article.image || "";
+      var source = (article.source && article.source.name) || article.source || "";
+      html +=
+        '<a class="featured-card fade-in" href="' +
+        escapeHtml(articleUrl(article)) +
+        '">' +
+        '<div class="featured-card__body">' +
+        '<p class="card__kicker"><span class="badge">' +
+        escapeHtml(normalizeCategory(article.category)) +
+        "</span><span>" +
+        escapeHtml(prettyDate(article.publishedAt)) +
+        "</span><span>" +
+        escapeHtml(source) +
+        "</span></p>" +
+        '<h2 class="featured-card__title">' +
+        escapeHtml(title) +
+        "</h2>" +
+        '<p class="card__desc">' +
+        escapeHtml(desc) +
+        "</p>" +
+        '<span class="featured-card__read">Read more →</span>' +
+        "</div>" +
+        '<div class="featured-card__media">' +
+        (image ? '<img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(article.imageAlt || title) + '" />' : "") +
+        "</div>" +
+        "</a>";
+    });
+    
+    html += '</div>';
+    featured.innerHTML = html;
   }
 
   function initScrollTop() {
@@ -436,9 +444,9 @@
         renderPills(categories, q.cat || "all");
 
         var filtered = filterAndSort(articles, q);
-        var featured = filtered.length ? filtered[0] : null;
-        renderFeatured(featured);
-        var listForGrid = featured ? filtered.slice(1) : filtered;
+        var featuredList = filtered.slice(0, 5);
+        renderFeatured(featuredList);
+        var listForGrid = filtered.slice(featuredList.length);
         var page = q.page || 1;
         var start = (page - 1) * PAGE_SIZE;
         var slice = listForGrid.slice(start, start + PAGE_SIZE);
