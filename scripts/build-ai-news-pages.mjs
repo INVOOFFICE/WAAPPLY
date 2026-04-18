@@ -346,9 +346,9 @@ function main() {
     const ogImage = (a.image && String(a.image).trim()) || defaultOg;
     const desc = clampChars(a.metaDescription || a.description || a.summary || "", 160);
     const dek = clampChars(a.dek || a.summary || a.description || desc, 180);
-    const intro = clampChars(a.intro || a.summary || a.description || "", 180);
-    const summary = clampChars(a.summary || a.description || "", 220);
-    const why = clampChars(a.whyItMatters || a.impact || a.summary || "", 260);
+    const intro = clampChars(a.intro || a.summary || a.description || "", 400);
+    const summary = clampChars(a.summary || a.description || "", 50000);
+    const why = clampChars(a.whyItMatters || a.impact || a.summary || "", 50000);
     const keywords = buildKeywords(a);
     const imageAlt = clampChars(a.imageAlt || a.title || "AI news image", 120);
 
