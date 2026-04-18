@@ -465,6 +465,7 @@ function aiNews_normalizeArticle_(raw) {
   const description = String(raw.description || raw.content || '').replace(/\s+/g, ' ').trim();
   const publishedAt = aiNews_safeDateIso_(raw.publishedAt || raw.pubDate || raw.published_date || raw.published || '');
   const image = String(raw.urlToImage || raw.image_url || raw.image || '').trim();
+  if (!image) return null;
   const sourceName =
     (raw.source && (raw.source.name || raw.source.id)) ||
     raw.source_id ||
@@ -481,6 +482,7 @@ function aiNews_normalizeArticle_(raw) {
   const aiText = (title + ' ' + description + ' ' + String(raw.category || raw.topic || '')).toLowerCase();
   const aiSignals = [
     'artificial intelligence',
+    'intelligence artificielle',
     'machine learning',
     'ml',
     'llm',
@@ -501,9 +503,7 @@ function aiNews_normalizeArticle_(raw) {
     'ai agent',
     'agentic',
   ];
-  const isAi =
-    AI_NEWS_CONFIG.CATEGORIES.map((c) => String(c).toLowerCase()).indexOf(String(cat).toLowerCase()) >= 0 ||
-    aiSignals.some((k) => aiText.indexOf(k) >= 0);
+  const isAi = aiSignals.some((k) => aiText.indexOf(k) >= 0);
   if (!isAi) return null;
 
   const synth = aiNews_enrichWithGroq_(title, description, url);
