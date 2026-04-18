@@ -775,6 +775,7 @@ function aiNews_buildExportPayload_(rows) {
       const slug = String(r.slug || aiNews_slugify_(r.seoTitle || title)).trim();
       const publishedAt = aiNews_safeDateIso_(r.publishedAt) || aiNews_nowIso_();
       const image = String(r.image || '').trim();
+      if (!image || image.toLowerCase() === 'none' || image.toLowerCase() === 'null') return null;
       const category = String(r.category || aiNews_inferCategory_(title, r.description)).trim() || 'AI';
       const sourceName = String(r.source || '').trim();
       const description = String(r.description || '').trim();
