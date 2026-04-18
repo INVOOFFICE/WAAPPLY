@@ -16,6 +16,32 @@
   },
   "articles": [
     {
+      "id": "aNr--zVeyERDBfAb",
+      "title": "Do AI Agent Costs Grow Exponentially? I Ran My Logs and the Answer Surprised Me",
+      "seoTitle": "Do AI Agent Costs Grow Exponentially? I Ran My Logs and the Answer?",
+      "metaDescription": "A Hacker News thread with 208 points asks whether AI agent costs grow exponentially. I have months of real production logs. The answer isn't what anyone?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fimages.unsplash.com%2Fphoto-1730385349435-130ba6141e72%3Fcrop%3Dentropy%26cs%3Dtinysrgb%26fit%3Dmax%26fm%3Djpg%26ixid%3DM3w5MTc1Mjd8MHwxfHNlYXJjaHwyfHxjb3N0b3MlMjBhZ2VudGVzJTIwSUElMjAyMDI1fGVufDF8MHx8fDE3NzY1MDY5NzB8MA%26ixlib%3Drb-4.1.0%26q%3D80%26w%3D1080",
+      "imageAlt": "Do AI Agent Costs Grow Exponentially? I Ran My Logs and the Answer Surprised Me",
+      "url": "https://dev.to/jtorchia/do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer-surprised-me-337b",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T17:23:37.000Z",
+      "description": "A Hacker News thread with 208 points asks whether AI agent costs grow exponentially. I have months of real production logs. The answer isn't what anyone expects: it's not exponential ? it's discrete jumps. And you're the one causing them.",
+      "summary": "A Hacker News thread with 208 points asks whether AI agent costs grow exponentially. I have months of real production logs. The answer isn't what anyone expects: it's not exponential ? it's discrete jumps. And you're the one causing them.",
+      "intro": "A Hacker News thread with 208 points asks whether AI agent costs grow exponentially.",
+      "bullets": [
+        "A Hacker News thread with 208 points asks whether AI agent costs grow exponentially.",
+        "I have months of real production logs.",
+        "The answer isn't what anyone expects: it's not exponential ? it's discrete jumps.",
+        "And you're the one causing them."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "agent, costs, grow, exponentially, ran, logs, answer, surprised, artificial intelligence, machine learning",
+      "slug": "do-ai-agent-costs-grow-exponentially-i-ran-my-logs-and-the-answer"
+    },
+    {
       "id": "01TErYRZgOg2M0Gm",
       "title": "AI Agents Generate Code That Passes Your Tests. That Is the Problem.",
       "seoTitle": "AI Agents Generate Code That Passes Your Tests. That Is the Problem.",
@@ -136,6 +162,56 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "your, starbucks, now, lets, you, pick, drink, based, artificial intelligence, machine learning",
       "slug": "starbucks-now-lets-you-pick-your-drink-based-on-your-mood-using"
+    },
+    {
+      "id": "iO_hsKjs7v3vHy3Y",
+      "title": "5 Chillingly Accurate Movies That Seemingly Foresaw the Rise of AI",
+      "seoTitle": "5 Chillingly Accurate Movies That Seemingly Foresaw the Rise of AI",
+      "metaDescription": "From \"2001: A Space Odyssey\" to \"Her,\" these movies predicted the emergence of seemingly sentient chatbots. Artificial intelligence has evolved at a rapid?",
+      "category": "AI",
+      "image": "https://images2.minutemediacdn.com/image/upload/c_crop,x_533,y_1,w_5177,h_2912/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/GettyImages/mmsport/mentalfloss/01kpbnkp7600dzwczkxm.jpg",
+      "imageAlt": "5 Chillingly Accurate Movies That Seemingly Foresaw the Rise of AI",
+      "url": "https://www.mentalfloss.com/entertainment/movies/movies-that-predicted-ai",
+      "source": {
+        "name": "Mental Floss"
+      },
+      "publishedAt": "2026-04-17T18:00:00.000Z",
+      "description": "From \"2001: A Space Odyssey\" to \"Her,\" these movies predicted the emergence of seemingly sentient chatbots. Artificial intelligence has evolved at a rapid pace in recent years, becoming a ubiquitous part of many peoples lives in the process. The AI boom has also been accompanied by a rise in fears about AI? [+5321 chars]",
+      "summary": "From \"2001: A Space Odyssey\" to \"Her,\" these movies predicted the emergence of seemingly sentient chatbots. Artificial intelligence has evolved at a rapid pace in recent years, becoming a ubiquitous part of many peoples lives in the process. The AI boom has also been accompanied by a rise in fears about AI? [+5321 chars]",
+      "intro": "From \"2001: A Space Odyssey\" to \"Her,\" these movies predicted the emergence of seemingly sentient chatbots.",
+      "bullets": [
+        "From \"2001: A Space Odyssey\" to \"Her,\" these movies predicted the emergence of seemingly sentient chatbots.",
+        "Artificial intelligence has evolved at a rapid pace in recent years, becoming a ubiquitous part of many peoples lives in the process.",
+        "The AI boom has also been accompanied by a rise in fears about AI? [+5321 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "chillingly, accurate, movies, seemingly, foresaw, rise, artificial intelligence, machine learning",
+      "slug": "5-chillingly-accurate-movies-that-seemingly-foresaw-the-rise-of-ai"
+    },
+    {
+      "id": "yWPzFFJroHVLRYWs",
+      "title": "[Prime] THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote $41.99 + Free Shipping (6 replies)",
+      "seoTitle": "[Prime] THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/?",
+      "metaDescription": "Therazzagge via Amazon [amazon.com] has for Prime Members: THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote on sale for?",
+      "category": "ChatGPT",
+      "image": "https://slickdeals.net/attachment/9/3/0/4/6/1/9/450x450/20141376.thumb",
+      "imageAlt": "[Prime] THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote $41.99 + Free Shipping (6?",
+      "url": "https://slickdeals.net/f/19431666-prime-therazzagge-rechargeable-cordless-red-light-therapy-kit-w-180-led-beads-remote-41-99-free-shipping",
+      "source": {
+        "name": "Slickdeals.net"
+      },
+      "publishedAt": "2026-04-17T17:55:00.000Z",
+      "description": "Therazzagge via Amazon [amazon.com] has for Prime Members: THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote on sale for $69.99 - 40% off when you clip the coupon h According to ChatGPT: Probably not actually FDA clearedjust marketing. No 510(k) number, no FDA database listing, and no traceable manufacturer. If it were legit, you'd be able to verify it (like rea? [+282 chars]",
+      "summary": "Therazzagge via Amazon [amazon.com] has for Prime Members: THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote on sale for $69.99 - 40% off when you clip the coupon h According to ChatGPT: Probably not actually FDA clearedjust marketing. No 510(k) number, no FDA database listing, and no traceable manufacturer. If it were legit, you'd be able to verify it (like rea? [+282 chars]",
+      "intro": "Therazzagge via Amazon [amazon.com] has for Prime Members: THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads & Remote on sale for $69.99 - 40% off when you clip the coupon h According to ChatGPT: Probably not actually FDA clearedjust marketing.",
+      "bullets": [
+        "Therazzagge via Amazon [amazon.com] has for Prime Members: THERAZZAGGE Rechargeable Cordless Red Light Therapy kit w/ 180 LED Beads &?",
+        "No 510(k) number, no FDA database listing, and no traceable manufacturer.",
+        "If it were legit, you'd be able to verify it (like rea? [+282 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "180, prime, therazzagge, rechargeable, cordless, red, light, therapy, artificial intelligence, machine learning",
+      "slug": "prime-therazzagge-rechargeable-cordless-red-light-therapy-kit-w"
     },
     {
       "id": "ghJ2yBb9lxQF6yCX",
