@@ -37,7 +37,7 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add articles sitemap.xml feed.xml news.json
+          git add articles sitemap.xml feed.xml news.json news-latest.json || true
           if git diff --staged --quiet; then
             echo "No static AI news changes to commit."
             exit 0
@@ -61,5 +61,5 @@ jobs:
               console.warn('Missing articles detected: ' + missing.length);
               process.exit(1);
             }
-          " || { echo "Retrying build safely..."; node scripts/build-ai-news-pages.mjs; git add articles sitemap.xml feed.xml; git commit --amend --no-edit || true; git push --force-with-lease origin "HEAD:refs/heads/${{ github.ref_name }}" || true; }
+          " || { echo "Retrying build safely..."; node scripts/build-ai-news-pages.mjs; git add articles sitemap.xml feed.xml news-latest.json || true; git commit --amend --no-edit || true; git push --force-with-lease origin "HEAD:refs/heads/${{ github.ref_name }}" || true; }
 
