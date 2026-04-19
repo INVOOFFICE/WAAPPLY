@@ -16,6 +16,53 @@
   },
   "articles": [
     {
+      "id": "LATM_1K_HNGY7OfW",
+      "title": "Introduction to Machine Learning",
+      "seoTitle": "Introduction to Machine Learning",
+      "metaDescription": "Introduction to Machine Learning ? What is Machine Learning? One of the many subsets of AI that focus on learning patterns...",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh0gu62tknt5qn7dfem0n.png",
+      "imageAlt": "Introduction to Machine Learning",
+      "url": "https://dev.to/ngigi_nyawira_a938a3f3847/introduction-to-machine-learning-4p34",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T19:42:46.000Z",
+      "description": "What is Machine Learning? One of the many subsets of AI that focus on learning patterns...",
+      "summary": "What is Machine Learning? One of the many subsets of AI that focus on learning patterns... What is Machine Learning? One of the many subsets of AI that focus on learning patterns...",
+      "intro": "What is Machine Learning?",
+      "bullets": [
+        "What is Machine Learning?",
+        "One of the many subsets of AI that focus on learning patterns..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "introduction, machine, learning, artificial intelligence, machine learning",
+      "slug": "introduction-to-machine-learning"
+    },
+    {
+      "id": "AN6-nVaIUu_vcpAB",
+      "title": "The Irish Times view on artificial intelligence: self-regulation is a dangerous myth",
+      "seoTitle": "The Irish Times view on artificial intelligence: self-regulation is?",
+      "metaDescription": "The Irish Times view on artificial intelligence: self-regulation is a dangerous myth ? Many believe the risks associated with AI far outweigh those of an?",
+      "category": "general",
+      "image": "https://www.irishtimes.com/resizer/v2/E4STLZ2ZQIUUAUYJNW4RLJ5ZOM.jpg?smart=true&auth=5d9afebb38b300c590aba7ab4c96018ecfebe226af70841c0087dd92425383f3&width=1200&height=630",
+      "imageAlt": "The Irish Times view on artificial intelligence: self-regulation is a dangerous myth",
+      "url": "https://www.irishtimes.com/opinion/editorials/2026/04/19/the-irish-times-view-on-artificial-intelligence-self-regulation-is-a-dangerous-myth/",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T19:30:00.000Z",
+      "description": "Many believe the risks associated with AI far outweigh those of an unregulated financial sector",
+      "summary": "Many believe the risks associated with AI far outweigh those of an unregulated financial sector Many believe the risks associated with AI far outweigh those of an unregulated financial sector",
+      "intro": "Many believe the risks associated with AI far outweigh those of an unregulated financial sector",
+      "bullets": [
+        "Many believe the risks associated with AI far outweigh those of an unregulated financial sector"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "irish, times, view, artificial, intelligence, self, regulation, dangerous, artificial intelligence, machine learning",
+      "slug": "the-irish-times-view-on-artificial-intelligence-self-regulation-is"
+    },
+    {
       "id": "2nZyRZFJ5hHNUCgg",
       "title": "Rajnath Singh's Germany visit focus: Defence Industry coop, weapons' coproduction",
       "seoTitle": "Rajnath Singh's Germany visit focus: Defence Industry coop, weapons'?",
