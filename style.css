@@ -320,11 +320,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero {
-  padding: 42px 0 10px;
+  padding: 20px 0 6px;
 }
 
 .hero__inner {
-  padding: 36px 32px;
+  padding: 18px 22px;
   border: 1px solid var(--border-brand);
   border-radius: var(--radius-lg);
   background:
@@ -370,15 +370,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__title {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   font-family: "DM Serif Display", ui-serif, Georgia, serif;
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(18px, 2.4vw, 26px);
 }
 
 .hero__sub {
-  margin: 0 0 18px;
+  margin: 0 0 10px;
   color: rgba(255, 255, 255, 0.78);
   max-width: 70ch;
+  font-size: 13px;
 }
 
 .search {
@@ -458,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__featured {
-  margin-top: 16px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -473,17 +474,18 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   display: grid;
-  grid-template-columns: 1fr 60%;
+  grid-template-columns: 1fr 50%;
   overflow: hidden;
   background: var(--surface);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1;
+  max-height: 230px;
 }
 
 .featured-card.is-active {
@@ -501,21 +503,31 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .featured-card {
     grid-template-columns: 1fr;
+    max-height: none;
   }
   .featured-card__media {
     order: -1;
-    height: 200px;
+    height: 130px;
   }
 }
 
 .featured-card__body {
-  padding: 24px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .featured-card__title {
   font-family: "DM Serif Display", ui-serif, Georgia, serif;
-  font-size: clamp(32px, 5vw, 52px);
-  margin: 8px 0 10px;
+  font-size: clamp(16px, 2.2vw, 24px);
+  margin: 4px 0 6px;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .featured-card__media {
