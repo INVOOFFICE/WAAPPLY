@@ -5,7 +5,34 @@
   <link></link>
   <description>Artificial Intelligence news updates from waapply.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 19 Apr 2026 13:49:20 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 19 Apr 2026 14:54:37 GMT</lastBuildDate>
+  <item>
+    <title>Alphabet Lost 10% in a Single Week Over Artificial Intelligence (AI) Spending Fears. Is This a Buying Opportunity or a Sign of Something Worse?</title>
+    <link>/ai-news/articles/alphabet-lost-10-in-a-single-week-over-artificial-intelligence-ai/</link>
+    <description>Alphabet Lost 10% in a Single Week Over Artificial Intelligence (AI) Spending Fears. Is This a Buying Opportunity or a Sign of Something Worse? ? Key?</description>
+    <pubDate>Sun, 19 Apr 2026 13:45:00 GMT</pubDate>
+    <category>mining</category>
+    <guid isPermaLink="true">/ai-news/articles/alphabet-lost-10-in-a-single-week-over-artificial-intelligence-ai/</guid>
+    <enclosure url="https://www.nasdaq.com/sites/acquia.prod/files/2019-05/0902-Q19%20Total%20Markets%20photos%20and%20gif_CC8.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Why AI Agents in n8n Fail on Real-World Workflows (and How to Fix It)</title>
+    <link>/ai-news/articles/why-ai-agents-in-n8n-fail-on-real-world-workflows-and-how-to-fix-it/</link>
+    <description>Why AI Agents in n8n Fail on Real-World Workflows (and How to Fix It) ? The Gap Between the Demo and the Real World The demo always works. You wire up an LLM?</description>
+    <pubDate>Sun, 19 Apr 2026 13:38:04 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/why-ai-agents-in-n8n-fail-on-real-world-workflows-and-how-to-fix-it/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgfkylo1ihnvp94rk8ew5.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Building "Guide": An iOS App for Crisis Response</title>
+    <link>/ai-news/articles/building-guide-an-ios-app-for-crisis-response/</link>
+    <description>Building "Guide": An iOS App for Crisis Response ? The Mission When an emergency hits a hotel, the biggest enemy is fragmented information. My goal with...</description>
+    <pubDate>Sun, 19 Apr 2026 13:24:52 GMT</pubDate>
+    <category>programming</category>
+    <guid isPermaLink="true">/ai-news/articles/building-guide-an-ios-app-for-crisis-response/</guid>
+    <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyjpqerqgpa31vooovpp5.png" type="image/jpeg" length="0" />
+  </item>
   <item>
     <title>Selling To AI: The Complete Guide To Agentic Commerce</title>
     <link>/ai-news/articles/selling-to-ai-the-complete-guide-to-agentic-commerce/</link>
@@ -257,6 +284,33 @@
     <category>finance</category>
     <guid isPermaLink="true">/ai-news/articles/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue/</guid>
     <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Show HN: GAI, A flexible and idiomatic GO Agent framework</title>
+    <link>/ai-news/articles/show-hn-gai-a-flexible-and-idiomatic-go-agent-framework/</link>
+    <description>GAI is a flexible Go library for building agent-style applications on top of LLMs Comments URL: https://news.ycombinator.com/item?id=47816285 Points: 1 #?</description>
+    <pubDate>Sat, 18 Apr 2026 14:41:04 GMT</pubDate>
+    <category>ML</category>
+    <guid isPermaLink="true">/ai-news/articles/show-hn-gai-a-flexible-and-idiomatic-go-agent-framework/</guid>
+    <enclosure url="https://opengraph.githubassets.com/ded5f2fe748ec22dca1d8cacd1ee421ab0d05a670c7bbcfa565f31a62ad4ceea/HecoAI/gai" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Show HN: Rapid-MLX ? Run local LLMs on Mac, 2-3x faster than alternatives</title>
+    <link>/ai-news/articles/show-hn-rapid-mlx-run-local-llms-on-mac-2-3x-faster-than/</link>
+    <description>The fastest local AI engine for Apple Silicon. 4.2x faster than Ollama, 0.08s cached TTFT, 100% tool calling. 17 tool parsers, prompt cache, reasoning?</description>
+    <pubDate>Sat, 18 Apr 2026 14:33:55 GMT</pubDate>
+    <category>ChatGPT</category>
+    <guid isPermaLink="true">/ai-news/articles/show-hn-rapid-mlx-run-local-llms-on-mac-2-3x-faster-than/</guid>
+    <enclosure url="https://opengraph.githubassets.com/f907cd5fc4638b3a111a98e7229def86021e4e1c6b9fff71df29d8fd8ef31188/raullenchai/Rapid-MLX" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>There's an 'art' to writing AI prompts for personal finance, MIT professor says</title>
+    <link>/ai-news/articles/theres-an-art-to-writing-ai-prompts-for-personal-finance-mit/</link>
+    <description>There's a good and bad way to write effective artificial intelligence prompts for personal finance advice. Many Americans are turning to artificial?</description>
+    <pubDate>Sat, 18 Apr 2026 14:30:01 GMT</pubDate>
+    <category>AI</category>
+    <guid isPermaLink="true">/ai-news/articles/theres-an-art-to-writing-ai-prompts-for-personal-finance-mit/</guid>
+    <enclosure url="https://image.cnbcfm.com/api/v1/image/108293172-1776437382381-gettyimages-2271123542-porzycki-chatgpto260416_npHvS.jpeg?v=1776437417&w=1920&h=1080" type="image/jpeg" length="0" />
   </item>
   <item>
     <title>Brain drain at OpenAI: 3 top leaders leave in a single day - Sora ends, billions lost despite AI boom</title>
