@@ -316,9 +316,10 @@ function buildSitemap(site, articles) {
  * @param {object} site - config du site
  * @param {string} template - contenu HTML du template
  * @param {string} defaultCategory - catégorie par défaut
+ * @param {boolean} [isMakeMoneyAI=false] - si vrai, injecte la description complète
  * @returns {object[]} articles normalisés
  */
-function buildArticlePages(articles, site, template, defaultCategory) {
+function buildArticlePages(articles, site, template, defaultCategory, isMakeMoneyAI = false) {
   const normalized = articles
     .map((a) => {
       const title = String(a.title || "").trim();
@@ -366,6 +367,7 @@ function buildArticlePages(articles, site, template, defaultCategory) {
     const relHtml = buildRelatedHtml(site, rel);
 
     const jsonLd = buildJsonLd(site, a, canon, ogImage);
+    const fullDescHtml = (isMakeMoneyAI && a.description) ? `<div class="article__full-description">${a.description}</div>` : "";
     const out = template
       .replaceAll("{{SITE_NAME}}", escapeHtml(siteName))
       .replaceAll("{{TITLE}}", escapeHtml(a.seoTitle || a.title))
@@ -381,6 +383,7 @@ function buildArticlePages(articles, site, template, defaultCategory) {
       .replaceAll("{{IMAGE_URL}}", escapeHtml(ogImage))
       .replaceAll("{{IMAGE_ALT}}", escapeHtml(imageAlt))
       .replaceAll("{{INTRO}}", escapeHtml(intro))
+      .replaceAll("{{FULL_DESCRIPTION}}", fullDescHtml)
       .replaceAll("{{SUMMARY}}", escapeHtml(summary))
       .replaceAll("{{BULLETS}}", bullets)
       .replaceAll("{{WHY_IT_MATTERS}}", escapeHtml(why))
@@ -419,7 +422,7 @@ function main() {
 
   ensureDir(OUT_DIR);
 
-  const normalized = buildArticlePages(articles, site, template, "AI");
+  const normalized = buildArticlePages(articles, site, template, "AI", false);
 
   // ── 2. Make Money AI (make-money-ai.json) ─────────────
   let normalizedMMA = [];
@@ -428,7 +431,7 @@ function main() {
     const mmSite = mmData.site || site; // Utilise les configs du site principal si absentes
     const mmArticles = Array.isArray(mmData.articles) ? mmData.articles : [];
     if (mmArticles.length > 0) {
-      normalizedMMA = buildArticlePages(mmArticles, mmSite, template, "Make Money Online");
+      normalizedMMA = buildArticlePages(mmArticles, mmSite, template, "Make Money Online", true);
       // RSS feed dédié Make Money AI
       const mmFeed = buildRssFeed(mmSite, normalizedMMA);
       writeFile(FEED_MMA_OUT, mmFeed);
