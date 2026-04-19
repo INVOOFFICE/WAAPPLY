@@ -1,41 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap");
 
 :root {
-  /* ── Couleurs de fond ── */
-  --bg:              #03050e;
-  --bg-mid:          #060a17;
+  /* ── Fond dominant très sombre ── */
+  --bg:              #010208;
+  --bg-mid:          #02040f;
+  --bg-surface:      #04071a;
 
-  /* ── Surfaces glassmorphism ── */
-  --surface:         rgba(255, 255, 255, 0.042);
-  --surface-hover:   rgba(255, 255, 255, 0.075);
-  --surface-strong:  rgba(255, 255, 255, 0.10);
+  /* ── Surfaces glassmorphism — discrètes sur fond sombre ── */
+  --surface:         rgba(255, 255, 255, 0.038);
+  --surface-hover:   rgba(255, 255, 255, 0.065);
+  --surface-strong:  rgba(255, 255, 255, 0.09);
+  --surface-card:    rgba(8, 10, 28, 0.85);
 
-  /* ── Texte ── */
-  --text:            rgba(255, 255, 255, 0.94);
-  --muted:           rgba(255, 255, 255, 0.50);
-  --text-muted:      rgba(255, 255, 255, 0.50);
-  --text-subtle:     rgba(255, 255, 255, 0.35);
+  /* ── Texte — blanc pur dominant, lisibilité maximale ── */
+  --text:            rgba(255, 255, 255, 0.96);
+  --text-secondary:  rgba(255, 255, 255, 0.72);
+  --muted:           rgba(255, 255, 255, 0.48);
+  --text-muted:      rgba(255, 255, 255, 0.48);
+  --text-subtle:     rgba(255, 255, 255, 0.30);
 
-  /* ── Bordures ── */
-  --border:          rgba(255, 255, 255, 0.07);
-  --border-hover:    rgba(255, 255, 255, 0.16);
-  --border-brand:    rgba(99, 102, 241, 0.35);
+  /* ── Bordures — très fines sur fond sombre ── */
+  --border:          rgba(255, 255, 255, 0.06);
+  --border-hover:    rgba(255, 255, 255, 0.14);
+  --border-brand:    rgba(99, 102, 241, 0.28);
+  --border-cyan:     rgba(6, 182, 212, 0.22);
 
-  /* ── Ombres ── */
-  --shadow:          0 20px 60px rgba(0, 0, 0, 0.45);
+  /* ── Ombres profondes ── */
+  --shadow:          0 24px 64px rgba(0, 0, 0, 0.65);
+  --shadow-sm:       0 4px 16px  rgba(0, 0, 0, 0.45);
+  --shadow-lg:       0 40px 90px rgba(0, 0, 0, 0.75);
 
-  /* ── Brand indigo/cyan ── */
-  --brand:           #6366f1;
-  --brand2:          #06b6d4;
-  --brand3:          #8b5cf6;
-  --brand-glow:      rgba(99, 102, 241, 0.18);
-  --brand2-glow:     rgba(6, 182, 212, 0.14);
-
-  /* ── Orbes background ── */
-  --orb-violet:      rgba(99,  102, 241, 1);
-  --orb-cyan:        rgba(6,   182, 212, 1);
-  --orb-purple:      rgba(139, 92,  246, 1);
-  --orb-indigo:      rgba(79,  70,  229, 1);
+  /* ── Brand — accents colorés sur fond sombre ── */
+  --brand:           #818cf8;
+  --brand-deep:      #6366f1;
+  --brand2:          #22d3ee;
+  --brand2-deep:     #06b6d4;
+  --brand3:          #a78bfa;
+  --brand3-deep:     #8b5cf6;
+  --brand-glow:      rgba(99, 102, 241, 0.15);
+  --brand2-glow:     rgba(6, 182, 212, 0.12);
+  --brand3-glow:     rgba(139, 92, 246, 0.12);
 
   /* Spacing & Shape */
   --radius-sm: 8px;
@@ -84,38 +88,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--text);
   background-color: var(--bg);
+  /* Rendu texte optimal sur fond sombre */
+  text-rendering: optimizeLegibility;
   background-image:
-    /* ── Orbes primaires — angles forts ── */
-    radial-gradient(ellipse 70% 50% at 8% 5%,
-      rgba(99, 102, 241, 0.45) 0%,
-      rgba(99, 102, 241, 0.12) 45%,
-      transparent 68%),
-    radial-gradient(ellipse 55% 45% at 92% 6%,
-      rgba(6, 182, 212, 0.38) 0%,
-      rgba(6, 182, 212, 0.10) 50%,
-      transparent 70%),
-    /* ── Orbes bas — couleurs chaudes violet/indigo ── */
-    radial-gradient(ellipse 60% 40% at 50% 96%,
-      rgba(139, 92, 246, 0.32) 0%,
-      rgba(139, 92, 246, 0.08) 50%,
-      transparent 70%),
-    radial-gradient(ellipse 45% 35% at 8% 88%,
-      rgba(79, 70, 229, 0.28) 0%,
-      transparent 60%),
-    radial-gradient(ellipse 40% 30% at 93% 82%,
-      rgba(6, 182, 212, 0.22) 0%,
-      transparent 60%),
-    /* ── Orbe centrale — liant les couleurs ── */
-    radial-gradient(ellipse 80% 60% at 50% 48%,
-      rgba(99, 102, 241, 0.08) 0%,
-      rgba(139, 92, 246, 0.05) 40%,
-      transparent 72%),
-    /* ── Fond de base — nuit profonde légèrement bleutée ── */
+    /* ── Fond sombre dominant — quasi noir bleuté ── */
     linear-gradient(160deg,
-      #03050e 0%,
-      #060b1f 35%,
-      #04071a 65%,
-      #03050e 100%);
+      #010208 0%,
+      #020510 30%,
+      #030814 60%,
+      #010208 100%),
+    /* ── Accents couleurs — présents mais NON dominants ── */
+    /* Haut gauche : indigo */
+    radial-gradient(ellipse 55% 35% at 5% 3%,
+      rgba(99, 102, 241, 0.22) 0%,
+      transparent 65%),
+    /* Haut droite : cyan */
+    radial-gradient(ellipse 45% 30% at 95% 4%,
+      rgba(6, 182, 212, 0.18) 0%,
+      transparent 62%),
+    /* Bas centre : violet */
+    radial-gradient(ellipse 50% 32% at 50% 98%,
+      rgba(139, 92, 246, 0.16) 0%,
+      transparent 65%),
+    /* Bas gauche : indigo profond */
+    radial-gradient(ellipse 38% 28% at 4% 92%,
+      rgba(79, 70, 229, 0.14) 0%,
+      transparent 60%),
+    /* Bas droite : cyan */
+    radial-gradient(ellipse 35% 25% at 96% 90%,
+      rgba(6, 182, 212, 0.12) 0%,
+      transparent 60%),
+    /* Centre : liant très discret */
+    radial-gradient(ellipse 70% 50% at 50% 45%,
+      rgba(99, 102, 241, 0.04) 0%,
+      transparent 70%);
   background-attachment: fixed;
   line-height: 1.6;
   position: relative;
@@ -140,17 +146,17 @@ body::after {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(circle 480px at var(--ox1, 12%) var(--oy1, 15%),
-      rgba(99, 102, 241, 0.18) 0%, transparent 70%),
-    radial-gradient(circle 380px at var(--ox2, 88%) var(--oy2, 10%),
-      rgba(6, 182, 212, 0.15) 0%, transparent 68%),
-    radial-gradient(circle 320px at var(--ox3, 50%) var(--oy3, 82%),
-      rgba(139, 92, 246, 0.14) 0%, transparent 65%),
-    radial-gradient(circle 280px at var(--ox4, 20%) var(--oy4, 60%),
-      rgba(79, 70, 229, 0.10) 0%, transparent 60%),
-    radial-gradient(circle 250px at var(--ox5, 80%) var(--oy5, 65%),
-      rgba(6, 182, 212, 0.09) 0%, transparent 60%);
-  animation: orbDrift 20s ease-in-out infinite alternate;
+    radial-gradient(circle 440px at var(--ox1, 12%) var(--oy1, 15%),
+      rgba(99, 102, 241, 0.11) 0%, transparent 70%),
+    radial-gradient(circle 360px at var(--ox2, 88%) var(--oy2, 10%),
+      rgba(6, 182, 212, 0.09) 0%, transparent 68%),
+    radial-gradient(circle 300px at var(--ox3, 50%) var(--oy3, 82%),
+      rgba(139, 92, 246, 0.09) 0%, transparent 65%),
+    radial-gradient(circle 260px at var(--ox4, 20%) var(--oy4, 60%),
+      rgba(79, 70, 229, 0.07) 0%, transparent 60%),
+    radial-gradient(circle 240px at var(--ox5, 80%) var(--oy5, 65%),
+      rgba(6, 182, 212, 0.06) 0%, transparent 60%);
+  animation: orbDrift 24s ease-in-out infinite alternate;
 }
 
 @keyframes orbDrift {
@@ -248,8 +254,8 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   background: linear-gradient(
     180deg,
-    rgba(3, 5, 14, 0.82) 0%,
-    rgba(4, 7, 22, 0.72) 100%
+    rgba(1, 2, 8, 0.92) 0%,
+    rgba(2, 4, 14, 0.85) 100%
   );
   border-bottom: 1px solid var(--border);
   box-shadow:
@@ -323,15 +329,16 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   background:
     linear-gradient(135deg,
-      rgba(99, 102, 241, 0.08) 0%,
-      rgba(6, 182, 212, 0.04) 50%,
-      rgba(255, 255, 255, 0.02) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+      rgba(8, 10, 28, 0.80) 0%,
+      rgba(5, 8, 22, 0.70) 50%,
+      rgba(4, 6, 18, 0.75) 100%);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   box-shadow:
     var(--shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 0 1px rgba(99, 102, 241, 0.10);
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 0 0 1px rgba(99, 102, 241, 0.12),
+    0 0 60px rgba(99, 102, 241, 0.06);
   position: relative;
   overflow: hidden;
 }
@@ -592,9 +599,9 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: var(--surface);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(5, 7, 20, 0.78);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
   overflow: hidden;
   transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition);
   text-decoration: none;
@@ -730,8 +737,8 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid var(--border);
   background: linear-gradient(
     180deg,
-    rgba(3, 5, 14, 0.70) 0%,
-    rgba(4, 7, 22, 0.90) 100%
+    rgba(1, 2, 8, 0.80) 0%,
+    rgba(2, 4, 14, 0.96) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -816,12 +823,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: calc(var(--radius) + 6px);
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.055) 0%,
-    rgba(255, 255, 255, 0.025) 100%
+    rgba(6, 8, 24, 0.90) 0%,
+    rgba(4, 6, 18, 0.85) 100%
   );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.07);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.06);
   padding: 36px;
 }
 
@@ -888,16 +895,16 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: calc(var(--radius) + 6px);
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.055) 0%,
-    rgba(255, 255, 255, 0.028) 100%
+    rgba(6, 8, 24, 0.92) 0%,
+    rgba(4, 6, 18, 0.88) 100%
   );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
   overflow: hidden;
   box-shadow:
     var(--shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
-    0 0 0 1px rgba(99, 102, 241, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(99, 102, 241, 0.10);
   margin-bottom: 46px;
 }
 .article__card::before {
