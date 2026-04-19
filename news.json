@@ -16,6 +16,29 @@
   },
   "articles": [
     {
+      "id": "5BG6M4mpkWR93l-p",
+      "title": "The cold-grill diagnostic that made me rewrite my Python learning protocol",
+      "seoTitle": "The cold-grill diagnostic that made me rewrite my Python learning?",
+      "metaDescription": "The cold-grill diagnostic that made me rewrite my Python learning protocol ? I run a private research lab that studies what it actually takes to work with?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhh0p4rtwcuu9376mknid.png",
+      "imageAlt": "The cold-grill diagnostic that made me rewrite my Python learning protocol",
+      "url": "https://dev.to/amanbhandari/the-cold-grill-diagnostic-that-made-me-rewrite-my-python-learning-protocol-5bfa",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T01:37:48.000Z",
+      "description": "I run a private research lab that studies what it actually takes to work with Claude Code on hard...",
+      "summary": "I run a private research lab that studies what it actually takes to work with Claude Code on hard... I run a private research lab that studies what it actually takes to work with Claude Code on hard...",
+      "intro": "I run a private research lab that studies what it actually takes to work with Claude Code on hard...",
+      "bullets": [
+        "I run a private research lab that studies what it actually takes to work with Claude Code on hard..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "cold, grill, diagnostic, made, rewrite, python, learning, protocol, artificial intelligence, machine learning",
+      "slug": "the-cold-grill-diagnostic-that-made-me-rewrite-my-python-learning"
+    },
+    {
       "id": "5LdAQ6QrOxAeTiuF",
       "title": "Ex-Files: Is it okay to use AI for free legal advice in the Family Court?",
       "seoTitle": "Ex-Files: Is it okay to use AI for free legal advice in the Family?",
@@ -37,6 +60,30 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "files, okay, use, free, legal, advice, family, court, artificial intelligence, machine learning",
       "slug": "ex-files-is-it-okay-to-use-ai-for-free-legal-advice-in-the-family"
+    },
+    {
+      "id": "XUe3TxE5W0V1eSjH",
+      "title": "Did Amazon Just Say \"Checkmate\" to Nvidia?",
+      "seoTitle": "Did Amazon Just Say \"Checkmate\" to Nvidia?",
+      "metaDescription": "Much of the ongoing discussion on artificial intelligence (AI) revolves around the \"Magnificent Seven\" stocks. Over the past 18 months, big tech has made a?",
+      "category": "finance",
+      "image": "https://www.nasdaq.com/sites/acquia.prod/files/2019-05/0902-Q19%20Total%20Markets%20photos%20and%20gif_CC8.jpg",
+      "imageAlt": "Did Amazon Just Say \"Checkmate\" to Nvidia?",
+      "url": "https://www.nasdaq.com/articles/did-amazon-just-say-checkmate-nvidia",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-18T23:41:00.000Z",
+      "description": "Much of the ongoing discussion on artificial intelligence (AI) revolves around the \"Magnificent Seven\" stocks. Over the past 18 months, big tech has made a series of headline-grabbing, billion-dollar investments in AI initiatives.",
+      "summary": "Much of the ongoing discussion on artificial intelligence (AI) revolves around the \"Magnificent Seven\" stocks. Over the past 18 months, big tech has made a series of headline-grabbing, billion-dollar investments in AI initiatives.",
+      "intro": "Much of the ongoing discussion on artificial intelligence (AI) revolves around the \"Magnificent Seven\" stocks.",
+      "bullets": [
+        "Much of the ongoing discussion on artificial intelligence (AI) revolves around the \"Magnificent Seven\" stocks.",
+        "Over the past 18 months, big tech has made a series of headline-grabbing, billion-dollar investments in AI initiatives."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "did, amazon, just, say, checkmate, nvidia, artificial intelligence, machine learning",
+      "slug": "did-amazon-just-say-checkmate-to-nvidia"
     },
     {
       "id": "qT61iKiktirYD6-e",
@@ -246,6 +293,57 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
       "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
+    },
+    {
+      "id": "mQbkYyUmVg3p5Dgw",
+      "title": "AI Could Create A Massive Problem For Valve?s Steam",
+      "seoTitle": "AI Could Create A Massive Problem For Valve?s Steam",
+      "metaDescription": "Two trends that I?m very interested in are about to collide and it?s going to be a mess. By now, some of you will be tired of my calling for a more nuanced?",
+      "category": "Tools",
+      "image": "https://www.techdirt.com/wp-content/themes/techdirt/assets/images/td-rect-logo-white.png",
+      "imageAlt": "AI Could Create A Massive Problem For Valve?s Steam",
+      "url": "https://www.techdirt.com/2026/04/17/ai-could-create-a-massive-problem-for-valves-steam/",
+      "source": {
+        "name": "Techdirt"
+      },
+      "publishedAt": "2026-04-18T02:39:28.000Z",
+      "description": "Two trends that I?m very interested in are about to collide and it?s going to be a mess. By now, some of you will be tired of my calling for a more nuanced discussion about the use of AI and machine learning tools in the video game industry. I get it, but I?m? from the flood-the-zone-with-shit dept Two trends that I?m very interested in are about to collide and it?s going to be a mess. By now, some of you will be tired of my calling for a more nuanced d? [+5355 chars]",
+      "summary": "Two trends that I?m very interested in are about to collide and it?s going to be a mess. By now, some of you will be tired of my calling for a more nuanced discussion about the use of AI and machine learning tools in the video game industry. I get it, but I?m? from the flood-the-zone-with-shit dept Two trends that I?m very interested in are about to collide and it?s going to be a mess. By now, some of you will be tired of my calling for a more nuanced d? [+5355 chars]",
+      "intro": "Two trends that I?m very interested in are about to collide and it?s going to be a mess.",
+      "bullets": [
+        "Two trends that I?m very interested in are about to collide and it?s going to be a mess.",
+        "By now, some of you will be tired of my calling for a more nuanced discussion about the use of AI and machine learning tools in the video?",
+        "I get it, but I?m? from the flood-the-zone-with-shit dept Two trends that I?m very interested in are about to collide and it?s going to be?",
+        "By now, some of you will be tired of my calling for a more nuanced d? [+5355 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "could, create, massive, problem, valve, steam, artificial intelligence, machine learning",
+      "slug": "ai-could-create-a-massive-problem-for-valves-steam"
+    },
+    {
+      "id": "cWdLjqMMAWOpIoVq",
+      "title": "Claude Design debut marks Anthropic?s expansion into visual creation",
+      "seoTitle": "Claude Design debut marks Anthropic?s expansion into visual creation",
+      "metaDescription": "Currently in research preview, the tool marks the company?s expansion beyond text and coding into design. Frontier AI lab, Anthropic Labs on Friday, April 17,?",
+      "category": "Tools",
+      "image": "https://images.indianexpress.com/2026/04/Claude-Design.jpg",
+      "imageAlt": "Claude Design debut marks Anthropic?s expansion into visual creation",
+      "url": "https://indianexpress.com/article/technology/artificial-intelligence/claude-design-debut-marks-anthropics-expansion-into-visual-creation-10642605/",
+      "source": {
+        "name": "The Indian Express"
+      },
+      "publishedAt": "2026-04-18T01:53:14.000Z",
+      "description": "Currently in research preview, the tool marks the company?s expansion beyond text and coding into design. Frontier AI lab, Anthropic Labs on Friday, April 17, introduced a new experimental feature named Claude Design. With this, Anthropic is expanding its AI assistants capabilities into visual content ge? [+2922 chars]",
+      "summary": "Currently in research preview, the tool marks the company?s expansion beyond text and coding into design. Frontier AI lab, Anthropic Labs on Friday, April 17, introduced a new experimental feature named Claude Design. With this, Anthropic is expanding its AI assistants capabilities into visual content ge? [+2922 chars]",
+      "intro": "Currently in research preview, the tool marks the company?s expansion beyond text and coding into design.",
+      "bullets": [
+        "Currently in research preview, the tool marks the company?s expansion beyond text and coding into design.",
+        "Frontier AI lab, Anthropic Labs on Friday, April 17, introduced a new experimental feature named Claude Design.",
+        "With this, Anthropic is expanding its AI assistants capabilities into visual content ge? [+2922 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "claude, design, debut, marks, anthropic, expansion, visual, creation, artificial intelligence, machine learning",
+      "slug": "claude-design-debut-marks-anthropics-expansion-into-visual-creation"
     },
     {
       "id": "-tCW-YewoZuo-5MR",
