@@ -284,9 +284,8 @@ function mma_publishArticles() {
   });
 
   if (!pending.length) {
-    SpreadsheetApp.getActiveSpreadsheet().toast(
-      'Tous les articles sont déjà publiés ! 🎉', 'ℹ️ MakeMoneyAI', 5
-    );
+    Logger.log('ℹ️ MakeMoneyAI: tous les articles sont déjà publiés.');
+    aiNews_notify_('🤑 MakeMoneyAI : tous les articles sont déjà publiés ! 🎉');
     return;
   }
 
@@ -310,7 +309,7 @@ function mma_publishArticles() {
 
   if (!newArticles.length) {
     Logger.log('⚠️ MakeMoneyAI: tous les slugs existent déjà sur GitHub');
-    SpreadsheetApp.getActiveSpreadsheet().toast('Ces articles existent déjà sur GitHub.', '⚠️ MakeMoneyAI', 4);
+    aiNews_notify_('⚠️ MakeMoneyAI : ces articles existent déjà sur GitHub.');
     return;
   }
 
@@ -354,10 +353,7 @@ function mma_publishArticles() {
   });
 
   Logger.log('✅ MakeMoneyAI: ' + newArticles.length + ' articles publiés → ' + MMA_CONFIG.GITHUB_FILE);
-  SpreadsheetApp.getActiveSpreadsheet().toast(
-    '✅ ' + newArticles.length + ' articles publiés vers GitHub !',
-    '🤑 MakeMoneyAI', 6
-  );
+  aiNews_notify_('✅ MakeMoneyAI : ' + newArticles.length + ' articles publiés vers GitHub !');
 }
 
 // ──────────────────────────────────────────────────────────
@@ -501,7 +497,7 @@ function mma_createTrigger() {
     .create();
 
   Logger.log('✅ MakeMoneyAI: déclencheur quotidien 19h00 créé');
-  SpreadsheetApp.getUi().alert(
+  aiNews_notify_(
     '✅ Déclencheur quotidien installé !\n\n' +
     '📅 Publication : 1x par jour à 19h00\n' +
     '🇺🇸 Prime time USA — les américains sont à la maison\n' +
@@ -520,7 +516,7 @@ function mma_deleteTrigger() {
       deleted++;
     }
   });
-  SpreadsheetApp.getUi().alert(
+  aiNews_notify_(
     deleted > 0
       ? '✅ ' + deleted + ' déclencheur(s) MakeMoneyAI supprimé(s).'
       : 'ℹ️ Aucun déclencheur MakeMoneyAI trouvé.'
