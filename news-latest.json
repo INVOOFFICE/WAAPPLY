@@ -16,6 +16,75 @@
   },
   "articles": [
     {
+      "id": "HzjIePJhPmUNf56Z",
+      "title": "I don?t fear AI ? I fear what happens when everyone can create",
+      "seoTitle": "I don?t fear AI ? I fear what happens when everyone can create",
+      "metaDescription": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content?",
+      "category": "national",
+      "image": "https://static.independent.co.uk/2026/03/05/14/22/GettyImages-2263468914.jpeg?width=1200&height=800&crop=1200:800",
+      "imageAlt": "I don?t fear AI ? I fear what happens when everyone can create",
+      "url": "https://www.independent.co.uk/voices/generative-ai-creativity-governance-economy-content-renaissance-b2957183.html",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T10:26:43.000Z",
+      "description": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "summary": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "intro": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "bullets": [
+        "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "fear, don, what, happens, when, everyone, can, create, artificial intelligence, machine learning",
+      "slug": "i-don-t-fear-ai-i-fear-what-happens-when-everyone-can-create"
+    },
+    {
+      "id": "37DSjjixg_oXi3Br",
+      "title": "Cloudflare wants agents to write and deploy their own code. That should terrify you.",
+      "seoTitle": "Cloudflare wants agents to write and deploy their own code. That?",
+      "metaDescription": "Cloudflare wants agents to write and deploy their own code. That should terrify you. ? We're giving AI agents access to production infrastructure and behaving?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Flitter.catbox.moe%2Fsalzet.png",
+      "imageAlt": "Cloudflare wants agents to write and deploy their own code. That should terrify you.",
+      "url": "https://dev.to/adioof/cloudflare-wants-agents-to-write-and-deploy-their-own-code-that-should-terrify-you-2jaa",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T10:13:47.000Z",
+      "description": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "summary": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing... We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "intro": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "bullets": [
+        "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "cloudflare, wants, agents, write, deploy, their, own, code, artificial intelligence, machine learning",
+      "slug": "cloudflare-wants-agents-to-write-and-deploy-their-own-code-that"
+    },
+    {
+      "id": "7KQI81bggkSoSwgT",
+      "title": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle",
+      "seoTitle": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of?",
+      "metaDescription": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle ? ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5rmpithw2oqrnlpo7pff.png",
+      "imageAlt": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle",
+      "url": "https://dev.to/tosh2308/chatgpt-for-product-managers-prompts-that-sharpen-every-stage-of-the-product-cycle-226o",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T09:12:19.000Z",
+      "description": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "summary": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've... ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "intro": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "bullets": [
+        "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "product, chatgpt, managers, prompts, sharpen, every, stage, cycle, artificial intelligence, machine learning",
+      "slug": "chatgpt-for-product-managers-prompts-that-sharpen-every-stage-of"
+    },
+    {
       "id": "Kx543GQr6Xc7CEuJ",
       "title": "Opinion | AI is advancing. Now it?s up to humans to redefine their worth",
       "seoTitle": "Opinion | AI is advancing. Now it?s up to humans to redefine their?",
@@ -411,75 +480,6 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "code, red, microsoft, ceo, satya, nadella, reportedly, leading, artificial intelligence, machine learning",
       "slug": "code-red-microsoft-ceo-satya-nadella-is-reportedly-leading-an"
-    },
-    {
-      "id": "0L9clQwNNf4o42Kn",
-      "title": "Doctors couldn?t diagnose her for years but ChatGPT got it right in minutes",
-      "seoTitle": "Doctors couldn?t diagnose her for years but ChatGPT got it right in?",
-      "metaDescription": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her?",
-      "category": "general",
-      "image": "https://nypost.com/wp-content/uploads/sites/2/2026/04/phoebe-tesoriere-diagnosed-woman-used-125907947.jpg?quality=75&strip=all&w=1200",
-      "imageAlt": "Doctors couldn?t diagnose her for years but ChatGPT got it right in minutes",
-      "url": "https://nypost.com/2026/04/18/world-news/doctors-couldnt-diagnose-her-for-years-but-chatgpt-got-it-right-in-minutes/",
-      "source": {
-        "name": "Currents"
-      },
-      "publishedAt": "2026-04-18T21:04:29.000Z",
-      "description": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
-      "summary": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn?? After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
-      "intro": "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot figured out her conditions when her doctors couldn??",
-      "bullets": [
-        "After years of frustrating misdiagnoses, 23-year-old Phoebe Tesoriere of Wales desperately turned to ChatGPT for answers ? and the bot?"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "doctors, couldn, diagnose, her, years, but, chatgpt, got, artificial intelligence, machine learning",
-      "slug": "doctors-couldnt-diagnose-her-for-years-but-chatgpt-got-it-right-in"
-    },
-    {
-      "id": "9cnPZqIJXyCeKWoO",
-      "title": "New artificial intelligence bots could drain nation's cash machines",
-      "seoTitle": "New artificial intelligence bots could drain nation's cash machines",
-      "metaDescription": "British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot.",
-      "category": "finance",
-      "image": "https://i.dailymail.co.uk/1s/2026/04/18/19/107991837-0-image-m-176_1776536330227.jpg",
-      "imageAlt": "New artificial intelligence bots could drain nation's cash machines",
-      "url": "https://www.thisismoney.co.uk/money/markets/article-15744747/New-artificial-intelligence-bots-drain-nations-cash-machines.html",
-      "source": {
-        "name": "Currents"
-      },
-      "publishedAt": "2026-04-18T20:50:07.000Z",
-      "description": "British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot.",
-      "summary": "British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot. British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot.",
-      "intro": "British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot.",
-      "bullets": [
-        "British banks are set to be given early access to stress-test their cyber defences against Claude Mythos, a state-of-the-art AI bot."
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "artificial, intelligence, bots, could, drain, nation, cash, machines, artificial intelligence, machine learning",
-      "slug": "new-artificial-intelligence-bots-could-drain-nations-cash-machines"
-    },
-    {
-      "id": "yZey6LsZbM65zEDd",
-      "title": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass",
-      "seoTitle": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue?",
-      "metaDescription": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence,?",
-      "category": "finance",
-      "image": "https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&height=800&fit=crop",
-      "imageAlt": "Elon Musk Says 'If AI/Robots Increase Output, Then You Must Issue Dollars To People or There Will Be Mass",
-      "url": "https://www.benzinga.com/news/politics/26/04/51902572/elon-musk-says-if-ai-robots-increase-output-then-you-must-issue-dollars-to-people-or-there-will-be-massive-disinflation",
-      "source": {
-        "name": "Currents"
-      },
-      "publishedAt": "2026-04-18T18:31:09.000Z",
-      "description": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
-      "summary": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
-      "intro": "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to artificial intelligence, framing it as an inflation-safe policy if automation expands real output fast enough.",
-      "bullets": [
-        "Elon Musk has argued that federally funded checks delivering a universal high income are his preferred response to job losses tied to?"
-      ],
-      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
-      "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
-      "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
     }
   ]
 }
