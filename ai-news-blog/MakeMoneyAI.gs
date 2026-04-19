@@ -1,58 +1,61 @@
 /**
  * ============================================================
- *  MAKE MONEY AI — Google Apps Script
+ *  MAKE MONEY AI — Extension de code.gs
  * ============================================================
  *
- *  SETUP RAPIDE :
- *  1. Dans Google Sheets → Extensions → Apps Script → coller ce code
- *  2. Lancer setupMakeMoneyAISheet() UNE SEULE FOIS pour créer la feuille
- *  3. Coller tes articles directement (14 colonnes, voir ci-dessous)
- *  4. Cliquer Menu → Publier 5 articles → GitHub
- *     (ou installer le déclencheur quotidien 19h EST)
+ *  Ce fichier s'appuie sur les Script Properties et les
+ *  fonctions déjà définies dans code.gs. Aucun token à
+ *  reconfigurer ici — il utilise les mêmes propriétés :
+ *
+ *  Script Properties requises (déjà dans code.gs) :
+ *  ┌─────────────────┬──────────────────────────────────────┐
+ *  │ GITHUB_TOKEN    │ ton Personal Access Token GitHub     │
+ *  │ GITHUB_REPO     │ ex: INVOOFFICE/ai-news               │
+ *  └─────────────────┴──────────────────────────────────────┘
+ *  Optionnelle :
+ *  │ AI_NEWS_SITE_ORIGIN │ ex: https://waapply.com         │
  *
  *  COLONNES DE LA FEUILLE MakeMoneyAI (14 colonnes) :
- *  A  ID           | Identifiant unique (ex: 1, 2, 3...)
- *  B  Title        | Titre de l'article (clickbait, viral)
+ *  A  ID           | Numéro (1, 2, 3...)
+ *  B  Title        | Titre viral clickbait
  *  C  Source       | Source (ex: "AI Generated")
- *  D  Category     | Catégorie (AI Tools, Side Hustle, Passive Income...)
+ *  D  Category     | AI Tools / Side Hustle / Passive Income...
  *  E  Image URL    | URL de l'image principale
  *  F  Published At | Date de publication (YYYY-MM-DD)
- *  G  Description  | Contenu complet de l'article (HTML avec H2/H3)
+ *  G  Description  | Contenu HTML complet (1200+ mots)
  *  H  Summary      | Résumé 2-3 phrases
  *  I  SEO Title    | Titre SEO max 60 caractères
- *  J  Meta Description | Description méta max 160 caractères
- *  K  Keywords     | Mots-clés SEO (virgule-séparés)
- *  L  Slug         | URL slug (auto-généré si vide)
- *  M  Status       | vide = en attente | "published" = envoyé GitHub
+ *  J  Meta Desc    | Description méta max 160 caractères
+ *  K  Keywords     | Mots-clés (virgule-séparés)
+ *  L  Slug         | URL slug (auto si vide)
+ *  M  Status       | vide = en attente | "published" = envoyé
  *  N  Added At     | Date d'ajout (auto-remplie)
  * ============================================================
  */
 
-// ──────────────────────────────────────────────
-//  CONFIGURATION — Mettre à jour ces valeurs
-// ──────────────────────────────────────────────
-var MAKE_MONEY_CONFIG = {
-  SHEET_NAME:       "MakeMoneyAI",
-  GITHUB_OWNER:     "INVOOFFICE",           // ← ton username GitHub
-  GITHUB_REPO:      "ai-news",              // ← nom du dépôt
-  GITHUB_FILE:      "make-money-ai.json",   // ← fichier JSON cible
-  GITHUB_BRANCH:    "main",
-  GITHUB_TOKEN:     "",                     // ← ton GitHub Personal Access Token
-  ARTICLES_PER_RUN: 5,                      // Nombre d'articles publiés par déclenchement
-  DEFAULT_OG_IMAGE: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=630&fit=crop&q=80",
-  SITE_NAME:        "waapply",
-  CANONICAL_ORIGIN: "",                     // ex: "https://waapply.com"
+// ──────────────────────────────────────────────────────────
+//  CONFIG MakeMoneyAI
+//  ⚠️  GITHUB_TOKEN et GITHUB_REPO viennent automatiquement
+//      des Script Properties configurées dans code.gs
+//      (Fichier → Propriétés du projet → Propriétés de script)
+// ──────────────────────────────────────────────────────────
+var MMA_CONFIG = {
+  SHEET_NAME:       'MakeMoneyAI',
+  GITHUB_FILE:      'make-money-ai.json',   // fichier JSON cible dans le repo
+  GITHUB_BRANCH:    'main',
+  ARTICLES_PER_RUN: 5,
+  DEFAULT_OG_IMAGE: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=630&fit=crop&q=80',
   TOPICS: [
-    "AI Tools", "Make Money Online", "Side Hustle",
-    "Passive Income", "Automation", "Freelance", "Affiliate Marketing"
+    'AI Tools', 'Make Money Online', 'Side Hustle',
+    'Passive Income', 'Automation', 'Freelance', 'Affiliate Marketing'
   ]
 };
 
-// ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────
 //  COLONNES (index 0-based) — 14 colonnes
 //  A=0  B=1  C=2  D=3  E=4  F=5  G=6  H=7
 //  I=8  J=9  K=10 L=11 M=12 N=13
-// ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────
 var MMA_COL = {
   ID:           0,   // A — ID
   TITLE:        1,   // B — Title
@@ -67,255 +70,334 @@ var MMA_COL = {
   KEYWORDS:    10,   // K — Keywords
   SLUG:        11,   // L — Slug
   STATUS:      12,   // M — Status (vide / "published")
-  ADDED_AT:    13,   // N — Added At
+  ADDED_AT:    13    // N — Added At
 };
 
-// ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────
+//  HELPERS — Réutilisent code.gs via aiNews_getProp_()
+// ──────────────────────────────────────────────────────────
+
+/** Lit le GITHUB_TOKEN déjà sauvegardé dans Script Properties */
+function mma_getToken_() {
+  var token = aiNews_getProp_('GITHUB_TOKEN');
+  if (!token) {
+    throw new Error(
+      '❌ GITHUB_TOKEN introuvable dans les Script Properties.\n' +
+      'Va dans : Extensions → Apps Script → ⚙️ Paramètres du projet → Propriétés de script\n' +
+      'et ajoute : GITHUB_TOKEN = ghp_xxxx...'
+    );
+  }
+  return token;
+}
+
+/** Lit le GITHUB_REPO déjà sauvegardé dans Script Properties */
+function mma_getRepo_() {
+  var repo = aiNews_getProp_('GITHUB_REPO');
+  if (!repo) {
+    throw new Error(
+      '❌ GITHUB_REPO introuvable dans les Script Properties.\n' +
+      'Ajoute : GITHUB_REPO = INVOOFFICE/ai-news'
+    );
+  }
+  return repo;
+}
+
+/** Génère un slug URL-friendly depuis le titre */
+function mma_slugify_(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[\u2019']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80) || 'article';
+}
+
+/** Formate une date en ISO 8601 */
+function mma_dateIso_(value) {
+  if (!value) return new Date().toISOString();
+  if (value instanceof Date) return isNaN(value.getTime()) ? new Date().toISOString() : value.toISOString();
+  var d = new Date(value);
+  return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+}
+
+// ──────────────────────────────────────────────────────────
+//  MENU — s'ajoute au onOpen() de code.gs
+//  (onOpen() est déjà déclaré dans code.gs, on utilise
+//   la même fonction en ajoutant un sous-menu)
+// ──────────────────────────────────────────────────────────
+
+/**
+ * Ajoute le sous-menu MakeMoneyAI au menu principal de code.gs.
+ * Appelle cette fonction depuis onOpen() dans code.gs OU
+ * utilise la version autonome ci-dessous si code.gs l'importe.
+ *
+ * ⚠️  Dans code.gs, remplace :
+ *    function onOpen() { aiNews_onOpen(); }
+ * par :
+ *    function onOpen() { aiNews_onOpen(); mma_addMenu_(); }
+ */
+function mma_addMenu_() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('🤑 MakeMoneyAI')
+    .addItem('📋 Créer la feuille MakeMoneyAI', 'mma_setupSheet')
+    .addSeparator()
+    .addItem('🚀 Publier 5 articles → GitHub (maintenant)', 'mma_publishArticles')
+    .addSeparator()
+    .addItem('⏰ Installer déclencheur quotidien (19h EST)', 'mma_createTrigger')
+    .addItem('🗑️  Supprimer le déclencheur', 'mma_deleteTrigger')
+    .addSeparator()
+    .addItem('📊 Voir le statut des articles', 'mma_showStatus')
+    .addItem('🔑 Vérifier la configuration', 'mma_checkConfig')
+    .addToUi();
+}
+
+// ──────────────────────────────────────────────────────────
 //  1. CRÉER LA FEUILLE MakeMoneyAI
-//     Lancer UNE SEULE FOIS
-// ──────────────────────────────────────────────
-function setupMakeMoneyAISheet() {
+// ──────────────────────────────────────────────────────────
+function mma_setupSheet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var existing = ss.getSheetByName(MAKE_MONEY_CONFIG.SHEET_NAME);
+  var existing = ss.getSheetByName(MMA_CONFIG.SHEET_NAME);
   if (existing) {
     SpreadsheetApp.getUi().alert(
-      '⚠️ La feuille "' + MAKE_MONEY_CONFIG.SHEET_NAME + '" existe déjà.'
+      '⚠️ La feuille "' + MMA_CONFIG.SHEET_NAME + '" existe déjà.\n' +
+      'Supprime-la d\'abord si tu veux la recréer.'
     );
     return;
   }
 
-  var sheet = ss.insertSheet(MAKE_MONEY_CONFIG.SHEET_NAME);
+  var sheet = ss.insertSheet(MMA_CONFIG.SHEET_NAME);
 
   // ── En-têtes — 14 colonnes exactes ──
   var headers = [
-    "ID", "Title", "Source", "Category", "Image URL",
-    "Published At", "Description", "Summary",
-    "SEO Title", "Meta Description", "Keywords",
-    "Slug", "Status", "Added At"
+    'ID', 'Title', 'Source', 'Category', 'Image URL',
+    'Published At', 'Description', 'Summary',
+    'SEO Title', 'Meta Description', 'Keywords',
+    'Slug', 'Status', 'Added At'
   ];
   sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
 
-  // ── Style de l'en-tête — vert Make Money ──
-  var headerRange = sheet.getRange(1, 1, 1, headers.length);
-  headerRange.setBackground("#064e3b");   // vert foncé
-  headerRange.setFontColor("#6ee7b7");    // vert clair
-  headerRange.setFontWeight("bold");
-  headerRange.setFontSize(10);
-  headerRange.setHorizontalAlignment("center");
+  // ── Style en-tête — vert Make Money ──
+  var hRange = sheet.getRange(1, 1, 1, headers.length);
+  hRange.setBackground('#064e3b');
+  hRange.setFontColor('#6ee7b7');
+  hRange.setFontWeight('bold');
+  hRange.setFontSize(10);
+  hRange.setHorizontalAlignment('center');
 
   // ── Largeurs des colonnes ──
-  var colWidths = [
-    50,   // A — ID
-    320,  // B — Title
-    120,  // C — Source
-    140,  // D — Category
-    200,  // E — Image URL
-    110,  // F — Published At
-    500,  // G — Description (large!)
-    300,  // H — Summary
-    200,  // I — SEO Title
-    280,  // J — Meta Description
-    280,  // K — Keywords
-    200,  // L — Slug
-    90,   // M — Status
-    160   // N — Added At
-  ];
-  colWidths.forEach(function(w, i) {
-    sheet.setColumnWidth(i + 1, w);
-  });
+  var widths = [50, 320, 120, 140, 200, 110, 500, 300, 200, 280, 280, 200, 90, 160];
+  widths.forEach(function(w, i) { sheet.setColumnWidth(i + 1, w); });
 
   // ── Figer la 1ère ligne ──
   sheet.setFrozenRows(1);
 
-  // ── Validation de la colonne Status (M = col 13) ──
-  var statusRange = sheet.getRange(2, MMA_COL.STATUS + 1, 200, 1);
+  // ── Validation Status (M) ──
   var statusRule = SpreadsheetApp.newDataValidation()
-    .requireValueInList(["", "published"], true)
+    .requireValueInList(['', 'published'], true)
     .setAllowInvalid(false)
     .build();
-  statusRange.setDataValidation(statusRule);
+  sheet.getRange(2, MMA_COL.STATUS + 1, 300, 1).setDataValidation(statusRule);
 
-  // ── Validation de la colonne Category (D = col 4) ──
-  var catRange = sheet.getRange(2, MMA_COL.CATEGORY + 1, 200, 1);
+  // ── Validation Category (D) ──
   var catRule = SpreadsheetApp.newDataValidation()
-    .requireValueInList(MAKE_MONEY_CONFIG.TOPICS, true)
+    .requireValueInList(MMA_CONFIG.TOPICS, true)
     .setAllowInvalid(true)
     .build();
-  catRange.setDataValidation(catRule);
+  sheet.getRange(2, MMA_COL.CATEGORY + 1, 300, 1).setDataValidation(catRule);
 
-  // ── Couleur alternée pour les lignes de données ──
-  sheet.getRange(2, 1, 200, headers.length)
+  // ── Lignes alternées ──
+  sheet.getRange(2, 1, 300, headers.length)
     .applyRowBanding(SpreadsheetApp.BandingTheme.LIGHT_GREY);
 
-  // ── Note d'aide dans la cellule A1 ──
-  sheet.getRange("A1").setNote(
-    "📋 STRUCTURE MakeMoneyAI — 14 colonnes\n\n" +
-    "A  ID           → Numéro (1, 2, 3...)\n" +
-    "B  Title        → Titre viral clickbait\n" +
-    "C  Source       → ex: AI Generated\n" +
-    "D  Category     → AI Tools / Side Hustle / etc.\n" +
-    "E  Image URL    → URL image Unsplash\n" +
-    "F  Published At → YYYY-MM-DD\n" +
-    "G  Description  → Contenu HTML complet (1200+ mots)\n" +
-    "H  Summary      → 2-3 phrases résumé\n" +
-    "I  SEO Title    → max 60 caractères\n" +
-    "J  Meta Desc    → max 160 caractères\n" +
-    "K  Keywords     → virgule-séparés\n" +
-    "L  Slug         → url-friendly (auto si vide)\n" +
-    "M  Status       → vide = en attente / published = envoyé\n" +
-    "N  Added At     → auto-rempli\n\n" +
-    "WORKFLOW:\n" +
-    "1. Colle tes 50 articles (colonnes A à N)\n" +
-    "2. Laisse la colonne M (Status) VIDE\n" +
-    "3. Menu → Publier 5 articles → GitHub\n" +
-    "4. La colonne M se remplit automatiquement"
+  // ── Note d'aide ──
+  sheet.getRange('A1').setNote(
+    '📋 STRUCTURE MakeMoneyAI — 14 colonnes\n\n' +
+    'A  ID           → Numéro (1, 2, 3...)\n' +
+    'B  Title        → Titre viral clickbait\n' +
+    'C  Source       → ex: AI Generated\n' +
+    'D  Category     → AI Tools / Side Hustle / etc.\n' +
+    'E  Image URL    → URL image Unsplash\n' +
+    'F  Published At → YYYY-MM-DD\n' +
+    'G  Description  → Contenu HTML complet (1200+ mots)\n' +
+    'H  Summary      → 2-3 phrases résumé\n' +
+    'I  SEO Title    → max 60 caractères\n' +
+    'J  Meta Desc    → max 160 caractères\n' +
+    'K  Keywords     → virgule-séparés\n' +
+    'L  Slug         → url-friendly (auto si vide)\n' +
+    'M  Status       → vide = en attente / published = envoyé ✅\n' +
+    'N  Added At     → auto-rempli\n\n' +
+    '🔑 GITHUB_TOKEN & GITHUB_REPO déjà dans Script Properties\n\n' +
+    'WORKFLOW:\n' +
+    '1. Colle tes 50 articles (A → N)\n' +
+    '2. Laisse la colonne M (Status) VIDE\n' +
+    '3. Menu 🤑 → Publier 5 articles → GitHub\n' +
+    '4. La colonne M se remplit automatiquement ✅'
   );
 
   SpreadsheetApp.getUi().alert(
-    '✅ Feuille "' + MAKE_MONEY_CONFIG.SHEET_NAME + '" créée !\n\n' +
+    '✅ Feuille "' + MMA_CONFIG.SHEET_NAME + '" créée !\n\n' +
     '📋 14 colonnes configurées :\n' +
     'ID | Title | Source | Category | Image URL\n' +
     'Published At | Description | Summary\n' +
     'SEO Title | Meta Description | Keywords\n' +
     'Slug | Status | Added At\n\n' +
-    '⚙️ Prochaine étape :\n' +
-    '→ Configurer GITHUB_TOKEN dans le script\n' +
-    '→ Coller tes articles et lancer la publication'
+    '🔑 Tokens récupérés automatiquement depuis Script Properties ✅\n' +
+    '→ GITHUB_TOKEN : ' + (aiNews_getProp_('GITHUB_TOKEN') ? '✅ configuré' : '❌ MANQUANT') + '\n' +
+    '→ GITHUB_REPO  : ' + (aiNews_getProp_('GITHUB_REPO')  ? '✅ ' + aiNews_getProp_('GITHUB_REPO') : '❌ MANQUANT')
   );
-
-  Logger.log('✅ Sheet "' + MAKE_MONEY_CONFIG.SHEET_NAME + '" — 14 colonnes créées avec succès');
 }
 
-// ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────
 //  2. PUBLIER 5 ARTICLES VERS GITHUB
-//     Lancer via déclencheur ou manuellement
-// ──────────────────────────────────────────────
-function publishMakeMoneyAI() {
-  var cfg = MAKE_MONEY_CONFIG;
-
-  if (!cfg.GITHUB_TOKEN) {
-    throw new Error("❌ GITHUB_TOKEN non configuré dans MAKE_MONEY_CONFIG");
-  }
+//     Utilise aiNews_githubRequest_() et aiNews_githubPutFile_()
+//     de code.gs — même token, même repo
+// ──────────────────────────────────────────────────────────
+function mma_publishArticles() {
+  var token = mma_getToken_();
+  var repo  = mma_getRepo_();
 
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(cfg.SHEET_NAME);
+  var sheet = ss.getSheetByName(MMA_CONFIG.SHEET_NAME);
   if (!sheet) {
-    throw new Error('❌ Feuille "' + cfg.SHEET_NAME + '" introuvable. Lance setupMakeMoneyAISheet() d\'abord.');
+    throw new Error('❌ Feuille "' + MMA_CONFIG.SHEET_NAME + '" introuvable. Lance mma_setupSheet() d\'abord.');
   }
 
   var lastRow = sheet.getLastRow();
   if (lastRow <= 1) {
-    Logger.log("ℹ️ Aucune donnée dans la feuille " + cfg.SHEET_NAME);
+    Logger.log('ℹ️ Aucune donnée dans ' + MMA_CONFIG.SHEET_NAME);
+    SpreadsheetApp.getActiveSpreadsheet().toast('Aucun article dans la feuille.', 'ℹ️ MakeMoneyAI', 4);
     return;
   }
 
-  // Lire toutes les lignes (14 colonnes)
   var data = sheet.getRange(2, 1, lastRow - 1, 14).getValues();
 
-  // ── Trouver les articles non encore publiés (Status != "published") ──
-  var unpublished = [];
+  // ── Trouver les articles non encore publiés ──
+  var pending = [];
   data.forEach(function(row, idx) {
-    var title  = String(row[MMA_COL.TITLE] || "").trim();
-    var status = String(row[MMA_COL.STATUS] || "").trim().toLowerCase();
-    if (title && status !== "published") {
-      unpublished.push({ row: row, rowIndex: idx + 2 });
+    var title  = String(row[MMA_COL.TITLE]  || '').trim();
+    var status = String(row[MMA_COL.STATUS] || '').trim().toLowerCase();
+    if (title && status !== 'published') {
+      pending.push({ row: row, rowIndex: idx + 2 });
     }
   });
 
-  if (!unpublished.length) {
-    Logger.log("ℹ️ Aucun article à publier dans " + cfg.SHEET_NAME);
+  if (!pending.length) {
     SpreadsheetApp.getActiveSpreadsheet().toast(
-      "Tous les articles sont déjà publiés !", "ℹ️ MakeMoneyAI", 4
+      'Tous les articles sont déjà publiés ! 🎉', 'ℹ️ MakeMoneyAI', 5
     );
     return;
   }
 
-  // ── Prendre les N premiers articles non publiés ──
-  var toPublish = unpublished.slice(0, cfg.ARTICLES_PER_RUN);
-  Logger.log("📤 Articles à publier : " + toPublish.length + " (sur " + unpublished.length + " en attente)");
+  var toPublish = pending.slice(0, MMA_CONFIG.ARTICLES_PER_RUN);
+  Logger.log('📤 MakeMoneyAI: ' + toPublish.length + ' articles à publier (sur ' + pending.length + ' en attente)');
 
   // ── Récupérer le JSON actuel depuis GitHub ──
-  var currentJson = fetchMakeMoneyJsonFromGitHub_(cfg);
-  var existingArticles = (currentJson.articles || []);
+  var currentData = mma_fetchCurrentJson_(repo, token);
+  var existingArticles = currentData.articles || [];
   var existingSlugs = {};
-  existingArticles.forEach(function(a) { existingSlugs[a.slug] = true; });
+  existingArticles.forEach(function(a) { if (a.slug) existingSlugs[a.slug] = true; });
 
   // ── Construire les nouveaux articles ──
   var newArticles = [];
   toPublish.forEach(function(item) {
-    var article = buildArticleFromRow_(item.row, cfg);
+    var article = mma_buildArticle_(item.row);
     if (!existingSlugs[article.slug]) {
       newArticles.push(article);
     }
   });
 
   if (!newArticles.length) {
-    Logger.log("⚠️ Tous les articles sélectionnés existent déjà dans GitHub");
+    Logger.log('⚠️ MakeMoneyAI: tous les slugs existent déjà sur GitHub');
+    SpreadsheetApp.getActiveSpreadsheet().toast('Ces articles existent déjà sur GitHub.', '⚠️ MakeMoneyAI', 4);
     return;
   }
 
-  // ── Fusionner : nouveaux articles EN PREMIER ──
-  var mergedArticles = newArticles.concat(existingArticles);
+  // ── Fusionner : nouveaux EN PREMIER ──
+  var merged = newArticles.concat(existingArticles);
 
   // ── Construire le JSON final ──
+  var siteOrigin = (aiNews_getProp_('AI_NEWS_SITE_ORIGIN') || '').replace(/\/+$/, '');
   var finalJson = {
     site: {
-      name: cfg.SITE_NAME,
-      canonicalOrigin: cfg.CANONICAL_ORIGIN,
-      language: "en",
-      defaultOgImage: cfg.DEFAULT_OG_IMAGE,
-      topics: cfg.TOPICS
+      name:           'waapply',
+      canonicalOrigin: siteOrigin,
+      language:       'en',
+      defaultOgImage: MMA_CONFIG.DEFAULT_OG_IMAGE,
+      topics:         MMA_CONFIG.TOPICS
     },
-    articles: mergedArticles
+    articles: merged
   };
 
-  // ── Pousser vers GitHub ──
-  pushJsonToGitHub_(cfg, finalJson, currentJson._sha);
+  // ── Pousser via aiNews_githubPutFile_() de code.gs ──
+  var content = JSON.stringify(finalJson, null, 2) + '\n';
+  aiNews_githubPutFile_(
+    repo,
+    MMA_CONFIG.GITHUB_FILE,
+    MMA_CONFIG.GITHUB_BRANCH,
+    token,
+    content,
+    'feat(mma): publish ' + newArticles.length + ' MakeMoneyAI articles'
+  );
 
-  // ── Marquer Status = "published" + remplir Added At si vide ──
-  var now = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyy-MM-dd HH:mm:ss");
+  // ── Marquer Status = "published" + remplir Added At ──
+  var now = Utilities.formatDate(
+    new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm:ss'
+  );
   toPublish.forEach(function(item) {
-    // Colonne M (Status) = index 13 en 1-based
-    sheet.getRange(item.rowIndex, MMA_COL.STATUS + 1).setValue("published");
-    // Colonne N (Added At) = index 14 en 1-based, si pas déjà remplie
-    var addedAt = String(item.row[MMA_COL.ADDED_AT] || "").trim();
+    sheet.getRange(item.rowIndex, MMA_COL.STATUS   + 1).setValue('published');
+    var addedAt = String(item.row[MMA_COL.ADDED_AT] || '').trim();
     if (!addedAt) {
       sheet.getRange(item.rowIndex, MMA_COL.ADDED_AT + 1).setValue(now);
     }
   });
 
-  Logger.log("✅ " + newArticles.length + " articles publiés vers GitHub (" + cfg.GITHUB_FILE + ")");
+  Logger.log('✅ MakeMoneyAI: ' + newArticles.length + ' articles publiés → ' + MMA_CONFIG.GITHUB_FILE);
   SpreadsheetApp.getActiveSpreadsheet().toast(
-    "✅ " + newArticles.length + " articles publiés vers GitHub !",
-    "🤑 MakeMoneyAI",
-    6
+    '✅ ' + newArticles.length + ' articles publiés vers GitHub !',
+    '🤑 MakeMoneyAI', 6
   );
 }
 
-// ──────────────────────────────────────────────
-//  HELPERS — Fonctions internes
-// ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────
+//  HELPER — Récupère le JSON actuel depuis GitHub
+//           Réutilise aiNews_githubRequest_() de code.gs
+// ──────────────────────────────────────────────────────────
+function mma_fetchCurrentJson_(repo, token) {
+  var url =
+    'https://api.github.com/repos/' + repo +
+    '/contents/' + MMA_CONFIG.GITHUB_FILE +
+    '?ref=' + MMA_CONFIG.GITHUB_BRANCH;
 
-function buildArticleFromRow_(row, cfg) {
-  // ── Lecture des 14 colonnes ──
-  var id          = String(row[MMA_COL.ID]          || "").trim() || generateId_();
-  var title       = String(row[MMA_COL.TITLE]       || "").trim();
-  var source      = String(row[MMA_COL.SOURCE]      || "AI Generated").trim();
-  var category    = String(row[MMA_COL.CATEGORY]    || "Make Money Online").trim();
-  var image       = String(row[MMA_COL.IMAGE]       || "").trim() || cfg.DEFAULT_OG_IMAGE;
-  var publishedAt = formatDateIso_(row[MMA_COL.PUBLISHED_AT]);
-  var description = String(row[MMA_COL.DESCRIPTION] || "").trim();
-  var summary     = String(row[MMA_COL.SUMMARY]     || "").trim() || description.slice(0, 300);
-  var seoTitle    = String(row[MMA_COL.SEO_TITLE]   || "").trim() || title.slice(0, 60);
-  var metaDesc    = String(row[MMA_COL.META_DESC]   || "").trim();
-  var keywords    = String(row[MMA_COL.KEYWORDS]    || "").trim();
-  var slug        = String(row[MMA_COL.SLUG]        || "").trim() || slugify_(title);
+  try {
+    var res = aiNews_githubRequest_('get', url, token, null);
+    if (!res || !res.content) return { articles: [] };
+    var decoded = Utilities.newBlob(Utilities.base64Decode(res.content)).getDataAsString();
+    return JSON.parse(decoded);
+  } catch (e) {
+    // Fichier n'existe pas encore → JSON vide
+    Logger.log('ℹ️ MakeMoneyAI: ' + MMA_CONFIG.GITHUB_FILE + ' absent sur GitHub, sera créé.');
+    return { articles: [] };
+  }
+}
 
-  // ── Générer intro et bullets depuis description si absents ──
-  var intro = summary || description.slice(0, 400);
-  var bullets = [
-    summary ? summary.slice(0, 150) : description.slice(0, 150)
-  ];
+// ──────────────────────────────────────────────────────────
+//  HELPER — Construit un objet article depuis une ligne
+// ──────────────────────────────────────────────────────────
+function mma_buildArticle_(row) {
+  var title       = String(row[MMA_COL.TITLE]       || '').trim();
+  var source      = String(row[MMA_COL.SOURCE]      || 'AI Generated').trim();
+  var category    = String(row[MMA_COL.CATEGORY]    || 'Make Money Online').trim();
+  var image       = String(row[MMA_COL.IMAGE]       || '').trim() || MMA_CONFIG.DEFAULT_OG_IMAGE;
+  var publishedAt = mma_dateIso_(row[MMA_COL.PUBLISHED_AT]);
+  var description = String(row[MMA_COL.DESCRIPTION] || '').trim();
+  var summary     = String(row[MMA_COL.SUMMARY]     || '').trim() || description.slice(0, 300);
+  var seoTitle    = String(row[MMA_COL.SEO_TITLE]   || '').trim() || title.slice(0, 60);
+  var metaDesc    = String(row[MMA_COL.META_DESC]   || '').trim();
+  var keywords    = String(row[MMA_COL.KEYWORDS]    || '').trim();
+  var slug        = String(row[MMA_COL.SLUG]        || '').trim() || mma_slugify_(title);
+  var id          = String(row[MMA_COL.ID]          || '').trim() || Utilities.getUuid();
 
   return {
     id:              id,
@@ -329,138 +411,27 @@ function buildArticleFromRow_(row, cfg) {
     publishedAt:     publishedAt,
     description:     description,
     summary:         summary,
-    intro:           intro,
-    bullets:         bullets,
+    intro:           summary || description.slice(0, 400),
+    bullets:         [summary ? summary.slice(0, 150) : description.slice(0, 150)],
     whyItMatters:    summary,
     keywords:        keywords,
     slug:            slug
   };
 }
 
-function fetchMakeMoneyJsonFromGitHub_(cfg) {
-  var url = "https://api.github.com/repos/" + cfg.GITHUB_OWNER + "/" +
-            cfg.GITHUB_REPO + "/contents/" + cfg.GITHUB_FILE +
-            "?ref=" + cfg.GITHUB_BRANCH;
-
-  var response = UrlFetchApp.fetch(url, {
-    method: "GET",
-    headers: {
-      "Authorization": "token " + cfg.GITHUB_TOKEN,
-      "Accept":        "application/vnd.github.v3+json"
-    },
-    muteHttpExceptions: true
-  });
-
-  var code = response.getResponseCode();
-  if (code === 404) {
-    // Fichier n'existe pas encore — on retourne un JSON vide
-    Logger.log("ℹ️ " + cfg.GITHUB_FILE + " n'existe pas encore sur GitHub, il sera créé.");
-    return { articles: [], _sha: null };
-  }
-  if (code !== 200) {
-    throw new Error("❌ GitHub API error " + code + ": " + response.getContentText());
-  }
-
-  var res = JSON.parse(response.getContentText());
-  var sha = res.sha;
-  var content = Utilities.newBlob(Utilities.base64Decode(res.content)).getDataAsString();
-  var parsed = JSON.parse(content);
-  parsed._sha = sha;
-  return parsed;
-}
-
-function pushJsonToGitHub_(cfg, jsonData, sha) {
-  var url = "https://api.github.com/repos/" + cfg.GITHUB_OWNER + "/" +
-            cfg.GITHUB_REPO + "/contents/" + cfg.GITHUB_FILE;
-
-  var content = JSON.stringify(jsonData, null, 2) + "\n";
-  var encoded = Utilities.base64Encode(Utilities.newBlob(content).getBytes());
-
-  var payload = {
-    message: "feat(mma): publish " + Math.min(jsonData.articles.length, cfg.ARTICLES_PER_RUN) + " MakeMoneyAI articles [skip ci]",
-    content: encoded,
-    branch:  cfg.GITHUB_BRANCH
-  };
-  if (sha) payload.sha = sha;
-
-  var response = UrlFetchApp.fetch(url, {
-    method:  "PUT",
-    headers: {
-      "Authorization": "token " + cfg.GITHUB_TOKEN,
-      "Accept":        "application/vnd.github.v3+json",
-      "Content-Type":  "application/json"
-    },
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true
-  });
-
-  var code = response.getResponseCode();
-  if (code !== 200 && code !== 201) {
-    throw new Error("❌ GitHub push failed " + code + ": " + response.getContentText());
-  }
-  Logger.log("✅ GitHub push OK (" + code + ")");
-}
-
-function slugify_(text) {
-  return String(text || "")
-    .toLowerCase()
-    .replace(/&/g, " and ")
-    .replace(/[\u2019']/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 80) || "article";
-}
-
-function generateId_() {
-  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var id = "";
-  for (var i = 0; i < 16; i++) {
-    id += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return id;
-}
-
-function formatDateIso_(value) {
-  if (!value) return new Date().toISOString();
-  if (value instanceof Date) return value.toISOString();
-  var d = new Date(value);
-  if (!isNaN(d.getTime())) return d.toISOString();
-  return new Date().toISOString();
-}
-
-// ──────────────────────────────────────────────
-//  3. MENU PERSONNALISÉ dans Google Sheets
-// ──────────────────────────────────────────────
-function onOpen() {
-  SpreadsheetApp.getUi()
-    .createMenu("🤑 MakeMoneyAI")
-    .addItem("📋 Créer la feuille MakeMoneyAI", "setupMakeMoneyAISheet")
-    .addSeparator()
-    .addItem("🚀 Publier 5 articles →  GitHub (maintenant)", "publishMakeMoneyAI")
-    .addSeparator()
-    .addItem("⏰ Installer déclencheur quotidien (19h EST)", "createMakeMoneyTrigger")
-    .addItem("🗑️  Supprimer le déclencheur quotidien", "deleteMakeMoneyTrigger")
-    .addSeparator()
-    .addItem("📊 Voir le statut des articles", "showMakeMoneyStatus")
-    .addToUi();
-}
-
-// ──────────────────────────────────────────────
-//  4. AFFICHER LE STATUT DES ARTICLES
-// ──────────────────────────────────────────────
-function showMakeMoneyStatus() {
-  var cfg = MAKE_MONEY_CONFIG;
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(cfg.SHEET_NAME);
+// ──────────────────────────────────────────────────────────
+//  3. STATUT DES ARTICLES
+// ──────────────────────────────────────────────────────────
+function mma_showStatus() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(MMA_CONFIG.SHEET_NAME);
   if (!sheet) {
-    SpreadsheetApp.getUi().alert('❌ Feuille "' + cfg.SHEET_NAME + '" introuvable.');
+    SpreadsheetApp.getUi().alert('❌ Feuille "' + MMA_CONFIG.SHEET_NAME + '" introuvable.');
     return;
   }
 
   var lastRow = sheet.getLastRow();
   if (lastRow <= 1) {
-    SpreadsheetApp.getUi().alert("ℹ️ Aucun article dans la feuille.");
+    SpreadsheetApp.getUi().alert('ℹ️ Aucun article dans la feuille.');
     return;
   }
 
@@ -468,75 +439,90 @@ function showMakeMoneyStatus() {
   var total = 0, published = 0, pending = 0;
 
   data.forEach(function(row) {
-    var title  = String(row[MMA_COL.TITLE]  || "").trim();
+    var title  = String(row[MMA_COL.TITLE]  || '').trim();
     if (!title) return;
     total++;
-    var status = String(row[MMA_COL.STATUS] || "").trim().toLowerCase();
-    if (status === "published") published++;
-    else pending++;
+    String(row[MMA_COL.STATUS] || '').trim().toLowerCase() === 'published' ? published++ : pending++;
   });
 
   SpreadsheetApp.getUi().alert(
-    "📊 Statut MakeMoneyAI\n\n" +
-    "Total articles  : " + total + "\n" +
-    "✅ Publiés      : " + published + "\n" +
-    "⏳ En attente   : " + pending + "\n\n" +
+    '📊 Statut MakeMoneyAI\n\n' +
+    'Total articles  : ' + total + '\n' +
+    '✅ Publiés      : ' + published + '\n' +
+    '⏳ En attente   : ' + pending + '\n\n' +
     (pending > 0
-      ? "👉 Lance publishMakeMoneyAI() pour envoyer " +
-        Math.min(pending, cfg.ARTICLES_PER_RUN) + " articles vers GitHub."
-      : "🎉 Tous les articles sont publiés !")
+      ? '👉 Lance "Publier 5 articles" pour envoyer ' +
+        Math.min(pending, MMA_CONFIG.ARTICLES_PER_RUN) + ' articles vers GitHub.'
+      : '🎉 Tous les articles sont publiés !')
   );
 }
 
-// ──────────────────────────────────────────────
-//  5. CRÉER UN DÉCLENCHEUR QUOTIDIEN
-//     Publie 5 articles chaque jour à 19h00 (heure américaine EST)
-//     = prime time USA, quand les gens sont à la maison
-//     ⚠️  Régler la timezone du projet sur America/New_York :
-//         Apps Script → Paramètres du projet → Fuseau horaire
-// ──────────────────────────────────────────────
-function createMakeMoneyTrigger() {
-  // Supprimer les anciens déclencheurs pour éviter les doublons
+// ──────────────────────────────────────────────────────────
+//  4. VÉRIFIER LA CONFIGURATION
+// ──────────────────────────────────────────────────────────
+function mma_checkConfig() {
+  var token = aiNews_getProp_('GITHUB_TOKEN');
+  var repo  = aiNews_getProp_('GITHUB_REPO');
+  var origin = aiNews_getProp_('AI_NEWS_SITE_ORIGIN');
+
+  SpreadsheetApp.getUi().alert(
+    '🔑 Configuration MakeMoneyAI\n\n' +
+    '(Propriétaires partagées avec code.gs)\n\n' +
+    'GITHUB_TOKEN    : ' + (token ? '✅ Configuré (' + token.slice(0,8) + '...)' : '❌ MANQUANT') + '\n' +
+    'GITHUB_REPO     : ' + (repo  ? '✅ ' + repo : '❌ MANQUANT') + '\n' +
+    'AI_NEWS_SITE_ORIGIN : ' + (origin ? '✅ ' + origin : '⚠️ vide (optionnel)') + '\n\n' +
+    'Fichier cible   : ' + MMA_CONFIG.GITHUB_FILE + '\n' +
+    'Branche         : ' + MMA_CONFIG.GITHUB_BRANCH + '\n\n' +
+    ((!token || !repo)
+      ? '⚠️ Pour configurer :\nExtensions → Apps Script\n→ ⚙️ Paramètres du projet\n→ Propriétés de script\n→ Ajouter GITHUB_TOKEN et GITHUB_REPO'
+      : '✅ Tout est configuré !')
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+//  5. DÉCLENCHEUR QUOTIDIEN — 19h00 EST (prime time USA)
+//     Réutilise le fuseau horaire configuré sur America/New_York
+// ──────────────────────────────────────────────────────────
+function mma_createTrigger() {
+  // Supprimer les anciens pour éviter les doublons
   ScriptApp.getProjectTriggers().forEach(function(t) {
-    if (t.getHandlerFunction() === "publishMakeMoneyAI") {
+    if (t.getHandlerFunction() === 'mma_publishArticles') {
       ScriptApp.deleteTrigger(t);
     }
   });
 
-  // Déclencheur quotidien à 19h00 (fonctionne dans le fuseau horaire du projet)
-  // → Régle le fuseau horaire sur America/New_York dans les paramètres du script
-  ScriptApp.newTrigger("publishMakeMoneyAI")
+  // Déclencheur quotidien à 19h00
+  // → Règle le fuseau horaire sur America/New_York dans :
+  //   ⚙️ Paramètres du projet → Fuseau horaire
+  ScriptApp.newTrigger('mma_publishArticles')
     .timeBased()
-    .everyDays(1)          // Une fois par jour
-    .atHour(19)            // À 19h00 (7 PM) — heure du projet (régler sur EST)
+    .everyDays(1)
+    .atHour(19)   // 19h00 (7 PM) heure du projet
     .create();
 
-  Logger.log("✅ Déclencheur quotidien créé : publishMakeMoneyAI à 19h00 (fuseau horaire du projet)");
+  Logger.log('✅ MakeMoneyAI: déclencheur quotidien 19h00 créé');
   SpreadsheetApp.getUi().alert(
-    "✅ Déclencheur quotidien installé !\n\n" +
-    "📅 Publication automatique : 1x par jour à 19h00\n" +
-    "🇺🇸 Prime time USA — les américains sont à la maison\n" +
-    "📰 5 articles publiés à chaque déclenchement\n\n" +
-    "⚠️  IMPORTANT — Vérifier le fuseau horaire :\n" +
-    "Apps Script → ⚙️ Paramètres → Fuseau horaire\n" +
-    "→ Choisir : America/New_York (EST/EDT)"
+    '✅ Déclencheur quotidien installé !\n\n' +
+    '📅 Publication : 1x par jour à 19h00\n' +
+    '🇺🇸 Prime time USA — les américains sont à la maison\n' +
+    '📰 5 articles publiés à chaque déclenchement\n\n' +
+    '⚠️  Vérifier le fuseau horaire du projet :\n' +
+    'Apps Script → ⚙️ Paramètres → Fuseau horaire\n' +
+    '→ Choisir : America/New_York (EST/EDT)'
   );
 }
 
-// ──────────────────────────────────────────────
-//  6. SUPPRIMER LE DÉCLENCHEUR automatique
-// ──────────────────────────────────────────────
-function deleteMakeMoneyTrigger() {
+function mma_deleteTrigger() {
   var deleted = 0;
   ScriptApp.getProjectTriggers().forEach(function(t) {
-    if (t.getHandlerFunction() === "publishMakeMoneyAI") {
+    if (t.getHandlerFunction() === 'mma_publishArticles') {
       ScriptApp.deleteTrigger(t);
       deleted++;
     }
   });
   SpreadsheetApp.getUi().alert(
     deleted > 0
-      ? "✅ " + deleted + " déclencheur(s) supprimé(s)."
-      : "ℹ️ Aucun déclencheur trouvé."
+      ? '✅ ' + deleted + ' déclencheur(s) MakeMoneyAI supprimé(s).'
+      : 'ℹ️ Aucun déclencheur MakeMoneyAI trouvé.'
   );
 }
