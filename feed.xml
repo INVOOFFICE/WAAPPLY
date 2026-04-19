@@ -5,6 +5,7 @@
   <link></link>
   <description>Latest Artificial Intelligence news and editorial summaries.</description>
   <language>en</language>
+<<<<<<< Updated upstream
   <lastBuildDate>Sun, 19 Apr 2026 14:54:50 GMT</lastBuildDate>
   <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
 <item>
@@ -80,6 +81,11 @@
   <enclosure url="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdy7kc1z2j4a0wg103ks8.png" type="image/jpeg" length="0" />
 </item>
 <item>
+=======
+  <lastBuildDate>Sun, 19 Apr 2026 15:07:39 GMT</lastBuildDate>
+  <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
+<item>
+>>>>>>> Stashed changes
   <title>I don?t fear AI ? I fear what happens when everyone can create</title>
   <link></link>
   <description>Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content?</description>
@@ -287,6 +293,7 @@
   <enclosure url="https://cdn.benzinga.com/files/images/story/2026/04/18/Tesla-CEO-Elon-Musk-at-an-event.jpeg?width=1200&amp;height=800&amp;fit=crop" type="image/jpeg" length="0" />
 </item>
 <item>
+<<<<<<< Updated upstream
   <title>Show HN: GAI, A flexible and idiomatic GO Agent framework</title>
   <link></link>
   <description>GAI is a flexible Go library for building agent-style applications on top of LLMs Comments URL: https://news.ycombinator.com/item?id=47816285 Points: 1 #?</description>
@@ -368,6 +375,8 @@
   <enclosure url="https://gizmodo.com/app/uploads/2026/03/sam-altman-nervous-1200x675.jpg" type="image/jpeg" length="0" />
 </item>
 <item>
+=======
+>>>>>>> Stashed changes
   <title>monk-ai added to PyPI</title>
   <link></link>
   <description>Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows. Drop monk on any?</description>

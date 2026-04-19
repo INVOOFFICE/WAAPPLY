@@ -307,7 +307,51 @@ function buildSitemap(site, articles) {
     })
     .join("\n");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
+
+function simpleMarkdownToHtml(text) {
+  if (!text) return "";
+  let html = String(text);
+
+  // Replace carriage returns
+  html = html.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  // Headers
+  html = html.replace(/^\s*### (.*$)/gim, '<h3>$1</h3>');
+  html = html.replace(/^\s*## (.*$)/gim, '<h2>$1</h2>');
+  html = html.replace(/^\s*# (.*$)/gim, '<h1>$1</h1>');
+
+  // Bold
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  // Italic 
+  html = html.replace(/([^\*]|^)\*(?!\*)(.*?)(?!\*)\*([^\*]|$)/g, '$1<em>$2</em>$3');
+
+  // Blockquotes
+  html = html.replace(/^\s*\>\s+(.*$)/gim, '<blockquote>$1</blockquote>');
+
+  // Horizontal rules
+  html = html.replace(/^\s*---\s*$/gim, '<hr>');
+
+  // Lists
+  html = html.replace(/^\s*[\-\*]\s+(.*$)/gim, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>(\s*<li>.*<\/li>)*)/gim, '<ul>\n$1\n</ul>');
+
+  // Paragraphs
+  const blocks = html.split(/\n\s*\n/);
+  html = blocks.map(block => {
+    block = block.trim();
+    if (!block) return '';
+    if (/^<(h[1-6]|ul|ol|blockquote|li|hr)>.*/i.test(block)) {
+      return block;
+    }
+    return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+  }).join('\n\n');
+
+  // Fix up adjacent lists
+  html = html.replace(/<\/ul>\n*<ul>/g, '\n');
+
+  return html;
 }
 
 /**
@@ -367,7 +411,8 @@ function buildArticlePages(articles, site, template, defaultCategory, isMakeMone
     const relHtml = buildRelatedHtml(site, rel);
 
     const jsonLd = buildJsonLd(site, a, canon, ogImage);
-    const fullDescHtml = (isMakeMoneyAI && a.description) ? `<div class="article__full-description">${a.description}</div>` : "";
+    const parsedDescription = (isMakeMoneyAI && a.description) ? simpleMarkdownToHtml(a.description) : "";
+    const fullDescHtml = parsedDescription ? `<div class="article__full-description">${parsedDescription}</div>` : "";
     const out = template
       .replaceAll("{{SITE_NAME}}", escapeHtml(siteName))
       .replaceAll("{{TITLE}}", escapeHtml(a.seoTitle || a.title))

@@ -730,6 +730,52 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.75;
 }
 
+.article__body h3 {
+  margin: 24px 0 12px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.article__body ul:not(.article__bullets) {
+  margin: 12px 0 18px;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.80);
+  list-style: none;
+}
+
+.article__body ul:not(.article__bullets) li {
+  margin: 8px 0;
+  line-height: 1.6;
+  position: relative;
+}
+
+.article__body ul:not(.article__bullets) li::before {
+  content: "—";
+  color: var(--brand2);
+  position: absolute;
+  left: -20px;
+}
+
+.article__body blockquote {
+  margin: 20px 0;
+  padding: 14px 20px;
+  border-left: 3px solid var(--brand);
+  background: var(--surface);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.article__body hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.article__body strong {
+  font-weight: 600;
+  color: #fff;
+}
+
 .article__bullets {
   margin: 10px 0 0;
   padding-left: 0;
