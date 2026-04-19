@@ -405,7 +405,10 @@ function onOpen() {
     .createMenu("🤑 MakeMoneyAI")
     .addItem("📋 Créer la feuille MakeMoneyAI", "setupMakeMoneyAISheet")
     .addSeparator()
-    .addItem("🚀 Publier 5 articles →  GitHub", "publishMakeMoneyAI")
+    .addItem("🚀 Publier 5 articles →  GitHub (maintenant)", "publishMakeMoneyAI")
+    .addSeparator()
+    .addItem("⏰ Installer déclencheur quotidien (19h EST)", "createMakeMoneyTrigger")
+    .addItem("🗑️  Supprimer le déclencheur quotidien", "deleteMakeMoneyTrigger")
     .addSeparator()
     .addItem("📊 Voir le statut des articles", "showMakeMoneyStatus")
     .addToUi();
@@ -454,9 +457,11 @@ function showMakeMoneyStatus() {
 }
 
 // ──────────────────────────────────────────────
-//  5. CRÉER UN DÉCLENCHEUR AUTOMATIQUE (optionnel)
-//     Lance publishMakeMoneyAI() toutes les heures
-//     Appeler UNE SEULE FOIS depuis l'éditeur GAS
+//  5. CRÉER UN DÉCLENCHEUR QUOTIDIEN
+//     Publie 5 articles chaque jour à 19h00 (heure américaine EST)
+//     = prime time USA, quand les gens sont à la maison
+//     ⚠️  Régler la timezone du projet sur America/New_York :
+//         Apps Script → Paramètres du projet → Fuseau horaire
 // ──────────────────────────────────────────────
 function createMakeMoneyTrigger() {
   // Supprimer les anciens déclencheurs pour éviter les doublons
@@ -466,17 +471,23 @@ function createMakeMoneyTrigger() {
     }
   });
 
-  // Créer un déclencheur toutes les heures
+  // Déclencheur quotidien à 19h00 (fonctionne dans le fuseau horaire du projet)
+  // → Régle le fuseau horaire sur America/New_York dans les paramètres du script
   ScriptApp.newTrigger("publishMakeMoneyAI")
     .timeBased()
-    .everyHours(1)
+    .everyDays(1)          // Une fois par jour
+    .atHour(19)            // À 19h00 (7 PM) — heure du projet (régler sur EST)
     .create();
 
-  Logger.log("✅ Déclencheur créé : publishMakeMoneyAI toutes les heures");
+  Logger.log("✅ Déclencheur quotidien créé : publishMakeMoneyAI à 19h00 (fuseau horaire du projet)");
   SpreadsheetApp.getUi().alert(
-    "✅ Déclencheur créé !\n\n" +
-    "publishMakeMoneyAI() sera lancé automatiquement toutes les heures.\n" +
-    "Tu peux le désactiver via Déclencheurs dans l'éditeur Apps Script."
+    "✅ Déclencheur quotidien installé !\n\n" +
+    "📅 Publication automatique : 1x par jour à 19h00\n" +
+    "🇺🇸 Prime time USA — les américains sont à la maison\n" +
+    "📰 5 articles publiés à chaque déclenchement\n\n" +
+    "⚠️  IMPORTANT — Vérifier le fuseau horaire :\n" +
+    "Apps Script → ⚙️ Paramètres → Fuseau horaire\n" +
+    "→ Choisir : America/New_York (EST/EDT)"
   );
 }
 
