@@ -1648,3 +1648,107 @@ mark {
     left: 12px;
   }
 }
+
+/* ==========================================================================
+   MAKE MONEY AI — Section dédiée
+   ========================================================================== */
+
+.mma-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+/* Séparateur visuel avant la section */
+.mma-section::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+  margin-bottom: 40px;
+}
+
+.mma-section__header {
+  margin-bottom: 32px;
+}
+
+/* Badge "Make Money AI" */
+.mma-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.12));
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.mma-section__title {
+  margin: 0 0 10px;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #34d399, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mma-section__sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 60ch;
+}
+
+/* Variante verte pour les badges des articles MakeMoneyAI */
+.badge--mma {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+/* Carte MakeMoneyAI — accent vert au survol */
+.card--mma {
+  border-color: rgba(16, 185, 129, 0.15);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.card--mma::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: calc(var(--radius) + 4px) calc(var(--radius) + 4px) 0 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card--mma:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.2), 0 16px 40px rgba(16, 185, 129, 0.08);
+}
+
+.card--mma:hover::before {
+  opacity: 1;
+}
+
+.card--mma .card__read {
+  color: #10b981;
+}
+
+@media (max-width: 640px) {
+  .mma-section__title {
+    font-size: 22px;
+  }
+}

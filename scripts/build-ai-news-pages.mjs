@@ -12,10 +12,12 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const NEWS_JSON = path.join(ROOT, "news.json");
+const MAKE_MONEY_JSON = path.join(ROOT, "make-money-ai.json");
 const ARTICLE_TEMPLATE = path.join(ROOT, "article.html");
 const OUT_DIR = path.join(ROOT, "articles");
 const SITEMAP_OUT = path.join(ROOT, "sitemap.xml");
 const FEED_OUT = path.join(ROOT, "feed.xml");
+const FEED_MMA_OUT = path.join(ROOT, "feed-make-money-ai.xml");
 
 function escapeHtml(s) {
   return String(s ?? "")
@@ -308,15 +310,15 @@ function buildSitemap(site, articles) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
-function main() {
-  if (!fs.existsSync(NEWS_JSON)) {
-    throw new Error("Missing news.json");
-  }
-  const data = readJson(NEWS_JSON);
-  const site = data.site || {};
-  const articles = Array.isArray(data.articles) ? data.articles : [];
-  const template = fs.readFileSync(ARTICLE_TEMPLATE, "utf8");
-
+/**
+ * Normalise et génère les pages HTML pour un ensemble d'articles.
+ * @param {object[]} articles - tableau brut d'articles
+ * @param {object} site - config du site
+ * @param {string} template - contenu HTML du template
+ * @param {string} defaultCategory - catégorie par défaut
+ * @returns {object[]} articles normalisés
+ */
+function buildArticlePages(articles, site, template, defaultCategory) {
   const normalized = articles
     .map((a) => {
       const title = String(a.title || "").trim();
@@ -325,7 +327,7 @@ function main() {
         ...a,
         title,
         slug,
-        category: (a.category && String(a.category).trim()) || "AI",
+        category: (a.category && String(a.category).trim()) || defaultCategory,
       };
     })
     .filter((a) => a.title && a.slug);
@@ -336,15 +338,6 @@ function main() {
     if (tb !== ta) return tb - ta;
     return String(a.title).localeCompare(String(b.title));
   });
-
-  if (process.argv.includes("--dry-run")) {
-    console.log(`DRY RUN: would generate ${normalized.length} pages`);
-    process.exit(0);
-  }
-
-  ensureDir(OUT_DIR);
-  const keep = new Set(normalized.map((a) => a.slug));
-  const cleanedCount = deleteStaleFolders(OUT_DIR, keep) || 0;
 
   const base = canonicalBase(site);
   const siteName = site.name || "AI News";
@@ -400,18 +393,78 @@ function main() {
     writeFile(outPath, out);
   });
 
-  const sitemap = buildSitemap(site, normalized);
+  return normalized;
+}
+
+function main() {
+  if (!fs.existsSync(NEWS_JSON)) {
+    throw new Error("Missing news.json");
+  }
+
+  const template = fs.readFileSync(ARTICLE_TEMPLATE, "utf8");
+
+  // ── 1. AI News (news.json) ─────────────────────────────
+  const data = readJson(NEWS_JSON);
+  const site = data.site || {};
+  const articles = Array.isArray(data.articles) ? data.articles : [];
+
+  if (process.argv.includes("--dry-run")) {
+    // Compter aussi les articles MakeMoneyAI si le fichier existe
+    const mmCount = fs.existsSync(MAKE_MONEY_JSON)
+      ? (readJson(MAKE_MONEY_JSON).articles || []).length
+      : 0;
+    console.log(`DRY RUN: would generate ${articles.length} AI News pages + ${mmCount} MakeMoneyAI pages`);
+    process.exit(0);
+  }
+
+  ensureDir(OUT_DIR);
+
+  const normalized = buildArticlePages(articles, site, template, "AI");
+
+  // ── 2. Make Money AI (make-money-ai.json) ─────────────
+  let normalizedMMA = [];
+  if (fs.existsSync(MAKE_MONEY_JSON)) {
+    const mmData = readJson(MAKE_MONEY_JSON);
+    const mmSite = mmData.site || site; // Utilise les configs du site principal si absentes
+    const mmArticles = Array.isArray(mmData.articles) ? mmData.articles : [];
+    if (mmArticles.length > 0) {
+      normalizedMMA = buildArticlePages(mmArticles, mmSite, template, "Make Money Online");
+      // RSS feed dédié Make Money AI
+      const mmFeed = buildRssFeed(mmSite, normalizedMMA);
+      writeFile(FEED_MMA_OUT, mmFeed);
+      console.log(`✓ MakeMoneyAI: ${normalizedMMA.length} pages built`);
+      console.log(`✓ MakeMoneyAI RSS feed: ${normalizedMMA.length} items`);
+    } else {
+      console.log(`ℹ MakeMoneyAI: no articles yet in make-money-ai.json`);
+    }
+  } else {
+    console.log(`ℹ make-money-ai.json not found, skipping MakeMoneyAI pages`);
+  }
+
+  // ── 3. Nettoyage des slugs obsolètes ──────────────────
+  const allSlugs = new Set([
+    ...normalized.map((a) => a.slug),
+    ...normalizedMMA.map((a) => a.slug),
+  ]);
+  const cleanedCount = deleteStaleFolders(OUT_DIR, allSlugs) || 0;
+
+  // ── 4. Sitemap combiné ────────────────────────────────
+  const allArticles = [...normalized, ...normalizedMMA];
+  const sitemap = buildSitemap(site, allArticles);
   writeFile(SITEMAP_OUT, sitemap);
+
+  // ── 5. RSS feed principal (AI News) ───────────────────
   const feed = buildRssFeed(site, normalized);
   writeFile(FEED_OUT, feed);
 
-  // Ensure robots.txt sitemap points to sitemap.xml (relative is fine).
+  // ── 6. robots.txt ─────────────────────────────────────
   const robotsPath = path.join(ROOT, "robots.txt");
   if (!fs.existsSync(robotsPath)) {
     writeFile(robotsPath, "User-agent: *\nAllow: /\n\nSitemap: sitemap.xml\n");
   }
 
-  // Create highly optimized fast-loading preview dataset
+  // ── 7. Preview rapide (AI News uniquement) ────────────
+  const base = canonicalBase(site);
   const latestJson = {
     site: { ...site, canonicalOrigin: base || "" },
     articles: normalized.slice(0, 20),
@@ -419,9 +472,20 @@ function main() {
   const latestPath = path.join(ROOT, "news-latest.json");
   writeFile(latestPath, JSON.stringify(latestJson, null, 2) + "\n");
 
-  console.log(`✓ Built: ${normalized.length} article pages`);
-  console.log(`✓ Sitemap: ${normalized.length + (base ? 1 : 0)} URLs`);
-  console.log(`✓ RSS feed: ${normalized.length} items`);
+  // ── 8. Preview rapide MakeMoneyAI ─────────────────────
+  if (normalizedMMA.length > 0) {
+    const mmSite = fs.existsSync(MAKE_MONEY_JSON) ? (readJson(MAKE_MONEY_JSON).site || site) : site;
+    const mmaLatestJson = {
+      site: { ...mmSite, canonicalOrigin: base || "" },
+      articles: normalizedMMA.slice(0, 20),
+    };
+    const mmaLatestPath = path.join(ROOT, "make-money-ai-latest.json");
+    writeFile(mmaLatestPath, JSON.stringify(mmaLatestJson, null, 2) + "\n");
+  }
+
+  console.log(`✓ AI News: ${normalized.length} article pages`);
+  console.log(`✓ Sitemap: ${allArticles.length + (base ? 1 : 0)} URLs`);
+  console.log(`✓ RSS feed (AI News): ${normalized.length} items`);
   console.log(`✓ Cleaned: ${cleanedCount} stale folders`);
 }
 

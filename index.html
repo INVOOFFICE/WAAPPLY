@@ -23,6 +23,7 @@
     <meta name="google-adsense-account" content="ca-pub-2269008589730162" />
 
     <link rel="preload" href="news.json" as="fetch" type="application/json" crossorigin="anonymous" />
+    <link rel="preload" href="make-money-ai.json" as="fetch" type="application/json" crossorigin="anonymous" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -132,6 +133,21 @@
           <button class="pager__btn" id="pager-prev" type="button">Prev</button>
           <span class="pager__label" id="pager-label"></span>
           <button class="pager__btn" id="pager-next" type="button">Next</button>
+        </div>
+      </section>
+
+      <!-- ══ MAKE MONEY AI SECTION ══════════════════════════════ -->
+      <section class="container section mma-section" id="make-money-ai-section" aria-labelledby="mma-heading" hidden>
+        <div class="mma-section__header">
+          <div class="mma-badge">💰 Make Money AI</div>
+          <h2 id="mma-heading" class="mma-section__title">Make Money with AI</h2>
+          <p class="mma-section__sub">Guides, strategies &amp; opportunities to generate income using artificial intelligence.</p>
+        </div>
+        <div class="grid" id="mma-article-grid" aria-live="polite"></div>
+        <div class="pager" id="mma-pager" hidden>
+          <button class="pager__btn" id="mma-pager-prev" type="button">Prev</button>
+          <span class="pager__label" id="mma-pager-label"></span>
+          <button class="pager__btn" id="mma-pager-next" type="button">Next</button>
         </div>
       </section>
     </main>

@@ -528,6 +528,194 @@
   hydrate();
 })();
 
+/* ============================================================
+   MAKE MONEY AI — Section dédiée
+   Charge make-money-ai.json et affiche les articles dans
+   la section #make-money-ai-section de l'index.html
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var MMA_PAGE_SIZE = 12;
+  var mmaPage = 1;
+  var mmaAllArticles = [];
+
+  function $(sel, root) {
+    return (root || document).querySelector(sel);
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement("div");
+    div.textContent = String(str == null ? "" : str);
+    return div.innerHTML;
+  }
+
+  function safeDate(d) {
+    if (!d) return null;
+    var dt = new Date(d);
+    return isNaN(dt.getTime()) ? null : dt;
+  }
+
+  function timeAgo(d) {
+    var dt = safeDate(d);
+    if (!dt) return "";
+    var seconds = Math.floor((new Date() - dt) / 1000);
+    if (seconds < 0) seconds = 0;
+    var interval;
+    interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 2592000);
+    if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 86400);
+    if (interval >= 1) return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 3600);
+    if (interval >= 1) return interval + " hr" + (interval === 1 ? "" : "s") + " ago";
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) return interval + " min" + (interval === 1 ? "" : "s") + " ago";
+    return "Just now";
+  }
+
+  function readingTime(article) {
+    var raw = String((article && article.summary) || "") + " " + String((article && article.description) || "");
+    var words = raw.trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 200)) + " min read";
+  }
+
+  function articleUrl(article) {
+    var slug = String(article.slug || "").trim();
+    if (!slug) return "index.html";
+    return "articles/" + encodeURIComponent(slug) + "/";
+  }
+
+  function renderMMASkeletons() {
+    var grid = $("#mma-article-grid");
+    if (!grid) return;
+    var html = new Array(4).fill(0).map(function () {
+      return (
+        '<a class="card card--skeleton" aria-hidden="true">' +
+        '<div class="card__media skeleton"></div>' +
+        '<div class="card__body">' +
+        '<div class="skeleton" style="height:12px;width:60%;border-radius:6px;margin-bottom:8px"></div>' +
+        '<div class="skeleton" style="height:18px;width:90%;border-radius:6px;margin-bottom:6px"></div>' +
+        '<div class="skeleton" style="height:13px;width:50%;border-radius:6px"></div>' +
+        "</div>" +
+        "</a>"
+      );
+    }).join("");
+    grid.innerHTML = html;
+  }
+
+  function renderMMAGrid(items) {
+    var grid = $("#mma-article-grid");
+    if (!grid) return;
+    if (!items || !items.length) {
+      grid.innerHTML = '<div class="card" style="grid-column:span 12;padding:18px;">Aucun article Make Money AI pour le moment.</div>';
+      return;
+    }
+    grid.innerHTML = items.map(function (a) {
+      var url = articleUrl(a);
+      var img = a.image || "";
+      var title = a.title || "";
+      var desc = a.metaDescription || a.description || a.summary || "";
+      if (desc && String(desc).length > 180) desc = String(desc).slice(0, 177) + "…";
+      var cat = String(a.category || "Make Money Online");
+      return (
+        '<a class="card card--mma fade-in" href="' + escapeHtml(url) + '" role="listitem">' +
+        '<div class="card__media" aria-hidden="true">' +
+        '<span class="badge badge--mma">' + escapeHtml(cat) + "</span>" +
+        (img ? '<img loading="lazy" src="' + escapeHtml(img) + '" alt="' + escapeHtml(title) + '" />' : "") +
+        "</div>" +
+        '<div class="card__body">' +
+        '<p class="card__kicker"><span>' + escapeHtml(timeAgo(a.publishedAt)) + "</span>" +
+        '<span><span class="card__read-time">' + escapeHtml(readingTime(a)) + "</span></span>" +
+        "<span>" + escapeHtml((a.source && a.source.name) || a.source || "") + "</span></p>" +
+        '<h3 class="card__title">' + escapeHtml(title) + "</h3>" +
+        '<p class="card__desc">' + escapeHtml(desc) + "</p>" +
+        '<span class="card__read">Read more →</span>' +
+        "</div>" +
+        "</a>"
+      );
+    }).join("");
+    grid.classList.add("stagger-in");
+  }
+
+  function renderMMAPager(total, page) {
+    var pager = $("#mma-pager");
+    if (!pager) return;
+    var prev = $("#mma-pager-prev");
+    var next = $("#mma-pager-next");
+    var label = $("#mma-pager-label");
+    var pages = Math.max(1, Math.ceil(total / MMA_PAGE_SIZE));
+    pager.hidden = pages <= 1;
+    if (label) label.textContent = "Page " + page + " / " + pages;
+    if (prev) prev.disabled = page <= 1;
+    if (next) next.disabled = page >= pages;
+    if (prev) prev.onclick = function () {
+      mmaPage = Math.max(1, mmaPage - 1);
+      renderMMAPage();
+      window.scrollTo({ top: document.getElementById("make-money-ai-section").offsetTop - 80, behavior: "smooth" });
+    };
+    if (next) next.onclick = function () {
+      mmaPage = Math.min(pages, mmaPage + 1);
+      renderMMAPage();
+      window.scrollTo({ top: document.getElementById("make-money-ai-section").offsetTop - 80, behavior: "smooth" });
+    };
+  }
+
+  function renderMMAPage() {
+    var start = (mmaPage - 1) * MMA_PAGE_SIZE;
+    var slice = mmaAllArticles.slice(start, start + MMA_PAGE_SIZE);
+    renderMMAGrid(slice);
+    renderMMAPager(mmaAllArticles.length, mmaPage);
+  }
+
+  function initMakeMoneyAI() {
+    var section = document.getElementById("make-money-ai-section");
+    if (!section) return;
+
+    renderMMASkeletons();
+    section.hidden = false; // Rendre visible pendant le chargement
+
+    fetch("make-money-ai.json", { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var articles = Array.isArray(data.articles) ? data.articles : [];
+
+        // Trier par date décroissante
+        articles.sort(function (a, b) {
+          var ta = safeDate(a.publishedAt) ? safeDate(a.publishedAt).getTime() : 0;
+          var tb = safeDate(b.publishedAt) ? safeDate(b.publishedAt).getTime() : 0;
+          return tb - ta;
+        });
+
+        mmaAllArticles = articles;
+
+        if (!articles.length) {
+          // Pas d'articles encore — cacher la section
+          section.hidden = true;
+          return;
+        }
+
+        section.hidden = false;
+        renderMMAPage();
+      })
+      .catch(function () {
+        // Fichier absent ou erreur — on cache simplement la section
+        section.hidden = true;
+      });
+  }
+
+  // Lancer le chargement MakeMoneyAI après le DOM
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMakeMoneyAI);
+  } else {
+    initMakeMoneyAI();
+  }
+})();
+
 
 /* ============================================================
    PWA — Service Worker registration + Install banner
