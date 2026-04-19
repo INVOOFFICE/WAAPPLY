@@ -16,6 +16,75 @@
   },
   "articles": [
     {
+      "id": "HzjIePJhPmUNf56Z",
+      "title": "I don?t fear AI ? I fear what happens when everyone can create",
+      "seoTitle": "I don?t fear AI ? I fear what happens when everyone can create",
+      "metaDescription": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content?",
+      "category": "national",
+      "image": "https://static.independent.co.uk/2026/03/05/14/22/GettyImages-2263468914.jpeg?width=1200&height=800&crop=1200:800",
+      "imageAlt": "I don?t fear AI ? I fear what happens when everyone can create",
+      "url": "https://www.independent.co.uk/voices/generative-ai-creativity-governance-economy-content-renaissance-b2957183.html",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T10:26:43.000Z",
+      "description": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "summary": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "intro": "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with unmediated content and erasing the line between signal and noise",
+      "bullets": [
+        "Generative AI is upending the UK?s ?150bn creative industries, says Matthew Maxwell ? not by killing jobs, but by flooding the sector with?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "fear, don, what, happens, when, everyone, can, create, artificial intelligence, machine learning",
+      "slug": "i-don-t-fear-ai-i-fear-what-happens-when-everyone-can-create"
+    },
+    {
+      "id": "37DSjjixg_oXi3Br",
+      "title": "Cloudflare wants agents to write and deploy their own code. That should terrify you.",
+      "seoTitle": "Cloudflare wants agents to write and deploy their own code. That?",
+      "metaDescription": "Cloudflare wants agents to write and deploy their own code. That should terrify you. ? We're giving AI agents access to production infrastructure and behaving?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Flitter.catbox.moe%2Fsalzet.png",
+      "imageAlt": "Cloudflare wants agents to write and deploy their own code. That should terrify you.",
+      "url": "https://dev.to/adioof/cloudflare-wants-agents-to-write-and-deploy-their-own-code-that-should-terrify-you-2jaa",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T10:13:47.000Z",
+      "description": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "summary": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing... We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "intro": "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing...",
+      "bullets": [
+        "We're giving AI agents access to production infrastructure and behaving as if we're simply releasing..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "cloudflare, wants, agents, write, deploy, their, own, code, artificial intelligence, machine learning",
+      "slug": "cloudflare-wants-agents-to-write-and-deploy-their-own-code-that"
+    },
+    {
+      "id": "7KQI81bggkSoSwgT",
+      "title": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle",
+      "seoTitle": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of?",
+      "metaDescription": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle ? ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the?",
+      "category": "programming",
+      "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5rmpithw2oqrnlpo7pff.png",
+      "imageAlt": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle",
+      "url": "https://dev.to/tosh2308/chatgpt-for-product-managers-prompts-that-sharpen-every-stage-of-the-product-cycle-226o",
+      "source": {
+        "name": "Currents"
+      },
+      "publishedAt": "2026-04-19T09:12:19.000Z",
+      "description": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "summary": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've... ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "intro": "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've...",
+      "bullets": [
+        "ChatGPT for Product Managers: Prompts That Sharpen Every Stage of the Product Cycle I've..."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "product, chatgpt, managers, prompts, sharpen, every, stage, cycle, artificial intelligence, machine learning",
+      "slug": "chatgpt-for-product-managers-prompts-that-sharpen-every-stage-of"
+    },
+    {
       "id": "Kx543GQr6Xc7CEuJ",
       "title": "Opinion | AI is advancing. Now it?s up to humans to redefine their worth",
       "seoTitle": "Opinion | AI is advancing. Now it?s up to humans to redefine their?",
@@ -480,6 +549,127 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "elon, musk, says, robots, increase, output, then, you, artificial intelligence, machine learning",
       "slug": "elon-musk-says-if-ai-robots-increase-output-then-you-must-issue"
+    },
+    {
+      "id": "V64dSfT7GHfef-Hf",
+      "title": "monk-ai added to PyPI",
+      "seoTitle": "monk-ai added to PyPI",
+      "metaDescription": "Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows. Drop monk on any?",
+      "category": "AI",
+      "image": "https://pypi.org/static/images/twitter.abaf4b19.webp",
+      "imageAlt": "monk-ai added to PyPI",
+      "url": "https://pypi.org/project/monk-ai/",
+      "source": {
+        "name": "Pypi.org"
+      },
+      "publishedAt": "2026-04-18T10:33:07.000Z",
+      "description": "Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows. Drop monk on any trace file. Get a plain-English report of what's wasting tokens and exactly how to fix it. $ monk run ./traces/? [+3616 chars]",
+      "summary": "Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows. Drop monk on any trace file. Get a plain-English report of what's wasting tokens and exactly how to fix it. $ monk run ./traces/? [+3616 chars]",
+      "intro": "Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows.",
+      "bullets": [
+        "Find hidden cost leaks and blind spots in your agentic AI workflows Find hidden cost leaks and blind spots in your agentic AI workflows.",
+        "Drop monk on any trace file.",
+        "Get a plain-English report of what's wasting tokens and exactly how to fix it.",
+        "$ monk run ./traces/? [+3616 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "monk, added, pypi, artificial intelligence, machine learning",
+      "slug": "monk-ai-added-to-pypi"
+    },
+    {
+      "id": "2uffEALWa0larvYJ",
+      "title": "American Catholics are disappointed by President Trump's insult to the Pope.",
+      "seoTitle": "American Catholics are disappointed by President Trump's insult to?",
+      "metaDescription": "The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created?",
+      "category": "AI",
+      "image": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tjq4nW_81OCR0k4haCynx1UfR6taNmmGj4EKUDocmkMJkwTfUAjAaBHPFTe10TktGxx0hHFR14H5JPMFvYqqkrYYxiMWpUEYB49aPgX7ElMHPwTYU5nnZ0edVAK_4oWmKAJL2MBpLVnFeixh23M7M7A0RXwMdV5TuZqA=w1600",
+      "imageAlt": "American Catholics are disappointed by President Trump's insult to the Pope.",
+      "url": "https://english.gossiplankanews.com/2026/04/american-catholics-are-disappointed-by.html",
+      "source": {
+        "name": "Gossiplankanews.com"
+      },
+      "publishedAt": "2026-04-18T10:30:20.000Z",
+      "description": "The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created between President Donald Trump and Pope Leo XIV, as well as the artificial intelligence (AI) generated im? The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created between President Donald Trump and Pope Leo X? [+2350 chars]",
+      "summary": "The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created between President Donald Trump and Pope Leo XIV, as well as the artificial intelligence (AI) generated im? The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created between President Donald Trump and Pope Leo X? [+2350 chars]",
+      "intro": "The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial situation created between President Donald Trump and Pope Leo XIV, as well as the artificial intelligence (AI) generated im? The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial?",
+      "bullets": [
+        "The political allegiance of approximately 53 million American Roman Catholic devotees has been severely tested due to the controversial?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "american, catholics, disappointed, president, trump, insult, pope, artificial intelligence, machine learning",
+      "slug": "american-catholics-are-disappointed-by-president-trumps-insult-to"
+    },
+    {
+      "id": "i9eVm5pyIv6X6HAR",
+      "title": "Three more senior executives leave OpenAI as the company kills its side quests",
+      "seoTitle": "Three more senior executives leave OpenAI as the company kills its?",
+      "metaDescription": "Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan ? departed on the same day as?",
+      "category": "ChatGPT",
+      "image": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/04/openai-departures-kevin-weil-sora-peebles-enterprise-pivot.png",
+      "imageAlt": "Three more senior executives leave OpenAI as the company kills its side quests",
+      "url": "https://thenextweb.com/news/openai-departures-kevin-weil-sora-peebles-enterprise-pivot/",
+      "source": {
+        "name": "The Next Web"
+      },
+      "publishedAt": "2026-04-18T10:13:18.000Z",
+      "description": "Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan ? departed on the same day as the company shuts down ?side quests? including Sora (discontinuing 26 April) and dismantles OpenAI for ? Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan departed on the same day as the company shuts down side quests including ? [+7614 chars]",
+      "summary": "Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan ? departed on the same day as the company shuts down ?side quests? including Sora (discontinuing 26 April) and dismantles OpenAI for ? Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan departed on the same day as the company shuts down side quests including ? [+7614 chars]",
+      "intro": "Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan ? departed on the same day as the company shuts down ?side quests? including Sora (discontinuing 26 April) and dismantles OpenAI for ? Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan departed on?",
+      "bullets": [
+        "Summary: Three senior OpenAI executives, former CPO Kevin Weil, Sora head Bill Peebles, and enterprise CTO Srinivas Narayanan ? departed?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "three, more, senior, executives, leave, openai, company, kills, artificial intelligence, machine learning",
+      "slug": "three-more-senior-executives-leave-openai-as-the-company-kills-its"
+    },
+    {
+      "id": "8zCj7mtIGCt_RVhL",
+      "title": "How Opus 4.7 and Claude Code Are Quietly Beating ChatGPT 5.4 in Software Development",
+      "seoTitle": "How Opus 4.7 and Claude Code Are Quietly Beating ChatGPT 5.4 in?",
+      "metaDescription": "Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej. This pairing uses Opus?",
+      "category": "ChatGPT",
+      "image": "https://www.geeky-gadgets.com/wp-content/uploads/2026/04/a-screenshot-of-a-fully-functional-fps-game-running-inside-a-single-html-file-generated-by-opus-4-7.jpg",
+      "imageAlt": "How Opus 4.7 and Claude Code Are Quietly Beating ChatGPT 5.4 in Software Development",
+      "url": "https://www.geeky-gadgets.com/opus-4-7-ultimate-ai-coding-agent/",
+      "source": {
+        "name": "Geeky Gadgets"
+      },
+      "publishedAt": "2026-04-18T10:00:00.000Z",
+      "description": "Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej. This pairing uses Opus 4.7?s enhanced capabilities, such as its redesigned tokenizer, which improves contextual understanding ? Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej. This pairing uses Opus 4.7?s enhanced capabilities, such as its re? [+7690 chars]",
+      "summary": "Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej. This pairing uses Opus 4.7?s enhanced capabilities, such as its redesigned tokenizer, which improves contextual understanding ? Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej. This pairing uses Opus 4.7?s enhanced capabilities, such as its re? [+7690 chars]",
+      "intro": "Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej.",
+      "bullets": [
+        "Anthropic?s Opus 4.7 and Claude Code combine to create a sophisticated coding and automation framework, as explored by David Ondrej.",
+        "This pairing uses Opus 4.7?s enhanced capabilities, such as its redesigned tokenizer, which improves contextual understanding ??",
+        "This pairing uses Opus 4.7?s enhanced capabilities, such as its re? [+7690 chars]"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "how, opus, claude, code, quietly, beating, chatgpt, software, artificial intelligence, machine learning",
+      "slug": "how-opus-4-7-and-claude-code-are-quietly-beating-chatgpt-5-4-in"
+    },
+    {
+      "id": "340pD-SSQx0IrCcA",
+      "title": "Open Generative AI Review: One Interface for Image, Video, and Lip Sync",
+      "seoTitle": "Open Generative AI Review: One Interface for Image, Video, and Lip?",
+      "metaDescription": "Open Generative AI bundles image, video, lip sync, and cinema-style prompting into one open-source interface, but it still depends on Muapi for generation.?",
+      "category": "Tools",
+      "image": "https://assets.hongkiat.com/uploads/open-generative-ai-review/open-generative-ai.jpg",
+      "imageAlt": "Open Generative AI Review: One Interface for Image, Video, and Lip Sync",
+      "url": "https://www.hongkiat.com/blog/open-generative-ai-review/",
+      "source": {
+        "name": "Hongkiat.com"
+      },
+      "publishedAt": "2026-04-18T10:00:00.000Z",
+      "description": "Open Generative AI bundles image, video, lip sync, and cinema-style prompting into one open-source interface, but it still depends on Muapi for generation. The post Open Generative AI Review: One Interface for Image, Video, and Lip Sync appeared first on Hong? Open Generative AI is trying to solve a real AI-tool problem: too many fragmented apps, too many tabs, and too much switching between image generators, video tools, and lip sync products that all do ? [+11075 chars]",
+      "summary": "Open Generative AI bundles image, video, lip sync, and cinema-style prompting into one open-source interface, but it still depends on Muapi for generation. The post Open Generative AI Review: One Interface for Image, Video, and Lip Sync appeared first on Hong? Open Generative AI is trying to solve a real AI-tool problem: too many fragmented apps, too many tabs, and too much switching between image generators, video tools, and lip sync products that all do ? [+11075 chars]",
+      "intro": "Open Generative AI bundles image, video, lip sync, and cinema-style prompting into one open-source interface, but it still depends on Muapi for generation.",
+      "bullets": [
+        "Open Generative AI bundles image, video, lip sync, and cinema-style prompting into one open-source interface, but it still depends on?",
+        "The post Open Generative AI Review: One Interface for Image, Video, and Lip Sync appeared first on Hong? Open Generative AI is trying to?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "open, generative, review, one, interface, image, video, lip, artificial intelligence, machine learning",
+      "slug": "open-generative-ai-review-one-interface-for-image-video-and-lip"
     },
     {
       "id": "vbz-kqXNdF8iwYdS",
