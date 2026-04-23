@@ -5,9 +5,18 @@
   <link></link>
   <description>Artificial Intelligence news updates from waapply.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 23 Apr 2026 19:13:36 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 23 Apr 2026 20:04:38 GMT</lastBuildDate>
   <item>
-    <title>OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;superapp&#8217;</title>
+    <title>Meet Noscroll, an AI bot that does your doomscrolling for you</title>
+    <link>/ai-news/articles/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you/</link>
+    <description>What if you could outsource your doomscrolling? That&#8217;s the premise behind the new startup Noscroll , which is offering an AI-powered bot that can browse?</description>
+    <pubDate>Thu, 23 Apr 2026 19:38:25 GMT</pubDate>
+    <category>Tools</category>
+    <guid isPermaLink="true">/ai-news/articles/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you/</guid>
+    <enclosure url="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217;</title>
     <link>/ai-news/articles/openai-releases-gpt-5-5-bringing-company-one-step-closer-to-an-ai/</link>
     <description>OpenAI on Thursday released GPT-5.5 , its newest AI model, which the company calls its &#8220;smartest and most intuitive to use model&#8221; yet. The?</description>
     <pubDate>Thu, 23 Apr 2026 18:29:29 GMT</pubDate>
@@ -86,15 +95,6 @@
     <category>Tools</category>
     <guid isPermaLink="true">/ai-news/articles/google-updates-workspace-to-make-ai-your-new-office-intern/</guid>
     <enclosure url="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Hands on with X&#8217;s new AI-powered custom feeds</title>
-    <link>/ai-news/articles/hands-on-with-x-and-8217-s-new-ai-powered-custom-feeds/</link>
-    <description>Bluesky isn&#8217;t the only company leaning into AI to help build custom feeds, it seems. Amid a slate of recent product releases , X this week announced the?</description>
-    <pubDate>Wed, 22 Apr 2026 22:25:53 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/hands-on-with-x-and-8217-s-new-ai-powered-custom-feeds/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
   </item>
 </channel>
 </rss>
