@@ -1,100 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>waapply</title>
   <link></link>
-  <description>Artificial Intelligence news updates from waapply.</description>
+  <description>Latest Artificial Intelligence news and editorial summaries.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 23 Apr 2026 20:04:38 GMT</lastBuildDate>
-  <item>
-    <title>Meet Noscroll, an AI bot that does your doomscrolling for you</title>
-    <link>/ai-news/articles/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you/</link>
-    <description>What if you could outsource your doomscrolling? That&#8217;s the premise behind the new startup Noscroll , which is offering an AI-powered bot that can browse?</description>
-    <pubDate>Thu, 23 Apr 2026 19:38:25 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217;</title>
-    <link>/ai-news/articles/openai-releases-gpt-5-5-bringing-company-one-step-closer-to-an-ai/</link>
-    <description>OpenAI on Thursday released GPT-5.5 , its newest AI model, which the company calls its &#8220;smartest and most intuitive to use model&#8221; yet. The?</description>
-    <pubDate>Thu, 23 Apr 2026 18:29:29 GMT</pubDate>
-    <category>ChatGPT</category>
-    <guid isPermaLink="true">/ai-news/articles/openai-releases-gpt-5-5-bringing-company-one-step-closer-to-an-ai/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Era raises $11M to build a software platform for AI gadgets</title>
-    <link>/ai-news/articles/era-raises-11m-to-build-a-software-platform-for-ai-gadgets/</link>
-    <description>Earlier in April, the startup Era held a gathering in New York for artists who had received its developer kit. The artists showed off the various mini gadgets?</description>
-    <pubDate>Thu, 23 Apr 2026 16:00:00 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/era-raises-11m-to-build-a-software-platform-for-ai-gadgets/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Grab a ticket today: The first StrictlyVC of 2026 kicks off in just a week in San Francisco</title>
-    <link>/ai-news/articles/grab-a-ticket-today-the-first-strictlyvc-of-2026-kicks-off-in-just/</link>
-    <description>StrictlyVC?s first San Francisco event of the year is nearly here, and with just a week to go, now?s the time to grab yourself a ticket . The venture and?</description>
-    <pubDate>Thu, 23 Apr 2026 14:00:00 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/grab-a-ticket-today-the-first-strictlyvc-of-2026-kicks-off-in-just/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Another customer of troubled startup Delve suffered a big security incident</title>
-    <link>/ai-news/articles/another-customer-of-troubled-startup-delve-suffered-a-big-security/</link>
-    <description>The story of embattled compliance startup Delve keeps hitting twists and turns. TechCrunch has confirmed that Delve was the compliance company that performed?</description>
-    <pubDate>Thu, 23 Apr 2026 14:00:00 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/another-customer-of-troubled-startup-delve-suffered-a-big-security/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>AI galaxy hunters are adding to the global GPU crunch</title>
-    <link>/ai-news/articles/ai-galaxy-hunters-are-adding-to-the-global-gpu-crunch/</link>
-    <description>NASA announced that it will launch the Nancy Grace Roman space telescope into orbit in September 2026, eight months ahead of schedule. The new space telescope?</description>
-    <pubDate>Thu, 23 Apr 2026 13:00:00 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/ai-galaxy-hunters-are-adding-to-the-global-gpu-crunch/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Beehiiv rolls out new creator tools, including webinars and customizable paywalls</title>
-    <link>/ai-news/articles/beehiiv-rolls-out-new-creator-tools-including-webinars-and/</link>
-    <description>It&#8217;s been clear for a while that Beehiiv wants to be more than just a newsletter platform. The L.A.-based company announced a slew of updates on?</description>
-    <pubDate>Thu, 23 Apr 2026 12:00:00 GMT</pubDate>
-    <category>ChatGPT</category>
-    <guid isPermaLink="true">/ai-news/articles/beehiiv-rolls-out-new-creator-tools-including-webinars-and/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>India&#8217;s app market is booming ? but global platforms are capturing most of the gains</title>
-    <link>/ai-news/articles/india-and-8217-s-app-market-is-booming-but-global-platforms-are/</link>
-    <description>India&#8217;s mobile app market is generating record revenue, with in-app purchases crossing $300 million in the first quarter, up 33% year-over-year,?</description>
-    <pubDate>Thu, 23 Apr 2026 04:38:45 GMT</pubDate>
-    <category>ChatGPT</category>
-    <guid isPermaLink="true">/ai-news/articles/india-and-8217-s-app-market-is-booming-but-global-platforms-are/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Tesla just increased its spending plan to $25B ? here&#8217;s where the money is going</title>
-    <link>/ai-news/articles/tesla-just-increased-its-spending-plan-to-25b-here-and-8217-s-where/</link>
-    <description>Tesla CEO Elon Musk kicked off the company&#8217;s first-quarter earnings call with a monetary heads-up ? or depending on the mindset of the investor, a?</description>
-    <pubDate>Wed, 22 Apr 2026 23:56:52 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/tesla-just-increased-its-spending-plan-to-25b-here-and-8217-s-where/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
-  <item>
-    <title>Google updates Workspace to make AI your new office intern</title>
-    <link>/ai-news/articles/google-updates-workspace-to-make-ai-your-new-office-intern/</link>
-    <description>At Google Cloud Next this week, the tech giant announced a bevy of new updates to Workspace, its subscription-based productivity suite aimed at professionals.?</description>
-    <pubDate>Wed, 22 Apr 2026 22:44:26 GMT</pubDate>
-    <category>Tools</category>
-    <guid isPermaLink="true">/ai-news/articles/google-updates-workspace-to-make-ai-your-new-office-intern/</guid>
-    <enclosure url="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80" type="image/jpeg" length="0" />
-  </item>
+  <lastBuildDate>Thu, 23 Apr 2026 20:04:50 GMT</lastBuildDate>
+  <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Meet Noscroll, an AI bot that does your doomscrolling for you</title>
+  <link></link>
+  <description>What if you could outsource your doomscrolling? That&amp;#8217;s the premise behind the new startup Noscroll , which is offering an AI-powered bot that can browse?</description>
+  <pubDate>Thu, 23 Apr 2026 19:38:25 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>OpenAI releases GPT-5.5, bringing company one step closer to an AI?</title>
+  <link></link>
+  <description>OpenAI on Thursday released GPT-5.5 , its newest AI model, which the company calls its &amp;#8220;smartest and most intuitive to use model&amp;#8221; yet. The?</description>
+  <pubDate>Thu, 23 Apr 2026 18:29:29 GMT</pubDate>
+  <category>ChatGPT</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Era raises $11M to build a software platform for AI gadgets</title>
+  <link></link>
+  <description>Earlier in April, the startup Era held a gathering in New York for artists who had received its developer kit. The artists showed off the various mini gadgets?</description>
+  <pubDate>Thu, 23 Apr 2026 16:00:00 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Another customer of troubled startup Delve suffered a big security?</title>
+  <link></link>
+  <description>The story of embattled compliance startup Delve keeps hitting twists and turns. TechCrunch has confirmed that Delve was the compliance company that performed?</description>
+  <pubDate>Thu, 23 Apr 2026 14:00:00 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Grab a ticket today: The first StrictlyVC of 2026 kicks off in just?</title>
+  <link></link>
+  <description>StrictlyVC?s first San Francisco event of the year is nearly here, and with just a week to go, now?s the time to grab yourself a ticket . The venture and?</description>
+  <pubDate>Thu, 23 Apr 2026 14:00:00 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>AI galaxy hunters are adding to the global GPU crunch</title>
+  <link></link>
+  <description>NASA announced that it will launch the Nancy Grace Roman space telescope into orbit in September 2026, eight months ahead of schedule. The new space telescope?</description>
+  <pubDate>Thu, 23 Apr 2026 13:00:00 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Beehiiv rolls out new creator tools, including webinars and?</title>
+  <link></link>
+  <description>It&amp;#8217;s been clear for a while that Beehiiv wants to be more than just a newsletter platform. The L.A.-based company announced a slew of updates on?</description>
+  <pubDate>Thu, 23 Apr 2026 12:00:00 GMT</pubDate>
+  <category>ChatGPT</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>India&amp;#8217;s app market is booming ? but global platforms are?</title>
+  <link></link>
+  <description>India&amp;#8217;s mobile app market is generating record revenue, with in-app purchases crossing $300 million in the first quarter, up 33% year-over-year,?</description>
+  <pubDate>Thu, 23 Apr 2026 04:38:45 GMT</pubDate>
+  <category>ChatGPT</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Tesla just increased its spending plan to $25B ? here&amp;#8217;s where?</title>
+  <link></link>
+  <description>Tesla CEO Elon Musk kicked off the company&amp;#8217;s first-quarter earnings call with a monetary heads-up ? or depending on the mindset of the investor, a?</description>
+  <pubDate>Wed, 22 Apr 2026 23:56:52 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
+<item>
+  <title>Google updates Workspace to make AI your new office intern</title>
+  <link></link>
+  <description>At Google Cloud Next this week, the tech giant announced a bevy of new updates to Workspace, its subscription-based productivity suite aimed at professionals.?</description>
+  <pubDate>Wed, 22 Apr 2026 22:44:26 GMT</pubDate>
+  <category>Tools</category>
+  <guid isPermaLink="true"></guid>
+  <enclosure url="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&amp;h=450&amp;fit=crop&amp;q=80" type="image/jpeg" length="0" />
+</item>
 </channel>
 </rss>
