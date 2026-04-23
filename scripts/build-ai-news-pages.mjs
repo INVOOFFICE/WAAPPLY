@@ -411,7 +411,7 @@ function buildArticlePages(articles, site, template, defaultCategory, isMakeMone
     const relHtml = buildRelatedHtml(site, rel);
 
     const jsonLd = buildJsonLd(site, a, canon, ogImage);
-    const parsedDescription = (isMakeMoneyAI && a.description) ? simpleMarkdownToHtml(a.description) : "";
+    const parsedDescription = a.description ? simpleMarkdownToHtml(a.description) : "";
     const fullDescHtml = parsedDescription ? `<div class="article__full-description">${parsedDescription}</div>` : "";
     const out = template
       .replaceAll("{{SITE_NAME}}", escapeHtml(siteName))
