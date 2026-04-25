@@ -16,6 +16,291 @@
   },
   "articles": [
     {
+      "id": "9Dx2NgkWRF3oWirM",
+      "title": "Google will invest as much as $40 billion in Anthropic",
+      "seoTitle": "Google will invest as much as $40 billion in Anthropic",
+      "metaDescription": "Google will invest at least $10 billion in Anthropic, and that amount could rise to $40 billion if Anthropic meets certain performance targets, Bloomberg?",
+      "category": "Tools",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Google will invest as much as $40 billion in Anthropic",
+      "url": "https://arstechnica.com/ai/2026/04/google-will-invest-as-much-as-40-billion-in-anthropic/",
+      "source": {
+        "name": "Ars Technica"
+      },
+      "publishedAt": "2026-04-24T22:05:45.000Z",
+      "description": "Google will invest at least $10 billion in Anthropic, and that amount could rise to $40 billion if Anthropic meets certain performance targets, Bloomberg reports . The investment follows Amazon's $5 billion initial investment in Anthropic a few days ago; the Amazon deal also leaves the door open to further investment based on performance. Both investments value Anthropic at $350 billion. Anthropic has seen rapid growth in the use of its Claude models and related products, such as Claude Code, which promises to significantly increase the speed and efficiency with which companies or individuals can develop software. (The reality varies from big improvements to setbacks, depending on the nature of the project and company, how Claude Code is used, and many other factors.) Read full article Comments ]]>",
+      "summary": "Google will invest at least $10 billion in Anthropic, and that amount could rise to $40 billion if Anthropic meets certain performance targets, Bloomberg reports . The investment follows Amazon's $5 billion initial investment in Anthropic a few days ago; the Amazon deal also leaves the door open to further investment based on performance. Both investments value Anthropic at $350 billion. Anthropic has seen rapid growth in the use of its Claude models and related products, such as Claude Code, which promises to significantly increase the speed and efficiency with which companies or individuals can develop software. (The reality varies from big improvements to setbacks, depending on the nature of the project and company, how Claude Code is used, and many other factors.) Read full article Comments ]]>",
+      "intro": "Google will invest at least $10 billion in Anthropic, and that amount could rise to $40 billion if Anthropic meets certain performance targets, Bloomberg reports .",
+      "bullets": [
+        "Google will invest at least $10 billion in Anthropic, and that amount could rise to $40 billion if Anthropic meets certain performance?",
+        "The investment follows Amazon's $5 billion initial investment in Anthropic a few days ago; the Amazon deal also leaves the door open to?",
+        "Both investments value Anthropic at $350 billion.",
+        "Anthropic has seen rapid growth in the use of its Claude models and related products, such as Claude Code, which promises to significantly?",
+        "(The reality varies from big improvements to setbacks, depending on the nature of the project and company, how Claude Code is used, and?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "google, will, invest, much, billion, anthropic, artificial intelligence, machine learning",
+      "slug": "google-will-invest-as-much-as-40-billion-in-anthropic"
+    },
+    {
+      "id": "sUA9jry0nnrdI4mH",
+      "title": "Three reasons why DeepSeek?s new model V4 matters",
+      "seoTitle": "Three reasons why DeepSeek?s new model V4 matters",
+      "metaDescription": "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model. Notably, the model can process much longer prompts than its?",
+      "category": "ChatGPT",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Three reasons why DeepSeek?s new model V4 matters",
+      "url": "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/",
+      "source": {
+        "name": "MIT Technology Review"
+      },
+      "publishedAt": "2026-04-24T21:40:58.000Z",
+      "description": "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model. Notably, the model can process much longer prompts than its last generation, thanks to a new design that helps it handle large amounts of text more efficiently. Like DeepSeek?s previous models, V4 is open source, meaning it is available for anyone to download, use, and modify. V4 marks DeepSeek?s most significant release since R1 , the reasoning model it launched in January 2025. R1, which was trained on limited computing resources, stunned the global AI industry with its strong performance and efficiency, turning DeepSeek from a little-known research team into China?s best-known AI company almost overnight. It also helped set off a wave of open-weight model releases from other Chinese AI firms. DeepSeek has kept a relatively low profile since then?but earlier this month, it effectively teased V4?s release when it added ?expert? and ?flash? modes to the online version of its model, prompting speculation that the updates were tied to a bigger upcoming release. While the company has become a powerful symbol of China?s AI ambitions, its big return to cutting-edge frontier models comes after months of scrutiny?including major personnel departures , delays to previous model launches , and growing scrutiny from both the US and Chinese governments. So, will V4 shake the AI field the way R1 did? Almost certainly not, but here are three big reasons why this release matters. 1. It breaks new ground for an open-source model. As with R1 before it, DeepSeek claims that V4?s performance rivals the best models available at a fraction of the price. This is great news for developers and for companies using the tech, because it means they can access frontier AI capabilities on their own terms, and without worrying about skyrocketing costs. The new model comes in two versions, both of which are available on DeepSeek?s website and in its app, with API access also open to developers. V4-Pro is a larger model built for coding and complex agent tasks, and V4-Flash is a smaller version designed to be faster and cheaper to run. Both versions offer reasoning modes, in which the model can carefully parse a user?s prompt and show each step as it works through the problem. For V4-Pro, DeepSeek charges $1.74 per million input tokens and $3.48 per million output tokens, a fraction of the cost of comparable models from OpenAI and Anthropic. V4-Flash is even cheaper, at about $0.14 per million input tokens and about $0.28 per million output tokens, making it one of the cheapest top-tier models available. This would make it a very appealing model to build applications on. In terms of performance, V4 is, perhaps unsurprisingly, a huge jump from R1?and it seems to be a strong alternative to just about all the latest big AI models. On the major benchmarks, according to results shared by the company, DeepSeek V4-Pro competes with leading closed-source models, matching the performance of Anthropic?s Claude-Opus-4.6, OpenAI?s GPT-5.4, and Google?s Gemini-3.1. And compared to other open-source models, such as Alibaba?s Qwen-3.5 or Z.ai?s GLM-5.1, DeepSeek V4 exceeds them all on coding, math, and STEM problems, making it one of the strongest open-source models ever released. DeepSeek also says that V4-Pro now ranks among the strongest open-source models on benchmarks for agentic coding tasks and performs well on other tests that measure ability to carry out multistep problems. Its writing ability and world knowledge also leads the field, according to benchmarking results shared by the company. In a technical report released alongside the model, DeepSeek shared results from an internal survey of 85 experienced developers: More than 90% included V4-Pro among their top model choices for coding tasks. DeepSeek says it has specifically optimized V4 for popular agent frameworks such as Claude Code, OpenClaw, and CodeBuddy. 2. It delivers on a new approach to memory efficiency. One of the key innovations of V4 is its long context window?the amount of text the model can process at once. Both versions can handle 1 million tokens, which is large enough to fit all three volumes of The Lord of the Rings and The Hobbit combined. The company says this context window size is now the default across all DeepSeek services and it matches what is offered by cutting-edge versions of models like Gemini and Claude. But it?s important to know not just that DeepSeek has made this leap, but how it did so. V4 makes significant architectural changes to the company?s former models?especially in the attention mechanism, which is the feature of AI models that helps them understand each part of a prompt in relation to the rest. As the prompt text gets longer, these comparisons become much more costly, making attention one of the main bottlenecks for long-context models. DeepSeek?s innovation was to make the model more selective about what it pays attention to. Instead of treating all earlier text as equally important, V4 compresses older information and focuses on the parts most likely to matter in the present moment, while still keeping nearby text in full so it does not miss important details. DeepSeek says this sharply reduces the cost of using long context. In a 1-million-token context, V4-Pro uses only 27% of the computing power required by its previous model, V3.2, while cutting memory use to 10%. The reduction in V4-Flash is even larger, using just 10% of the computing power and 7% of the memory. In practice, this could make it cheaper to build tools that need to work across huge amounts of material, such as an AI coding assistant that can read an entire codebase or a research agent that can analyze a long archive of documents without constantly forgetting what came before. DeepSeek?s interest in long context windows didn?t start with V4. Over the past year and a half, the company has quietly published a series of papers on how AI models ?remember? information, experimenting with compression and mathematical techniques to extend what AI models could realistically handle. 3. It marks the first steps on the hard road away from Nvidia. V4 is DeepSeek?s first model optimized for domestic Chinese chips, such as Huawei?s Ascend?a move that has turned the launch into something of a test of whether China?s homegrown AI industry can begin to loosen its dependence on US chip giant Nvidia. This was largely expected, since The Information reported earlier this month that DeepSeek did not give American chipmakers like Nvidia and AMD early access to V4, though prerelease access is common to allow chipmakers to optimize support of the new model ahead of a launch. Instead, the company reportedly gave early access only to Chinese chipmakers. On Friday, Huawei said its Ascend supernode products, based on the Ascend 950 series, would support DeepSeek V4. This means that companies and individuals who want to run their own modified version of Deepseek V4 will be able to use Huawei chips easily. Reuters previously reported that Chinese government officials recommended that DeepSeek integrate Huawei chips in its training process. And this pressure fits a broader pattern in China?s industrial policy: Strategic sectors are often pushed, and sometimes effectively required, to align with national self-reliance goals. But there?s a particular urgency when it comes to AI. Since 2022, US export controls have cut Chinese firms off from Nvidia?s most powerful chips, and they later also restricted access to downgraded China-market versions. Beijing?s response has been to accelerate the push for a domestic AI stack, from chips to software frameworks to data centers. Chinese authorities have reportedly been pushing data centers and public computing projects to use more domestic chips, including through reported bans on foreign-made chips , sourcing quotas , and requirements to pair Nvidia chips with Chinese alternatives from companies such as Huawei and Cambricon. Still, replacing Nvidia is not as simple as swapping one chip for another. Nvidia?s advantage lies not only in its chips, but in the software ecosystem developers have spent years building around them. Moving to Huawei?s Ascend chips means adapting model code, rebuilding tools, and proving that systems built around those chips are stable enough for serious use. To be clear, DeepSeek does not appear to have fully moved beyond Nvidia. The company?s technical report reveals that it is using Chinese chips to run the model for inference, or when someone asks the model to complete a task. But Liu Zhiyuan, a computer science professor at Tsinghua University, told MIT Technology Review that DeepSeek appears to have adapted only part of V4?s training process for Chinese chips. The report does not say whether some key long-context features were adapted to domestic chips, so Liu says V4 may still have been trained mainly on Nvidia chips. Multiple sources who spoke on the condition of anonymity, due to political sensitivity around these issues, told MIT Technology Review that Chinese chips still don?t perform as well as Nvidia chips but are better suited for inference than training. DeepSeek is also tying the future costs of V4 to this hardware shift. The company says V4-Pro prices could fall significantly after Huawei?s Ascend 950 supernodes begin shipping at scale in the second half of this year. If that works, V4 could be an early sign that China is successfully building a parallel AI infrastructure.",
+      "summary": "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model. Notably, the model can process much longer prompts than its last generation, thanks to a new design that helps it handle large amounts of text more efficiently. Like DeepSeek?s previous models, V4 is open source, meaning it is available for anyone to download, use, and modify. V4 marks DeepSeek?s most significant release since R1 , the reasoning model it launched in January 2025. R1, which was trained on limited computing resources, stunned the global AI industry with its strong performance and efficiency, turning DeepSeek from a little-known research team into China?s best-known AI company almost overnight. It also helped set off a wave of open-weight model releases from other Chinese AI firms. DeepSeek has kept a relatively low profile since then?but earlier this month, it effectively teased V4?s release when it added ?expert? and ?flash? modes to the online version of its model, prompting speculation that the updates were tied to a bigger upcoming release. While the company has become a powerful symbol of China?s AI ambitions, its big return to cutting-edge frontier models comes after months of scrutiny?including major personnel departures , delays to previous model launches , and growing scrutiny from both the US and Chinese governments. So, will V4 shake the AI field the way R1 did? Almost certainly not, but here are three big reasons why this release matters. 1. It breaks new ground for an open-source model. As with R1 before it, DeepSeek claims that V4?s performance rivals the best models available at a fraction of the price. This is great news for developers and for companies using the tech, because it means they can access frontier AI capabilities on their own terms, and without worrying about skyrocketing costs. The new model comes in two versions, both of which are available on DeepSeek?s website and in its app, with API access also open to developers. V4-Pro is a larger model built for coding and complex agent tasks, and V4-Flash is a smaller version designed to be faster and cheaper to run. Both versions offer reasoning modes, in which the model can carefully parse a user?s prompt and show each step as it works through the problem. For V4-Pro, DeepSeek charges $1.74 per million input tokens and $3.48 per million output tokens, a fraction of the cost of comparable models from OpenAI and Anthropic. V4-Flash is even cheaper, at about $0.14 per million input tokens and about $0.28 per million output tokens, making it one of the cheapest top-tier models available. This would make it a very appealing model to build applications on. In terms of performance, V4 is, perhaps unsurprisingly, a huge jump from R1?and it seems to be a strong alternative to just about all the latest big AI models. On the major benchmarks, according to results shared by the company, DeepSeek V4-Pro competes with leading closed-source models, matching the performance of Anthropic?s Claude-Opus-4.6, OpenAI?s GPT-5.4, and Google?s Gemini-3.1. And compared to other open-source models, such as Alibaba?s Qwen-3.5 or Z.ai?s GLM-5.1, DeepSeek V4 exceeds them all on coding, math, and STEM problems, making it one of the strongest open-source models ever released. DeepSeek also says that V4-Pro now ranks among the strongest open-source models on benchmarks for agentic coding tasks and performs well on other tests that measure ability to carry out multistep problems. Its writing ability and world knowledge also leads the field, according to benchmarking results shared by the company. In a technical report released alongside the model, DeepSeek shared results from an internal survey of 85 experienced developers: More than 90% included V4-Pro among their top model choices for coding tasks. DeepSeek says it has specifically optimized V4 for popular agent frameworks such as Claude Code, OpenClaw, and CodeBuddy. 2. It delivers on a new approach to memory efficiency. One of the key innovations of V4 is its long context window?the amount of text the model can process at once. Both versions can handle 1 million tokens, which is large enough to fit all three volumes of The Lord of the Rings and The Hobbit combined. The company says this context window size is now the default across all DeepSeek services and it matches what is offered by cutting-edge versions of models like Gemini and Claude. But it?s important to know not just that DeepSeek has made this leap, but how it did so. V4 makes significant architectural changes to the company?s former models?especially in the attention mechanism, which is the feature of AI models that helps them understand each part of a prompt in relation to the rest. As the prompt text gets longer, these comparisons become much more costly, making attention one of the main bottlenecks for long-context models. DeepSeek?s innovation was to make the model more selective about what it pays attention to. Instead of treating all earlier text as equally important, V4 compresses older information and focuses on the parts most likely to matter in the present moment, while still keeping nearby text in full so it does not miss important details. DeepSeek says this sharply reduces the cost of using long context. In a 1-million-token context, V4-Pro uses only 27% of the computing power required by its previous model, V3.2, while cutting memory use to 10%. The reduction in V4-Flash is even larger, using just 10% of the computing power and 7% of the memory. In practice, this could make it cheaper to build tools that need to work across huge amounts of material, such as an AI coding assistant that can read an entire codebase or a research agent that can analyze a long archive of documents without constantly forgetting what came before. DeepSeek?s interest in long context windows didn?t start with V4. Over the past year and a half, the company has quietly published a series of papers on how AI models ?remember? information, experimenting with compression and mathematical techniques to extend what AI models could realistically handle. 3. It marks the first steps on the hard road away from Nvidia. V4 is DeepSeek?s first model optimized for domestic Chinese chips, such as Huawei?s Ascend?a move that has turned the launch into something of a test of whether China?s homegrown AI industry can begin to loosen its dependence on US chip giant Nvidia. This was largely expected, since The Information reported earlier this month that DeepSeek did not give American chipmakers like Nvidia and AMD early access to V4, though prerelease access is common to allow chipmakers to optimize support of the new model ahead of a launch. Instead, the company reportedly gave early access only to Chinese chipmakers. On Friday, Huawei said its Ascend supernode products, based on the Ascend 950 series, would support DeepSeek V4. This means that companies and individuals who want to run their own modified version of Deepseek V4 will be able to use Huawei chips easily. Reuters previously reported that Chinese government officials recommended that DeepSeek integrate Huawei chips in its training process. And this pressure fits a broader pattern in China?s industrial policy: Strategic sectors are often pushed, and sometimes effectively required, to align with national self-reliance goals. But there?s a particular urgency when it comes to AI. Since 2022, US export controls have cut Chinese firms off from Nvidia?s most powerful chips, and they later also restricted access to downgraded China-market versions. Beijing?s response has been to accelerate the push for a domestic AI stack, from chips to software frameworks to data centers. Chinese authorities have reportedly been pushing data centers and public computing projects to use more domestic chips, including through reported bans on foreign-made chips , sourcing quotas , and requirements to pair Nvidia chips with Chinese alternatives from companies such as Huawei and Cambricon. Still, replacing Nvidia is not as simple as swapping one chip for another. Nvidia?s advantage lies not only in its chips, but in the software ecosystem developers have spent years building around them. Moving to Huawei?s Ascend chips means adapting model code, rebuilding tools, and proving that systems built around those chips are stable enough for serious use. To be clear, DeepSeek does not appear to have fully moved beyond Nvidia. The company?s technical report reveals that it is using Chinese chips to run the model for inference, or when someone asks the model to complete a task. But Liu Zhiyuan, a computer science professor at Tsinghua University, told MIT Technology Review that DeepSeek appears to have adapted only part of V4?s training process for Chinese chips. The report does not say whether some key long-context features were adapted to domestic chips, so Liu says V4 may still have been trained mainly on Nvidia chips. Multiple sources who spoke on the condition of anonymity, due to political sensitivity around these issues, told MIT Technology Review that Chinese chips still don?t perform as well as Nvidia chips but are better suited for inference than training. DeepSeek is also tying the future costs of V4 to this hardware shift. The company says V4-Pro prices could fall significantly after Huawei?s Ascend 950 supernodes begin shipping at scale in the second half of this year. If that works, V4 could be an early sign that China is successfully building a parallel AI infrastructure.",
+      "intro": "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model.",
+      "bullets": [
+        "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model.",
+        "Notably, the model can process much longer prompts than its last generation, thanks to a new design that helps it handle large amounts of?",
+        "Like DeepSeek?s previous models, V4 is open source, meaning it is available for anyone to download, use, and modify.",
+        "V4 marks DeepSeek?s most significant release since R1 , the reasoning model it launched in January 2025.",
+        "R1, which was trained on limited computing resources, stunned the global AI industry with its strong performance and efficiency, turning?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "three, reasons, why, deepseek, model, matters, artificial intelligence, machine learning",
+      "slug": "three-reasons-why-deepseeks-new-model-v4-matters"
+    },
+    {
+      "id": "s0aHyQI-_NOwBh5u",
+      "title": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - Yahoo Finance",
+      "seoTitle": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000?",
+      "metaDescription": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - Yahoo Finance ? 1 No-Brainer Artificial Intelligence (AI)?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNVlZXT0w4eFBnczUyYm0zM1RpNnR3V3pKTE5fenFKTjBCM1BKTm5jeHBURXZXRXcwQ3JFLXRUY25WY1RKTjl2REpzdnFVNDNwWU9mY0ljSV9BcXFjQ29ia1J6NW5MSkdVSEtOem5ycjRiT1V0U05nOW1wT0FPMkdMZTNwMUJlZXZUa3FnTTloR1NkRkJQcnhfc1NWTGViZTZwcVYxclIxTjg?oc=5",
+      "source": {
+        "name": "Yahoo Finance"
+      },
+      "publishedAt": "2026-04-24T21:30:00.000Z",
+      "description": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term Yahoo Finance",
+      "summary": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term Yahoo Finance",
+      "intro": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term Yahoo Finance",
+      "bullets": [
+        "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term Yahoo Finance"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "brainer, artificial, intelligence, stock, buy, 000, hold, long, artificial intelligence, machine learning",
+      "slug": "1-no-brainer-artificial-intelligence-ai-stock-to-buy-with-10-000"
+    },
+    {
+      "id": "xF3gV_HNf_eY0gNW",
+      "title": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - The Motley Fool",
+      "seoTitle": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000?",
+      "metaDescription": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - The Motley Fool ? 1 No-Brainer Artificial Intelligence (AI)?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term - The Motley Fool",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdy0tSHBsT3BoOGI3c2p5blVsbTdlR0dvcl9iNGM3N0dGMUVhY3ViSUFYRmlnRDloTzBJd18ybmF3MUM3bHVGcm5NQzhXeHd4NEJnc1JNcUFlYVIzbHNWbmJ2bWNvTVBUSTlNWU5fM0xCZzhZSUVtZE52R1phY1FqcnFOMGxQUm13R3o0?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-24T21:24:48.000Z",
+      "description": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term The Motley Fool",
+      "summary": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term The Motley Fool",
+      "intro": "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term The Motley Fool",
+      "bullets": [
+        "1 No-Brainer Artificial Intelligence (AI) Stock to Buy With $10,000 and Hold for the Long Term The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "brainer, artificial, intelligence, stock, buy, 000, hold, long, artificial intelligence, machine learning",
+      "slug": "1-no-brainer-artificial-intelligence-ai-stock-to-buy-with-10-000"
+    },
+    {
+      "id": "bqadKmd8ca88rtWv",
+      "title": "Meta&#8217;s loss is Thinking Machines&#8217; gain",
+      "seoTitle": "Meta&#8217;s loss is Thinking Machines&#8217; gain",
+      "metaDescription": "Weiyao Wang spent eight years at Meta ? his first job out of college ? helping build multimodal perception systems and contributing to open-world segmentation?",
+      "category": "ChatGPT",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Meta&#8217;s loss is Thinking Machines&#8217; gain",
+      "url": "https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/",
+      "source": {
+        "name": "TechCrunch"
+      },
+      "publishedAt": "2026-04-24T20:52:07.000Z",
+      "description": "Weiyao Wang spent eight years at Meta ? his first job out of college ? helping build multimodal perception systems and contributing to open-world segmentation projects, including SAM3D. His final day at Meta was last week, and he has since joined Thinking Machines Lab (TML). His move to TML comes as the AI startup expands on multiple fronts. It just signed a multibillion-dollar cloud deal with Google, giving it access to Nvidia&#8217;s latest GB300 chips and making it one of the first startups to run on the hardware. The agreement, announced this past Tuesday at Google Cloud Next, follows an earlier partnership with Nvidia, and puts TML in the same infrastructure tier as Anthropic and Meta. (Meta reportedly held talks to acquire Thinking Machines around this time last year and has more recently been picking off TML&#8217;s founders one by one.) The talent picture remains fluid. Wang and Kenneth Li ? a Harvard PhD who spent 10 months at Meta before joining TML this month ? are the latest examples of a talent grab that runs in both directions. Business Insider reported last week that Meta has now poached seven of TML&#8217;s founding members. A review of recent hires shows Thinking Machines is raiding Meta right back. At least, it appears based on a review of LinkedIn profiles, that TML has been hiring more researchers from Meta than from any other single employer. The most prominent is Soumith Chintala, TML&#8217;s CTO, who spent 11 years at Meta and co-founded PyTorch, the open source deep learning framework that now underpins most of the world&#8217;s AI research. He left Meta in late 2025 and was appointed CTO earlier this year. Piotr Doll?r, another 11-year Meta veteran who served as research director and co-authored the influential Segment Anything model, is now on TML&#8217;s technical staff. Andrea Madotto, a research scientist in Meta&#8217;s FAIR division focused on multimodal language models, joined TML in December. James Sun, a software engineer with nearly nine years at Meta working on LLM pre- and post-training, also made the jump. TML has drawn talent from beyond Meta, too. Neal Wu ? a three-time gold medalist at the International Olympiad in Informatics and a founding member of the buzzy coding startup Cognition ? joined early this year. Jeffrey Tao came via Waymo, Windsurf, and OpenAI. Muhammad Maaz previously held a research fellowship at Anthropic. Liliang Ren spent two and a half years on Microsoft&#8217;s AI Superintelligence team pre-training OpenAI models for code before joining in March. The startup&#8217;s headcount now stands at around 140. Techcrunch event Meet your next investor or portfolio startup at Disrupt Your next round. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Meet your next investor or portfolio startup at Disrupt Your next round. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. San Francisco, CA | October 13-15, 2026 REGISTER NOW Meta&#8217;s pay packages &#8212; seven figures, no strings attached &#8212; are well known by now. For researchers weighing their other options, the calculus may be as simple as this: Thinking Machines Lab is right now valued at $12 billion . Though that figure would&#8217;ve been unimaginable for a company at this stage in any previous tech cycle (it has released just one product so far), compared with the record-breaking valuations of OpenAI and Anthropic, there&#8217;s still a lot of financial upside. Reached Friday morning, a spokesperson for TML declined to comment for this story. Topics AI , TC When you purchase through links in our articles, we may earn a small commission . This doesn?t affect our editorial independence. Connie Loizos Editor in Chief & General Manager Loizos has been reporting on Silicon Valley since the late ?90s, when she joined the original Red Herring magazine. Previously the Silicon Valley Editor of TechCrunch, she was named Editor in Chief and General Manager of TechCrunch in September 2023. She?s also the founder of StrictlyVC, a daily e-newsletter and lecture series acquired by Yahoo in August 2023 and now operated as a sub brand of TechCrunch. You can contact or verify outreach from Connie by emailing connie@strictlyvc.com or connie@techcrunch.com , or via encrypted message at ConnieLoizos.53 on Signal. View Bio April 30 San Francisco, CA StrictlyVC kicks off the year in SF. Register now for unfiltered fireside chats and VC insights with leaders from Uber, Replit, Eclipse, and more. Plus, high-value connections that actually move the needle. REGISTER NOW Most Popular OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217; Lucas Ropek Microsoft offers buyout for up to 7% of US employees Ama",
+      "summary": "Weiyao Wang spent eight years at Meta ? his first job out of college ? helping build multimodal perception systems and contributing to open-world segmentation projects, including SAM3D. His final day at Meta was last week, and he has since joined Thinking Machines Lab (TML). His move to TML comes as the AI startup expands on multiple fronts. It just signed a multibillion-dollar cloud deal with Google, giving it access to Nvidia&#8217;s latest GB300 chips and making it one of the first startups to run on the hardware. The agreement, announced this past Tuesday at Google Cloud Next, follows an earlier partnership with Nvidia, and puts TML in the same infrastructure tier as Anthropic and Meta. (Meta reportedly held talks to acquire Thinking Machines around this time last year and has more recently been picking off TML&#8217;s founders one by one.) The talent picture remains fluid. Wang and Kenneth Li ? a Harvard PhD who spent 10 months at Meta before joining TML this month ? are the latest examples of a talent grab that runs in both directions. Business Insider reported last week that Meta has now poached seven of TML&#8217;s founding members. A review of recent hires shows Thinking Machines is raiding Meta right back. At least, it appears based on a review of LinkedIn profiles, that TML has been hiring more researchers from Meta than from any other single employer. The most prominent is Soumith Chintala, TML&#8217;s CTO, who spent 11 years at Meta and co-founded PyTorch, the open source deep learning framework that now underpins most of the world&#8217;s AI research. He left Meta in late 2025 and was appointed CTO earlier this year. Piotr Doll?r, another 11-year Meta veteran who served as research director and co-authored the influential Segment Anything model, is now on TML&#8217;s technical staff. Andrea Madotto, a research scientist in Meta&#8217;s FAIR division focused on multimodal language models, joined TML in December. James Sun, a software engineer with nearly nine years at Meta working on LLM pre- and post-training, also made the jump. TML has drawn talent from beyond Meta, too. Neal Wu ? a three-time gold medalist at the International Olympiad in Informatics and a founding member of the buzzy coding startup Cognition ? joined early this year. Jeffrey Tao came via Waymo, Windsurf, and OpenAI. Muhammad Maaz previously held a research fellowship at Anthropic. Liliang Ren spent two and a half years on Microsoft&#8217;s AI Superintelligence team pre-training OpenAI models for code before joining in March. The startup&#8217;s headcount now stands at around 140. Techcrunch event Meet your next investor or portfolio startup at Disrupt Your next round. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Meet your next investor or portfolio startup at Disrupt Your next round. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. San Francisco, CA | October 13-15, 2026 REGISTER NOW Meta&#8217;s pay packages &#8212; seven figures, no strings attached &#8212; are well known by now. For researchers weighing their other options, the calculus may be as simple as this: Thinking Machines Lab is right now valued at $12 billion . Though that figure would&#8217;ve been unimaginable for a company at this stage in any previous tech cycle (it has released just one product so far), compared with the record-breaking valuations of OpenAI and Anthropic, there&#8217;s still a lot of financial upside. Reached Friday morning, a spokesperson for TML declined to comment for this story. Topics AI , TC When you purchase through links in our articles, we may earn a small commission . This doesn?t affect our editorial independence. Connie Loizos Editor in Chief & General Manager Loizos has been reporting on Silicon Valley since the late ?90s, when she joined the original Red Herring magazine. Previously the Silicon Valley Editor of TechCrunch, she was named Editor in Chief and General Manager of TechCrunch in September 2023. She?s also the founder of StrictlyVC, a daily e-newsletter and lecture series acquired by Yahoo in August 2023 and now operated as a sub brand of TechCrunch. You can contact or verify outreach from Connie by emailing connie@strictlyvc.com or connie@techcrunch.com , or via encrypted message at ConnieLoizos.53 on Signal. View Bio April 30 San Francisco, CA StrictlyVC kicks off the year in SF. Register now for unfiltered fireside chats and VC insights with leaders from Uber, Replit, Eclipse, and more. Plus, high-value connections that actually move the needle. REGISTER NOW Most Popular OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217; Lucas Ropek Microsoft offers buyout for up to 7% of US employees Ama",
+      "intro": "Weiyao Wang spent eight years at Meta ? his first job out of college ? helping build multimodal perception systems and contributing to open-world segmentation projects, including SAM3D.",
+      "bullets": [
+        "Weiyao Wang spent eight years at Meta ? his first job out of college ? helping build multimodal perception systems and contributing to?",
+        "His final day at Meta was last week, and he has since joined Thinking Machines Lab (TML).",
+        "His move to TML comes as the AI startup expands on multiple fronts.",
+        "It just signed a multibillion-dollar cloud deal with Google, giving it access to Nvidia&#8217;s latest GB300 chips and making it one of?",
+        "The agreement, announced this past Tuesday at Google Cloud Next, follows an earlier partnership with Nvidia, and puts TML in the same?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "8217, meta, loss, thinking, machines, gain, artificial intelligence, machine learning",
+      "slug": "meta-and-8217-s-loss-is-thinking-machines-and-8217-gain"
+    },
+    {
+      "id": "knYt0QDc0L57AzsP",
+      "title": "Show HN: Nimbus ? Browser with Claude Code UX",
+      "seoTitle": "Show HN: Nimbus ? Browser with Claude Code UX",
+      "metaDescription": "Nimbus is an AI-native browser companion that navigates, fills forms, and extracts data ? so you can focus on decisions that matter.",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Show HN: Nimbus ? Browser with Claude Code UX",
+      "url": "https://usenimbus.app/",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-24T20:01:39.000Z",
+      "description": "Nimbus is an AI-native browser companion that navigates, fills forms, and extracts data ? so you can focus on decisions that matter.",
+      "summary": "Nimbus is an AI-native browser companion that navigates, fills forms, and extracts data ? so you can focus on decisions that matter.",
+      "intro": "Nimbus is an AI-native browser companion that navigates, fills forms, and extracts data ? so you can focus on decisions that matter.",
+      "bullets": [
+        "Nimbus is an AI-native browser companion that navigates, fills forms, and extracts data ? so you can focus on decisions that matter."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "show, nimbus, browser, claude, code, artificial intelligence, machine learning",
+      "slug": "show-hn-nimbus-browser-with-claude-code-ux"
+    },
+    {
+      "id": "aHjhBzEjnxhWRIUp",
+      "title": "MenteDB ? open-source memory database for AI agents (Rust)",
+      "seoTitle": "MenteDB ? open-source memory database for AI agents (Rust)",
+      "metaDescription": "nambok / mentedb Public Notifications You must be signed in to change notification settings Fork 0 Star 8 main Branches Tags Go to file Code Open more actions?",
+      "category": "ChatGPT",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "MenteDB ? open-source memory database for AI agents (Rust)",
+      "url": "https://github.com/nambok/mentedb",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-24T19:51:09.000Z",
+      "description": "nambok / mentedb Public Notifications You must be signed in to change notification settings Fork 0 Star 8 main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 161 Commits 161 Commits .github .github benchmarks benchmarks crates crates sdks sdks .dockerignore .dockerignore .gitignore .gitignore ARCHITECTURE.md ARCHITECTURE.md CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md CONTRIBUTING.md CONTRIBUTING.md Cargo.lock Cargo.lock Cargo.toml Cargo.toml Dockerfile Dockerfile LICENSE LICENSE README.md README.md VISION.md VISION.md docker-compose.yml docker-compose.yml release-plz.toml release-plz.toml release.toml release.toml test_context_embeddings.py test_context_embeddings.py test_pipeline_audit.py test_pipeline_audit.py View all files Repository files navigation MenteDB ?? Beta ? MenteDB is under active development. The Mind Database for AI Agents MenteDB is a purpose built database engine for AI agent memory. Not a wrapper around existing databases, but a ground up Rust storage engine that understands how AI/LLMs consume data. mente (Spanish): mind, intellect Quick Start Just remember a conversation: # Via REST API curl -X POST http://localhost:6677/v1/ingest \\ -H \" Content-Type: application/json \" \\ -d ' {\"conversation\": \"User: I prefer Python over JS\\nAssistant: Noted!\", \"agent_id\": \"my-agent\"} ' # Response: { \"memories_stored\": 2, \"rejected_low_quality\": 5, \"contradictions\": 0 } Via MCP (Claude CLI, Copilot CLI, Cursor): // claude_desktop_config.json { \"mcpServers\" : { \"mentedb\" : { \"command\" : \" mentedb-mcp \" , \"args\" : [ \" --data-dir \" , \" ~/.mentedb \" ] } }\n} Then the AI can call ingest_conversation directly. Embed in Rust: use mentedb :: MenteDb ; let db = MenteDb :: open ( \"./my-agent-memory\" ) ? assemble_context ( agent_id , space_id , 4096 ) ? Every database ever built assumes the consumer can compensate for bad data organization. A transformer gets ONE SHOT, a single context window, a single forward pass. MenteDB is a cognition preparation engine that delivers perfectly organized knowledge because the consumer has no ability to reorganize it. The Memory Quality Problem Most AI memory tools store everything and retrieve by similarity. The result: context windows full of noise. Studies show up to 97% of automatically stored memories are irrelevant. MenteDB solves this with write time intelligence: LLM Powered Extraction parses conversations and extracts only what matters: decisions, preferences, corrections, facts, entities Entity-Centric Memory extracts structured entities (people, pets, places, events) with typed attributes and links them to related memories via knowledge graph edges ? so \"bought a collar for my Golden Retriever\" remembers the breed, not just the collar Quality Filtering rejects low confidence extractions before they hit storage Deduplication checks embedding similarity against existing memories Contradiction Detection flags when new information conflicts with existing beliefs Belief Propagation cascades updates when facts change The result: a clean, curated memory that actually helps the AI perform better. What Makes MenteDB Different Feature Traditional DBs Vector DBs MenteDB Storage model Tables/Documents Embeddings Memory nodes (embeddings + graph + bi-temporal) Entity understanding Manual schemas None Auto-extracted typed entities with graph edges Query result Raw data Similarity scores Token budget optimized context Memory quality Manual None LLM extract + quality filter + dedup + contradiction Retrieval strategy Index scan Single-pass kNN Adaptive multi-pass + entity graph expansion Understands AI attention? No No Yes, U curve ordering Tracks what AI knows? No No Epistemic state tracking Multi-agent isolation? Schema level Collection level Memory spaces with ACLs Updates cascade? Foreign keys No Belief propagation Core Features Automatic Memory Extraction LLM powered pipeline extracts structured memories from raw conversations Entity-Centric Memory Extracts typed entities (person, pet, place, event, item, organization) with structured attributes. Entity resolution merges attributes across mentions. Graph edges link memories to the entities they reference Adaptive Multi-Pass Retrieval Engine-level 3-pass search (instant recall ? active search ? deep dig) with progressively increasing depth, reciprocal rank fusion, and entity graph expansion Write Time Intelligence Quality filter, deduplication, and contradiction detection at ingest LLM Powered Cognitive Inference CognitiveLlmService judges whether new memories invalidate, update, or are compatible with existing ones (supports Anthropic, OpenAI, Ollama) Bi-Temporal Validity Memories and edges carry valid_from / valid_until timestamps. Temporal invalidation instead of deletion. Point-in-time queries via recall_similar_at(embedding, k, timestamp) Attention Optimized Context Assembly Respects the U curve (critical data at start/end of contex",
+      "summary": "nambok / mentedb Public Notifications You must be signed in to change notification settings Fork 0 Star 8 main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 161 Commits 161 Commits .github .github benchmarks benchmarks crates crates sdks sdks .dockerignore .dockerignore .gitignore .gitignore ARCHITECTURE.md ARCHITECTURE.md CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md CONTRIBUTING.md CONTRIBUTING.md Cargo.lock Cargo.lock Cargo.toml Cargo.toml Dockerfile Dockerfile LICENSE LICENSE README.md README.md VISION.md VISION.md docker-compose.yml docker-compose.yml release-plz.toml release-plz.toml release.toml release.toml test_context_embeddings.py test_context_embeddings.py test_pipeline_audit.py test_pipeline_audit.py View all files Repository files navigation MenteDB ?? Beta ? MenteDB is under active development. The Mind Database for AI Agents MenteDB is a purpose built database engine for AI agent memory. Not a wrapper around existing databases, but a ground up Rust storage engine that understands how AI/LLMs consume data. mente (Spanish): mind, intellect Quick Start Just remember a conversation: # Via REST API curl -X POST http://localhost:6677/v1/ingest \\ -H \" Content-Type: application/json \" \\ -d ' {\"conversation\": \"User: I prefer Python over JS\\nAssistant: Noted!\", \"agent_id\": \"my-agent\"} ' # Response: { \"memories_stored\": 2, \"rejected_low_quality\": 5, \"contradictions\": 0 } Via MCP (Claude CLI, Copilot CLI, Cursor): // claude_desktop_config.json { \"mcpServers\" : { \"mentedb\" : { \"command\" : \" mentedb-mcp \" , \"args\" : [ \" --data-dir \" , \" ~/.mentedb \" ] } } } Then the AI can call ingest_conversation directly. Embed in Rust: use mentedb :: MenteDb ; let db = MenteDb :: open ( \"./my-agent-memory\" ) ? assemble_context ( agent_id , space_id , 4096 ) ? Every database ever built assumes the consumer can compensate for bad data organization. A transformer gets ONE SHOT, a single context window, a single forward pass. MenteDB is a cognition preparation engine that delivers perfectly organized knowledge because the consumer has no ability to reorganize it. The Memory Quality Problem Most AI memory tools store everything and retrieve by similarity. The result: context windows full of noise. Studies show up to 97% of automatically stored memories are irrelevant. MenteDB solves this with write time intelligence: LLM Powered Extraction parses conversations and extracts only what matters: decisions, preferences, corrections, facts, entities Entity-Centric Memory extracts structured entities (people, pets, places, events) with typed attributes and links them to related memories via knowledge graph edges ? so \"bought a collar for my Golden Retriever\" remembers the breed, not just the collar Quality Filtering rejects low confidence extractions before they hit storage Deduplication checks embedding similarity against existing memories Contradiction Detection flags when new information conflicts with existing beliefs Belief Propagation cascades updates when facts change The result: a clean, curated memory that actually helps the AI perform better. What Makes MenteDB Different Feature Traditional DBs Vector DBs MenteDB Storage model Tables/Documents Embeddings Memory nodes (embeddings + graph + bi-temporal) Entity understanding Manual schemas None Auto-extracted typed entities with graph edges Query result Raw data Similarity scores Token budget optimized context Memory quality Manual None LLM extract + quality filter + dedup + contradiction Retrieval strategy Index scan Single-pass kNN Adaptive multi-pass + entity graph expansion Understands AI attention? No No Yes, U curve ordering Tracks what AI knows? No No Epistemic state tracking Multi-agent isolation? Schema level Collection level Memory spaces with ACLs Updates cascade? Foreign keys No Belief propagation Core Features Automatic Memory Extraction LLM powered pipeline extracts structured memories from raw conversations Entity-Centric Memory Extracts typed entities (person, pet, place, event, item, organization) with structured attributes. Entity resolution merges attributes across mentions. Graph edges link memories to the entities they reference Adaptive Multi-Pass Retrieval Engine-level 3-pass search (instant recall ? active search ? deep dig) with progressively increasing depth, reciprocal rank fusion, and entity graph expansion Write Time Intelligence Quality filter, deduplication, and contradiction detection at ingest LLM Powered Cognitive Inference CognitiveLlmService judges whether new memories invalidate, update, or are compatible with existing ones (supports Anthropic, OpenAI, Ollama) Bi-Temporal Validity Memories and edges carry valid_from / valid_until timestamps. Temporal invalidation instead of deletion. Point-in-time queries via recall_similar_at(embedding, k, timestamp) Attention Optimized Context Assembly Respects the U curve (critical data at start/end of contex",
+      "intro": "nambok / mentedb Public Notifications You must be signed in to change notification settings Fork 0 Star 8 main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 161 Commits 161 Commits .github .github benchmarks benchmarks crates crates sdks sdks .dockerignore .dockerignore .gitignore .gitignore?",
+      "bullets": [
+        "nambok / mentedb Public Notifications You must be signed in to change notification settings Fork 0 Star 8 main Branches Tags Go to file?",
+        "The Mind Database for AI Agents MenteDB is a purpose built database engine for AI agent memory.",
+        "Not a wrapper around existing databases, but a ground up Rust storage engine that understands how AI/LLMs consume data.",
+        "mente (Spanish): mind, intellect Quick Start Just remember a conversation: # Via REST API curl -X POST http://localhost:6677/v1/ingest \\?",
+        "Embed in Rust: use mentedb :: MenteDb ; let db = MenteDb :: open ( \"./my-agent-memory\" ) ?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "mentedb, open, source, memory, database, agents, rust, artificial intelligence, machine learning",
+      "slug": "mentedb-open-source-memory-database-for-ai-agents-rust"
+    },
+    {
+      "id": "_yuUACbac8bSOz87",
+      "title": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
+      "seoTitle": "ComfyUI hits $500M valuation as creators seek more control over?",
+      "metaDescription": "ComfyUI , a startup that helps creators control image, video, and audio outputs from diffusion models with a node-based workflow, has raised a $30 million?",
+      "category": "ChatGPT",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
+      "url": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/",
+      "source": {
+        "name": "TechCrunch"
+      },
+      "publishedAt": "2026-04-24T19:49:35.000Z",
+      "description": "ComfyUI , a startup that helps creators control image, video, and audio outputs from diffusion models with a node-based workflow, has raised a $30 million funding round at a $500 million valuation. The round was led by Craft Ventures, with participation from other investors including Pace Capital, Chemistry, and TruArrow. ComfyUI was started as an open-source project in 2023, shortly after the introduction of diffusion models. At that time, models like Midjourney and OpenAI?s DALL-E were barely functional, frequently making major mistakes, such as adding extra fingers to hands. To address these limitations, the project founders developed a modular framework that gives creators granular control over every step of the generation process. Their tool gained such significant traction among creative professionals that it eventually evolved into a formal startup. In late 2024, ComfyUI raised $19 million in Series A financing from investors including Chemistry Ventures, Cursor Capital, and Guillermo Rauch, founder of Vercel. Although the latest diffusion models have come a long way from adding a sixth digit to hands, the need for the granular precision that ComfyUI offers has only grown. ?If you think about your typical prompt-based solution, like Midjourney or ChatGPT, you ask for something, it [gets only] 60% &#8211; 80% there,? Yoland Yan, ComfyUI?s co-founder and CEO, told TechCrunch. ?But to change that remaining 20%, you have to try this slot machine.? Yan (pictured left) compared the process to playing in a casino because prompting the model to make a small change can result in a completely different output, including overwriting the parts that were already perfect. ComfyUI?s node-based interface allows creators to link specific components of the generation process, giving them full control over the quality of their final output. ?You cannot easily convey that message in the prompt box [of a foundational model],&#8221; Yan said. Creators seem to agree, as ComfyUI claims to have over 4 million users. The tool is being used by creative professionals for visual effects, animation, advertising, and even industrial design. The startup says its offering has become such a necessary tool of the trade for technical artists and other creatives that it is not uncommon to see ? ComfyUI artist or engineer ? listed as a job title on studio job boards. Although video and image foundational models continue to improve, Yan claims that they are far from perfect, and a tool like ComfyUI will continue to be in high demand. ?In the world where AI slop is going to be everywhere, the Comfy version of human-in-the -loop approach is going to win out most of the eyeballs in the end,? he said. ComfyUI?s competitors include Weavy , a startup that was acquired by Figma last year. Topics AI , comfyui , Craft Ventures , Creators , TC , Venture , Video When you purchase through links in our articles, we may earn a small commission . This doesn?t affect our editorial independence. Marina Temkin Reporter, Venture Marina Temkin is a venture capital and startups reporter at TechCrunch. Prior to joining TechCrunch, she wrote about VC for PitchBook and Venture Capital Journal. Earlier in her career, Marina was a financial analyst and earned a CFA charterholder designation. You can contact or verify outreach from Marina by emailing marina.temkin@techcrunch.com or via encrypted message at +1 347-683-3909 on Signal. View Bio April 30 San Francisco, CA StrictlyVC kicks off the year in SF. Register now for unfiltered fireside chats and VC insights with leaders from Uber, Replit, Eclipse, and more. Plus, high-value connections that actually move the needle. REGISTER NOW Most Popular OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217; Lucas Ropek Microsoft offers buyout for up to 7% of US employees Amanda Silberling Duolingo is now giving users access to advanced learning content Lauren Forristal Unauthorized group has gained access to Anthropic&#8217;s exclusive cyber tool Mythos, report claims Lucas Ropek Tim Cook stepping down as Apple CEO, John Ternus taking over Amanda Silberling Connie Loizos Blue Origin&#8217;s New Glenn put a customer satellite in the wrong orbit during its third launch Sean O'Kane Palantir posts mini-manifesto denouncing inclusivity and ?regressive? cultures Anthony Ha",
+      "summary": "ComfyUI , a startup that helps creators control image, video, and audio outputs from diffusion models with a node-based workflow, has raised a $30 million funding round at a $500 million valuation. The round was led by Craft Ventures, with participation from other investors including Pace Capital, Chemistry, and TruArrow. ComfyUI was started as an open-source project in 2023, shortly after the introduction of diffusion models. At that time, models like Midjourney and OpenAI?s DALL-E were barely functional, frequently making major mistakes, such as adding extra fingers to hands. To address these limitations, the project founders developed a modular framework that gives creators granular control over every step of the generation process. Their tool gained such significant traction among creative professionals that it eventually evolved into a formal startup. In late 2024, ComfyUI raised $19 million in Series A financing from investors including Chemistry Ventures, Cursor Capital, and Guillermo Rauch, founder of Vercel. Although the latest diffusion models have come a long way from adding a sixth digit to hands, the need for the granular precision that ComfyUI offers has only grown. ?If you think about your typical prompt-based solution, like Midjourney or ChatGPT, you ask for something, it [gets only] 60% &#8211; 80% there,? Yoland Yan, ComfyUI?s co-founder and CEO, told TechCrunch. ?But to change that remaining 20%, you have to try this slot machine.? Yan (pictured left) compared the process to playing in a casino because prompting the model to make a small change can result in a completely different output, including overwriting the parts that were already perfect. ComfyUI?s node-based interface allows creators to link specific components of the generation process, giving them full control over the quality of their final output. ?You cannot easily convey that message in the prompt box [of a foundational model],&#8221; Yan said. Creators seem to agree, as ComfyUI claims to have over 4 million users. The tool is being used by creative professionals for visual effects, animation, advertising, and even industrial design. The startup says its offering has become such a necessary tool of the trade for technical artists and other creatives that it is not uncommon to see ? ComfyUI artist or engineer ? listed as a job title on studio job boards. Although video and image foundational models continue to improve, Yan claims that they are far from perfect, and a tool like ComfyUI will continue to be in high demand. ?In the world where AI slop is going to be everywhere, the Comfy version of human-in-the -loop approach is going to win out most of the eyeballs in the end,? he said. ComfyUI?s competitors include Weavy , a startup that was acquired by Figma last year. Topics AI , comfyui , Craft Ventures , Creators , TC , Venture , Video When you purchase through links in our articles, we may earn a small commission . This doesn?t affect our editorial independence. Marina Temkin Reporter, Venture Marina Temkin is a venture capital and startups reporter at TechCrunch. Prior to joining TechCrunch, she wrote about VC for PitchBook and Venture Capital Journal. Earlier in her career, Marina was a financial analyst and earned a CFA charterholder designation. You can contact or verify outreach from Marina by emailing marina.temkin@techcrunch.com or via encrypted message at +1 347-683-3909 on Signal. View Bio April 30 San Francisco, CA StrictlyVC kicks off the year in SF. Register now for unfiltered fireside chats and VC insights with leaders from Uber, Replit, Eclipse, and more. Plus, high-value connections that actually move the needle. REGISTER NOW Most Popular OpenAI releases GPT-5.5, bringing company one step closer to an AI &#8216;super app&#8217; Lucas Ropek Microsoft offers buyout for up to 7% of US employees Amanda Silberling Duolingo is now giving users access to advanced learning content Lauren Forristal Unauthorized group has gained access to Anthropic&#8217;s exclusive cyber tool Mythos, report claims Lucas Ropek Tim Cook stepping down as Apple CEO, John Ternus taking over Amanda Silberling Connie Loizos Blue Origin&#8217;s New Glenn put a customer satellite in the wrong orbit during its third launch Sean O'Kane Palantir posts mini-manifesto denouncing inclusivity and ?regressive? cultures Anthony Ha",
+      "intro": "ComfyUI , a startup that helps creators control image, video, and audio outputs from diffusion models with a node-based workflow, has raised a $30 million funding round at a $500 million valuation.",
+      "bullets": [
+        "ComfyUI , a startup that helps creators control image, video, and audio outputs from diffusion models with a node-based workflow, has?",
+        "The round was led by Craft Ventures, with participation from other investors including Pace Capital, Chemistry, and TruArrow.",
+        "ComfyUI was started as an open-source project in 2023, shortly after the introduction of diffusion models.",
+        "At that time, models like Midjourney and OpenAI?s DALL-E were barely functional, frequently making major mistakes, such as adding extra?",
+        "To address these limitations, the project founders developed a modular framework that gives creators granular control over every step of?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "comfyui, hits, 500m, valuation, creators, seek, more, control, artificial intelligence, machine learning",
+      "slug": "comfyui-hits-500m-valuation-as-creators-seek-more-control-over"
+    },
+    {
+      "id": "F5KCBIrD2zeAONT0",
+      "title": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment",
+      "seoTitle": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced?",
+      "metaDescription": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text?",
+      "category": "Generative AI",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment",
+      "url": "https://gdm-tipsv2.github.io/",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-24T19:28:32.000Z",
+      "description": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment Bingyi Cao * Koert Chen * Kevis-Kokitsi Maninis Kaifeng Chen 1 Arjun Karpur 2 Ye Xia Sahil Dua Tanmaya Dabral Guangxing Han Bohyung Han 3 Joshua Ainslie Alex Bewley Mithun Jacob Rene Wagner Washington Ramos 4 Krzysztof Choromanski Mojtaba Seyedhosseini Howard Zhou Andre Araujo Google DeepMind * Equal contribution now at: 1 xAI 2 Epsilon Health 3 Seoul National University 4 Google CVPR 2026 Paper GitHub Checkpoints Colab HF Demo HF Models Overview TIPSv2 is the next generation of the TIPS family of foundational image-text encoders empowering strong performance across numerous multimodal and vision tasks. Our work starts by revealing a surprising finding, where distillation unlocks superior patch-text alignment over standard pretraining, leading to distilled student models significantly surpassing their much larger teachers in this capability. We carefully investigate this phenomenon, leading to an improved pretraining recipe that upgrades our vision-language encoder significantly. Three key changes are introduced to our pretraining process (illustrated in the figure below): iBOT++ extends the patch-level self-supervised loss to all tokens for stronger dense alignment; Head-only EMA reduces training cost while retaining performance; and Multi-Granularity Captions uses PaliGemma and Gemini descriptions for richer text supervision. Combining these components, TIPSv2 demonstrates strong performance across 9 tasks and 20 datasets, generally on par with or better than recent vision encoder models, with particularly strong gains in zero-shot segmentation. TIPSv2 introduces 3 pretraining improvements: iBOT++ (enhanced MIM loss), Head-only EMA (memory-efficient self-supervised losses), and Multi-granularity captions (richer text supervision). Visualization PCA Feature Maps TIPSv2 produces smoother feature maps with well-delineated objects compared to prior vision-language models (e.g., TIPS and SigLIP2). While DINOv3 also exhibits smooth feature maps, TIPSv2 shows stronger semantic focus : object boundaries are more precisely delineated and regions show granular semantic details. We compare ViT-g models of several vision encoders, except for DINOv3, where we compare with the 6? larger ViT-7B. Select an image below to explore PCA components of patch embeddings. Select image Image TIPS SigLIP2 DINOv2 DINOv3 (7B) TIPSv2 (ours) TIPSv2 PCA features demonstrate more fine-grained semantic separation: backpacks, people, and hiking poles are clearly delineated. Feature Explorer Upload your own image and explore TIPSv2 patch embeddings feature maps or applications in zero-shot segmentation or depth and normal prediction. Method TIPSv2 investigates the differences between pre-training and distillation, motivating the introduction of three targeted pretraining improvements to standard vision-language models: iBOT++ , Head-only EMA , and Multi-Granularity Text Captions . Bridging Pre-training and Distillation We reveal a surprising gap between pre-training and distillation: a smaller ViT-L model distilled from a larger ViT-g TIPS teacher dramatically outperforms its teacher in zero-shot segmentation, reversing the trend of all other evaluation tasks. In the paper, we ablate the differences between pre-training and distillation, such as masking ratio, encoder initialization, frozen or training parameters, and supervision. Our investigation reveals that the important distinction that causes differences in patch-text alignment between distillation and pre-training is supervision on visible tokens. Distillation vs standard pretraining: surprising findings. Zero-shot segmentation for a TIPS ViT-g pre-trained teacher model and a ViT-L student distilled from the ViT-g teacher. The student model strongly surpasses the teacher for patch-text alignment. iBOT++: Enhanced Masked Image Modeling In our investigation of the gap between distillation and standard pretraining, we find that supervising visible patches is the key differentiator. To introduce this improvement in distillation to pretraining, we propose a simple augmentation: iBOT++. Whereas standard iBOT only supervises masked patch tokens, leaving visible token representations unconstrained, iBOT++ extends the patch-level self-distillation loss to all patches (both masked and visible), yielding a +14.1 mIoU gain in zero-shot segmentation on ADE150. Applies the patch-level loss to all patches (masked and visible), dramatically improving patch-text alignment as shown by zero-shot segmentation results. Head-only EMA Since the contrastive loss already stabilizes the vision encoder, we apply EMA only to the projector head rather than the full model. This reduces training parameters by 42% while retaining comparable performance. Reduces training parameters while maintaining performance. Multi-Granularity Text Captions We supplemen",
+      "summary": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment Bingyi Cao * Koert Chen * Kevis-Kokitsi Maninis Kaifeng Chen 1 Arjun Karpur 2 Ye Xia Sahil Dua Tanmaya Dabral Guangxing Han Bohyung Han 3 Joshua Ainslie Alex Bewley Mithun Jacob Rene Wagner Washington Ramos 4 Krzysztof Choromanski Mojtaba Seyedhosseini Howard Zhou Andre Araujo Google DeepMind * Equal contribution now at: 1 xAI 2 Epsilon Health 3 Seoul National University 4 Google CVPR 2026 Paper GitHub Checkpoints Colab HF Demo HF Models Overview TIPSv2 is the next generation of the TIPS family of foundational image-text encoders empowering strong performance across numerous multimodal and vision tasks. Our work starts by revealing a surprising finding, where distillation unlocks superior patch-text alignment over standard pretraining, leading to distilled student models significantly surpassing their much larger teachers in this capability. We carefully investigate this phenomenon, leading to an improved pretraining recipe that upgrades our vision-language encoder significantly. Three key changes are introduced to our pretraining process (illustrated in the figure below): iBOT++ extends the patch-level self-supervised loss to all tokens for stronger dense alignment; Head-only EMA reduces training cost while retaining performance; and Multi-Granularity Captions uses PaliGemma and Gemini descriptions for richer text supervision. Combining these components, TIPSv2 demonstrates strong performance across 9 tasks and 20 datasets, generally on par with or better than recent vision encoder models, with particularly strong gains in zero-shot segmentation. TIPSv2 introduces 3 pretraining improvements: iBOT++ (enhanced MIM loss), Head-only EMA (memory-efficient self-supervised losses), and Multi-granularity captions (richer text supervision). Visualization PCA Feature Maps TIPSv2 produces smoother feature maps with well-delineated objects compared to prior vision-language models (e.g., TIPS and SigLIP2). While DINOv3 also exhibits smooth feature maps, TIPSv2 shows stronger semantic focus : object boundaries are more precisely delineated and regions show granular semantic details. We compare ViT-g models of several vision encoders, except for DINOv3, where we compare with the 6? larger ViT-7B. Select an image below to explore PCA components of patch embeddings. Select image Image TIPS SigLIP2 DINOv2 DINOv3 (7B) TIPSv2 (ours) TIPSv2 PCA features demonstrate more fine-grained semantic separation: backpacks, people, and hiking poles are clearly delineated. Feature Explorer Upload your own image and explore TIPSv2 patch embeddings feature maps or applications in zero-shot segmentation or depth and normal prediction. Method TIPSv2 investigates the differences between pre-training and distillation, motivating the introduction of three targeted pretraining improvements to standard vision-language models: iBOT++ , Head-only EMA , and Multi-Granularity Text Captions . Bridging Pre-training and Distillation We reveal a surprising gap between pre-training and distillation: a smaller ViT-L model distilled from a larger ViT-g TIPS teacher dramatically outperforms its teacher in zero-shot segmentation, reversing the trend of all other evaluation tasks. In the paper, we ablate the differences between pre-training and distillation, such as masking ratio, encoder initialization, frozen or training parameters, and supervision. Our investigation reveals that the important distinction that causes differences in patch-text alignment between distillation and pre-training is supervision on visible tokens. Distillation vs standard pretraining: surprising findings. Zero-shot segmentation for a TIPS ViT-g pre-trained teacher model and a ViT-L student distilled from the ViT-g teacher. The student model strongly surpasses the teacher for patch-text alignment. iBOT++: Enhanced Masked Image Modeling In our investigation of the gap between distillation and standard pretraining, we find that supervising visible patches is the key differentiator. To introduce this improvement in distillation to pretraining, we propose a simple augmentation: iBOT++. Whereas standard iBOT only supervises masked patch tokens, leaving visible token representations unconstrained, iBOT++ extends the patch-level self-distillation loss to all patches (both masked and visible), yielding a +14.1 mIoU gain in zero-shot segmentation on ADE150. Applies the patch-level loss to all patches (masked and visible), dramatically improving patch-text alignment as shown by zero-shot segmentation results. Head-only EMA Since the contrastive loss already stabilizes the vision encoder, we apply EMA only to the projector head rather than the full model. This reduces training parameters by 42% while retaining comparable performance. Reduces training parameters while maintaining performance. Multi-Granularity Text Captions We supplemen",
+      "intro": "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment Bingyi Cao * Koert Chen * Kevis-Kokitsi Maninis Kaifeng Chen 1 Arjun Karpur 2 Ye Xia Sahil Dua Tanmaya Dabral Guangxing Han Bohyung Han 3 Joshua Ainslie Alex Bewley Mithun Jacob Rene Wagner Washington Ramos 4 Krzysztof Choromanski?",
+      "bullets": [
+        "TIPSv2: Advancing Vision-Language Pretraining with Enhanced Patch-Text Alignment TIPSv2: Advancing Vision-Language Pretraining with?",
+        "Our work starts by revealing a surprising finding, where distillation unlocks superior patch-text alignment over standard pretraining,?",
+        "We carefully investigate this phenomenon, leading to an improved pretraining recipe that upgrades our vision-language encoder significantly.",
+        "Three key changes are introduced to our pretraining process (illustrated in the figure below): iBOT++ extends the patch-level?",
+        "Combining these components, TIPSv2 demonstrates strong performance across 9 tasks and 20 datasets, generally on par with or better than?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "tipsv2, advancing, vision, language, pretraining, enhanced, patch, text, artificial intelligence, machine learning",
+      "slug": "tipsv2-advancing-vision-language-pretraining-with-enhanced"
+    },
+    {
+      "id": "W49s1qRnXReVdhHt",
+      "title": "Could a Claude Code routine watch my finances?",
+      "seoTitle": "Could a Claude Code routine watch my finances?",
+      "metaDescription": "product Could a Claude Code routine watch my finances? Matt May &bull; April 23, 2026 &bull; All posts A few months ago, I stood up a fiddly daily cron-job to?",
+      "category": "Tools",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Could a Claude Code routine watch my finances?",
+      "url": "https://driggsby.com/blog/claude-code-routine-watch-my-finances",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-24T19:25:15.000Z",
+      "description": "product Could a Claude Code routine watch my finances? Matt May &bull; April 23, 2026 &bull; All posts A few months ago, I stood up a fiddly daily cron-job to log into my bank, credit\ncard, and brokerage/retirement accounts. It was powered by Codex CLI running\nnon-interactively, and had a fairly simple job: using the Chrome DevTools MCP,\nlog into each website, extract balances and recent transactions, then send my wife\nand me a sort of ?daily financial overview? email. This pattern continued for some time ? more\noften than not, it would work, but then some browser rendering quirk would break\nthat day?s run, or we?d get an unexpected 2FA prompt that would brick that account. Sometimes, GPT would decide to completely change the email format, or it would get\nconfused during a run and only pull one account?s information. Then, there was an\naccount we needed to add that only allowed login with passkeys. Eventually, I became a sort of unpaid tech support person for my wife, who wasn?t\npleased when the daily emails didn?t come through as expected. Somehow, this led\nto my building Driggsby, an MCP server that tries to make this process less stressful. Two months, 75k lines of Rust, and a Plaid contract later, here we are. Routines as an unlock At a high level, Driggsby hooks into financial accounts using Plaid. Then it exposes\na variety of tools over MCP: balances, transactions, investment info, loan info, and\nthe like are each accessible through their own tools. At first, the only way I used Driggsby was interactively, and on-demand ? whenever I had a financial\nquestion, I?d open Claude, give it my question, and it answered using Driggsby. Over time,\npatterns started to emerge: most of my queries were about net worth,\nreviewing balances/transactions, and monitoring investments. Which made me wonder: what\nwould be the easiest way for me to set this up on autopilot? A few days ago, Claude Code routines were released, and immediately piqued my interest. As a Claude Code user already, this seemed like it would make it even easier to deploy\nan agent that would do anything I wanted. Now, there?s nothing new per se about an agent loop running in the cloud. What does feel new with Claude Code routines is the ease of setting one up. You don?t have to write a bunch of agent-loop code and figure out where to deploy it,\nor even spin up OpenClaw, the Codex SDK, or claude -p on Hetzner. If you can get your data/tools into your routine cleanly through some\nsort of MCP connector, you can cook. The daily email To start with, I went back to where I began ? a daily email. One of the main things we?d wanted in the first place was just a clean, nicely formatted\ndaily email with an overview of all our accounts and net worth. For years, this info had\nlived for us in a dusty old spreadsheet somewhere on Google Drive. It only took about 15\nminutes to update it, but that tiny friction was enough to keep us from doing it very often. We probably updated it at most once every six months. How hard would this be to set up as a routine? I input the below prompt, set a scheduled time for\neach morning, connected the Driggsby custom connector, and hit save. Unfortunately, I then realized there was an issue: it had no way to send me an\nemail. Thankfully, there was a simple solution: the Gmail connector. I now\nhad a beautifully formatted, information-dense? draft sitting in my email. Oddly, it turns out the Gmail connector can?t actually send email; it can only create drafts. After browsing the Claude connector store and not seeing a way I was comfortable with to send email,\nI added a simple MCP tool to Driggsby that ended up being surprisingly\nconvenient ? email_me() . By restricting email sends to the account owner?s verified email and\ndisallowing links and images, we also made it secure enough to be comfortable with. To help with\nformatting inconsistency across runs, we had email_me() require the email body be Markdown, and\nadded some nice CSS for the Markdown-rendered emails. A few small bugs popped up, which were surprisingly easy to fix because of how inspectable routines\nare. The UI is essentially a normal, interactive Claude Code session that you?d see when using it\nthrough Claude Desktop or the web app ? which made it easy to inspect runs as they were happening. A couple test runs later, my email finally arrived. Now, changes\nto the email content over time don?t require code updates, just prompt tweaks through the routines UI. And, my wife now has her own custom daily email that she can edit with her own prompt ? since we\ncare about different things, this allows us to individually customize what we see each day. Beyond the daily email Now that the daily email was in place, new ideas started popping up. Now that I can spin up an\nagent with no infra burden, I wonder what else I could do with it? Since Driggsby has transaction data, this was the next one I reached for. I created a new weekly-run\nroutine and gave it a simple prompt: A prompt thi",
+      "summary": "product Could a Claude Code routine watch my finances? Matt May &bull; April 23, 2026 &bull; All posts A few months ago, I stood up a fiddly daily cron-job to log into my bank, credit card, and brokerage/retirement accounts. It was powered by Codex CLI running non-interactively, and had a fairly simple job: using the Chrome DevTools MCP, log into each website, extract balances and recent transactions, then send my wife and me a sort of ?daily financial overview? email. This pattern continued for some time ? more often than not, it would work, but then some browser rendering quirk would break that day?s run, or we?d get an unexpected 2FA prompt that would brick that account. Sometimes, GPT would decide to completely change the email format, or it would get confused during a run and only pull one account?s information. Then, there was an account we needed to add that only allowed login with passkeys. Eventually, I became a sort of unpaid tech support person for my wife, who wasn?t pleased when the daily emails didn?t come through as expected. Somehow, this led to my building Driggsby, an MCP server that tries to make this process less stressful. Two months, 75k lines of Rust, and a Plaid contract later, here we are. Routines as an unlock At a high level, Driggsby hooks into financial accounts using Plaid. Then it exposes a variety of tools over MCP: balances, transactions, investment info, loan info, and the like are each accessible through their own tools. At first, the only way I used Driggsby was interactively, and on-demand ? whenever I had a financial question, I?d open Claude, give it my question, and it answered using Driggsby. Over time, patterns started to emerge: most of my queries were about net worth, reviewing balances/transactions, and monitoring investments. Which made me wonder: what would be the easiest way for me to set this up on autopilot? A few days ago, Claude Code routines were released, and immediately piqued my interest. As a Claude Code user already, this seemed like it would make it even easier to deploy an agent that would do anything I wanted. Now, there?s nothing new per se about an agent loop running in the cloud. What does feel new with Claude Code routines is the ease of setting one up. You don?t have to write a bunch of agent-loop code and figure out where to deploy it, or even spin up OpenClaw, the Codex SDK, or claude -p on Hetzner. If you can get your data/tools into your routine cleanly through some sort of MCP connector, you can cook. The daily email To start with, I went back to where I began ? a daily email. One of the main things we?d wanted in the first place was just a clean, nicely formatted daily email with an overview of all our accounts and net worth. For years, this info had lived for us in a dusty old spreadsheet somewhere on Google Drive. It only took about 15 minutes to update it, but that tiny friction was enough to keep us from doing it very often. We probably updated it at most once every six months. How hard would this be to set up as a routine? I input the below prompt, set a scheduled time for each morning, connected the Driggsby custom connector, and hit save. Unfortunately, I then realized there was an issue: it had no way to send me an email. Thankfully, there was a simple solution: the Gmail connector. I now had a beautifully formatted, information-dense? draft sitting in my email. Oddly, it turns out the Gmail connector can?t actually send email; it can only create drafts. After browsing the Claude connector store and not seeing a way I was comfortable with to send email, I added a simple MCP tool to Driggsby that ended up being surprisingly convenient ? email_me() . By restricting email sends to the account owner?s verified email and disallowing links and images, we also made it secure enough to be comfortable with. To help with formatting inconsistency across runs, we had email_me() require the email body be Markdown, and added some nice CSS for the Markdown-rendered emails. A few small bugs popped up, which were surprisingly easy to fix because of how inspectable routines are. The UI is essentially a normal, interactive Claude Code session that you?d see when using it through Claude Desktop or the web app ? which made it easy to inspect runs as they were happening. A couple test runs later, my email finally arrived. Now, changes to the email content over time don?t require code updates, just prompt tweaks through the routines UI. And, my wife now has her own custom daily email that she can edit with her own prompt ? since we care about different things, this allows us to individually customize what we see each day. Beyond the daily email Now that the daily email was in place, new ideas started popping up. Now that I can spin up an agent with no infra burden, I wonder what else I could do with it? Since Driggsby has transaction data, this was the next one I reached for. I created a new weekly-run routine and gave it a simple prompt: A prompt thi",
+      "intro": "product Could a Claude Code routine watch my finances?",
+      "bullets": [
+        "product Could a Claude Code routine watch my finances?",
+        "Matt May &bull; April 23, 2026 &bull; All posts A few months ago, I stood up a fiddly daily cron-job to log into my bank, credit card, and?",
+        "It was powered by Codex CLI running non-interactively, and had a fairly simple job: using the Chrome DevTools MCP, log into each website,?",
+        "This pattern continued for some time ? more often than not, it would work, but then some browser rendering quirk would break that day?s?",
+        "Sometimes, GPT would decide to completely change the email format, or it would get confused during a run and only pull one account?s?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "could, claude, code, routine, watch, finances, artificial intelligence, machine learning",
+      "slug": "could-a-claude-code-routine-watch-my-finances"
+    },
+    {
+      "id": "JXgL6V9n9AztRkWw",
+      "title": "Get Spotify's student discount and Hulu for just $6 a month - here's how",
+      "seoTitle": "Get Spotify's student discount and Hulu for just $6 a month - here's?",
+      "metaDescription": "Home & Office Why you can trust ZDNET : ZDNET independently tests and researches products to bring you our best recommendations and advice. When you buy?",
+      "category": "Tools",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Get Spotify's student discount and Hulu for just $6 a month - here's how",
+      "url": "https://www.zdnet.com/article/how-to-get-a-spotify-premium-student-discount/",
+      "source": {
+        "name": "ZDNet"
+      },
+      "publishedAt": "2026-04-24T19:06:02.000Z",
+      "description": "Home & Office Why you can trust ZDNET : ZDNET independently tests and researches products to bring you our best recommendations and advice. When you buy through our links, we may earn a commission. Our process &apos;ZDNET Recommends&apos;: What exactly does it mean? ZDNET&apos;s recommendations are based on many hours of testing, research, and comparison shopping. We gather data from the best available sources, including vendor and retailer listings as well as other relevant and independent reviews sites. And we pore over customer reviews to find out what matters to real people who already own and use the products and services we&#x2019;re assessing. When you click through from our site to a retailer and buy a product or service, we may earn affiliate commissions. This helps support our work, but does not affect what we cover or how, and it does not affect the price you pay. Neither ZDNET nor the author are compensated for these independent reviews. Indeed, we follow strict guidelines that ensure our editorial content is never influenced by advertisers. ZDNET&apos;s editorial team writes on behalf of you, our reader. Our goal is to deliver the most accurate information and the most knowledgeable advice possible in order to help you make smarter buying decisions on tech gear and a wide array of products and services. Our editors thoroughly review and fact-check every article to ensure that our content meets the highest standards. If we have made an error or published misleading information, we will correct or clarify the article. If you see inaccuracies in our content, please report the mistake via this form . Close Home Home & Office Home Entertainment Streaming & Services Get Spotify&apos;s student discount and Hulu for just $6 a month - here&apos;s how If you&apos;re a college student, Spotify has an exclusive bundle that can save you cash on music and streaming. Written by Kayla Solino, Editor Editor April 24, 2026 at 12:06 p.m. PT With options to stream TV, movies, music, books, and more, there are plenty of ways to keep yourself occupied on all your devices. But streaming services are costly, and typically offer recurring monthly fees, which can add up quickly -- especially for college students.&#xA0; Also : Spotify vs. Apple Music: I&apos;ve subscribed to both streaming services, and prefer this one &#xA0; Thankfully, if you&apos;re a student, you can use your status to your advantage and save a few bucks on Spotify , plus gain exclusive access to Hulu . Students can secure a subscription bundle with Spotify Premium (normally $12.99/month), and Hulu with Ads (normally $7.99/month) for just $6.99/month, saving you up to $14/month. Here&apos;s how.&#xA0; Sign up for Spotify Student Bundle ($6.99/month) View now at Spotify Before you can activate a Spotify Premium student discount bundle, remember a few things. As long as you are enrolled at a US Title IV-accredited college or university (and above the age of 18), you&apos;re eligible to access this exclusive bundle for a student price. The offer will be valid for 48 months (the average time to complete a bachelor&apos;s degree) and must be reverified once every 12 months.&#xA0; Also: &#xA0; How to qualify for Apple&apos;s education discount - and get a $499 MacBook Neo for school You&apos;ll also need to grab some essentials for your verification process. This includes your Spotify login (if you have one already), and proof of enrollment to be used on SheerID (the platform Spotify uses to confirm your student status). Examples of proof of enrollment include a School ID with an expiration date, a class schedule, a tuition receipt, a transcript with current classes, etc., or any other school-issued document with an issue date from the current term.&#xA0; Also:&#xA0; How to get an Apple Music student discount subscription Here&apos;s how to snag a Spotify student discount bundle. Remember that the process may look slightly different from device to device, and you can find more detailed information (like terms and conditions) about Spotify&apos;s Premium Student plan on its website.&#xA0; How to activate a Spotify student subscription&#xA0; 1. Fill out the SheerID verification form Locate the SheerID verification form &#xA0;on Spotify&apos;s website. Follow the steps outlined and complete the form. If your school&apos;s not listed in this form, you&apos;re not eligible at this time. You&apos;ll be asked to log into your college/university&apos;s portal, or to upload proof of your enrollment (be sure to have this on hand). Wait for SheerID confirmation Now, wait for SheerID to send you an email to confirm eligibility. If you have eligibility issues, contact the&#xA0; SheerID support team . Apply your student discount to a Spotify account In the confirmation email, you&apos;ll receive instructions to apply the Premium Student discount to a new or existing Spotify account.&#xA0; Show more That&apos;s it. That&apos;s all you need to do to enjoy Spotify Premium",
+      "summary": "Home & Office Why you can trust ZDNET : ZDNET independently tests and researches products to bring you our best recommendations and advice. When you buy through our links, we may earn a commission. Our process &apos;ZDNET Recommends&apos;: What exactly does it mean? ZDNET&apos;s recommendations are based on many hours of testing, research, and comparison shopping. We gather data from the best available sources, including vendor and retailer listings as well as other relevant and independent reviews sites. And we pore over customer reviews to find out what matters to real people who already own and use the products and services we&#x2019;re assessing. When you click through from our site to a retailer and buy a product or service, we may earn affiliate commissions. This helps support our work, but does not affect what we cover or how, and it does not affect the price you pay. Neither ZDNET nor the author are compensated for these independent reviews. Indeed, we follow strict guidelines that ensure our editorial content is never influenced by advertisers. ZDNET&apos;s editorial team writes on behalf of you, our reader. Our goal is to deliver the most accurate information and the most knowledgeable advice possible in order to help you make smarter buying decisions on tech gear and a wide array of products and services. Our editors thoroughly review and fact-check every article to ensure that our content meets the highest standards. If we have made an error or published misleading information, we will correct or clarify the article. If you see inaccuracies in our content, please report the mistake via this form . Close Home Home & Office Home Entertainment Streaming & Services Get Spotify&apos;s student discount and Hulu for just $6 a month - here&apos;s how If you&apos;re a college student, Spotify has an exclusive bundle that can save you cash on music and streaming. Written by Kayla Solino, Editor Editor April 24, 2026 at 12:06 p.m. PT With options to stream TV, movies, music, books, and more, there are plenty of ways to keep yourself occupied on all your devices. But streaming services are costly, and typically offer recurring monthly fees, which can add up quickly -- especially for college students.&#xA0; Also : Spotify vs. Apple Music: I&apos;ve subscribed to both streaming services, and prefer this one &#xA0; Thankfully, if you&apos;re a student, you can use your status to your advantage and save a few bucks on Spotify , plus gain exclusive access to Hulu . Students can secure a subscription bundle with Spotify Premium (normally $12.99/month), and Hulu with Ads (normally $7.99/month) for just $6.99/month, saving you up to $14/month. Here&apos;s how.&#xA0; Sign up for Spotify Student Bundle ($6.99/month) View now at Spotify Before you can activate a Spotify Premium student discount bundle, remember a few things. As long as you are enrolled at a US Title IV-accredited college or university (and above the age of 18), you&apos;re eligible to access this exclusive bundle for a student price. The offer will be valid for 48 months (the average time to complete a bachelor&apos;s degree) and must be reverified once every 12 months.&#xA0; Also: &#xA0; How to qualify for Apple&apos;s education discount - and get a $499 MacBook Neo for school You&apos;ll also need to grab some essentials for your verification process. This includes your Spotify login (if you have one already), and proof of enrollment to be used on SheerID (the platform Spotify uses to confirm your student status). Examples of proof of enrollment include a School ID with an expiration date, a class schedule, a tuition receipt, a transcript with current classes, etc., or any other school-issued document with an issue date from the current term.&#xA0; Also:&#xA0; How to get an Apple Music student discount subscription Here&apos;s how to snag a Spotify student discount bundle. Remember that the process may look slightly different from device to device, and you can find more detailed information (like terms and conditions) about Spotify&apos;s Premium Student plan on its website.&#xA0; How to activate a Spotify student subscription&#xA0; 1. Fill out the SheerID verification form Locate the SheerID verification form &#xA0;on Spotify&apos;s website. Follow the steps outlined and complete the form. If your school&apos;s not listed in this form, you&apos;re not eligible at this time. You&apos;ll be asked to log into your college/university&apos;s portal, or to upload proof of your enrollment (be sure to have this on hand). Wait for SheerID confirmation Now, wait for SheerID to send you an email to confirm eligibility. If you have eligibility issues, contact the&#xA0; SheerID support team . Apply your student discount to a Spotify account In the confirmation email, you&apos;ll receive instructions to apply the Premium Student discount to a new or existing Spotify account.&#xA0; Show more That&apos;s it. That&apos;s all you need to do to enjoy Spotify Premium",
+      "intro": "Home & Office Why you can trust ZDNET : ZDNET independently tests and researches products to bring you our best recommendations and advice.",
+      "bullets": [
+        "Home & Office Why you can trust ZDNET : ZDNET independently tests and researches products to bring you our best recommendations and advice.",
+        "When you buy through our links, we may earn a commission.",
+        "Our process &apos;ZDNET Recommends&apos;: What exactly does it mean?",
+        "ZDNET&apos;s recommendations are based on many hours of testing, research, and comparison shopping.",
+        "We gather data from the best available sources, including vendor and retailer listings as well as other relevant and independent reviews?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "get, spotify, student, discount, hulu, just, month, here, artificial intelligence, machine learning",
+      "slug": "get-spotifys-student-discount-and-hulu-for-just-6-a-month-heres"
+    },
+    {
       "id": "SejQV3peH50g_U6-",
       "title": "OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API",
       "seoTitle": "OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API",
@@ -41,6 +326,29 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "gpt, openai, releases, pro, api, artificial intelligence, machine learning",
       "slug": "openai-releases-gpt-5-5-and-gpt-5-5-pro-in-the-api"
+    },
+    {
+      "id": "B-GmiDzlgP-fnKqD",
+      "title": "CISA last in line for access to Anthropic Mythos - csoonline.com",
+      "seoTitle": "CISA last in line for access to Anthropic Mythos - csoonline.com",
+      "metaDescription": "CISA last in line for access to Anthropic Mythos - csoonline.com ? CISA last in line for access to Anthropic Mythos csoonline.com",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "CISA last in line for access to Anthropic Mythos - csoonline.com",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNYVFuaGRjZTVQVnI5OExhSnVEbFdkTUtidkFjMnhpbHpVbTVSZzlnaW02TE9XQ1ZtLXB6RFF3MzJlQV9wS0VYQVVIRUFNdkdKQlJScXlVUmtUTm84dHJKRzRTN0RXMUV6b1NFUHJHcmFXTTE4ZTNoZXNrdzlFYWRxcmtSTTVoMHo3VTdFZmxla1FXNGFVVHZiMlVZSjA4QQ?oc=5",
+      "source": {
+        "name": "csoonline.com"
+      },
+      "publishedAt": "2026-04-24T18:17:49.000Z",
+      "description": "CISA last in line for access to Anthropic Mythos csoonline.com",
+      "summary": "CISA last in line for access to Anthropic Mythos csoonline.com",
+      "intro": "CISA last in line for access to Anthropic Mythos csoonline.com",
+      "bullets": [
+        "CISA last in line for access to Anthropic Mythos csoonline.com"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "cisa, last, line, access, anthropic, mythos, csoonline, com, artificial intelligence, machine learning",
+      "slug": "cisa-last-in-line-for-access-to-anthropic-mythos-csoonline-com"
     },
     {
       "id": "9eHRUhkz6smWqwsr",
@@ -69,7 +377,7 @@
       "id": "j7Ts_PyI3nMYgIjd",
       "title": "How LAist uses Artificial Intelligence - LAist",
       "seoTitle": "How LAist uses Artificial Intelligence - LAist",
-      "metaDescription": "How LAist uses Artificial Intelligence - LAist ? How LAist uses Artificial Intelligence - LAist ? How LAist uses Artificial Intelligence LAist",
+      "metaDescription": "How LAist uses Artificial Intelligence - LAist ? How LAist uses Artificial Intelligence LAist",
       "category": "AI",
       "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80",
       "imageAlt": "How LAist uses Artificial Intelligence - LAist",
@@ -193,6 +501,52 @@
       "slug": "mount-sinai-health-system-and-guyana-ministry-of-health-host-seminar"
     },
     {
+      "id": "3P9lG6ffIk8c0PgK",
+      "title": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets - CNBC",
+      "seoTitle": "Google to invest up to $40 billion in Anthropic as search giant?",
+      "metaDescription": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets - CNBC ? Google to invest up to $40 billion in Anthropic as search giant?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOT2NxSktQaDVOV3FRckRrRGZ0TzJjX2NmWWUwQklqUERpZWxrRW9heVhDVHVaNU9yNjJlY2tpRTZyUzRhOEVOS3hxM3BuUks5LURYVlk2Nm1BVWpFRE9DaXNMcWZ4cUs0Y1BwQWpIVGlFTC00V216R0ItVFJUX0w4cy1qNzVTNHBQaVR2RVVZRkVrdTIzSDB4bEhhRm5FeGZlU18wTmFRZlZBNGhURWhUWGRrMjZweC1HR2Nv0gHAAUFVX3lxTFAzNjgyNC1ZdmE5aE9obWpnUldYTFBvRWhQME12Q05TbGN1RWs5LVM4R0FnRW9QNU9vUV8yV044OFdPaGh2QTlkZlo3R3NyYjZ4UzB1V2pJQ1RLRWJyQXpHX2p1VFhYaGRRZHhYZ3BUdnVabmxMWUNGWExhTkt1ckVZcTM5aVFfZTJHTDl0bktiYV92OHl5bWpJTDRYdWp1Vk1JRFBvUEpvZE85U3JiZVhfelpWeUZFN2ZqMTM3Nl9qNg?oc=5",
+      "source": {
+        "name": "CNBC"
+      },
+      "publishedAt": "2026-04-24T17:30:55.000Z",
+      "description": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets CNBC",
+      "summary": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets CNBC",
+      "intro": "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets CNBC",
+      "bullets": [
+        "Google to invest up to $40 billion in Anthropic as search giant spreads its AI bets CNBC"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "google, invest, billion, anthropic, search, giant, spreads, bets, artificial intelligence, machine learning",
+      "slug": "google-to-invest-up-to-40-billion-in-anthropic-as-search-giant"
+    },
+    {
+      "id": "1us4WHKjluiyMyL6",
+      "title": "Former OpenAI research scientist launches new AI model for Tencent - Computerworld",
+      "seoTitle": "Former OpenAI research scientist launches new AI model for Tencent -?",
+      "metaDescription": "Former OpenAI research scientist launches new AI model for Tencent - Computerworld ? Former OpenAI research scientist launches new AI model for Tencent?",
+      "category": "ChatGPT",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Former OpenAI research scientist launches new AI model for Tencent - Computerworld",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNUTlJNzlhcGFLQ1Y5TjZYdlRuRm1UN1JjOFhub2VnX0dSWUkzVjZiQ3BrX2hNdWZQekJ1WGtiWDJlTURZZkRfeThPdDdfYndpNEw4aVg1QXhvSmhHWl9KRFBGUXZkbm9ZZGI4MTUtTENXMl9yWFhfc2wtQVdqSFB5cmI5NXZpX2NYU3JON0NNVHJPX3R5UHpMU2ZmWlZEbjl4VU5CVzBWbXBYSF9kYWZUaDRwZ2JiQ3BuWHZ3?oc=5",
+      "source": {
+        "name": "Computerworld"
+      },
+      "publishedAt": "2026-04-24T17:25:38.000Z",
+      "description": "Former OpenAI research scientist launches new AI model for Tencent Computerworld",
+      "summary": "Former OpenAI research scientist launches new AI model for Tencent Computerworld",
+      "intro": "Former OpenAI research scientist launches new AI model for Tencent Computerworld",
+      "bullets": [
+        "Former OpenAI research scientist launches new AI model for Tencent Computerworld"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "former, openai, research, scientist, launches, model, tencent, computerworld, artificial intelligence, machine learning",
+      "slug": "former-openai-research-scientist-launches-new-ai-model-for-tencent"
+    },
+    {
       "id": "PRi5JmCLXmJaXxjv",
       "title": "How I used Claude AI to plan an entire hiking trip to the Adirondacks in 30 minutes - for free",
       "seoTitle": "How I used Claude AI to plan an entire hiking trip to the?",
@@ -218,6 +572,98 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "how, used, claude, plan, entire, hiking, trip, adirondacks, artificial intelligence, machine learning",
       "slug": "how-i-used-claude-ai-to-plan-an-entire-hiking-trip-to-the"
+    },
+    {
+      "id": "sOyzUzXe5I7kbPQY",
+      "title": "The cognitive injustice of outsourcing all thinking to artificial intelligence - Psychology Today",
+      "seoTitle": "The cognitive injustice of outsourcing all thinking to artificial?",
+      "metaDescription": "The cognitive injustice of outsourcing all thinking to artificial intelligence - Psychology Today ? The cognitive injustice of outsourcing all thinking to?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "The cognitive injustice of outsourcing all thinking to artificial intelligence - Psychology Today",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxON2VISGRyT25kTE5VcEoyTDFMakVFdzF6UUdiRWx5cUVQM2dkNnRJbzRIUHNHOVd0emlKeEpjUGJ3SnB2VEx3dXIwX2dEUjJ1S1d6M0VNR3lVX2QzMXpESTVSdmF5cDZsVHpaZF9MNW13TW9BWktJTEphenNZQTZtOGJHcUJGMS1zNnlRdGNfcm9FcF8tSHdJQXVjZmx5ZGtPaWVSYVhBNFBfaUZfY29RRlF6SXpGdjjSAbwBQVVfeXFMTUFkOVg1T21TVEVhWUh3ZU5EeWszVUc0Z2lsMEVEWERLY2E0d3Y0WVlvSGYtSXAwTEJQWjhKclNGUEk3emZQVFZjWmItdDRCaV9CMDIyZGhzOGZRNV9MYTV5dHJlWjVlMmJPV3BoSy1oeVFKRVdZM3RUWFFoUFdMaVkwZ0tXOGVmS295Q2hGYV84SF9GeURGUHpWaWJEUFpZaWFPTWlPRGI1UkZDOVdYMmd5ejE5ZlI4UGFLUS0?oc=5",
+      "source": {
+        "name": "Psychology Today"
+      },
+      "publishedAt": "2026-04-24T17:12:38.000Z",
+      "description": "The cognitive injustice of outsourcing all thinking to artificial intelligence Psychology Today",
+      "summary": "The cognitive injustice of outsourcing all thinking to artificial intelligence Psychology Today",
+      "intro": "The cognitive injustice of outsourcing all thinking to artificial intelligence Psychology Today",
+      "bullets": [
+        "The cognitive injustice of outsourcing all thinking to artificial intelligence Psychology Today"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "cognitive, injustice, outsourcing, all, thinking, artificial, intelligence, psychology, artificial intelligence, machine learning",
+      "slug": "the-cognitive-injustice-of-outsourcing-all-thinking-to-artificial"
+    },
+    {
+      "id": "mREE-B0nE70YZDnT",
+      "title": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock - The Motley Fool",
+      "seoTitle": "Prediction: Investors Rotating Out of Tech Will Regret Missing This?",
+      "metaDescription": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock The Motley Fool",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock - The?",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPVXFEdlpGdFNxeWl4czFVWTB3VDFQVVI0TE1fUU5TdFIzMWk4RVIxUlZLODFNTkZvanpraTM4UmN4QU1kS1VKSmZUMlp1QV9QUnAyWVlrY2FQalI0UlgxQ3ZLOUNLekZlZFhTd1RXallQMlRnOTZvc2FESkhzeFFiM0xQNHRtNDF1ZndBaGhuVQ?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-24T17:11:00.000Z",
+      "description": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock The Motley Fool",
+      "summary": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock The Motley Fool",
+      "intro": "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock The Motley Fool",
+      "bullets": [
+        "Prediction: Investors Rotating Out of Tech Will Regret Missing This Artificial Intelligence (AI) Growth Stock The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "prediction, investors, rotating, out, tech, will, regret, missing, artificial intelligence, machine learning",
+      "slug": "prediction-investors-rotating-out-of-tech-will-regret-missing-this"
+    },
+    {
+      "id": "HHO3IXH5SAfLcG71",
+      "title": "Anthropic Turns Claude Into a Front Door for Daily Apps - PYMNTS.com",
+      "seoTitle": "Anthropic Turns Claude Into a Front Door for Daily Apps - PYMNTS.com",
+      "metaDescription": "Anthropic Turns Claude Into a Front Door for Daily Apps - PYMNTS.com ? Anthropic Turns Claude Into a Front Door for Daily Apps PYMNTS.com",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Anthropic Turns Claude Into a Front Door for Daily Apps - PYMNTS.com",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQUWFLUEVEd1BjTDU1NzRsb1l0c3BDVFN4LXBocnZnUnBseklhM2t6WmdsaHh2Zldzc0l5X3BYenU1b1NrTVdQVkdPTlVJMXI5TnB6TWdFSEs2dnNpTVNhRnNlMTB1eEs0SXN5WE5HalZjX3NlMi02Y0ZMR1pXaGhqdERjZjlTNVhUamJRS1NLbTJ1N3dOVVo0MnhCWEVsVEgyTFN2aGZwOGJGU241RXlyLVRSUQ?oc=5",
+      "source": {
+        "name": "PYMNTS.com"
+      },
+      "publishedAt": "2026-04-24T17:07:43.000Z",
+      "description": "Anthropic Turns Claude Into a Front Door for Daily Apps PYMNTS.com",
+      "summary": "Anthropic Turns Claude Into a Front Door for Daily Apps PYMNTS.com",
+      "intro": "Anthropic Turns Claude Into a Front Door for Daily Apps PYMNTS.com",
+      "bullets": [
+        "Anthropic Turns Claude Into a Front Door for Daily Apps PYMNTS.com"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "anthropic, turns, claude, front, door, daily, apps, pymnts, artificial intelligence, machine learning",
+      "slug": "anthropic-turns-claude-into-a-front-door-for-daily-apps-pymnts-com"
+    },
+    {
+      "id": "pbPhvAQVcvRuon6p",
+      "title": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI - Congresswoman Valerie Foushee (.gov)",
+      "seoTitle": "Protecting Consumers from Deceptive AI Act to Establish?",
+      "metaDescription": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI Congresswoman Valerie Foushee (.gov)",
+      "category": "Generative AI",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI -?",
+      "url": "https://news.google.com/rss/articles/CBMirwJBVV95cUxNX0ZGOE1tZ19PWEo0dHZJTnpaaFd4djROT09MMG1zOVFwQlpfSlp3Z2lHWHRUWEpwdXVydTljdkVtdGxsQUZ4U2ttR3ZLek1wYTlLRjVjTXZwOVNvRk5kZDE1SV9CdjBNREo4alduTW52ZVZDbXhVcC1VNklnTC1PRENEdFR3cnBwc2RodElncWYzQ01TQ2c0MFkteHVSZFdGNk5VZTdSeEJaR1g3ZUE5a1FKaGd0bTFYRkVRdjlFNC1JYWlBUWpNVVZZa1R4RkQzcEVILWdpcndOMGt5RE9Fd3c5TnV2UlFGY0lzeUVydGNKbENHOTVGMkw4aW5kdmpvOW1CVjBpNW9FeDc1dGoxWXJJd3dOalZIV3laMG4zOUJ2cXZwcGExRU9pNFBtSUU?oc=5",
+      "source": {
+        "name": "Congresswoman Valerie Foushee (.gov)"
+      },
+      "publishedAt": "2026-04-24T17:04:03.000Z",
+      "description": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI Congresswoman Valerie Foushee (.gov)",
+      "summary": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI Congresswoman Valerie Foushee (.gov)",
+      "intro": "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI Congresswoman Valerie Foushee (.gov)",
+      "bullets": [
+        "Protecting Consumers from Deceptive AI Act to Establish Accountability and Transparency Standards for Generative AI Congresswoman Valerie?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "protecting, consumers, deceptive, act, establish, accountability, transparency, standards, artificial intelligence, machine learning",
+      "slug": "protecting-consumers-from-deceptive-ai-act-to-establish"
     },
     {
       "id": "mzKiKjtg8Q9hRdwS",
@@ -322,6 +768,52 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "why, agents, need, interaction, infrastructure, artificial intelligence, machine learning",
       "slug": "why-ai-agents-need-interaction-infrastructure"
+    },
+    {
+      "id": "fCLSncrahqH8ZqwL",
+      "title": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools - Auburn University",
+      "seoTitle": "Applied Statistics and Machine Learning course provides practical?",
+      "metaDescription": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools Auburn University",
+      "category": "Tools",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools -?",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOeE9TWXNCd0xIem1FOVdBLTltWDFjclRQeVJmQ1pXYl9Sbi1QZXgzRVNGU1V3cEZqVFdHenV1X1JwOGw0Z3FlR1FCSEozY2VGMFQ4bk5rWEc5UG5oQnIzaENUOXhwaEV5OVU3NVBfeTlSTjVGaGwyMVNuYmgxaXBveHZfWFd0cDJQanA4bmpMTlFZVU0ya2JMTGx6MjBWbTlXdDdwNE9zYXVGS3k4TE5ON29COTBXVzg1V3BXQmVibnFLSm9jZ0FvYXdPdkVNcmItemtxYnFELXphVHpfWmRZ?oc=5",
+      "source": {
+        "name": "Auburn University"
+      },
+      "publishedAt": "2026-04-24T16:06:28.000Z",
+      "description": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools Auburn University",
+      "summary": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools Auburn University",
+      "intro": "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools Auburn University",
+      "bullets": [
+        "Applied Statistics and Machine Learning course provides practical experience for students using modern AI tools Auburn University"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "applied, statistics, machine, learning, course, provides, practical, experience, artificial intelligence, machine learning",
+      "slug": "applied-statistics-and-machine-learning-course-provides-practical"
+    },
+    {
+      "id": "CnYYava8iC6u0WGv",
+      "title": "Google Plans to Invest Up to $40B in Anthropic",
+      "seoTitle": "Google Plans to Invest Up to $40B in Anthropic",
+      "metaDescription": "Google Plans to Invest Up to $40B in Anthropic ? Google Plans to Invest Up to $40B in Anthropic (149 points on Hacker News)",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Google Plans to Invest Up to $40B in Anthropic",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-24T16:04:41.000Z",
+      "description": "Google Plans to Invest Up to $40B in Anthropic (149 points on Hacker News)",
+      "summary": "Google Plans to Invest Up to $40B in Anthropic (149 points on Hacker News)",
+      "intro": "Google Plans to Invest Up to $40B in Anthropic (149 points on Hacker News)",
+      "bullets": [
+        "Google Plans to Invest Up to $40B in Anthropic (149 points on Hacker News)"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "google, plans, invest, 40b, anthropic, artificial intelligence, machine learning",
+      "slug": "google-plans-to-invest-up-to-40b-in-anthropic"
     },
     {
       "id": "h-6LVttYT8X5BJfr",
@@ -480,6 +972,29 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "intel, soars, after, earnings, blowout, did, legacy, tech, artificial intelligence, machine learning",
       "slug": "intel-soars-after-an-earnings-blowout-did-this-legacy-tech-company"
+    },
+    {
+      "id": "Td1f3mBt9TRJy_6D",
+      "title": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week - MarketingProfs",
+      "seoTitle": "Artificial Intelligence - AI Update, April 24, 2026: AI News and?",
+      "metaDescription": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week - MarketingProfs ? Artificial Intelligence - AI Update, April 24,?",
+      "category": "Business",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week - MarketingProfs",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdlJpU2J3TkxEZUY0cWFldkthQnVXMVhqMEJsUm5hSFR6WVk5VlZkejRTU1luVWxsdGZEYnJOdkxISTlWQ2pnSFhBOHh2YWp0WkVyX0czUFllbDVOSkhRSnZSbkhfSWh6dzFOTVozNDlWbFFLZ1hqZVN4SHVnWTVqMG5sVnI1d0UxU0xQVExJYTUyalhyaG9LUXhXNzNUVVJwQUpLYUM4RGJ6YzY4cUlEWQ?oc=5",
+      "source": {
+        "name": "MarketingProfs"
+      },
+      "publishedAt": "2026-04-24T14:12:05.000Z",
+      "description": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week MarketingProfs",
+      "summary": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week MarketingProfs",
+      "intro": "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week MarketingProfs",
+      "bullets": [
+        "Artificial Intelligence - AI Update, April 24, 2026: AI News and Views From the Past Week MarketingProfs"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "2026, artificial, intelligence, update, april, news, views, past, artificial intelligence, machine learning",
+      "slug": "artificial-intelligence-ai-update-april-24-2026-ai-news-and"
     },
     {
       "id": "TrFE_BBOfELg-ISO",
@@ -1595,6 +2110,31 @@
       "slug": "bret-taylor-and-8217-s-sierra-buys-yc-backed-ai-startup-fragment"
     },
     {
+      "id": "yPRLKMH_VymqJPuq",
+      "title": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the Best Artificial Intelligence (AI) Growth Stocks to Own Until Then. - The Motley Fool",
+      "seoTitle": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the?",
+      "metaDescription": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the Best Artificial Intelligence (AI) Growth Stocks to Own Until Then. The Motley Fool",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the Best Artificial Intelligence (AI) Growth Stocks to?",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNVEZ5ME9OWld5dFFub2U0UXFGLWpDZ2dTaDBQTmNWbGc4YzBQQzlCTFE0QUpXNWJkby1SSHVEcmxralpBN01kNnZab0ZVNTdYdXlJZW1YejNZT1lkY3dSelYzQVlzQVBjYWEySTc0QzluQ3hPR1hsUTRpNlFabXdudjAxT0RkMDA3YVpFVTFtR3RHZEgwU2Fj?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-23T20:17:00.000Z",
+      "description": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the Best Artificial Intelligence (AI) Growth Stocks to Own Until Then. The Motley Fool",
+      "summary": "Prediction: The Nasdaq Could Soar to 30,000 by 2027. These Are the Best Artificial Intelligence (AI) Growth Stocks to Own Until Then. The Motley Fool",
+      "intro": "Prediction: The Nasdaq Could Soar to 30,000 by 2027.",
+      "bullets": [
+        "Prediction: The Nasdaq Could Soar to 30,000 by 2027.",
+        "These Are the Best Artificial Intelligence (AI) Growth Stocks to Own Until Then.",
+        "The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "2027, prediction, nasdaq, could, soar, 000, these, best, artificial intelligence, machine learning",
+      "slug": "prediction-the-nasdaq-could-soar-to-30-000-by-2027-these-are-the"
+    },
+    {
       "id": "sGkHKLI2TgL6wG6F",
       "title": "Physical AI: Where Artificial Intelligence Rubber Meets The Road - Investor's Business Daily",
       "seoTitle": "Physical AI: Where Artificial Intelligence Rubber Meets The Road -?",
@@ -1643,6 +2183,29 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "meet, noscroll, bot, does, your, doomscrolling, you, artificial intelligence, machine learning",
       "slug": "meet-noscroll-an-ai-bot-that-does-your-doomscrolling-for-you"
+    },
+    {
+      "id": "xZ16zulKR3HffgUl",
+      "title": "The convergence of machine learning and data assimilation in Earth system science - Nature",
+      "seoTitle": "The convergence of machine learning and data assimilation in Earth?",
+      "metaDescription": "The convergence of machine learning and data assimilation in Earth system science - Nature ? The convergence of machine learning and data assimilation in?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "The convergence of machine learning and data assimilation in Earth system science - Nature",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBEdHVhTlJxSmhCbjhhVkdfeFpSM3ZfT1RGQVkwcnlFY2l5OF9rWmp0bW5NMW5zNDFpbXBoX1RnMEtpTjNZZS1KSjVnX3NoaGFUSjJsY2RScFBhTlJpak1R?oc=5",
+      "source": {
+        "name": "Nature"
+      },
+      "publishedAt": "2026-04-23T18:43:51.000Z",
+      "description": "The convergence of machine learning and data assimilation in Earth system science Nature",
+      "summary": "The convergence of machine learning and data assimilation in Earth system science Nature",
+      "intro": "The convergence of machine learning and data assimilation in Earth system science Nature",
+      "bullets": [
+        "The convergence of machine learning and data assimilation in Earth system science Nature"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "convergence, machine, learning, data, assimilation, earth, system, science, artificial intelligence, machine learning",
+      "slug": "the-convergence-of-machine-learning-and-data-assimilation-in-earth"
     },
     {
       "id": "e5H80IQIZc0A4BTC",
@@ -2009,6 +2572,29 @@
       "slug": "era-raises-11m-to-build-a-software-platform-for-ai-gadgets"
     },
     {
+      "id": "sXxf4aQzI--wc4cG",
+      "title": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End - The Motley Fool",
+      "seoTitle": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be?",
+      "metaDescription": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End The Motley Fool",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End - The?",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQ3pIMExXSTU4c29Qc1VPaHpWNlRhNzg4SlFHT0hCenZqTUpYb1dobnltZlktRVpsX3h0c1RQbERPekhqNzZKU3ZDRDlrMG1HcUxac2VCaFptNTZ4aHNLUXhVYmNHc012anZYSlpkVUpXYkhHRUZ1WC0yZFFyd2V4TU9iUkxMVEloTWZEQnJGdm9kRExxZ3dR?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-23T15:30:00.000Z",
+      "description": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End The Motley Fool",
+      "summary": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End The Motley Fool",
+      "intro": "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End The Motley Fool",
+      "bullets": [
+        "Prediction: This Artificial Intelligence (AI) Growth Stock Will Be the Nasdaq's Best Performer by Year-End The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "prediction, artificial, intelligence, growth, stock, will, nasdaq, best, artificial intelligence, machine learning",
+      "slug": "prediction-this-artificial-intelligence-ai-growth-stock-will-be"
+    },
+    {
       "id": "KmhOWl_YrbfnLym0",
       "title": "The best SEO reporting software of 2026: Expert tested and reviewed",
       "seoTitle": "The best SEO reporting software of 2026: Expert tested and reviewed",
@@ -2273,6 +2859,29 @@
       "slug": "the-billion-dollar-startup-with-a-different-idea-for-ai"
     },
     {
+      "id": "xlhh3EH5h1M55mdQ",
+      "title": "What we lose when artificial intelligence does our shopping - The Conversation",
+      "seoTitle": "What we lose when artificial intelligence does our shopping - The?",
+      "metaDescription": "What we lose when artificial intelligence does our shopping - The Conversation ? What we lose when artificial intelligence does our shopping The Conversation",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "What we lose when artificial intelligence does our shopping - The Conversation",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQOFBOOWxJczFyTGkwTHB5OGNadHVHNXJkUFhRQk9rODJiSDkxNUZiUHNxRVpoNl9TcXZmallPSGlpLXBxZlRCYTJmeklZYlFvZ1IzWFRWX21teG1OX1laTzNWamhXbU4xQzN6M0FMQ0Z3OTV1Q25UQTlUT0doRWlNaDhxOGJ5YWZERmRJYlROU2tWTTRYYWR0eDdn?oc=5",
+      "source": {
+        "name": "The Conversation"
+      },
+      "publishedAt": "2026-04-23T12:22:43.000Z",
+      "description": "What we lose when artificial intelligence does our shopping The Conversation",
+      "summary": "What we lose when artificial intelligence does our shopping The Conversation",
+      "intro": "What we lose when artificial intelligence does our shopping The Conversation",
+      "bullets": [
+        "What we lose when artificial intelligence does our shopping The Conversation"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "what, lose, when, artificial, intelligence, does, our, shopping, artificial intelligence, machine learning",
+      "slug": "what-we-lose-when-artificial-intelligence-does-our-shopping-the"
+    },
+    {
       "id": "bKiJD6QFZgW0lCEH",
       "title": "NVIDIA and Google infrastructure cuts AI inference costs",
       "seoTitle": "NVIDIA and Google infrastructure cuts AI inference costs",
@@ -2404,6 +3013,33 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "robot, sony, beats, players, humanoid, wins, beijing, race, artificial intelligence, machine learning",
       "slug": "sony-ai-robot-beats-players-as-humanoid-robot-wins-beijing-race"
+    },
+    {
+      "id": "bImUVWVXaYzFJIPn",
+      "title": "Email could have been X.400 times better",
+      "seoTitle": "Email could have been X.400 times better",
+      "metaDescription": "If the history of email had gone somewhat differently, the last email you sent could have been rescinded or superseded by a newer version when you?",
+      "category": "Research",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Email could have been X.400 times better",
+      "url": "https://buttondown.com/blog/x400-vs-smtp-email",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-23T08:10:09.000Z",
+      "description": "If the history of email had gone somewhat differently, the last email you sent could have been rescinded or superseded by a newer version when you accidentally wrote the wrong thing. It could have been scheduled to arrive an hour from now. It could have auto-destructed if not read by midnight. You would never have needed to type ?as per my previous message.? Instead, you could have linked emails together into a personal Wikipedia of correspondence. You could have messaged an entire organization or department, with your email app ensuring the message was deliverable before it left your outbox. And you could have attached files and written a multilingual message with letters beyond ASCII?s 128 characters, eight years before those features came to internet email. You could have been notified when the message was read a full 15 years before email had something similar tacked on. Encryption would have been baked in from the start, rather than waiting for PGP, S/MIME, and TLS to add them later. All that, and more, was standardized in the 1984 spec for X.400 as Interpersonal Messaging . It was everything we call email today, and then some. ?We had a better system back in the day: X.400,? as one commentator reminisced . SMTP, the Simple Mail Transfer Protocol that became the standard behind how modern email is sent, ?didn?t win because it was ?better,?? he argued, but ?just because it was easier to implement. Like a car with no brakes or seatbelts.? ?Of all the things OSI has produced, one could point to X.400 as being the most successful,? agreed Marshall T. Rose , a developer who helped bridge the differences between X.400 and SMTP email. Differences like X.400 email addresses with bang path-esque addresses like C=no; ADMD=; PRMD=uninett; O=uninett; S=alvestrand; G=harald while SMTP email addresses looked like Harald.Alvestrand@uninett.no . ?On the other hand,? he concluded, ?that?s kind of like saying that World War II was the successful conclusion of the Great Depression.? Come, let us build a standard Six months before Neil Armstrong stepped on the moon, the United States Department of Defense started building ARPANET, a network to link computers around the country, budgeted from money redirected from missile defense. It was on that network that email as we know it was invented. Ray Tomlinson pulled file transfer software, the ARPANET network, and the @ symbol together, and in 1971 email was born. Soon enough it was taking up more than 3/4th of all ARPANET traffic . ?Here was this fantastic infrastructure built at government expense for serious purposes ? and these geeks were using it for sending messages to one another,? as John Naughton put it in his Brief History of the Future . Email?or at least the idea of email?took the world by storm. CompuServe offered electronic mail to businesses in 1978 and to consumers a year later, with numeric IDs to message anyone else on their network. Or you could subscribe to The Source (launched in ?78) or MCI Mail (as of ?83) or AppleLink (fashionably late in ?86, then to power the first email to space in ?91). Telecoms and governments joined the rush. By 1982, British Telecom launched their Telecom Gold email solution, and USPS, in a $40 million misstep, tried to monopolize email on paper with E-COM . ?Two-thirds or more of the mailstream could be handled electronically,? assumed Congress a mere eleven years after Tomlinson sent the first email. Yet the majority of those emails were messages inside walled gardens. You could email anyone you wanted, as long as they, too, used the same service. ?By 1977, the Arpanet employed several informal standards for the text messages (mail) sent among its host computers,? stated RFC 822 , an attempt in 1982 to standardize email. Someone had to make electronic messages speak the same language. ?The establishment in various countries of telematic services and computer-based store-and forward message services in association with public data networks creates a need to produce standards to facilitate international message exchange between subscribers to such services,? opened the document that aimed to standardize email, three layers of bureaucracy removed from the Secretary-General, and for a moment email could have been an international standard. I&#x27;m from the government and I&#x27;m here to help Email should be clear and concise, says the United Nations today, decades removed from the medium?s chaotic early years. Focused on a single topic, with short, meaningful sentences free from jargon. It should be positive, civil, and formal when appropriate, advises the self-described universal global organization. Under its auspices?via the International Telecommunication Union?s Consultative Committee for International Telephony and Telegraphy committee and the UNESCO-linked International Federation for Information Processing?email was almost standardized in October, 1984 under the X.400 spec that was anything other than concise and jargon-f",
+      "summary": "If the history of email had gone somewhat differently, the last email you sent could have been rescinded or superseded by a newer version when you accidentally wrote the wrong thing. It could have been scheduled to arrive an hour from now. It could have auto-destructed if not read by midnight. You would never have needed to type ?as per my previous message.? Instead, you could have linked emails together into a personal Wikipedia of correspondence. You could have messaged an entire organization or department, with your email app ensuring the message was deliverable before it left your outbox. And you could have attached files and written a multilingual message with letters beyond ASCII?s 128 characters, eight years before those features came to internet email. You could have been notified when the message was read a full 15 years before email had something similar tacked on. Encryption would have been baked in from the start, rather than waiting for PGP, S/MIME, and TLS to add them later. All that, and more, was standardized in the 1984 spec for X.400 as Interpersonal Messaging . It was everything we call email today, and then some. ?We had a better system back in the day: X.400,? as one commentator reminisced . SMTP, the Simple Mail Transfer Protocol that became the standard behind how modern email is sent, ?didn?t win because it was ?better,?? he argued, but ?just because it was easier to implement. Like a car with no brakes or seatbelts.? ?Of all the things OSI has produced, one could point to X.400 as being the most successful,? agreed Marshall T. Rose , a developer who helped bridge the differences between X.400 and SMTP email. Differences like X.400 email addresses with bang path-esque addresses like C=no; ADMD=; PRMD=uninett; O=uninett; S=alvestrand; G=harald while SMTP email addresses looked like Harald.Alvestrand@uninett.no . ?On the other hand,? he concluded, ?that?s kind of like saying that World War II was the successful conclusion of the Great Depression.? Come, let us build a standard Six months before Neil Armstrong stepped on the moon, the United States Department of Defense started building ARPANET, a network to link computers around the country, budgeted from money redirected from missile defense. It was on that network that email as we know it was invented. Ray Tomlinson pulled file transfer software, the ARPANET network, and the @ symbol together, and in 1971 email was born. Soon enough it was taking up more than 3/4th of all ARPANET traffic . ?Here was this fantastic infrastructure built at government expense for serious purposes ? and these geeks were using it for sending messages to one another,? as John Naughton put it in his Brief History of the Future . Email?or at least the idea of email?took the world by storm. CompuServe offered electronic mail to businesses in 1978 and to consumers a year later, with numeric IDs to message anyone else on their network. Or you could subscribe to The Source (launched in ?78) or MCI Mail (as of ?83) or AppleLink (fashionably late in ?86, then to power the first email to space in ?91). Telecoms and governments joined the rush. By 1982, British Telecom launched their Telecom Gold email solution, and USPS, in a $40 million misstep, tried to monopolize email on paper with E-COM . ?Two-thirds or more of the mailstream could be handled electronically,? assumed Congress a mere eleven years after Tomlinson sent the first email. Yet the majority of those emails were messages inside walled gardens. You could email anyone you wanted, as long as they, too, used the same service. ?By 1977, the Arpanet employed several informal standards for the text messages (mail) sent among its host computers,? stated RFC 822 , an attempt in 1982 to standardize email. Someone had to make electronic messages speak the same language. ?The establishment in various countries of telematic services and computer-based store-and forward message services in association with public data networks creates a need to produce standards to facilitate international message exchange between subscribers to such services,? opened the document that aimed to standardize email, three layers of bureaucracy removed from the Secretary-General, and for a moment email could have been an international standard. I&#x27;m from the government and I&#x27;m here to help Email should be clear and concise, says the United Nations today, decades removed from the medium?s chaotic early years. Focused on a single topic, with short, meaningful sentences free from jargon. It should be positive, civil, and formal when appropriate, advises the self-described universal global organization. Under its auspices?via the International Telecommunication Union?s Consultative Committee for International Telephony and Telegraphy committee and the UNESCO-linked International Federation for Information Processing?email was almost standardized in October, 1984 under the X.400 spec that was anything other than concise and jargon-f",
+      "intro": "If the history of email had gone somewhat differently, the last email you sent could have been rescinded or superseded by a newer version when you accidentally wrote the wrong thing.",
+      "bullets": [
+        "If the history of email had gone somewhat differently, the last email you sent could have been rescinded or superseded by a newer version?",
+        "It could have been scheduled to arrive an hour from now.",
+        "It could have auto-destructed if not read by midnight.",
+        "You would never have needed to type ?as per my previous message.? Instead, you could have linked emails together into a personal Wikipedia?",
+        "You could have messaged an entire organization or department, with your email app ensuring the message was deliverable before it left your?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "400, email, could, have, been, times, better, artificial intelligence, machine learning",
+      "slug": "email-could-have-been-x-400-times-better"
     },
     {
       "id": "qLQifwYP2OwGsItA",
@@ -2618,6 +3254,31 @@
       "slug": "how-spacex-preempted-a-2b-fundraise-with-a-60b-buyout-offer"
     },
     {
+      "id": "SWGxqhbZPaL_SeG_",
+      "title": "The Great Rotation Didn't Last. The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again. - The Motley Fool",
+      "seoTitle": "The Great Rotation Didn't Last. The Best Artificial Intelligence?",
+      "metaDescription": "The Great Rotation Didn't Last. The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again. - The Motley Fool ? The Great Rotation Didn't Last.?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "The Great Rotation Didn't Last. The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again. - The Motley?",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRjRtelZSNGFYc0ctLU5oeUxYMTkxQnVjMTM5eXpka3dJVk5XNXJQSHpnT1JVM29UV2JTUVgwRjd1YzNDNDhVTXlQQTBlSFdUYWdzdXJpV1YycC1GM2plLTZlOVpCYW9RdDY5TV9DenBScnJId2NnT2V3czBrWk1mZTYtdHhzSWREaXRzMUZJTUdhd3pwS1pJ?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-22T18:45:00.000Z",
+      "description": "The Great Rotation Didn't Last. The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again. The Motley Fool",
+      "summary": "The Great Rotation Didn't Last. The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again. The Motley Fool",
+      "intro": "The Great Rotation Didn't Last.",
+      "bullets": [
+        "The Great Rotation Didn't Last.",
+        "The Best Artificial Intelligence (AI) Growth Stocks Are Rallying Again.",
+        "The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "great, rotation, didn, last, best, artificial, intelligence, growth, artificial intelligence, machine learning",
+      "slug": "the-great-rotation-didnt-last-the-best-artificial-intelligence"
+    },
+    {
       "id": "Nb1wh_0Rfw96J3Th",
       "title": "Google Cloud launches two new AI chips to compete with Nvidia",
       "seoTitle": "Google Cloud launches two new AI chips to compete with Nvidia",
@@ -2803,6 +3464,33 @@
       "slug": "harvester-deploys-linux-gogra-backdoor-in-south-asia-using-microsoft"
     },
     {
+      "id": "Gtn7dBxZrmCrhX8c",
+      "title": "Iliad fragment found in Roman-era mummy",
+      "seoTitle": "Iliad fragment found in Roman-era mummy",
+      "metaDescription": "A papyrus fragment of Homer&#8217;s epic The Iliad has been discovered inside the wrappings of Roman-era mummy . The mummy was found in a necropolis the?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Iliad fragment found in Roman-era mummy",
+      "url": "https://www.thehistoryblog.com/archives/75877",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-22T14:18:35.000Z",
+      "description": "A papyrus fragment of Homer&#8217;s epic The Iliad has been discovered inside the wrappings of Roman-era mummy . The mummy was found in a necropolis the ancient site of Oxyrhynchus (modern-day El-Bahnasa) in Egypt?s Minya Governorate. Archaeologists were able to remove the papyrus and identify the text as the &#8220;Index of Ships,&#8221; a description of the Greek forces arrayed against Troy from Book 2 of the Iliad. A joint Spanish-Egyptian team from the University of Barcelona and the Institute of the Ancient Near East unearthed a number of mummies from the Roman-era necropolis, some in wooden coffins, some wrapped in bandages decorated with geometric patterns, three with gold tongues and one with a copper tongue placed inside their mouths. A few of the deceased had traces of gold leaf that had been applied to them after mummification. Additional gold and copper tongues were found in the excavation of tomb number 65. Deteriorated mummified remains were unearthed in a hypogeum (underground chamber) of the tomb, revealing the tongue inserts. There were also several painted wooden coffins, but they too are poorly preserved as a result of the tomb have been looted in antiquity. There were also finds in the older section of the cemetery. Professor Mohamed Abdel-Badi, Head of the Egyptian Antiquities Sector at the Supreme Council of Antiquities, explained that excavations east of Ptolemaic Tomb No. 67 revealed a trench containing three limestone burial chambers. These chambers housed the cremated remains of adults and an infant, as well as animal remains, notably cats, wrapped in cloth. The team also discovered a collection of small terracotta and bronze statues, including representations of the god Harpocrates and a figure of Cupid. [?] For his part, Hisham el-Leithy, Secretary-General of the Supreme Council of Antiquities, added that the site offers valuable insights into burial traditions in Bahnasa during the Greek and Roman eras.",
+      "summary": "A papyrus fragment of Homer&#8217;s epic The Iliad has been discovered inside the wrappings of Roman-era mummy . The mummy was found in a necropolis the ancient site of Oxyrhynchus (modern-day El-Bahnasa) in Egypt?s Minya Governorate. Archaeologists were able to remove the papyrus and identify the text as the &#8220;Index of Ships,&#8221; a description of the Greek forces arrayed against Troy from Book 2 of the Iliad. A joint Spanish-Egyptian team from the University of Barcelona and the Institute of the Ancient Near East unearthed a number of mummies from the Roman-era necropolis, some in wooden coffins, some wrapped in bandages decorated with geometric patterns, three with gold tongues and one with a copper tongue placed inside their mouths. A few of the deceased had traces of gold leaf that had been applied to them after mummification. Additional gold and copper tongues were found in the excavation of tomb number 65. Deteriorated mummified remains were unearthed in a hypogeum (underground chamber) of the tomb, revealing the tongue inserts. There were also several painted wooden coffins, but they too are poorly preserved as a result of the tomb have been looted in antiquity. There were also finds in the older section of the cemetery. Professor Mohamed Abdel-Badi, Head of the Egyptian Antiquities Sector at the Supreme Council of Antiquities, explained that excavations east of Ptolemaic Tomb No. 67 revealed a trench containing three limestone burial chambers. These chambers housed the cremated remains of adults and an infant, as well as animal remains, notably cats, wrapped in cloth. The team also discovered a collection of small terracotta and bronze statues, including representations of the god Harpocrates and a figure of Cupid. [?] For his part, Hisham el-Leithy, Secretary-General of the Supreme Council of Antiquities, added that the site offers valuable insights into burial traditions in Bahnasa during the Greek and Roman eras.",
+      "intro": "A papyrus fragment of Homer&#8217;s epic The Iliad has been discovered inside the wrappings of Roman-era mummy .",
+      "bullets": [
+        "A papyrus fragment of Homer&#8217;s epic The Iliad has been discovered inside the wrappings of Roman-era mummy .",
+        "The mummy was found in a necropolis the ancient site of Oxyrhynchus (modern-day El-Bahnasa) in Egypt?s Minya Governorate.",
+        "Archaeologists were able to remove the papyrus and identify the text as the &#8220;Index of Ships,&#8221; a description of the Greek?",
+        "A joint Spanish-Egyptian team from the University of Barcelona and the Institute of the Ancient Near East unearthed a number of mummies?",
+        "A few of the deceased had traces of gold leaf that had been applied to them after mummification."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "iliad, fragment, found, roman, era, mummy, artificial intelligence, machine learning",
+      "slug": "iliad-fragment-found-in-roman-era-mummy"
+    },
+    {
       "id": "O__Aft15u7Fojp7T",
       "title": "Anthropic?s New Mythos A.I. Model Sets Off Global Alarms - The New York Times",
       "seoTitle": "Anthropic?s New Mythos A.I. Model Sets Off Global Alarms - The New?",
@@ -2852,6 +3540,29 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "indian, med, student, rakes, thousands, generated, maga, hottie, artificial intelligence, machine learning",
       "slug": "indian-med-student-rakes-in-thousands-with-ai-generated-maga-hottie"
+    },
+    {
+      "id": "DzOqQZnz6KQpzGR-",
+      "title": "5 GitHub Repositories to Learn Quantum Machine Learning - KDnuggets",
+      "seoTitle": "5 GitHub Repositories to Learn Quantum Machine Learning - KDnuggets",
+      "metaDescription": "5 GitHub Repositories to Learn Quantum Machine Learning - KDnuggets ? 5 GitHub Repositories to Learn Quantum Machine Learning KDnuggets",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "5 GitHub Repositories to Learn Quantum Machine Learning - KDnuggets",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeDlpMWVqY01LLUZrZFZiemxqckRWWGNCcHpacHRWVV96dmdURDJnal90STdYeXg4VnNxRDJ6Y1ZVRU5weU1LNlBiTTJ6QnFFaW9uUlVZanhNT3RkQkJlUnZ3ZGRaQll4czcyOXhEbGxubGEtNm1xRmwxYjNjMm93VTBiZFhrVkgw?oc=5",
+      "source": {
+        "name": "KDnuggets"
+      },
+      "publishedAt": "2026-04-22T14:05:48.000Z",
+      "description": "5 GitHub Repositories to Learn Quantum Machine Learning KDnuggets",
+      "summary": "5 GitHub Repositories to Learn Quantum Machine Learning KDnuggets",
+      "intro": "5 GitHub Repositories to Learn Quantum Machine Learning KDnuggets",
+      "bullets": [
+        "5 GitHub Repositories to Learn Quantum Machine Learning KDnuggets"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "github, repositories, learn, quantum, machine, learning, kdnuggets, artificial intelligence, machine learning",
+      "slug": "5-github-repositories-to-learn-quantum-machine-learning-kdnuggets"
     },
     {
       "id": "nVTf8VGThkrlBHEn",
@@ -3037,6 +3748,31 @@
       "slug": "one-towns-scheme-to-get-rid-of-its-geese"
     },
     {
+      "id": "UzRiTj0H2UygkFDY",
+      "title": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics. 3 Best Growth Stocks to Own. - The Motley Fool",
+      "seoTitle": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle?",
+      "metaDescription": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics. 3 Best Growth Stocks to Own. The Motley Fool",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics. 3 Best Growth Stocks?",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVlRmOFFDWmZqTWpHd0JOZlNsWGpvUDhBeWJLaFBXRGx0azlOSURjOWVwbEF0aktJOVhZd3M0dGF3VndPandueDZ3SnF6cEx1d1AwbDFlM2ctS1hUZXBibXo0ZnFEZ1ZKLW1YOE1sV0pCdWo4QmpHLVo5M1AtZkNaOEFyZTk4a184ZkhQZnkyWlVWaXc?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-22T09:30:00.000Z",
+      "description": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics. 3 Best Growth Stocks to Own. The Motley Fool",
+      "summary": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics. 3 Best Growth Stocks to Own. The Motley Fool",
+      "intro": "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics.",
+      "bullets": [
+        "Prediction: The Nasdaq's Artificial Intelligence (AI) Supercycle Rally Will Outlast the Skeptics.",
+        "3 Best Growth Stocks to Own.",
+        "The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "prediction, nasdaq, artificial, intelligence, supercycle, rally, will, outlast, artificial intelligence, machine learning",
+      "slug": "prediction-the-nasdaqs-artificial-intelligence-ai-supercycle"
+    },
+    {
       "id": "DJLkNVtdKMf_mN4J",
       "title": "The role of AI in modern forex bot development",
       "seoTitle": "The role of AI in modern forex bot development",
@@ -3140,6 +3876,29 @@
       "slug": "mozilla-anthropic-and-039-s-mythos-found-271-security-vulnerabilities"
     },
     {
+      "id": "Q3S5D7VR8UslqMaY",
+      "title": "Artificial intelligence is reshaping health systems: state of readiness across the European Union - Unric",
+      "seoTitle": "Artificial intelligence is reshaping health systems: state of?",
+      "metaDescription": "Artificial intelligence is reshaping health systems: state of readiness across the European Union - Unric ? Artificial intelligence is reshaping health?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Artificial intelligence is reshaping health systems: state of readiness across the European Union - Unric",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWWtxTzRuX3dqaWExRExKbEZkRnkyWXp3MGxGdEVncHNWbllkekdMc0NneEJwbmVPTmFBb3A4OWN2X3hGZFF5MmJnUFFOcHdWMFhQbG1ZSnl2RVh1b0Y2cUNIY25yQlVOeDNob1I0S0xGMjV4LXRkWm11THdabGNxS3h4Zy1HUnpiYU1odzM0dkhGTXZfN2w5bG9sT2pMbi05ZUZXV1kyOW90bnVRX2w1MVJEWl8ySE1KRHc?oc=5",
+      "source": {
+        "name": "Unric"
+      },
+      "publishedAt": "2026-04-21T20:55:56.000Z",
+      "description": "Artificial intelligence is reshaping health systems: state of readiness across the European Union Unric",
+      "summary": "Artificial intelligence is reshaping health systems: state of readiness across the European Union Unric",
+      "intro": "Artificial intelligence is reshaping health systems: state of readiness across the European Union Unric",
+      "bullets": [
+        "Artificial intelligence is reshaping health systems: state of readiness across the European Union Unric"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "artificial, intelligence, reshaping, health, systems, state, readiness, across, artificial intelligence, machine learning",
+      "slug": "artificial-intelligence-is-reshaping-health-systems-state-of"
+    },
+    {
       "id": "JZfdl6sgUxpggGTg",
       "title": "Florida probes ChatGPT role in mass shooting. OpenAI says bot &quot;not responsible.&quot;",
       "seoTitle": "Florida probes ChatGPT role in mass shooting. OpenAI says bot?",
@@ -3191,6 +3950,33 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "report, meta, will, train, agents, tracking, employees, 039, artificial intelligence, machine learning",
       "slug": "report-meta-will-train-ai-agents-by-tracking-employees-and-039-mouse"
+    },
+    {
+      "id": "NcsyriBD4kn3DNDr",
+      "title": "Work with the garage door up",
+      "seoTitle": "Work with the garage door up",
+      "metaDescription": "Work with the garage door up Work with the garage door up One of my favorite ways that creative people communicate is by ?working with their garage door up,??",
+      "category": "Tools",
+      "image": "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Work with the garage door up",
+      "url": "https://notes.andymatuschak.org/Work_with_the_garage_door_up",
+      "source": {
+        "name": "Hacker News"
+      },
+      "publishedAt": "2026-04-21T17:13:29.000Z",
+      "description": "Work with the garage door up Work with the garage door up One of my favorite ways that creative people communicate is by ?working with their garage door up,? to riff on a passage from Robin Sloan (below). This is the opposite of the Twitter account which mostly posts announcements of finished work: it?s Screenshot Saturday ; it?s giving a lecture about the problems you?re pondering in the shower; it?s thinking out loud about the ways in which your project doesn?t work at all. I want to see you choose the color palette. I love this kind of communication personally, but I suspect it also creates more invested, interesting followings over the long term. That effect?s probably related to Working on niche, personally-meaningful projects brings weirder, more serendipitous inbounds . It?s also a way to avoid the problems described in Pitching out corrupts within . You?re just showing your work, day over day. Maggie Appleton argues : If you ever needed another reason to learn in public by digital gardening or podcasting or streaming or whathaveyou, add on that people will assume you&#x27;re more competent than you are. This will get you invites to very cool exclusive events filled with high-achieving, interesting people, even though you have no right to be there. References The inspiration from Robin?s original newsletter: ?? Week 43, popular, wide-ranging, functional (link broken as of 2024-12-17 ) I wish starting physical businesses was easier; I wish the path wasn?t so steep, especially in places like the Bay Area; because I think it?s one of the absolute best things a person can do. Among many other things, a physical business enlivens public space, by making the simple, eloquent statement: I am here, working. There?s a scientific glassblowing studio north of us; I walk past it on the sidewalk often. By simply existing, and having a nice sign that faces the street, they are doing a small public service every day. In the same light industrial complex as the Murray Street Media Lab, there?s a woodworking shop, and the man who runs it always keeps his door propped open. What a delight, every damn day, to ride my bike past that door and peek inside and see all his tools, the boards stacked up for whatever commission he?s undertaking. Part of the problem of social media is that there is no equivalent to the scientific glassblowers? sign, or the woodworker?s open door, or Dafna and Jesse?s sandwich boards. On the internet, if you stop speaking: you disappear. And, by corollary: on the internet, you only notice the people who are speaking nonstop. If you could put on magic internet goggles that enabled you to see through this gnarly selection bias and view the composition of reality fairly, correctly?well, just come walk around Emeryville and West Berkeley. All the tumult of Twitter would shrink into a single weird cafe?just a speck, in an enormous city made up entirely of people quietly working. Interesting to note that in a way, Robin?s looking for Peripheral vision in this aspiration.",
+      "summary": "Work with the garage door up Work with the garage door up One of my favorite ways that creative people communicate is by ?working with their garage door up,? to riff on a passage from Robin Sloan (below). This is the opposite of the Twitter account which mostly posts announcements of finished work: it?s Screenshot Saturday ; it?s giving a lecture about the problems you?re pondering in the shower; it?s thinking out loud about the ways in which your project doesn?t work at all. I want to see you choose the color palette. I love this kind of communication personally, but I suspect it also creates more invested, interesting followings over the long term. That effect?s probably related to Working on niche, personally-meaningful projects brings weirder, more serendipitous inbounds . It?s also a way to avoid the problems described in Pitching out corrupts within . You?re just showing your work, day over day. Maggie Appleton argues : If you ever needed another reason to learn in public by digital gardening or podcasting or streaming or whathaveyou, add on that people will assume you&#x27;re more competent than you are. This will get you invites to very cool exclusive events filled with high-achieving, interesting people, even though you have no right to be there. References The inspiration from Robin?s original newsletter: ?? Week 43, popular, wide-ranging, functional (link broken as of 2024-12-17 ) I wish starting physical businesses was easier; I wish the path wasn?t so steep, especially in places like the Bay Area; because I think it?s one of the absolute best things a person can do. Among many other things, a physical business enlivens public space, by making the simple, eloquent statement: I am here, working. There?s a scientific glassblowing studio north of us; I walk past it on the sidewalk often. By simply existing, and having a nice sign that faces the street, they are doing a small public service every day. In the same light industrial complex as the Murray Street Media Lab, there?s a woodworking shop, and the man who runs it always keeps his door propped open. What a delight, every damn day, to ride my bike past that door and peek inside and see all his tools, the boards stacked up for whatever commission he?s undertaking. Part of the problem of social media is that there is no equivalent to the scientific glassblowers? sign, or the woodworker?s open door, or Dafna and Jesse?s sandwich boards. On the internet, if you stop speaking: you disappear. And, by corollary: on the internet, you only notice the people who are speaking nonstop. If you could put on magic internet goggles that enabled you to see through this gnarly selection bias and view the composition of reality fairly, correctly?well, just come walk around Emeryville and West Berkeley. All the tumult of Twitter would shrink into a single weird cafe?just a speck, in an enormous city made up entirely of people quietly working. Interesting to note that in a way, Robin?s looking for Peripheral vision in this aspiration.",
+      "intro": "Work with the garage door up Work with the garage door up One of my favorite ways that creative people communicate is by ?working with their garage door up,? to riff on a passage from Robin Sloan (below).",
+      "bullets": [
+        "Work with the garage door up Work with the garage door up One of my favorite ways that creative people communicate is by ?working with?",
+        "This is the opposite of the Twitter account which mostly posts announcements of finished work: it?s Screenshot Saturday ; it?s giving a?",
+        "I want to see you choose the color palette.",
+        "I love this kind of communication personally, but I suspect it also creates more invested, interesting followings over the long term.",
+        "That effect?s probably related to Working on niche, personally-meaningful projects brings weirder, more serendipitous inbounds ."
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "work, garage, door, artificial intelligence, machine learning",
+      "slug": "work-with-the-garage-door-up"
     },
     {
       "id": "0s10D73BfSoDF9aC",
@@ -3245,6 +4031,29 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "snowflake, expands, technical, mainstream, platforms, artificial intelligence, machine learning",
       "slug": "snowflake-expands-its-technical-and-mainstream-ai-platforms"
+    },
+    {
+      "id": "OIEaqjd8dYlnqvso",
+      "title": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor - The Motley Fool",
+      "seoTitle": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He?",
+      "metaDescription": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor - The Motley Fool ? 3 Artificial Intelligence (AI) Stocks Warren?",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor - The Motley Fool",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQT0ZzOUt3d1NrQk1sa1ZBR29acXZCUUR6ZDFfMjFRUTNDMmpCLUJNRlIzaXY5cHhIVkszQnlKN3dSRHBOZldtLUZxR1FsYllxMnhYSC1URnF4NlpZbktPYXBGbmU2MHVRRURpeGJRQ0hJdUZPblB0RVhfaUxnZmNiWHIyek1fVmRDVWdfWERma1JVb25TaGlHOA?oc=5",
+      "source": {
+        "name": "The Motley Fool"
+      },
+      "publishedAt": "2026-04-21T13:22:00.000Z",
+      "description": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor The Motley Fool",
+      "summary": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor The Motley Fool",
+      "intro": "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor The Motley Fool",
+      "bullets": [
+        "3 Artificial Intelligence (AI) Stocks Warren Buffett Might Buy If He Were a Tech Investor The Motley Fool"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "artificial, intelligence, stocks, warren, buffett, might, buy, tech, artificial intelligence, machine learning",
+      "slug": "3-artificial-intelligence-ai-stocks-warren-buffett-might-buy-if-he"
     },
     {
       "id": "DOHzVhtCuegDkZlK",
@@ -3670,6 +4479,167 @@
       "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
       "keywords": "creator, claude, code, just, revealed, his, workflow, developers, artificial intelligence, machine learning",
       "slug": "the-creator-of-claude-code-just-revealed-his-workflow-and"
+    },
+    {
+      "id": "2wNg_q-sluIem0b2",
+      "title": "Lessons Learned After 8 Years of Machine Learning - Towards Data Science",
+      "seoTitle": "Lessons Learned After 8 Years of Machine Learning - Towards Data?",
+      "metaDescription": "Lessons Learned After 8 Years of Machine Learning - Towards Data Science ? Lessons Learned After 8 Years of Machine Learning Towards Data Science",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Lessons Learned After 8 Years of Machine Learning - Towards Data Science",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNR3d5T3c5TWdtYUZickZGM1NHX3lCSC1Lc0E1Y3NSLUhWVThUeHZUS3FaNVpsQ2xLWWhQS1lMd2ZmamlqY2VRY2pDc1E2UG9SZHZUZ19JZHljYUc0MFpDT1g5WHlOdzd2SkZqbjNjbkdWeEJVakNpZ2VqQS1XOWduS2RKWGNiUGxm?oc=5",
+      "source": {
+        "name": "Towards Data Science"
+      },
+      "publishedAt": "2025-12-16T08:00:00.000Z",
+      "description": "Lessons Learned After 8 Years of Machine Learning Towards Data Science",
+      "summary": "Lessons Learned After 8 Years of Machine Learning Towards Data Science",
+      "intro": "Lessons Learned After 8 Years of Machine Learning Towards Data Science",
+      "bullets": [
+        "Lessons Learned After 8 Years of Machine Learning Towards Data Science"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "lessons, learned, after, years, machine, learning, towards, data, artificial intelligence, machine learning",
+      "slug": "lessons-learned-after-8-years-of-machine-learning-towards-data"
+    },
+    {
+      "id": "Rdq_Zn4rgTlhJm7L",
+      "title": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained - Towards Data Science",
+      "seoTitle": "Artificial Intelligence, Machine Learning, Deep Learning, and?",
+      "metaDescription": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained - Towards Data Science ? Artificial Intelligence, Machine?",
+      "category": "Generative AI",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained - Towards Data Science",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOX00yaUwtbm00S2R5Qkd6VUdLbG9HWmppY1VjVl9wOGFwYTdXcVhkRktieU0tdU9wY0NOSkZsWHJKSXZzdUtKZmZ1NlRwSDRYbDFKOXRiQUYyUndrclVuRnJJQmtUX01ncTRNaTg1amg3eXdHN3FDOGUwdnNTLVFoMFVpTzA4cVY1Y0FPZ2d3V3U0MkFQUm1lblI4RnRMYUlya1diOHkzc050MzJNRWJaUWZzUUJvRnVYd2ZWNDZQYw?oc=5",
+      "source": {
+        "name": "Towards Data Science"
+      },
+      "publishedAt": "2025-12-07T08:00:00.000Z",
+      "description": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained Towards Data Science",
+      "summary": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained Towards Data Science",
+      "intro": "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained Towards Data Science",
+      "bullets": [
+        "Artificial Intelligence, Machine Learning, Deep Learning, and Generative AI ? Clearly Explained Towards Data Science"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "learning, artificial, intelligence, machine, deep, generative, clearly, explained, artificial intelligence, machine learning",
+      "slug": "artificial-intelligence-machine-learning-deep-learning-and"
+    },
+    {
+      "id": "1rdo7OjpkziS7G8p",
+      "title": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) - Towards Data Science",
+      "seoTitle": "The Three Ages of Data Science: When to Use Traditional Machine?",
+      "metaDescription": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) Towards Data Science",
+      "category": "ML",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One?",
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOalRoTDRLMTVXYVJqQ3BZc0o2WDJxWElMMUdZeVdfTU11eTdYc1BrYy12enA4QjJONHYzSXlJcGZ6VDBvVEY5N2hQVXBNQ2Q3QzlobHBvZ1RnMHJRUWg1TjYyWkxxejA0d1pKQ1lCUS1zUFVnM1d4WWExVXNGMTlocGNHeXdxaDRnTEM0WDYwbnpNT1VrWkdNMHhVTXdna0tJUVdpZ0VLNDg0RnVVTEhRUnBHWFlsalR5MzRfNWxnbEVVREYzdmlIYVFIbHZhaWFhVllWUEtDV3NzSkRkbkRReldBa3NLWjJ0X1pSOVVZZmN5dHBNMDQ5ZVExUDZRSUNu?oc=5",
+      "source": {
+        "name": "Towards Data Science"
+      },
+      "publishedAt": "2025-11-11T08:00:00.000Z",
+      "description": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) Towards Data Science",
+      "summary": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) Towards Data Science",
+      "intro": "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) Towards Data Science",
+      "bullets": [
+        "The Three Ages of Data Science: When to Use Traditional Machine Learning, Deep Learning, or a LLM (Explained with One Example) Towards?"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "data, science, learning, three, ages, when, use, traditional, artificial intelligence, machine learning",
+      "slug": "the-three-ages-of-data-science-when-to-use-traditional-machine"
+    },
+    {
+      "id": "7sZ14Rg5HAEQ1vxB",
+      "title": "Introducing Nested Learning: A new ML paradigm for continual learning - Research at Google",
+      "seoTitle": "Introducing Nested Learning: A new ML paradigm for continual?",
+      "metaDescription": "Introducing Nested Learning: A new ML paradigm for continual learning - Research at Google ? Introducing Nested Learning: A new ML paradigm for continual?",
+      "category": "Research",
+      "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Introducing Nested Learning: A new ML paradigm for continual learning - Research at Google",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcXE4VWRhb3VlQ0hfRkRzTjMyb2FJTzdZZm1DVlNzZm9DbG5zc1RCa3ktd3VfOTRscnhSZXZvSkN5UnhoT1E5YTgxVl9xdTRMUzlmZzQ4WUJiQk0zOS1LT090c1lIQUFxeTE1bTEyZUd1TUlhdGNVZGg0MTFfRVdHb1lIQ0xOYVZ2bHpSRDFfaVluWHZFbENXUFN1VG9TTkU?oc=5",
+      "source": {
+        "name": "Research at Google"
+      },
+      "publishedAt": "2025-11-07T08:00:00.000Z",
+      "description": "Introducing Nested Learning: A new ML paradigm for continual learning Research at Google",
+      "summary": "Introducing Nested Learning: A new ML paradigm for continual learning Research at Google",
+      "intro": "Introducing Nested Learning: A new ML paradigm for continual learning Research at Google",
+      "bullets": [
+        "Introducing Nested Learning: A new ML paradigm for continual learning Research at Google"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "learning, introducing, nested, paradigm, continual, research, google, artificial intelligence, machine learning",
+      "slug": "introducing-nested-learning-a-new-ml-paradigm-for-continual"
+    },
+    {
+      "id": "C0VZ4iMtHkKvnHpx",
+      "title": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology - MIT Sloan",
+      "seoTitle": "New MIT Sloan courses focus on deep learning, generative AI, and?",
+      "metaDescription": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology - MIT Sloan ? New MIT Sloan courses focus on deep learning, generative?",
+      "category": "Generative AI",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology - MIT Sloan",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNd01ha2FDRVhDcmxHS2ZLaUtweFcxNDRBTU5UUHZ3Y3NEQ2dQc3k0Y2xyOWJLRmIwLXcySlFDVzQ2R0ctWTdNb0IxLXlaV25fNDZvWlNoUHl1QzYwYzZWVVp3ZDdiM0dRR0xWRzRoVVd2N1ZGby05d0hadWotZFhiRHJBTmpERFluSVViQWZsVS11VHJRcDBZZTFzTUY0R1NncWdiZ2VuRXhVZmMtaFB0cS1SVGhxbGY1dENXTE5tUTVBc3Zi?oc=5",
+      "source": {
+        "name": "MIT Sloan"
+      },
+      "publishedAt": "2025-10-24T07:00:00.000Z",
+      "description": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology MIT Sloan",
+      "summary": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology MIT Sloan",
+      "intro": "New MIT Sloan courses focus on deep learning, generative AI, and financial technology MIT Sloan",
+      "bullets": [
+        "New MIT Sloan courses focus on deep learning, generative AI, and financial technology MIT Sloan"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "mit, sloan, courses, focus, deep, learning, generative, financial, artificial intelligence, machine learning",
+      "slug": "new-mit-sloan-courses-focus-on-deep-learning-generative-ai-and"
+    },
+    {
+      "id": "CaSaJ4QikdNcp9cP",
+      "title": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea - Nature",
+      "seoTitle": "Development of the machine learning and deep learning models with?",
+      "metaDescription": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea Nature",
+      "category": "ML",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in?",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5UZUk2Zy0zME05ZlQ0QUt2VTBqdjJHTjJUZkc1YVM3UlNac2lNN2pHZ2RRUzFEMVBiN1lEclVNdVFmMVR4R1FOckZzLXkzR1k2aVdnYTgtaWlVM2JxbXFn?oc=5",
+      "source": {
+        "name": "Nature"
+      },
+      "publishedAt": "2025-10-10T07:00:00.000Z",
+      "description": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea Nature",
+      "summary": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea Nature",
+      "intro": "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea Nature",
+      "bullets": [
+        "Development of the machine learning and deep learning models with SHAP strategy for predicting groundwater levels in South Korea Nature"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "learning, development, machine, deep, models, shap, strategy, predicting, artificial intelligence, machine learning",
+      "slug": "development-of-the-machine-learning-and-deep-learning-models-with"
+    },
+    {
+      "id": "pP30KlE5_vlKD7eH",
+      "title": "Defining AI, Machine Learning, and Deep Learning in the Lab - Lab Manager",
+      "seoTitle": "Defining AI, Machine Learning, and Deep Learning in the Lab - Lab?",
+      "metaDescription": "Defining AI, Machine Learning, and Deep Learning in the Lab - Lab Manager ? Defining AI, Machine Learning, and Deep Learning in the Lab Lab Manager",
+      "category": "AI",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=450&fit=crop&q=80",
+      "imageAlt": "Defining AI, Machine Learning, and Deep Learning in the Lab - Lab Manager",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOaXhQcHFjNW1kdXpsMmJTdks4Z1BvaXVuaFBaWW04dHlhZVZiT3VVeVE2enh1bGY0aVJoc3dERmJnMXNkYi1yQVBoeWNlZTQ4a2Fya3pGN2p5NnZ2MkZjNllCaThYSVFWdmhuQmZfRTJ0QlJNSW5QWWVhc2xOSTdHblh2akhEWncwMXNQbEc3M0FHR0tx?oc=5",
+      "source": {
+        "name": "Lab Manager"
+      },
+      "publishedAt": "2025-07-14T15:25:48.000Z",
+      "description": "Defining AI, Machine Learning, and Deep Learning in the Lab Lab Manager",
+      "summary": "Defining AI, Machine Learning, and Deep Learning in the Lab Lab Manager",
+      "intro": "Defining AI, Machine Learning, and Deep Learning in the Lab Lab Manager",
+      "bullets": [
+        "Defining AI, Machine Learning, and Deep Learning in the Lab Lab Manager"
+      ],
+      "whyItMatters": "This update matters because it clarifies practical AI adoption trends, where competitive advantage is shifting, and what teams should monitor next for product, compliance, and market timing.",
+      "keywords": "learning, lab, defining, machine, deep, manager, artificial intelligence, machine learning",
+      "slug": "defining-ai-machine-learning-and-deep-learning-in-the-lab-lab"
     }
   ]
 }
