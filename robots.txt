@@ -1,0 +1,76 @@
+# robots.txt — CSV Merger & Cleaner (waapply.com)
+# Generated: 2026
+# https://waapply.com/robots.txt
+
+# ─── Standard crawlers ────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /fr/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+Crawl-delay: 1
+
+# ─── Google ───────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Allow: /en/
+Allow: /fr/
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /private/
+
+# ─── Bing / Microsoft Copilot ─────────────────────────────────────────────────
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: MicrosoftPreview
+Allow: /
+
+# ─── AI & LLM crawlers — explicitly allowed ───────────────────────────────────
+# ChatGPT / OpenAI
+User-agent: GPTBot
+Allow: /
+Allow: /en/
+Allow: /fr/
+Allow: /llms.txt
+
+# OpenAI (preview)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+Allow: /en/
+Allow: /fr/
+Allow: /llms.txt
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Allow: /en/
+Allow: /fr/
+Allow: /llms.txt
+
+# Google AI / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Common Crawl (training data)
+User-agent: CCBot
+Allow: /
+
+# ─── Sitemaps ─────────────────────────────────────────────────────────────────
+Sitemap: https://waapply.com/sitemap.xml
+Sitemap: https://waapply.com/sitemap-en.xml
+Sitemap: https://waapply.com/sitemap-fr.xml

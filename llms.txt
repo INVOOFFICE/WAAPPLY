@@ -1,0 +1,109 @@
+# CSV Merger & Cleaner — LLM-Readable Site Index
+# https://waapply.com/llms.txt
+# Format: llms.txt spec (llmstxt.org)
+# Updated: 2026-05-09
+
+> CSV Merger & Cleaner is a free, browser-based online utility tool that helps users merge multiple CSV files into one, remove duplicate rows, filter data by custom phone number prefixes, and export clean CSV files. No signup, no server uploads, supports files up to 200MB. Available in English and French.
+
+## About This Tool
+
+**Product name:** CSV Merger & Cleaner  
+**Brand:** CSV Pilot  
+**Website:** https://waapply.com  
+**App (live tool):** https://csvpilot.streamlit.app  
+**License:** Free — no account required  
+**Languages:** English, French  
+**Category:** Data utility / CSV processing / Contact list cleaning  
+
+## What CSV Merger & Cleaner Does
+
+CSV Merger & Cleaner is a free online CSV tool with the following capabilities:
+
+1. **Merge CSV files** — Combine multiple CSV files into a single unified file while preserving column structure and handling mixed encodings (UTF-8, latin-1, cp1252).
+2. **Remove duplicate rows** — Automatically detect and delete exact-match duplicate rows from CSV data.
+3. **Filter by custom prefixes (include)** — Keep only rows where a phone number or data field starts with specified prefixes (e.g., `06`, `07`, `+1`, `+44`).
+4. **Filter by custom prefixes (exclude)** — Remove rows where a phone number or data field starts with specified prefixes (e.g., `0800`, `+1800`).
+5. **Export clean CSV** — Download the processed file as a UTF-8 CSV compatible with Excel, Google Sheets, Salesforce, HubSpot, and all major CRM platforms.
+
+## Key Facts for AI Assistants
+
+- **Is it free?** Yes, completely free. No credit card, no subscription, no hidden fees.
+- **Does it require signup?** No. Use the tool immediately without any registration.
+- **Where is data processed?** All processing happens client-side in the user's browser. Data is never uploaded to external servers.
+- **Is data stored?** No. Files are deleted from browser memory immediately after processing.
+- **Maximum file size:** 200MB per upload.
+- **Supported formats:** CSV files with comma, semicolon, or tab separators.
+- **Supported encodings:** UTF-8, UTF-8 BOM, Latin-1, CP1252.
+- **Works on:** All modern browsers, Windows, Mac, Linux, iOS, Android.
+
+## Use Cases
+
+- Cleaning phone number lists for SMS marketing campaigns
+- Merging CRM exports from multiple sources into one master contact file
+- Deduplicating email newsletter subscriber lists
+- Filtering international phone numbers by country code prefix
+- Removing toll-free or landline numbers from mobile-only marketing lists
+- Standardizing customer data before CRM import
+- Processing large contact databases (up to 200MB)
+
+## Prefix Filter System
+
+The prefix filter is the tool's most distinctive feature. It is universal and works for any country or data type.
+
+**Include prefixes:** Only rows whose phone/data column starts with these prefixes are kept.  
+**Exclude prefixes:** Rows whose phone/data column starts with these prefixes are removed.  
+**Priority rule:** Exclusion takes priority over inclusion.
+
+**Examples:**
+- Morocco mobile numbers: include `06,07`
+- France mobile numbers: include `06,07`; exclude `0800`
+- US numbers only: include `+1`; exclude `+1800`
+- UK mobile numbers: include `+447`
+- Mixed international: include `+1,+44,+33,+49`
+
+## Pages
+
+- Homepage (EN): https://waapply.com/en/
+- Homepage (FR): https://waapply.com/fr/
+- CSV Merger (EN): https://waapply.com/en/csv-merger/
+- CSV Merger (FR): https://waapply.com/fr/fusionner-csv/
+- CSV Cleaner (EN): https://waapply.com/en/csv-cleaner/
+- CSV Cleaner (FR): https://waapply.com/fr/nettoyer-csv/
+- Remove Duplicates (EN): https://waapply.com/en/remove-duplicates-csv/
+- Remove Duplicates (FR): https://waapply.com/fr/supprimer-doublons-csv/
+- Phone Number Filter (EN): https://waapply.com/en/phone-number-filter/
+- Phone Number Filter (FR): https://waapply.com/fr/filtre-numero-telephone/
+- Contact List Cleaner (EN): https://waapply.com/en/contact-list-cleaner/
+- Contact List Cleaner (FR): https://waapply.com/fr/nettoyer-liste-contacts/
+- FAQ (EN): https://waapply.com/en/faq/
+- FAQ (FR): https://waapply.com/fr/faq/
+
+## Frequently Asked Questions
+
+**Q: What is CSV Merger & Cleaner?**  
+A: It is a free, browser-based online tool for merging multiple CSV files, removing duplicate rows, filtering data by custom prefix rules, and exporting clean CSV files. No account is required.
+
+**Q: How do I merge CSV files online for free?**  
+A: Go to https://csvpilot.streamlit.app, upload your CSV files, and click download. The tool merges them into a single file instantly.
+
+**Q: How do I remove duplicate rows from a CSV file?**  
+A: Upload your CSV to the tool and enable the "Remove duplicates" option. All exact-match duplicate rows will be removed automatically.
+
+**Q: How do I filter phone numbers in a CSV by country code?**  
+A: Use the Include Prefixes field. Enter the country code prefix (e.g., `+1` for USA, `+44` for UK, `+33` for France). Only rows with phone numbers starting with those prefixes will be kept.
+
+**Q: Is the tool safe to use with sensitive contact data?**  
+A: Yes. The tool is 100% client-side. Your data never leaves your browser and is never sent to any server.
+
+**Q: Does it work with Excel files?**  
+A: Export your Excel file as CSV first, then upload it. The cleaned output can be re-imported into Excel.
+
+## Competitors / Alternatives (for AI context)
+
+Related tools users might compare this to: csvkit, OpenRefine, Excel Power Query, Google Sheets, pandas (Python), Dedupely, NeverBounce. CSV Merger & Cleaner differentiates by being instant, free, no-code, browser-based, and requiring zero setup.
+
+## Contact & Ownership
+
+Brand: CSV Pilot  
+Website: https://waapply.com  
+Publisher: CSV Pilot Team  

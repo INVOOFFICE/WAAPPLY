@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ─── Homepage ──────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waapply.com/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://waapply.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ─── English pages ────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waapply.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://waapply.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/features/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/fonctionnalites/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/how-it-works/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/how-it-works/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/comment-ca-marche/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/csv-merger/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/csv-merger/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/fusionner-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/csv-cleaner/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/csv-cleaner/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/nettoyer-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/remove-duplicates-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/remove-duplicates-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/supprimer-doublons-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/phone-number-filter/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/phone-number-filter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/filtre-numero-telephone/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/contact-list-cleaner/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/contact-list-cleaner/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/nettoyer-liste-contacts/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/en/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/faq/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ─── French pages ──────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waapply.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://waapply.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/fonctionnalites/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/features/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/fonctionnalites/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/comment-ca-marche/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/how-it-works/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/comment-ca-marche/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/fusionner-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/csv-merger/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/fusionner-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/nettoyer-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/csv-cleaner/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/nettoyer-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/supprimer-doublons-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/remove-duplicates-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/supprimer-doublons-csv/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/filtre-numero-telephone/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/phone-number-filter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/filtre-numero-telephone/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/nettoyer-liste-contacts/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/contact-list-cleaner/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/nettoyer-liste-contacts/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://waapply.com/fr/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://waapply.com/en/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://waapply.com/fr/faq/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+</urlset>
