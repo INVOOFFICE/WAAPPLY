@@ -33,16 +33,20 @@ export async function loadNews() {
   if (!container) return;
 
   let items;
-  try {
-    const res = await fetch('/blogs.json', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const raw = await res.json();
-    // Accepte tableau plat [{...}] ou objet enveloppé {all: [{...}]}
-    items = (Array.isArray(raw) ? raw : (raw.all || []))
-      .filter(i => i.status === 'published' && i.slug && i.title);
-    if (items.length === 0) throw new Error('No published articles');
-  } catch (err) {
-    console.warn('[Blog] blogs.json failed:', err);
+  const urls = ['blogs.json', '/WAAPPLY/blogs.json', '/blogs.json'];
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) continue;
+      const raw = await res.json();
+      items = (Array.isArray(raw) ? raw : (raw.all || []))
+        .filter(i => i.status === 'published' && i.slug && i.title);
+      if (items.length > 0) break;
+    } catch (_) { /* try next */ }
+  }
+
+  if (!items || items.length === 0) {
+    console.warn('[Blog] blogs.json introuvable');
     section.style.display = 'none';
     return;
   }
