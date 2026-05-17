@@ -1,0 +1,65 @@
+/* Navigation bar */
+nav {
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:200;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 2.5rem;
+  background:rgba(8,12,20,0.7);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  text-decoration:none;
+  flex-shrink:0;
+}
+
+.logo-mark {
+  width:32px;height:32px;
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.logo-text {
+  font-family:'Syne',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:var(--text);
+}
+
+.logo-text span { color:var(--accent); }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:0.25rem;
+  list-style:none;
+}
+
+.nav-links a {
+  display:block;
+  padding:0.4rem 0.9rem;
+  border-radius:var(--r);
+  font-size:0.84rem;
+  font-weight:500;
+  color:var(--text-2);
+  text-decoration:none;
+  transition:color .15s,background .15s;
+}
+
+.nav-links a:hover { color:var(--text); background:var(--surface-hover); }
+
+.nav-pill {
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}

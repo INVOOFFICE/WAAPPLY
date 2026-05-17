@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisaPath — Guide Schengen Intelligent</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <p class="loader-text">Analyse de votre dossier en cours…</p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">Visa<span>Path</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#evaluateur">Évaluateur</a></li>
+    <li><a href="#pays">Destinations</a></li>
+    <li><a href="#outils">Outils</a></li>
+    <li><a href="#actualites">Actualités</a></li>
+  </ul>
+  <div class="nav-pill">
+    <a href="#evaluateur"><button class="btn btn-primary btn-sm">
+      Commencer
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    Plateforme n°1 au Maroc · 2025
+  </div>
+
+  <h1>
+    <span class="h1-muted">Votre visa Schengen,</span><br>
+    <span class="h1-accent">guidé intelligemment</span>
+  </h1>
+
+  <p class="hero-sub">
+    La plateforme qui guide les Marocains à chaque étape de leur demande de visa Schengen. Guides, outils et actualités en temps réel.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#evaluateur"><button class="btn btn-gold btn-lg">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Évaluer mon dossier
+    </button></a>
+    <a href="#outils"><button class="btn btn-ghost btn-lg">Voir les outils</button></a>
+  </div>
+
+  <div class="hero-metrics">
+    <div class="metric-item">
+      <div class="metric-num">94%</div>
+      <div class="metric-label">Précision IA</div>
+    </div>
+    <div class="metric-sep"></div>
+    <div class="metric-item">
+      <div class="metric-num">18k+</div>
+      <div class="metric-label">Dossiers analysés</div>
+    </div>
+    <div class="metric-sep"></div>
+    <div class="metric-item">
+      <div class="metric-num">26</div>
+      <div class="metric-label">Pays couverts</div>
+    </div>
+    <div class="metric-sep"></div>
+    <div class="metric-item">
+      <div class="metric-num">3 min</div>
+      <div class="metric-label">Évaluation rapide</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVALUATEUR -->
+<div id="evaluateur" class="band">
+<section class="section" style="max-width:900px;">
+  <div class="section-header scroll-fade">
+    <div class="section-kicker">Outil gratuit</div>
+    <h2>Évaluez vos chances <span class="dim">de succès</span></h2>
+    <p class="section-sub">Répondez à quelques questions et obtenez une évaluation personnalisée de votre dossier avec des conseils d'amélioration.</p>
+  </div>
+
+  <div class="eval-wrap scroll-fade">
+    <div class="eval-header">
+      <div class="eval-title">Analyse de dossier Schengen</div>
+      <div class="eval-badge">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+        Gratuit · Instantané
+      </div>
+    </div>
+
+    <div class="eval-body">
+      <div class="form-grid">
+
+        <!-- Pays -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 6.5H12M6.5 1C5 3 4.5 5 4.5 6.5S5 10 6.5 12M6.5 1C8 3 8.5 5 8.5 6.5S8 10 6.5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Pays de destination
+          </label>
+          <div class="select-wrap">
+            <select id="pays" class="field">
+              <option value="">Choisir un pays</option>
+              <option value="france">France</option>
+              <option value="espagne">Espagne</option>
+              <option value="italie">Italie</option>
+              <option value="allemagne">Allemagne</option>
+              <option value="portugal">Portugal</option>
+              <option value="pays-bas">Pays-Bas</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Type visa -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="11" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 6.5H9M4 8.5H7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1 5.5H12" stroke="currentColor" stroke-width="1.2"/></svg>
+            Type de visa
+          </label>
+          <div class="select-wrap">
+            <select id="type-visa" class="field">
+              <option value="tourisme">Tourisme</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Situation pro -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="3" y="1" width="7" height="4" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="5" width="11" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+            Situation professionnelle
+          </label>
+          <div class="select-wrap">
+            <select id="situation" class="field">
+              <option value="">Choisir</option>
+              <option value="cdi">Salarié CDI</option>
+              <option value="cdd">Salarié CDD</option>
+              <option value="independant">Indépendant</option>
+              <option value="etudiant">Étudiant</option>
+              <option value="retraite">Retraité</option>
+              <option value="sans-emploi">Sans emploi</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Revenu -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5V9.5M4.5 5H7.5a1 1 0 010 2H5.5a1 1 0 000 2H8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Revenu mensuel (MAD)
+          </label>
+          <input type="number" id="revenu" class="field" placeholder="ex : 8 000">
+        </div>
+
+        <!-- Historique -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L8 4.5H12L9 7L10.5 11L6.5 8.5L2.5 11L4 7L1 4.5H5L6.5 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Déjà voyagé en Schengen ?
+          </label>
+          <div class="select-wrap">
+            <select id="historique" class="field">
+              <option value="">Choisir</option>
+              <option value="oui-ok">Oui, visa respecté</option>
+              <option value="non">Non, jamais</option>
+              <option value="refus">Oui, mais refus antérieur</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Solde -->
+        <div class="form-group">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="4" width="11" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 7H12" stroke="currentColor" stroke-width="1.2"/><path d="M4 2H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="currentColor"/></svg>
+            Solde compte bancaire (MAD)
+          </label>
+          <input type="number" id="solde" class="field" placeholder="ex : 30 000">
+        </div>
+
+        <!-- Liens -->
+        <div class="form-group span2">
+          <label class="form-label">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1C4.5 1 2 2.5 2 5C2 7 3.5 8 5 9L6.5 12L8 9C9.5 8 11 7 11 5C11 2.5 8.5 1 6.5 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="6.5" cy="5" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+            Liens avec le Maroc
+          </label>
+          <div class="select-wrap">
+            <select id="liens" class="field">
+              <option value="">Choisir</option>
+              <option value="forts">Forts (immobilier + famille + emploi)</option>
+              <option value="moyens">Moyens (emploi + famille)</option>
+              <option value="faibles">Faibles (un seul lien)</option>
+              <option value="aucun">Aucun lien apparent</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result">
+      <div class="result-top">
+        <div>
+          <div class="result-score-label">Probabilité d'acceptation</div>
+          <div class="result-score-num" id="res-pct">—</div>
+        </div>
+        <span class="result-verdict" id="res-verdict">—</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="res-bar" style="width:0%"></div>
+      </div>
+      <div class="result-grid" id="res-grid"></div>
+      <div class="result-tips">
+        <div class="tips-head">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M7 4.5V7.5M7 9.5V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Conseils d'amélioration
+        </div>
+        <div id="res-tips"></div>
+      </div>
+    </div>
+
+    <div class="eval-actions">
+      <div class="eval-note">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8.2 5L12 5.5L9.3 8.1L9.9 12L6.5 10.2L3.1 12L3.7 8.1L1 5.5L4.8 5L6.5 1.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        Évaluation indicative — non officielle
+      </div>
+      <button class="btn btn-gold btn-md" id="eval-btn">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1L13 4.5V10.5L7.5 14L2 10.5V4.5L7.5 1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7.5 5V9M5.5 6.5L7.5 5L9.5 6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Calculer mes chances
+      </button>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PAYS -->
+<section id="pays" class="section">
+  <div class="section-header scroll-fade">
+    <div class="section-kicker">Destinations</div>
+    <h2>Taux d'acceptation <span class="dim">2024–2025</span></h2>
+    <p class="section-sub">Estimations basées sur les statistiques Schengen pour les ressortissants marocains.</p>
+  </div>
+  <div class="countries-scroll scroll-fade">
+    <div class="country-chip"><div class="cc-flag">🇫🇷</div><div class="cc-name">France</div><div class="cc-rate">68%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇪🇸</div><div class="cc-name">Espagne</div><div class="cc-rate">72%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇮🇹</div><div class="cc-name">Italie</div><div class="cc-rate">74%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇩🇪</div><div class="cc-name">Allemagne</div><div class="cc-rate">70%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇵🇹</div><div class="cc-name">Portugal</div><div class="cc-rate">76%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇳🇱</div><div class="cc-name">Pays-Bas</div><div class="cc-rate">65%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇧🇪</div><div class="cc-name">Belgique</div><div class="cc-rate">67%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇦🇹</div><div class="cc-name">Autriche</div><div class="cc-rate">69%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇨🇭</div><div class="cc-name">Suisse</div><div class="cc-rate">63%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇸🇪</div><div class="cc-name">Suède</div><div class="cc-rate">71%</div></div>
+    <div class="country-chip"><div class="cc-flag">🇬🇷</div><div class="cc-name">Grèce</div><div class="cc-rate">73%</div></div>
+  </div>
+</section>
+
+<!-- OUTILS -->
+<div class="band">
+<section id="outils" class="section">
+  <div class="section-header scroll-fade">
+    <div class="section-kicker">Fonctionnalités</div>
+    <h2>Tout ce dont vous avez <span class="dim">besoin</span></h2>
+    <p class="section-sub">Des outils conçus pour maximiser vos chances d'obtenir votre visa.</p>
+  </div>
+
+  <div class="features-grid scroll-fade">
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7H12.5M5.5 10H10.5M5.5 13H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M5.5 4.5H7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Checklist personnalisée</h3>
+      <p>Liste complète des documents requis selon votre profil, pays et type de visa demandé.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6 2V6M12 2V6M2 8H16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 11H7M9 11H10M12 11H13M6 13.5H7M9 13.5H10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Simulateur de délais</h3>
+      <p>Estimez les délais consulaires et planifiez votre demande selon les périodes de pointe.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M9 5V9L12 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Calculateur de budget</h3>
+      <p>Vérifiez si votre relevé bancaire est suffisant : 50€/jour minimum exigé par les consulats.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4H15V14H3V4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M3 4L9 10L15 4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Modèles de lettres</h3>
+      <p>Lettre de motivation, attestation d'hébergement, lettre d'invitation — professionnels et prêts.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M9 6V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="12" r=".8" fill="currentColor"/></svg>
+      </div>
+      <h3>Suivi de dossier</h3>
+      <p>Suivez l'état de votre demande et recevez des alertes en temps réel sur son évolution.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feat-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M6 9L8 11L12 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Guides étape par étape</h3>
+      <p>Tutoriels complets par ambassade avec témoignages de Marocains ayant obtenu leur visa.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ACTUALITÉS -->
+<section id="actualites" class="section">
+  <div class="section-header scroll-fade">
+    <div class="section-kicker">En temps réel</div>
+    <h2>Actualités <span class="dim">& mises à jour</span></h2>
+    <p class="section-sub">Les dernières informations sur les politiques Schengen et les changements consulaires.</p>
+  </div>
+
+  <div class="news-layout scroll-fade">
+    <div class="news-main">
+      <span class="news-tag tag-alert">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1L9 8H1L5 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 4.5V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="5" cy="7.5" r=".5" fill="currentColor"/></svg>
+        Important
+      </span>
+      <h4>Réservation hôtelière confirmée désormais obligatoire pour la France</h4>
+      <p>Le consulat français de Casablanca exige une réservation confirmée (non remboursable). Les captures d'écran Airbnb et les réservations annulables ne sont plus acceptées depuis janvier 2025.</p>
+      <div class="news-date">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 3V6L8 7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        15 mai 2025
+      </div>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-tag tag-info">Espagne</span>
+        <h5>Délais réduits à 10 jours ouvrés à Rabat</h5>
+        <div class="news-date"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.1"/><path d="M5 2.5V5L6.5 6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg> 12 mai 2025</div>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-news">Italie</span>
+        <h5>Nouveau formulaire harmonisé UE en vigueur</h5>
+        <div class="news-date"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.1"/><path d="M5 2.5V5L6.5 6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg> 8 mai 2025</div>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-alert">Général</span>
+        <h5>Frais de visa Schengen portés à 90€ dès juillet</h5>
+        <div class="news-date"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.1"/><path d="M5 2.5V5L6.5 6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg> 2 mai 2025</div>
+      </div>
+      <div class="news-item">
+        <span class="news-tag tag-info">Portugal</span>
+        <h5>Nouveaux créneaux VFS Global à Casablanca</h5>
+        <div class="news-date"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.1"/><path d="M5 2.5V5L6.5 6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg> 28 avr. 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="logo-text">Visa<span>Path</span></span>
+    </a>
+    <p>La plateforme de référence pour les Marocains souhaitant voyager en Europe.</p>
+  </div>
+  <div class="footer-col">
+    <h6>Outils</h6>
+    <ul>
+      <li><a href="#">Évaluateur</a></li>
+      <li><a href="#">Checklist</a></li>
+      <li><a href="#">Simulateur</a></li>
+      <li><a href="#">Budget</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h6>Guides</h6>
+    <ul>
+      <li><a href="#">France</a></li>
+      <li><a href="#">Espagne</a></li>
+      <li><a href="#">Allemagne</a></li>
+      <li><a href="#">Italie</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h6>Ressources</h6>
+    <ul>
+      <li><a href="#">Actualités</a></li>
+      <li><a href="#">Témoignages</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 VisaPath Maroc</span>
+  <span>Outil indicatif — non officiel. Consultez toujours l'ambassade concernée.</span>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

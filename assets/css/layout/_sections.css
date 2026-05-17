@@ -1,0 +1,56 @@
+/* Section, band, loader, and shared layout utilities */
+.section {
+  position:relative;
+  z-index:1;
+  max-width:1120px;
+  margin:0 auto;
+  padding:6rem 2rem;
+}
+
+.section-header {
+  margin-bottom:3rem;
+}
+
+.band {
+  background:var(--bg-1);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+#loader {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:rgba(8,12,20,.85);
+  backdrop-filter:blur(8px);
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+}
+#loader.on { display:flex; }
+
+.loader-ring {
+  width:44px;height:44px;
+  border-radius:50%;
+  border:2px solid var(--border);
+  border-top-color:var(--accent);
+  animation:spin .8s linear infinite;
+}
+
+.loader-text {
+  font-size:.85rem;
+  color:var(--text-3);
+  font-style:italic;
+}
+
+.scroll-fade {
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.scroll-fade.visible {
+  opacity:1;
+  transform:translateY(0);
+}

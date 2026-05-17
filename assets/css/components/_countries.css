@@ -1,0 +1,36 @@
+/* Country chip scroll strip */
+.countries-scroll {
+  display:flex;
+  gap:.75rem;
+  overflow-x:auto;
+  padding-bottom:.5rem;
+  scrollbar-width:none;
+}
+.countries-scroll::-webkit-scrollbar { display:none; }
+
+.country-chip {
+  flex-shrink:0;
+  background:var(--bg-1);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:1.2rem 1.5rem;
+  text-align:center;
+  cursor:pointer;
+  transition:border-color .18s,transform .18s,background .18s;
+  min-width:120px;
+}
+
+.country-chip:hover {
+  border-color:var(--border-strong);
+  background:var(--bg-2);
+  transform:translateY(-2px);
+}
+
+.cc-flag { font-size:1.8rem; margin-bottom:.4rem; }
+.cc-name { font-size:.84rem; font-weight:600; }
+.cc-rate {
+  font-size:.72rem;
+  color:var(--green);
+  margin-top:.2rem;
+  font-weight:500;
+}

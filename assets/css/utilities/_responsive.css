@@ -1,0 +1,15 @@
+/* Responsive breakpoints (all @media queries consolidated) */
+@media (max-width:768px) {
+  nav { padding:0 1.2rem; }
+  .nav-links { display:none; }
+  .hero { padding:7rem 1.5rem 4rem; }
+  .hero-metrics { gap:1.5rem; }
+  .section { padding:4rem 1.5rem; }
+  .form-grid { grid-template-columns:1fr; }
+  .features-grid { grid-template-columns:1fr; }
+  .news-layout { grid-template-columns:1fr; }
+  .result-grid { grid-template-columns:1fr; }
+  .eval-header,.eval-body,.eval-actions,.result-tips,#result { padding-left:1.5rem; padding-right:1.5rem; }
+  footer { grid-template-columns:1fr 1fr; padding:3rem 1.5rem 2rem; }
+  .footer-bottom { padding:1.2rem 1.5rem; flex-direction:column; gap:.5rem; text-align:center; }
+}

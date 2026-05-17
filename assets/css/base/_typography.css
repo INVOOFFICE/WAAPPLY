@@ -1,0 +1,62 @@
+/* Typography: headings, labels, and text-level styles */
+h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.8rem,5.5vw,5rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-0.03em;
+  animation:fadeUp .7s ease .08s both;
+}
+
+.h1-muted { color:var(--text-3); }
+.h1-accent {
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 50%, var(--gold) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub {
+  max-width:520px;
+  font-size:1.05rem;
+  line-height:1.7;
+  color:var(--text-2);
+  animation:fadeUp .7s ease .16s both;
+}
+
+h2 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.2;
+}
+
+h2 .dim { color:var(--text-3); }
+
+.section-sub {
+  margin-top:.6rem;
+  font-size:.95rem;
+  color:var(--text-2);
+  line-height:1.65;
+  max-width:460px;
+}
+
+.section-kicker {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  font-size:0.73rem;
+  font-weight:600;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:.7rem;
+}
+
+.section-kicker::before {
+  content:'';
+  width:16px;height:1px;
+  background:var(--accent);
+  opacity:.6;
+}

@@ -1,0 +1,45 @@
+/* Button component styles */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.4rem;
+  border:none;
+  border-radius:var(--r);
+  cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:600;
+  transition:all .18s;
+}
+
+.btn-sm { padding:0.45rem 1rem; font-size:0.84rem; }
+.btn-md { padding:0.6rem 1.3rem; font-size:0.9rem; }
+.btn-lg { padding:0.8rem 1.8rem; font-size:0.95rem; }
+
+.btn-ghost {
+  background:transparent;
+  color:var(--text-2);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover { color:var(--text); border-color:var(--border-strong); background:var(--surface-hover); }
+
+.btn-primary {
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#fff;
+  box-shadow:0 0 0 0 var(--accent-glow);
+}
+.btn-primary:hover {
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px var(--accent-glow);
+}
+.btn-primary:active { transform:translateY(0); }
+
+.btn-gold {
+  background:linear-gradient(135deg, var(--gold), #d4954a);
+  color:#0D1421;
+  font-weight:700;
+}
+.btn-gold:hover {
+  transform:translateY(-1px);
+  box-shadow:0 8px 28px rgba(232,184,90,0.25);
+}

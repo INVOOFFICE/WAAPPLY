@@ -1,0 +1,73 @@
+/* Hero section */
+.hero {
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:8rem 2rem 5rem;
+  gap:1.5rem;
+}
+
+.hero-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.35rem 0.9rem;
+  background:var(--gold-soft);
+  border:1px solid rgba(232,184,90,0.2);
+  border-radius:100px;
+  font-size:0.76rem;
+  font-weight:600;
+  color:var(--gold);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  animation:fadeUp .7s ease both;
+}
+
+.hero-eyebrow-dot {
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  animation:pulse 2s ease infinite;
+}
+
+.hero-actions {
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+  animation:fadeUp .7s ease .24s both;
+}
+
+.hero-metrics {
+  display:flex;
+  align-items:center;
+  gap:2.5rem;
+  margin-top:1rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+  animation:fadeUp .7s ease .32s both;
+}
+
+.metric-item { text-align:center; }
+.metric-num {
+  font-family:'Syne',sans-serif;
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--text);
+}
+.metric-label {
+  font-size:0.73rem;
+  color:var(--text-3);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  margin-top:.15rem;
+}
+.metric-sep {
+  width:1px;
+  height:32px;
+  background:var(--border);
+}

@@ -1,0 +1,54 @@
+/* Evaluator card wrapper (eval-wrap, eval-header, eval-body, eval-actions) */
+.eval-wrap {
+  background:var(--bg-1);
+  border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  box-shadow:0 0 80px rgba(79,124,255,0.05),0 40px 80px rgba(0,0,0,0.4);
+}
+
+.eval-header {
+  padding:2rem 2.5rem;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:linear-gradient(135deg, rgba(79,124,255,0.04) 0%, transparent 60%);
+}
+
+.eval-title {
+  font-family:'Syne',sans-serif;
+  font-size:1.15rem;
+  font-weight:700;
+}
+
+.eval-badge {
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  font-size:.75rem;
+  font-weight:600;
+  color:var(--green);
+  background:var(--green-soft);
+  border:1px solid rgba(45,212,150,.18);
+  border-radius:100px;
+  padding:.3rem .8rem;
+}
+
+.eval-body { padding:2.5rem; }
+
+.eval-actions {
+  padding:0 2.5rem 2.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.eval-note {
+  font-size:.77rem;
+  color:var(--text-3);
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+}

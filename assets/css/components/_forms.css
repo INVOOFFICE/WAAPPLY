@@ -1,0 +1,94 @@
+/* Form field components (field, select-wrap, form-group, range) */
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.form-group { display:flex; flex-direction:column; gap:.45rem; }
+.form-group.span2 { grid-column:1/-1; }
+
+.form-label {
+  font-size:.75rem;
+  font-weight:600;
+  color:var(--text-3);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+}
+
+.form-label svg { opacity:.6; }
+
+.field {
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:.65rem 1rem;
+  color:var(--text);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.9rem;
+  width:100%;
+  outline:none;
+  transition:border-color .15s,box-shadow .15s;
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+}
+
+.field:focus {
+  border-color:rgba(79,124,255,.5);
+  box-shadow:0 0 0 3px rgba(79,124,255,.1);
+}
+
+.field:hover:not(:focus) { border-color:var(--border-strong); }
+
+.select-wrap { position:relative; }
+.select-wrap::after {
+  content:'';
+  position:absolute;
+  right:.9rem;
+  top:50%;
+  transform:translateY(-50%);
+  width:10px;height:10px;
+  background:var(--text-3);
+  clip-path:polygon(0 30%,50% 80%,100% 30%,100% 0%,50% 55%,0 0%);
+  pointer-events:none;
+}
+
+select.field option { background:var(--bg-1); color:var(--text); }
+
+.field::placeholder { color:var(--text-3); }
+
+.divider-row {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin:.5rem 0;
+  color:var(--text-3);
+  font-size:.78rem;
+}
+.divider-row::before,.divider-row::after {
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+.range-wrap { position:relative; }
+input[type=range] {
+  width:100%;
+  height:4px;
+  background:var(--border);
+  border-radius:2px;
+  outline:none;
+  cursor:pointer;
+  -webkit-appearance:none;
+  margin:8px 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor:pointer;
+  box-shadow:0 0 6px rgba(79,124,255,.4);
+}

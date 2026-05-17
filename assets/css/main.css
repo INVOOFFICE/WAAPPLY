@@ -1,0 +1,17 @@
+/* VisaPath — Main stylesheet: imports all partials in cascade order */
+@import url('base/_variables.css');
+@import url('base/_reset.css');
+@import url('base/_typography.css');
+@import url('base/_animations.css');
+@import url('layout/_nav.css');
+@import url('layout/_hero.css');
+@import url('layout/_sections.css');
+@import url('layout/_footer.css');
+@import url('components/_buttons.css');
+@import url('components/_forms.css');
+@import url('components/_evaluator.css');
+@import url('components/_result.css');
+@import url('components/_features.css');
+@import url('components/_countries.css');
+@import url('components/_news.css');
+@import url('utilities/_responsive.css');
