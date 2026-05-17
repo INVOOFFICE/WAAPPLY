@@ -81,3 +81,26 @@
   line-height:1.4;
   margin-bottom:.3rem;
 }
+
+/* Skeleton loading */
+.skel {
+  background:linear-gradient(90deg,var(--bg-1) 25%,var(--surface) 50%,var(--bg-1) 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+  border-radius:6px;
+}
+.skel-tag    { width:80px;height:22px;margin-bottom:1rem; }
+.skel-title  { width:85%;height:24px;margin-bottom:.7rem; }
+.skel-text   { width:100%;height:14px;margin-bottom:.5rem; }
+.skel-text.short { width:60%; }
+.skel-date   { width:120px;height:14px;margin-top:1rem; }
+.skel-tag-sm { width:60px;height:18px;margin-bottom:.5rem; }
+.skel-line   { width:90%;height:14px;margin-bottom:.4rem; }
+.skel-line.short { width:55%; }
+
+/* Skeleton in side list */
+.skel-item { padding:1.3rem 1.5rem; display:flex; flex-direction:column; }
+.skel-item:first-child { border-top:none; }
+
+/* Link wrapper */
+.news-main-link, .news-item-link { text-decoration:none; color:inherit; display:block; }
