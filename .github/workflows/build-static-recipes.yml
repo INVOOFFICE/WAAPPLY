@@ -1,16 +1,17 @@
 # ============================================================
-# VISAPATH — Build static news pages
-# Déclenché quand news.json change (via Google Apps Script)
-# Génère actualites/<slug>/index.html + actualites/index.html
-#         + sitemap.xml + llms.txt + robots.txt
+# SCHENGEN MAROC BLOG — Build static blog pages
+# ✅ Compatible avec Google Apps Script (Code.gs) :
+#    - Déclenché quand blogs.json change (push du GAS)
+#    - Génère blog/<slug>/index.html + blog/index.html
+#            + sitemap.xml + llms.txt + robots.txt
 # ============================================================
-name: Build static news pages
+name: Build static blog pages
 
 on:
   push:
     branches: [main]
     paths:
-      - "news.json"
+      - "blogs.json"
       - "scripts/build-news-pages.mjs"
       - ".github/workflows/build-static-recipes.yml"
   workflow_dispatch:
@@ -19,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: static-news-${{ github.workflow }}-${{ github.ref }}
+  group: static-blog-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -34,7 +35,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate actualites/ pages, sitemap.xml, llms.txt, robots.txt
+      - name: Generate blog/ pages, sitemap.xml, llms.txt, robots.txt
         run: node scripts/build-news-pages.mjs
 
       - name: Commit and push if changed
@@ -44,11 +45,11 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add actualites/ sitemap.xml llms.txt robots.txt
+          git add blog/ sitemap.xml llms.txt robots.txt
           if git diff --staged --quiet; then
             echo "Aucun changement détecté — pages déjà à jour."
             exit 0
           fi
-          git commit -m "chore: régénération pages actualités statiques [skip ci]"
+          git commit -m "chore: régénération pages blog statiques [skip ci]"
           git pull --rebase origin "$BRANCH"
           git push origin "HEAD:refs/heads/$BRANCH"
