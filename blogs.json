@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Réservation hôtelière confirmée désormais obligatoire pour la France",
+    "slug": "reservation-hoteliere-confirmee-obligatoire-france",
+    "summary": "Le consulat français de Casablanca exige une réservation confirmée (non remboursable). Les captures d'écran Airbnb et les réservations annulables ne sont plus acceptées depuis janvier 2025.",
+    "category": "Actualités Schengen",
+    "published_at": "2025-05-15",
+    "status": "published"
+  },
+  {
+    "id": 2,
+    "title": "Délais réduits à 10 jours ouvrés pour l'Espagne à Rabat",
+    "slug": "delais-reduits-10-jours-espagne-rabat",
+    "summary": "Le consulat d'Espagne à Rabat a considérablement réduit les délais de traitement des demandes de visa.",
+    "category": "Visa par pays",
+    "published_at": "2025-05-12",
+    "status": "published"
+  },
+  {
+    "id": 3,
+    "title": "Frais de visa Schengen portés à 90€ dès juillet 2025",
+    "slug": "frais-visa-schengen-90-euros-juillet-2025",
+    "summary": "Les frais de dossier pour une demande de visa Schengen passeront de 80€ à 90€ à partir de juillet 2025.",
+    "category": "Actualités Schengen",
+    "published_at": "2025-05-02",
+    "status": "published"
+  },
+  {
+    "id": 4,
+    "title": "Nouveaux créneaux VFS Global disponibles à Casablanca pour le Portugal",
+    "slug": "nouveaux-creneaux-vfs-global-casablanca-portugal",
+    "summary": "VFS Global a ouvert de nouveaux créneaux pour les demandes de visa Portugal à son centre de Casablanca.",
+    "category": "Procédure & RDV",
+    "published_at": "2025-04-28",
+    "status": "published"
+  }
+]
