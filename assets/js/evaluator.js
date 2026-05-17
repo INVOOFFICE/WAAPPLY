@@ -18,7 +18,44 @@ const COUNTRY = {
   autre: { name:'Ce pays', rate:68, base:5, eurDay:50, minBal:25000, delay:'15-30 jours ouvrés', center:'le centre de dépôt habilité', specifics:[] }
 };
 
+function validerFormulaire() {
+  const fields = [
+    { id:'pays',         label:'Pays de destination' },
+    { id:'type-visa',    label:'Type de visa' },
+    { id:'situation',    label:'Situation professionnelle' },
+    { id:'revenu',       label:'Revenu mensuel' },
+    { id:'historique',   label:'Historique Schengen' },
+    { id:'solde',        label:'Solde bancaire' },
+    { id:'liens',        label:'Liens avec le Maroc' },
+  ];
+
+  let valid = true;
+  document.querySelectorAll('.error-msg').forEach(e => e.remove());
+  document.querySelectorAll('.field.error').forEach(e => e.classList.remove('error'));
+
+  for (const f of fields) {
+    const el = document.getElementById(f.id);
+    if (!el.value) {
+      el.classList.add('error');
+      const wrap = el.closest('.form-group') || el.parentElement;
+      const msg = document.createElement('div');
+      msg.className = 'error-msg';
+      msg.textContent = 'Ce champ est obligatoire';
+      wrap.appendChild(msg);
+      valid = false;
+    }
+  }
+  return valid;
+}
+
 export async function calculer() {
+  if (!validerFormulaire()) {
+    const btn = document.querySelector('.eval-actions .btn-gold');
+    btn.style.animation = 'shake .4s ease';
+    setTimeout(() => btn.style.animation = '', 400);
+    return;
+  }
+
   const pays     = document.getElementById('pays').value;
   const typeVisa = document.getElementById('type-visa').value;
   const sit      = document.getElementById('situation').value;
@@ -26,13 +63,6 @@ export async function calculer() {
   const hist     = document.getElementById('historique').value;
   const solde    = parseInt(document.getElementById('solde').value) || 0;
   const liens    = document.getElementById('liens').value;
-
-  if (!pays || !typeVisa || !sit || !hist || !liens) {
-    const btn = document.querySelector('.eval-actions .btn-gold');
-    btn.style.animation = 'shake .4s ease';
-    setTimeout(() => btn.style.animation = '', 400);
-    return;
-  }
 
   document.getElementById('loader').classList.add('on');
 
