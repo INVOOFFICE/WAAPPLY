@@ -8,7 +8,13 @@
 }
 
 .section-header {
-  margin-bottom:3rem;
+  margin-bottom:2rem;
+}
+
+.section-footer {
+  display:flex;
+  justify-content:center;
+  margin-top:2rem;
 }
 
 .band {
