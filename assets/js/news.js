@@ -67,6 +67,7 @@ export async function loadNews() {
   container.innerHTML = `
     <a href="blog/${esc(first.slug)}/" class="news-main-link">
       <div class="news-main">
+        ${first.image_url ? `<img src="${esc(first.image_url)}" alt="" class="news-main-img" loading="lazy">` : ''}
         ${tagHtml(first)}
         <h4>${esc(first.title)}</h4>
         ${first.summary ? `<p>${esc(first.summary)}</p>` : ''}
@@ -77,6 +78,7 @@ export async function loadNews() {
       ${limit.map(a => `
         <a href="blog/${esc(a.slug)}/" class="news-item-link">
           <div class="news-item">
+            ${a.image_url ? `<img src="${esc(a.image_url)}" alt="" class="news-item-img" loading="lazy">` : ''}
             ${tagHtml(a)}
             <h5>${esc(a.title)}</h5>
             <div class="news-date">${CLOCK_SM} ${FMT(a.published_at)}</div>

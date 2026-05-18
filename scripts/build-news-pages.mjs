@@ -419,6 +419,18 @@ function buildBlogPage(item, allItems, related) {
       background:var(--surface); border:1px solid var(--border); border-radius:100px;
     }
 
+    .news-hero-img {
+      margin-top:2rem;
+      border-radius:var(--r-lg);
+      overflow:hidden;
+    }
+    .news-hero-img img {
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      display:block;
+    }
+
     /* ── Corps article ── */
     .news-body {
       position:relative; z-index:1;
@@ -582,6 +594,8 @@ function buildBlogPage(item, allItems, related) {
       <span class="news-meta-source">Schengen Maroc · Blog</span>
       ${item.category ? `<span class="news-meta-source">${escHtml(item.category)}</span>` : ''}
     </div>
+
+    ${item.image_url ? `<div class="news-hero-img"><img src="${escAttr(item.image_url)}" alt="${escHtml(item.title)}" loading="lazy"></div>` : ''}
   </div>
 
   <!-- CORPS DE L'ARTICLE -->
@@ -715,6 +729,7 @@ function buildBlogIndex(items) {
 
     return `
     <a href="/blog/${item.slug}/" class="blog-card">
+      ${item.image_url ? `<img src="${escHtml(item.image_url)}" alt="" class="blog-card-img" loading="lazy">` : ''}
       <div class="blog-card-top">
         <span class="news-tag ${tagCls}">${escHtml(tag.label)}</span>
         <span class="blog-card-date">${date}</span>
@@ -799,6 +814,7 @@ function buildBlogIndex(items) {
     .blog-card:hover { background:var(--bg-2); }
     .blog-card-top { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
     .blog-card-date { font-size:.72rem; color:var(--text-3); }
+    .blog-card-img { width:100%; height:160px; object-fit:cover; border-radius:var(--r); margin-bottom:.6rem; }
     .blog-card-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; line-height:1.4; color:var(--text); }
     .blog-card-summary { font-size:.84rem; line-height:1.6; color:var(--text-2); flex:1; }
     .blog-card-link { font-size:.8rem; font-weight:600; color:var(--accent); margin-top:.25rem; }
