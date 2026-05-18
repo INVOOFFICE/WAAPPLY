@@ -52,6 +52,8 @@ function onOpen() {
     .addSeparator()
     .addItem('☁️  Push blogs.json → GitHub',          'updateBlogsJson')
     .addItem('📋 Créer/Réinitialiser la feuille',     'initSheet')
+    .addSeparator()
+    .addItem('📊 Créer / Rafraîchir le Dashboard', 'createDashboard')
     .addToUi();
 }
 
@@ -420,7 +422,7 @@ function saveToSheet(article) {
     article.category,
     imageUrl !== '' ? imageUrl : (article.image_url || ''),
     article.url,
-    article.published_at,
+    new Date(article.published_at), // date réelle pour les formules Sheets
     article.description,
     article.summary,
     article.seo_title,
@@ -428,7 +430,7 @@ function saveToSheet(article) {
     article.keywords,
     article.slug,
     article.status,
-    article.added_at,
+    new Date(article.added_at),     // date réelle
   ];
 
   let sheetRow;
@@ -766,4 +768,240 @@ function installDailyTrigger() {
 
 function testManual() {
   runDailyArticle(true);
+}
+
+// ============================================================
+// DASHBOARD — Mini tableau de bord avec formules + mise en forme
+// ============================================================
+function createDashboard() {
+  const ss  = SpreadsheetApp.getActiveSpreadsheet();
+  const ref = CONFIG.SHEET_NAME; // 'Articles'
+
+  // Supprimer l'ancien dashboard s'il existe
+  const existing = ss.getSheetByName('Dashboard');
+  if (existing) ss.deleteSheet(existing);
+
+  const db = ss.insertSheet('Dashboard');
+  db.setFrozenRows(0);
+
+  // ── Helper : écrit une valeur + format ──
+  function setCell(row, col, value, opts) {
+    const r = db.getRange(row, col);
+    r.setValue(value);
+    if (opts) {
+      if (opts.bold) r.setFontWeight('bold');
+      if (opts.size) r.setFontSize(opts.size);
+      if (opts.color) r.setFontColor(opts.color);
+      if (opts.bg) r.setBackground(opts.bg);
+      if (opts.wrap) r.setWrap(true);
+      if (opts.align) r.setHorizontalAlignment(opts.align);
+    }
+    return r;
+  }
+
+  function setFormula(row, col, formula, opts) {
+    const r = db.getRange(row, col);
+    r.setFormula(formula);
+    if (opts) {
+      if (opts.bold) r.setFontWeight('bold');
+      if (opts.size) r.setFontSize(opts.size);
+      if (opts.color) r.setFontColor(opts.color);
+      if (opts.bg) r.setBackground(opts.bg);
+      if (opts.format) r.setNumberFormat(opts.format);
+      if (opts.align) r.setHorizontalAlignment(opts.align);
+    }
+    return r;
+  }
+
+  // ═══════════════════════════════════════════
+  // HEADER
+  // ═══════════════════════════════════════════
+  setCell(1, 1, '📊 Dashboard — Génération d\'articles', { bold:true, size:16, color:'#003399' });
+  setCell(2, 1, 'Mis à jour :', { bold:true });
+  setFormula(2, 2, '=NOW()', { format:'dd/mm/yyyy hh:mm' });
+  setCell(2, 3, 'Plage de données :', { bold:true, color:'#666' });
+  setCell(2, 4, "'" + ref + "'!A:Q", { color:'#666' });
+
+  // ═══════════════════════════════════════════
+  // LIGNE 4 — KPI CARDS (4 indicateurs)
+  // ═══════════════════════════════════════════
+  // En-têtes KPI
+  const kpiHeaders = ['Total articles', 'Cette semaine', 'Taux de succès', 'Qualité moyenne'];
+  const kpiCols    = [1, 4, 7, 10];
+  kpiHeaders.forEach(function(h, i) {
+    setCell(4, kpiCols[i], h, { bold:true, size:11, color:'#fff', bg:'#003399', align:'center' });
+  });
+
+  // Valeurs KPI
+  setFormula(5, 1, "=COUNTA('" + ref + "'!A2:A)", { bold:true, size:22, color:'#003399', align:'center' });
+
+  setFormula(5, 4,
+    "=SUMPRODUCT(IFERROR((DATEVALUE(LEFT('" + ref + "'!G2:G,10))>=(TODAY()-WEEKDAY(TODAY(),2)+1))*(DATEVALUE(LEFT('" + ref + "'!G2:G,10))<=(TODAY()-WEEKDAY(TODAY(),2)+7)),0))",
+    { bold:true, size:22, color:'#003399', align:'center' }
+  );
+
+  setFormula(5, 7,
+    "=IF(COUNTA('" + ref + "'!A2:A)=0,0,ROUND((1-COUNTA('" + ref + "'!Q2:Q)/COUNTA('" + ref + "'!A2:A))*100,1))",
+    { bold:true, size:22, color:'#2DD496', align:'center', format:'0.0"%"' }
+  );
+
+  setFormula(5, 10,
+    "=IF(COUNTA('" + ref + "'!P2:P)=0,0,ROUND(AVERAGE(IFERROR(ARRAYFORMULA(IF(ROUND(LEN('" + ref + "'!P2:P)/85)>100,100,ROUND(LEN('" + ref + "'!P2:P)/85))),0)),0))",
+    { bold:true, size:22, color:'#2DD496', align:'center', format:'0"/100"' }
+  );
+
+  // Label sous chaque KPI
+  setCell(6, 1, 'articles publiés', { size:10, color:'#888', align:'center' });
+  setCell(6, 4, 'cette semaine', { size:10, color:'#888', align:'center' });
+  setCell(6, 7, '% sans erreur', { size:10, color:'#888', align:'center' });
+  setCell(6, 10, 'score moyen (len/85)', { size:10, color:'#888', align:'center' });
+
+  // ═══════════════════════════════════════════
+  // ESPACE
+  // ═══════════════════════════════════════════
+  db.getRange('A8:Z8').setFontSize(6);
+
+  // ═══════════════════════════════════════════
+  // SECTION 1 — Articles par semaine
+  // ═══════════════════════════════════════════
+  setCell(9, 1, '📈 Articles par semaine', { bold:true, size:13, color:'#003399' });
+  setFormula(10, 1,
+    "=QUERY(ARRAYFORMULA({YEAR(DATEVALUE(LEFT('" + ref + "'!G2:G,10))), WEEKNUM(DATEVALUE(LEFT('" + ref + "'!G2:G,10))), '" + ref + "'!G2:G}), \"SELECT Col1, Col2, COUNT(Col3) WHERE Col3 IS NOT NULL AND Col1 IS NOT NULL GROUP BY Col1, Col2 ORDER BY Col1 DESC, Col2 DESC LABEL Col1 'Année', Col2 'Semaine', COUNT(Col3) 'Articles'\")",
+    { bold:false, size:10 }
+  );
+  db.getRange(10, 1, 30, 3).setHorizontalAlignment('center');
+
+  // ═══════════════════════════════════════════
+  // SECTION 2 — Catégories les plus produites
+  // ═══════════════════════════════════════════
+  setCell(9, 5, '🏷️ Catégories les plus produites', { bold:true, size:13, color:'#003399' });
+  setFormula(10, 5,
+    "=QUERY('" + ref + "'!D2:D, \"SELECT D, COUNT(*) WHERE D IS NOT NULL GROUP BY D ORDER BY COUNT(*) DESC LABEL D 'Catégorie', COUNT(*) 'Articles'\")",
+    { bold:false, size:10 }
+  );
+  db.getRange(10, 5, 20, 2).setHorizontalAlignment('center');
+
+  // ═══════════════════════════════════════════
+  // SECTION 3 — Score qualité par article
+  // ═══════════════════════════════════════════
+  setCell(9, 8, '⭐ Score qualité estimé (par article)', { bold:true, size:13, color:'#003399' });
+
+  // En-têtes tableau qualité (4 colonnes)
+  const qHeaders = ['Titre', 'Longueur (car.)', 'Catégorie', 'Score /100'];
+  [8,9,10,11].forEach(function(c, i) {
+    setCell(10, c, qHeaders[i], { bold:true, size:10, color:'#fff', bg:'#003399', align:'center' });
+  });
+
+  // Titre + Longueur + Catégorie (3 columns from QUERY fill H:I:J)
+  setFormula(11, 8,
+    "=QUERY('" + ref + "'!B2:P, \"SELECT B, LEN(P), D WHERE P IS NOT NULL AND B IS NOT NULL ORDER BY LEN(P) DESC LABEL B 'Titre', LEN(P) 'Longueur', D 'Catégorie'\")",
+    { bold:false, size:9 }
+  );
+
+  // Score = min(100, round(len/85)) via ARRAYFORMULA on the length column (I)
+  setFormula(11, 11,
+    "=ARRAYFORMULA(IF(I11:I=\"\",, IF(ROUND(I11:I/85)>100, 100, ROUND(I11:I/85))))",
+    { bold:false, size:9, align:'center' }
+  );
+
+  // ═══════════════════════════════════════════
+  // SECTION 4 — Erreurs récentes
+  // ═══════════════════════════════════════════
+  const errRow = 45; // espace suffisant pour le tableau qualité
+  setCell(errRow + 1, 1, '⚠️ Dernières erreurs détectées', { bold:true, size:13, color:'#c0392b' });
+  setFormula(errRow + 2, 1,
+    "=QUERY(ARRAYFORMULA({'" + ref + "'!B2:B, '" + ref + "'!Q2:Q, DATEVALUE(LEFT('" + ref + "'!O2:O,10))}), \"SELECT Col1, Col2 WHERE Col2 IS NOT NULL AND Col2 <> '' ORDER BY Col3 DESC LABEL Col1 'Article', Col2 'Erreur'\")",
+    { bold:false, size:9 }
+  );
+
+  // ═══════════════════════════════════════════
+  // MISE EN FORME CONDITIONNELLE
+  // ═══════════════════════════════════════════
+  // 1. Score qualité : vert ≥75, orange 50-74, rouge <50 (colonne K = Score /100)
+  const qualityRange  = db.getRange('K11:K');
+  const qRuleGreen    = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberGreaterThanOrEqualTo(75)
+    .setBackground('#d4edda')
+    .setFontColor('#155724')
+    .setRanges([qualityRange])
+    .build();
+  const qRuleYellow   = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberBetween(50, 74)
+    .setBackground('#fff3cd')
+    .setFontColor('#856404')
+    .setRanges([qualityRange])
+    .build();
+  const qRuleRed      = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberLessThan(50)
+    .setBackground('#f8d7da')
+    .setFontColor('#721c24')
+    .setRanges([qualityRange])
+    .build();
+  const qRules = db.getConditionalFormatRules();
+  qRules.push(qRuleGreen, qRuleYellow, qRuleRed);
+
+  // 2. Erreur (colonne Q) : fond rouge si non vide
+  const errCheckRange = db.getRange('B:B'); // colonne titre juste à côté
+  // On applique sur la colonne erreur elle-même
+
+  // 3. Taux de succès KPI : vert ≥90, orange 70-89, rouge <70
+  const successKpi = db.getRange('G5');
+  const sRuleGreen = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberGreaterThanOrEqualTo(90)
+    .setFontColor('#155724')
+    .setBackground('#d4edda')
+    .setRanges([successKpi])
+    .build();
+  const sRuleYellow = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberBetween(70, 89)
+    .setFontColor('#856404')
+    .setBackground('#fff3cd')
+    .setRanges([successKpi])
+    .build();
+  const sRuleRed = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberLessThan(70)
+    .setFontColor('#721c24')
+    .setBackground('#f8d7da')
+    .setRanges([successKpi])
+    .build();
+  qRules.push(sRuleGreen, sRuleYellow, sRuleRed);
+
+  // 4. Articles cette semaine : fond bleu clair si >0
+  const weekKpi = db.getRange('D5');
+  const wRule = SpreadsheetApp.newConditionalFormatRule()
+    .whenNumberGreaterThan(0)
+    .setBackground('#e8f4fd')
+    .setFontColor('#003399')
+    .setRanges([weekKpi])
+    .build();
+  qRules.push(wRule);
+
+  db.setConditionalFormatRules(qRules);
+
+  // ═══════════════════════════════════════════
+  // LARGEUR DES COLONNES
+  // ═══════════════════════════════════════════
+  db.setColumnWidth(1, 200);
+  db.setColumnWidth(2, 200);
+  db.setColumnWidth(3, 80);
+  db.setColumnWidth(4, 120);
+  db.setColumnWidth(5, 220);
+  db.setColumnWidth(6, 80);
+  db.setColumnWidth(7, 120);
+  db.setColumnWidth(8, 300);
+  db.setColumnWidth(9, 120);
+  db.setColumnWidth(10, 80);
+  db.setColumnWidth(11, 60);
+
+  SpreadsheetApp.getUi().alert(
+    '✅ Dashboard créé !',
+    'L\'onglet "Dashboard" a été créé avec :\n' +
+    '• 4 KPI (total, semaine, succès, qualité)\n' +
+    '• Articles par semaine 📈\n' +
+    '• Catégories les plus produites 🏷️\n' +
+    '• Score qualité par article ⭐\n' +
+    '• Dernières erreurs ⚠️\n' +
+    '• Mise en forme conditionnelle (vert/orange/rouge)',
+    SpreadsheetApp.getUi().ButtonSet.OK
+  );
 }
