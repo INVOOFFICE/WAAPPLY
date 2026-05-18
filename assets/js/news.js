@@ -65,7 +65,7 @@ export async function loadNews() {
   const limit = rest.slice(0, 3);
 
   container.innerHTML = `
-    <a href="/blog/${esc(first.slug)}/" class="news-main-link">
+    <a href="blog/${esc(first.slug)}/" class="news-main-link">
       <div class="news-main">
         ${tagHtml(first)}
         <h4>${esc(first.title)}</h4>
@@ -75,7 +75,7 @@ export async function loadNews() {
     </a>
     <div class="news-list">
       ${limit.map(a => `
-        <a href="/blog/${esc(a.slug)}/" class="news-item-link">
+        <a href="blog/${esc(a.slug)}/" class="news-item-link">
           <div class="news-item">
             ${tagHtml(a)}
             <h5>${esc(a.title)}</h5>
