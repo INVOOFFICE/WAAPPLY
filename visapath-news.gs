@@ -1,34 +1,41 @@
 // ============================================================
-// VISAPATH — Automatisation Actualités Schengen via Groq + GitHub
+// SCHENGEN MAROC BLOG — Automatisation avec Groq + GitHub
 // Google Apps Script — Code.gs
 // ============================================================
-// Propriétés du script à configurer (Fichier → Propriétés du projet) :
+// Propriétés du script à configurer dans Project Settings :
 //   GROQ_API_KEY   → console.groq.com
 //   GITHUB_TOKEN   → Personal Access Token GitHub (scope: repo)
-//   GITHUB_OWNER   → ton username GitHub (ex: visapath-ma)
-//   GITHUB_REPO    → nom du repo (ex: visapath)
+//   GITHUB_OWNER   → ton username GitHub (ex: MonSite)
+//   GITHUB_REPO    → nom du repo (ex: schengen-maroc)
 // ============================================================
 
 const CONFIG = {
-  GROQ_API_KEY:  PropertiesService.getScriptProperties().getProperty('GROQ_API_KEY'),
-  GITHUB_TOKEN:  PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN'),
-  GITHUB_OWNER:  PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER'),
-  GITHUB_REPO:   PropertiesService.getScriptProperties().getProperty('GITHUB_REPO'),
-  SHEET_NAME:    'Actualites',
-  SITE_URL:      'https://visapath.ma',
+  GROQ_API_KEY: PropertiesService.getScriptProperties().getProperty('GROQ_API_KEY'),
+  GITHUB_TOKEN: PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN'),
+  GITHUB_OWNER: PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER'),
+  GITHUB_REPO:  PropertiesService.getScriptProperties().getProperty('GITHUB_REPO'),
+  SHEET_NAME:   'Articles',
+  SITE_URL:     'https://schengen-maroc.com', // ← Remplace par ton URL
+  CTA_WHATSAPP: 'https://wa.me/212XXXXXXXXX?text=Bonjour%20%F0%9F%91%8B%20Je%20voudrais%20des%20infos%20sur%20le%20visa%20Schengen.',
 };
 
-// Colonnes de la feuille Google Sheet
 const COL = {
-  ID:           1,  // A
-  TITLE:        2,  // B
-  SUMMARY:      3,  // C
-  TAG_TYPE:     4,  // D  → "alert" | "info" | "news"
-  TAG_LABEL:    5,  // E  → ex: "France", "Général", "Important"
-  PUBLISHED_AT: 6,  // F
-  IS_MAIN:      7,  // G  → TRUE si article principal (news-main), FALSE sinon
-  STATUS:       8,  // H  → "published" | "draft"
-  ADDED_AT:     9,  // I
+  ID:               1,  // A
+  TITLE:            2,  // B
+  SOURCE:           3,  // C
+  CATEGORY:         4,  // D
+  IMAGE_URL:        5,  // E
+  URL:              6,  // F
+  PUBLISHED_AT:     7,  // G
+  DESCRIPTION:      8,  // H
+  SUMMARY:          9,  // I
+  SEO_TITLE:        10, // J
+  META_DESCRIPTION: 11, // K
+  KEYWORDS:         12, // L
+  SLUG:             13, // M
+  STATUS:           14, // N
+  ADDED_AT:         15, // O
+  CONTENT_HTML:     16, // P
 };
 
 // ============================================================
@@ -36,15 +43,14 @@ const COL = {
 // ============================================================
 function onOpen() {
   SpreadsheetApp.getUi()
-    .createMenu('⚙️ VISAPATH NEWS')
-    .addItem('▶️  Générer une actualité maintenant',   'testManual')
+    .createMenu('✈️ SCHENGEN BLOG')
+    .addItem('▶️  Générer un article maintenant',    'testManual')
     .addSeparator()
-    .addItem('🔁 Installer trigger quotidien',          'installDailyTrigger')
-    .addItem('🗑️  Supprimer tous les triggers',         'removeAllTriggers')
+    .addItem('🔁 Installer trigger quotidien',        'installDailyTrigger')
+    .addItem('🗑️  Supprimer tous les triggers',       'removeAllTriggers')
     .addSeparator()
-    .addItem('☁️  Push news.json → GitHub',             'updateNewsJson')
-    .addSeparator()
-    .addItem('📋 Créer en-têtes feuille',               'createSheetHeader')
+    .addItem('☁️  Push blogs.json → GitHub',          'updateBlogsJson')
+    .addItem('📋 Créer/Réinitialiser la feuille',     'initSheet')
     .addToUi();
 }
 
@@ -61,28 +67,28 @@ function removeAllTriggers() {
 // ============================================================
 // POINT D'ENTRÉE PRINCIPAL
 // ============================================================
-function runDailyNews(showAlert) {
+function runDailyArticle(showAlert) {
   try {
-    Logger.log('=== VISAPATH NEWS — Démarrage ===');
+    Logger.log('=== SCHENGEN BLOG — Démarrage ===');
 
     const topic = pickTopic();
-    Logger.log('Sujet : ' + topic.title);
+    Logger.log('Sujet choisi : ' + topic.title);
 
-    const article = generateNews(topic);
-    Logger.log('Actualité générée : ' + article.title);
+    const article = generateArticle(topic);
+    Logger.log('Article généré : ' + article.title);
 
     const row = saveToSheet(article);
-    Logger.log('Enregistré ligne : ' + row);
+    Logger.log('Enregistré à la ligne : ' + row);
 
-    updateNewsJson();
-    Logger.log('GitHub mis à jour → news.json');
+    updateBlogsJson();
+    Logger.log('GitHub mis à jour avec succès');
 
     Logger.log('=== Terminé avec succès ===');
 
     if (showAlert) {
       SpreadsheetApp.getUi().alert(
-        '✅ Actualité générée !',
-        '"' + article.title + '"\nLigne ' + row + ' — Tag : ' + article.tag_label,
+        '✅ Article généré !',
+        '"' + article.title + '"\nLigne ' + row + ' dans la feuille Articles.',
         SpreadsheetApp.getUi().ButtonSet.OK
       );
     }
@@ -97,58 +103,79 @@ function runDailyNews(showAlert) {
 }
 
 // ============================================================
-// SUJETS — Politiques Schengen & consulaires pour Marocains
+// SUJETS SEO — Visa Schengen pour Marocains
 // ============================================================
-
-// Sujets structurés : chaque entrée a un titre de contexte et un pays/scope
-const TOPICS = [
-  // ── FRANCE ──
-  { title: 'Nouvelles exigences documents France visa Schengen Maroc',     country: 'France',    tag_type: 'alert' },
-  { title: 'Délais traitement consulat France Maroc 2025',                  country: 'France',    tag_type: 'info'  },
-  { title: 'Refus visa France en hausse Maroc causes',                      country: 'France',    tag_type: 'alert' },
-  { title: 'VFS Global France créneaux disponibles Casablanca Rabat',       country: 'France',    tag_type: 'info'  },
-  { title: 'France assurance voyage obligatoire montant minimum',           country: 'France',    tag_type: 'news'  },
-
-  // ── ESPAGNE ──
-  { title: 'Espagne consulat délais visa Schengen Maroc nouvelles mesures', country: 'Espagne',   tag_type: 'info'  },
-  { title: 'BLS International Espagne Maroc rendez-vous visa',              country: 'Espagne',   tag_type: 'news'  },
-  { title: 'Taux acceptation visa Espagne ressortissants marocains',        country: 'Espagne',   tag_type: 'info'  },
-  { title: 'Espagne nouvelles règles réservation hôtel preuve voyage',      country: 'Espagne',   tag_type: 'alert' },
-
-  // ── ITALIE ──
-  { title: 'Italie formulaire Schengen harmonisé nouvelles instructions',   country: 'Italie',    tag_type: 'news'  },
-  { title: 'Visa Italie Maroc délais consulat 2025',                        country: 'Italie',    tag_type: 'info'  },
-  { title: 'Ouverture créneaux consulat Italie Casablanca',                 country: 'Italie',    tag_type: 'info'  },
-
-  // ── PORTUGAL ──
-  { title: 'VFS Global Portugal nouvelles plages horaires Maroc',           country: 'Portugal',  tag_type: 'info'  },
-  { title: 'Visa Portugal taux acceptation Maroc',                          country: 'Portugal',  tag_type: 'news'  },
-
-  // ── ALLEMAGNE ──
-  { title: 'Allemagne visa Schengen ressortissants marocains conditions',   country: 'Allemagne', tag_type: 'info'  },
-  { title: 'Consulat Allemagne Casablanca nouvelles procédures',            country: 'Allemagne', tag_type: 'news'  },
-
-  // ── GÉNÉRAL SCHENGEN ──
-  { title: 'Hausse frais visa Schengen 2025 impact Maroc',                  country: 'Général',   tag_type: 'alert' },
-  { title: 'Digitalisation visa Schengen biométrie nouvelles règles',       country: 'Général',   tag_type: 'news'  },
-  { title: 'Surge demandes visa Schengen été 2025 délais consulaires',      country: 'Général',   tag_type: 'alert' },
-  { title: 'Nouveau règlement EES entrée sortie Schengen impact Maroc',     country: 'Général',   tag_type: 'alert' },
-  { title: 'Statistiques refus visa Schengen Marocains 2024 bilan',        country: 'Général',   tag_type: 'news'  },
-  { title: 'Schengen informations biométriques données voyageurs Maroc',    country: 'Général',   tag_type: 'info'  },
-  { title: 'Assurance voyage Schengen conditions minimales marocains',      country: 'Général',   tag_type: 'info'  },
-  { title: 'Lettre invitation hébergement nouvelles exigences Schengen',    country: 'Général',   tag_type: 'info'  },
-  { title: 'Alerte pic dépôts visa Schengen Maroc été périodes éviter',    country: 'Général',   tag_type: 'alert' },
-  { title: 'Schengen ETIAS mise en œuvre calendrier Maroc',                 country: 'Général',   tag_type: 'alert' },
-
-  // ── PAYS-BAS / BELGIQUE ──
-  { title: 'Pays-Bas visa Schengen conditions dossier Maroc',               country: 'Pays-Bas',  tag_type: 'info'  },
-  { title: 'Belgique consulat rendez-vous visa Maroc 2025',                 country: 'Belgique',  tag_type: 'info'  },
-];
-
 function pickTopic() {
+  const topics = [
+
+    // ── Actualités & Mises à jour ──────────────────────────
+    { title: 'Politique Schengen 2025 : ce qui change pour les demandeurs marocains',            category: 'Actualités Schengen' },
+    { title: 'Nouvelles règles consulaires Europe 2025 : impact sur les Marocains',              category: 'Actualités Schengen' },
+    { title: 'Visa Schengen et liste noire Maroc : rumeurs, vérités et recours',                 category: 'Actualités Schengen' },
+    { title: 'Fermeture consulaire et délais : comment adapter sa demande de visa en 2025',       category: 'Actualités Schengen' },
+    { title: 'Accords de facilitation Maroc-UE : avancées et impact sur le visa Schengen',       category: 'Actualités Schengen' },
+    { title: 'EES et ETIAS : ce que les Marocains doivent savoir pour 2025-2026',                category: 'Actualités Schengen' },
+    { title: 'Taux de refus visa Schengen pour les Marocains : données officielles 2024-2025',   category: 'Actualités Schengen' },
+
+    // ── Guide complet par pays ─────────────────────────────
+    { title: 'Visa Schengen France depuis le Maroc : dossier complet 2025',                      category: 'Visa par pays' },
+    { title: 'Visa Schengen Espagne pour Marocains : TLS Contact, rendez-vous et documents',     category: 'Visa par pays' },
+    { title: 'Visa Schengen Italie pour Marocains : conditions et procédure consulaire',          category: 'Visa par pays' },
+    { title: 'Visa Schengen Allemagne pour Marocains : où déposer et quoi préparer',             category: 'Visa par pays' },
+    { title: 'Visa Schengen Pays-Bas depuis Casablanca ou Rabat : guide pratique',               category: 'Visa par pays' },
+    { title: 'Visa Schengen Belgique pour Marocains : délais, refus fréquents et astuces',       category: 'Visa par pays' },
+    { title: 'Visa Schengen Portugal pour Marocains : VFS Global et dossier type',               category: 'Visa par pays' },
+    { title: 'Visa Schengen Grèce pour Marocains : tourisme et conditions simplifiées',          category: 'Visa par pays' },
+    { title: 'Visa Schengen Suisse pour Marocains : spécificités hors UE',                       category: 'Visa par pays' },
+
+    // ── Documents & Constitution du dossier ───────────────
+    { title: 'Documents requis pour un visa Schengen depuis le Maroc : liste complète',          category: 'Dossier & Documents' },
+    { title: 'Lettre de motivation visa Schengen : modèle et erreurs à éviter',                  category: 'Dossier & Documents' },
+    { title: 'Justificatif financier pour visa Schengen : quel montant et quelle preuve ?',      category: 'Dossier & Documents' },
+    { title: 'Assurance voyage visa Schengen : comment choisir la bonne couverture au Maroc',    category: 'Dossier & Documents' },
+    { title: 'Réservation d\'hôtel pour visa Schengen : confirmation ou simulation ?',           category: 'Dossier & Documents' },
+    { title: 'Réservation de vol pour visa Schengen : faut-il acheter le billet avant ?',        category: 'Dossier & Documents' },
+    { title: 'Attestation de travail pour visa Schengen : modèle et conseils',                   category: 'Dossier & Documents' },
+    { title: 'Extrait de compte bancaire pour visa Schengen : durée, format et seuils',          category: 'Dossier & Documents' },
+    { title: 'Acte de naissance et état civil pour visa Schengen : traduction et légalisation',  category: 'Dossier & Documents' },
+
+    // ── Profils spécifiques ────────────────────────────────
+    { title: 'Visa Schengen pour étudiant marocain : documents et établissements reconnus',      category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour salarié marocain : prouver son attachement au Maroc',           category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour fonctionnaire marocain : avantages et justificatifs',           category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour retraité marocain : revenus, pension et documents',             category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour auto-entrepreneur marocain : comment justifier ses revenus',    category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour commercant marocain : registre de commerce et preuves',         category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour famille résidant en Europe : invitation et hébergement',        category: 'Profils spécifiques' },
+    { title: 'Visa Schengen pour mineur marocain : autorisation parentale et démarches',         category: 'Profils spécifiques' },
+    { title: 'Primo-demandeur visa Schengen au Maroc : erreurs à éviter absolument',             category: 'Profils spécifiques' },
+
+    // ── Refus & Recours ────────────────────────────────────
+    { title: 'Refus visa Schengen au Maroc : causes fréquentes et comment réagir',               category: 'Refus & Recours' },
+    { title: 'Comment contester un refus de visa Schengen depuis le Maroc',                      category: 'Refus & Recours' },
+    { title: 'Lettre de recours visa Schengen refusé : modèle et arguments efficaces',           category: 'Refus & Recours' },
+    { title: 'Quand redéposer après un refus de visa Schengen ?',                                category: 'Refus & Recours' },
+    { title: 'Fichier SIS et interdiction Schengen : comment savoir et agir ?',                  category: 'Refus & Recours' },
+
+    // ── Procédure & Rendez-vous ────────────────────────────
+    { title: 'Prendre rendez-vous visa Schengen au Maroc : TLS Contact, VFS, BLS',              category: 'Procédure & RDV' },
+    { title: 'Délais de traitement visa Schengen : combien de temps attendre depuis le Maroc ?', category: 'Procédure & RDV' },
+    { title: 'Frais de visa Schengen en 2025 : tarifs consulaires et frais de service',          category: 'Procédure & RDV' },
+    { title: 'Suivi de demande visa Schengen en ligne : comment savoir où en est son dossier',   category: 'Procédure & RDV' },
+    { title: 'Visa Schengen multiple entrées : qui peut en bénéficier au Maroc ?',               category: 'Procédure & RDV' },
+    { title: 'Visa Schengen longue durée vs court séjour : différences et critères',             category: 'Procédure & RDV' },
+
+    // ── Conseils pratiques ─────────────────────────────────
+    { title: '10 erreurs qui font refuser le visa Schengen aux Marocains',                       category: 'Conseils pratiques' },
+    { title: 'Comment augmenter ses chances d\'obtenir le visa Schengen au Maroc',              category: 'Conseils pratiques' },
+    { title: 'Voyage Schengen avec visa : droits, durée et pays autorisés',                      category: 'Conseils pratiques' },
+    { title: 'Visa Schengen : peut-on changer de pays de destination après obtention ?',         category: 'Conseils pratiques' },
+    { title: 'Passeport marocain et visa Schengen : validité requise et pages libres',           category: 'Conseils pratiques' },
+  ];
+
   const used      = getUsedTitles();
-  const available = TOPICS.filter(t => !used.includes(t.title));
-  const pool      = available.length > 0 ? available : TOPICS;
+  const available = topics.filter(t => !used.includes(t.title));
+  const pool      = available.length > 0 ? available : topics;
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
@@ -162,219 +189,96 @@ function getUsedTitles() {
 }
 
 // ============================================================
-// GÉNÉRATION — Appel Groq pour produire titre + résumé news
+// GÉNÉRATION — 2 appels séparés (métadonnées + HTML)
 // ============================================================
-function generateNews(topic) {
-  const now = new Date();
+function generateArticle(topic) {
+  const slug = generateSlug(topic.title);
+  const now  = new Date().toISOString();
+  const primaryKeyword = topic.category + ' - ' + topic.title;
 
-  // Décider si cet article sera le "main" (principal) ou secondaire
-  // Logique : le premier de la journée est main, les suivants sont secondaires
-  const isMain = decideIfMain();
-
-  const prompt =
-    'Tu es un journaliste expert en immigration et visas Schengen, spécialisé pour le marché marocain.\n' +
-    'Génère une actualité consulaire/Schengen réaliste et utile pour des Marocains souhaitant voyager en Europe.\n\n' +
-    'Sujet principal : "' + topic.title + '"\n' +
-    'Pays/scope : ' + topic.country + '\n' +
-    'Type de tag : ' + topic.tag_type + ' (alert = urgent/important, info = information utile, news = nouveauté)\n' +
-    'Article principal (plus long) : ' + (isMain ? 'OUI' : 'NON') + '\n\n' +
-    'Contexte : VisaPath, plateforme marocaine de guide visa Schengen, public = Marocains demandeurs de visa.\n' +
-    'Ton : professionnel, factuel, utile, sans alarmisme excessif.\n' +
-    'Période : mai-juin 2025.\n\n' +
-    'RÈGLES STRICTES :\n' +
-    '- Le titre doit être accrocheur, concret, max 90 caractères\n' +
-    '- Le résumé doit être en français, informatif et utile\n' +
-    (isMain
-      ? '- Résumé long : 2 à 3 phrases, 120 à 200 caractères, donne des détails concrets\n'
-      : '- Résumé court : 1 phrase max 100 caractères, va droit au but\n') +
-    '- Mentionner des éléments concrets : délais, montants, villes (Casablanca, Rabat, etc.), dates si pertinent\n' +
-    '- NE PAS inventer de nouvelles politiques radicales — rester crédible et plausible\n' +
-    '- Eviter le sensationnalisme\n\n' +
-    'Réponds UNIQUEMENT avec ce JSON brut, sans markdown, sans texte avant ni après :\n' +
+  // ── Appel 1 : Métadonnées SEO (JSON) ──
+  const metaPrompt =
+    'Tu es un expert SEO senior spécialisé dans les démarches visa et immigration pour le marché marocain francophone.\n' +
+    'Génère les métadonnées SEO pour un article de blog sur :\n' +
+    'Sujet : "' + topic.title + '"\n' +
+    'Catégorie : "' + topic.category + '"\n\n' +
+    'Contexte du site : site informatif indépendant aidant les Marocains à comprendre et préparer leur demande de visa Schengen.\n' +
+    'Cible : Marocains francophones cherchant des infos fiables sur Google Maroc — salariés, étudiants, familles, commerçants, retraités.\n' +
+    'Intentions de recherche : information utile, actualité consulaire, guide pratique, prévention des refus.\n\n' +
+    'Règles :\n' +
+    '- Titre SEO accrocheur, concret, localisé Maroc, max 60 caractères.\n' +
+    '- Meta description avec bénéfice clair et appel à lire, max 155 caractères.\n' +
+    '- Mots-clés pertinents : visa Schengen Maroc, documents visa Schengen, refus visa Schengen, rendez-vous TLS, VFS Maroc, passeport marocain, etc.\n\n' +
+    'Réponds UNIQUEMENT avec ce JSON brut, sans markdown, sans texte avant ou après :\n' +
     '{\n' +
-    '  "title": "titre de l\'actualité max 90 caractères",\n' +
-    '  "summary": "résumé de l\'actualité",\n' +
-    '  "tag_label": "' + topic.country + '"\n' +
+    '  "description": "résumé humain en 1 phrase max 155 caractères",\n' +
+    '  "summary": "résumé en 2 phrases max 270 caractères avec contexte marocain",\n' +
+    '  "seo_title": "titre SEO max 60 caractères, fort pour CTR",\n' +
+    '  "meta_description": "meta description max 155 caractères avec bénéfice et CTA doux",\n' +
+    '  "keywords": "8 à 12 mots-clés séparés par virgules, sans répétition excessive"\n' +
     '}';
 
-  const raw  = callGroq(prompt, 500);
-  const data = parseJsonSafe(raw);
+  const metaText = callGroq(metaPrompt, 700);
+  const meta     = parseJsonSafe(metaText);
+
+  // ── Appel 2 : Contenu HTML complet ──
+  const htmlPrompt =
+    'Tu es un rédacteur web expert en immigration et visa Schengen, écrivant pour un public marocain francophone.\n' +
+    'Rédige un article HTML complet et utile sur :\n' +
+    'Sujet : "' + topic.title + '"\n' +
+    'Catégorie : "' + topic.category + '"\n' +
+    'Mot-clé principal : "' + primaryKeyword + '"\n\n' +
+    'Objectif : fournir une information claire, fiable et actualisée pour 2025, qui aide réellement le lecteur marocain.\n' +
+    'Audience : Marocains souhaitant voyager en Europe — toutes catégories socioprofessionnelles.\n\n' +
+    'Structure OBLIGATOIRE dans cet ordre :\n' +
+    '1. <p>Introduction : contexte, problème concret et promesse de l\'article.</p>\n' +
+    '2. <h2>En résumé</h2> — réponse directe à la question principale en 2-3 phrases.\n' +
+    '3. Au moins 4 sections <h2> avec explications détaillées et utiles.\n' +
+    '4. Au moins 4 sous-sections <h3> réparties sous les H2.\n' +
+    '5. <h2>FAQ</h2> — 4 questions fréquentes en <h3> avec réponses courtes et précises.\n' +
+    '6. <h2>Conclusion</h2> — récapitulatif et prochaine action recommandée.\n\n' +
+    'Contraintes SEO et contenu :\n' +
+    '- Longueur cible : 1200 à 1700 mots.\n' +
+    '- Utiliser naturellement : visa Schengen Maroc, documents visa, consulat, TLS Contact, VFS Global, BLS, ambassade, passeport marocain, rendez-vous visa, refus visa, dossier visa, Schengen court séjour, long séjour, assurance voyage.\n' +
+    '- Mentionner des pays Schengen spécifiques quand c\'est pertinent (France, Espagne, Italie, Allemagne, Pays-Bas...).\n' +
+    '- Ton : clair, bienveillant, expert mais accessible. Pas alarmiste, pas promotionnel.\n' +
+    '- Ajouter des exemples concrets (délais en jours, montants en MAD ou EUR, situations réelles).\n' +
+    '- Ajouter des mises en garde utiles (attention aux arnaques, aux dossiers incomplets, etc.).\n' +
+    '- Varier les formulations. Éviter les listes artificielles et les répétitions.\n\n' +
+    'Liens internes obligatoires (à intégrer naturellement dans le texte) :\n' +
+    '- <a href="/guide-complet/">guide complet visa Schengen Maroc</a>\n' +
+    '- <a href="/documents-requis/">liste des documents requis</a>\n' +
+    '- <a href="/refus-recours/">que faire en cas de refus</a>\n' +
+    '- <a href="/actualites/">actualités consulaires Schengen</a>\n' +
+    '- <a href="/par-pays/">visa Schengen par pays</a>\n\n' +
+    'Balises autorisées : h2, h3, p, ul, ol, li, strong, em, a.\n' +
+    'INTERDIT : h1, html, head, body, script, style, table, markdown (```), commentaires.\n' +
+    'Commence directement par <p>.';
+
+  const contentHtml = callGroq(htmlPrompt, 8000);
 
   return {
-    id:           Utilities.getUuid(),
-    title:        safe(data.title  || topic.title, 90),
-    summary:      safe(data.summary || '', 300),
-    tag_type:     topic.tag_type,
-    tag_label:    data.tag_label || topic.country,
-    published_at: now.toISOString(),
-    is_main:      isMain,
-    status:       'published',
-    added_at:     now.toISOString(),
+    id:               Utilities.getUuid(),
+    title:            topic.title,
+    source:           'Schengen Maroc Blog',
+    category:         topic.category,
+    image_url:        '',
+    url:              CONFIG.SITE_URL + '/blog/' + slug + '/',
+    published_at:     now,
+    description:      safe(meta.description, 160),
+    summary:          safe(meta.summary, 300),
+    seo_title:        safe(meta.seo_title || topic.title, 60),
+    meta_description: safe(meta.meta_description || meta.description, 155),
+    keywords:         meta.keywords || '',
+    slug:             slug,
+    status:           'published',
+    added_at:         now,
+    content_html:     contentHtml.trim(),
   };
 }
 
-// Décide si l'article doit être le "principal" (news-main) pour la journée
-// Règle : on vérifie si un is_main=TRUE existe déjà aujourd'hui dans la feuille
-function decideIfMain() {
-  const sheet = getSheet();
-  const data  = sheet.getDataRange().getValues();
-  const today = new Date();
-  const todayStr = today.toISOString().substring(0, 10); // YYYY-MM-DD
-
-  const hasMainToday = data.slice(1).some(function(row) {
-    const pub      = row[COL.PUBLISHED_AT - 1];
-    const isMainCell = String(row[COL.IS_MAIN - 1]).toUpperCase();
-    const pubStr   = pub instanceof Date ? pub.toISOString().substring(0, 10)
-                                         : String(pub).substring(0, 10);
-    return isMainCell === 'TRUE' && pubStr === todayStr;
-  });
-
-  return !hasMainToday; // main si aucun main aujourd'hui
-}
-
 // ============================================================
-// GOOGLE SHEET
-// ============================================================
-function saveToSheet(article) {
-  const sheet     = getSheet();
-  const rowValues = [
-    article.id,
-    article.title,
-    article.summary,
-    article.tag_type,
-    article.tag_label,
-    article.published_at,
-    article.is_main ? 'TRUE' : 'FALSE',
-    article.status,
-    article.added_at,
-  ];
-
-  sheet.appendRow(rowValues);
-  const sheetRow = sheet.getLastRow();
-  Logger.log('✅ Actualité ligne ' + sheetRow + ' — main: ' + article.is_main);
-  return sheetRow;
-}
-
-function getSheet() {
-  const ss    = SpreadsheetApp.getActiveSpreadsheet();
-  let   sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(CONFIG.SHEET_NAME);
-    _createHeader(sheet);
-  }
-  return sheet;
-}
-
-function createSheetHeader() {
-  const sheet = getSheet();
-  _createHeader(sheet);
-  SpreadsheetApp.getUi().alert('✅ En-têtes créés', 'La feuille "Actualites" est prête.', SpreadsheetApp.getUi().ButtonSet.OK);
-}
-
-function _createHeader(sheet) {
-  if (sheet.getLastRow() > 0) return; // ne pas écraser si déjà présent
-  const headers = ['ID', 'Title', 'Summary', 'Tag Type', 'Tag Label', 'Published At', 'Is Main', 'Status', 'Added At'];
-  sheet.appendRow(headers);
-  sheet.getRange(1, 1, 1, headers.length)
-    .setFontWeight('bold')
-    .setBackground('#0D1421')
-    .setFontColor('#4F7CFF');
-  sheet.setFrozenRows(1);
-}
-
-// ============================================================
-// GITHUB — Push news.json
-// Format consommé directement par le HTML VisaPath
-// ============================================================
-function updateNewsJson() {
-  const sheet = getSheet();
-  const data  = sheet.getDataRange().getValues();
-
-  if (data.length <= 1) {
-    Logger.log('Aucune actualité à exporter.');
-    return;
-  }
-
-  // Lire toutes les actualités publiées, triées par date décroissante
-  const items = data.slice(1)
-    .filter(row => row[COL.STATUS - 1] === 'published' && row[COL.ID - 1])
-    .map(row => {
-      const title = row[COL.TITLE - 1];
-      const tagType = row[COL.TAG_TYPE - 1];
-      const tagLabel = row[COL.TAG_LABEL - 1];
-      return {
-        id:           row[COL.ID - 1],
-        title:        title,
-        slug:         slugify(title),
-        summary:      row[COL.SUMMARY - 1],
-        category:     mapCategory(tagType, tagLabel),
-        tag_type:     tagType,
-        tag_label:    tagLabel,
-        published_at: row[COL.PUBLISHED_AT - 1] instanceof Date
-                        ? row[COL.PUBLISHED_AT - 1].toISOString()
-                        : row[COL.PUBLISHED_AT - 1],
-        status:       row[COL.STATUS - 1],
-      };
-    })
-    .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
-
-  // Garder seulement les 20 dernières pour le fichier JSON (légèreté)
-  const recent = items.slice(0, 20);
-
-  Logger.log(recent.length + ' actualité(s) → GitHub blogs.json');
-  pushFileToGithub('blogs.json', JSON.stringify(recent, null, 2), 'chore: mise à jour blogs.json VisaPath');
-}
-
-// ============================================================
-// GITHUB — Push fichier
-// ============================================================
-function pushFileToGithub(path, content, message) {
-  const apiUrl =
-    'https://api.github.com/repos/' +
-    CONFIG.GITHUB_OWNER + '/' + CONFIG.GITHUB_REPO +
-    '/contents/' + path;
-
-  const headers = {
-    'Authorization':        'Bearer ' + CONFIG.GITHUB_TOKEN,
-    'Accept':               'application/vnd.github+json',
-    'X-GitHub-Api-Version': '2022-11-28',
-  };
-
-  // Récupérer SHA si le fichier existe déjà
-  let sha = null;
-  try {
-    const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
-    if (getResp.getResponseCode() === 200) {
-      sha = JSON.parse(getResp.getContentText()).sha;
-    }
-  } catch (e) { /* fichier n'existe pas encore, sha reste null */ }
-
-  const payload = {
-    message: message,
-    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-    branch:  'main',
-  };
-  if (sha) payload.sha = sha;
-
-  const response = UrlFetchApp.fetch(apiUrl, {
-    method:             'PUT',
-    headers:            headers,
-    payload:            JSON.stringify(payload),
-    muteHttpExceptions: true,
-  });
-
-  if (response.getResponseCode() >= 400) {
-    throw new Error(
-      'GitHub API error ' + response.getResponseCode() +
-      ' : ' + response.getContentText()
-    );
-  }
-
-  Logger.log('✅ GitHub push OK : ' + path);
-}
-
-// ============================================================
-// GROQ API
+// APPEL API GROQ
 // ============================================================
 function callGroq(prompt, maxTokens) {
   const response = UrlFetchApp.fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -385,7 +289,7 @@ function callGroq(prompt, maxTokens) {
       model:       'llama-3.3-70b-versatile',
       messages:    [{ role: 'user', content: prompt }],
       max_tokens:  maxTokens,
-      temperature: 0.72,
+      temperature: 0.7,
     }),
     muteHttpExceptions: true,
   });
@@ -401,31 +305,243 @@ function callGroq(prompt, maxTokens) {
 }
 
 // ============================================================
-// UTILITAIRES
+// PARSER JSON ROBUSTE
 // ============================================================
 function parseJsonSafe(text) {
+  // Tentative 1 : bloc ```json...```
   const blockMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
   if (blockMatch) {
     try { return JSON.parse(blockMatch[1].trim()); } catch (e) {}
   }
+
+  // Tentative 2 : premier {...} trouvé
   const braceMatch = text.match(/\{[\s\S]*\}/);
   if (braceMatch) {
     try { return JSON.parse(braceMatch[0]); } catch (e) {}
+    // Tentative 3 : nettoyer virgules trailing
     try { return JSON.parse(braceMatch[0].replace(/,(\s*[}\]])/g, '$1')); } catch (e) {}
   }
+
+  // Tentative 4 : extraction champ par champ (fallback ultime)
   Logger.log('⚠️ parseJsonSafe fallback : ' + text.substring(0, 200));
-  return { title: '', summary: '', tag_label: '' };
+  return extractFieldsFallback(text);
 }
 
+function extractFieldsFallback(text) {
+  const fields = ['description', 'summary', 'seo_title', 'meta_description', 'keywords'];
+  const result = {};
+  fields.forEach(function(field) {
+    const re = new RegExp('"' + field + '"\\s*:\\s*"([^"]*)"');
+    const m  = text.match(re);
+    result[field] = m ? m[1] : '';
+  });
+  return result;
+}
+
+// ── Tronquer proprement ─────────────────────────────────────
 function safe(str, max) {
   if (!str) return '';
   str = String(str).trim();
   return str.length <= max ? str : str.substring(0, max - 1) + '…';
 }
 
-function slugify(str) {
-  if (!str) return '';
-  return String(str)
+// ============================================================
+// GOOGLE SHEET — Enregistrement avec gestion images pré-remplies
+// ============================================================
+function saveToSheet(article) {
+  const sheet = getSheet();
+  const data  = sheet.getDataRange().getValues();
+
+  // Chercher une ligne avec image (col E) mais sans ID (col A)
+  // = ligne pré-remplie manuellement avec une URL d'image
+  let imageUrl  = '';
+  let targetRow = -1;
+
+  for (let i = 1; i < data.length; i++) {
+    const cellId    = String(data[i][COL.ID - 1]        || '').trim();
+    const cellImage = String(data[i][COL.IMAGE_URL - 1] || '').trim();
+
+    if (cellImage !== '' && cellId === '') {
+      imageUrl  = cellImage;
+      targetRow = i + 1;
+      break;
+    }
+  }
+
+  const rowValues = [
+    article.id,
+    article.title,
+    article.source,
+    article.category,
+    imageUrl !== '' ? imageUrl : (article.image_url || ''),
+    article.url,
+    article.published_at,
+    article.description,
+    article.summary,
+    article.seo_title,
+    article.meta_description,
+    article.keywords,
+    article.slug,
+    article.status,
+    article.added_at,
+  ];
+
+  let sheetRow;
+
+  if (targetRow > 0) {
+    sheetRow = targetRow;
+    sheet.getRange(sheetRow, 1, 1, rowValues.length).setValues([rowValues]);
+    sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    Logger.log('✅ Article ligne ' + sheetRow + ' — image : ' + imageUrl);
+  } else {
+    sheet.appendRow(rowValues);
+    sheetRow = sheet.getLastRow();
+    sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    Logger.log('✅ Article ligne ' + sheetRow + ' — sans image');
+  }
+
+  return sheetRow;
+}
+
+function getSheet() {
+  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  let   sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(CONFIG.SHEET_NAME);
+    createSheetHeader(sheet);
+  }
+  return sheet;
+}
+
+function createSheetHeader(sheet) {
+  const headers = [
+    'ID', 'Title', 'Source', 'Category', 'Image URL', 'URL',
+    'Published At', 'Description', 'Summary', 'SEO Title',
+    'Meta Description', 'Keywords', 'Slug', 'Status', 'Added At', 'Content HTML',
+  ];
+  sheet.appendRow(headers);
+  sheet.getRange(1, 1, 1, headers.length)
+    .setFontWeight('bold')
+    .setBackground('#003399')   // Bleu drapeau EU / Schengen
+    .setFontColor('#ffffff');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(COL.CONTENT_HTML, 80);
+  sheet.setColumnWidth(COL.TITLE, 300);
+  sheet.setColumnWidth(COL.DESCRIPTION, 250);
+}
+
+function initSheet() {
+  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  const existing = ss.getSheetByName(CONFIG.SHEET_NAME);
+  if (existing) {
+    existing.clear();
+    createSheetHeader(existing);
+  } else {
+    const sheet = ss.insertSheet(CONFIG.SHEET_NAME);
+    createSheetHeader(sheet);
+  }
+  SpreadsheetApp.getUi().alert(
+    '✅ Feuille initialisée',
+    'La feuille "' + CONFIG.SHEET_NAME + '" a été réinitialisée avec les en-têtes.',
+    SpreadsheetApp.getUi().ButtonSet.OK
+  );
+}
+
+// ============================================================
+// GITHUB — Push blogs.json
+// ============================================================
+function updateBlogsJson() {
+  const sheet = getSheet();
+  const data  = sheet.getDataRange().getValues();
+
+  if (data.length <= 1) {
+    Logger.log('Aucun article à exporter.');
+    return;
+  }
+
+  const articles = data.slice(1)
+    .filter(row => row[COL.STATUS - 1] === 'published' && row[COL.ID - 1])
+    .map(row => ({
+      id:               row[COL.ID - 1],
+      title:            row[COL.TITLE - 1],
+      source:           row[COL.SOURCE - 1],
+      category:         row[COL.CATEGORY - 1],
+      image_url:        row[COL.IMAGE_URL - 1] || '',
+      url:              row[COL.URL - 1],
+      published_at:     row[COL.PUBLISHED_AT - 1] instanceof Date
+                          ? row[COL.PUBLISHED_AT - 1].toISOString()
+                          : row[COL.PUBLISHED_AT - 1],
+      description:      row[COL.DESCRIPTION - 1],
+      summary:          row[COL.SUMMARY - 1],
+      seo_title:        row[COL.SEO_TITLE - 1],
+      meta_description: row[COL.META_DESCRIPTION - 1],
+      keywords:         row[COL.KEYWORDS - 1],
+      slug:             row[COL.SLUG - 1],
+      status:           row[COL.STATUS - 1],
+      added_at:         row[COL.ADDED_AT - 1] instanceof Date
+                          ? row[COL.ADDED_AT - 1].toISOString()
+                          : row[COL.ADDED_AT - 1],
+      content_html:     row[COL.CONTENT_HTML - 1] || '',
+    }));
+
+  Logger.log(articles.length + ' article(s) → GitHub');
+  pushFileToGithub(
+    'blogs.json',
+    JSON.stringify(articles, null, 2),
+    'chore: mise à jour blogs.json — ' + new Date().toISOString()
+  );
+}
+
+function pushFileToGithub(path, content, message) {
+  const apiUrl =
+    'https://api.github.com/repos/' +
+    CONFIG.GITHUB_OWNER + '/' + CONFIG.GITHUB_REPO +
+    '/contents/' + path;
+
+  const headers = {
+    'Authorization':        'Bearer ' + CONFIG.GITHUB_TOKEN,
+    'Accept':               'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+
+  // Récupérer le SHA existant (nécessaire pour update)
+  let sha = null;
+  try {
+    const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
+    if (getResp.getResponseCode() === 200) {
+      sha = JSON.parse(getResp.getContentText()).sha;
+    }
+  } catch (e) {
+    Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
+  }
+
+  const payload = {
+    message: message,
+    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
+    branch:  'master',
+  };
+  if (sha) payload.sha = sha;
+
+  const response = UrlFetchApp.fetch(apiUrl, {
+    method:             'PUT',
+    headers:            headers,
+    payload:            JSON.stringify(payload),
+    muteHttpExceptions: true,
+  });
+
+  const code = response.getResponseCode();
+  if (code >= 400) {
+    throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
+  }
+
+  Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
+}
+
+// ============================================================
+// UTILITAIRES
+// ============================================================
+function generateSlug(title) {
+  return title
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -437,24 +553,18 @@ function slugify(str) {
     .substring(0, 80);
 }
 
-function mapCategory(tagType, tagLabel) {
-  var pays = ['France','Espagne','Italie','Portugal','Allemagne','Pays-Bas','Belgique'];
-  if (pays.indexOf(tagLabel) !== -1) return 'Visa par pays';
-  if (tagType === 'alert') return 'Actualités Schengen';
-  if (tagType === 'news')  return 'Actualités Schengen';
-  if (tagType === 'info')  return 'Conseils pratiques';
-  return 'Actualités Schengen';
-}
-
 function sendErrorEmail(error) {
   try {
     GmailApp.sendEmail(
       Session.getActiveUser().getEmail(),
-      '[VISAPATH] Erreur génération actualité',
-      'Erreur :\n\n' + error.toString() + '\n\nStack:\n' + error.stack
+      '[SCHENGEN BLOG] Erreur génération article',
+      'Une erreur est survenue lors de la génération automatique d\'article.\n\n' +
+      'Erreur :\n' + error.toString() + '\n\n' +
+      'Stack trace :\n' + (error.stack || 'Non disponible') + '\n\n' +
+      'Date : ' + new Date().toISOString()
     );
   } catch (e) {
-    Logger.log('Email non envoyé : ' + e);
+    Logger.log('Email d\'erreur non envoyé : ' + e);
   }
 }
 
@@ -462,19 +572,23 @@ function sendErrorEmail(error) {
 // TRIGGERS
 // ============================================================
 function installDailyTrigger() {
+  // Supprimer tous les triggers existants d'abord
   ScriptApp.getProjectTriggers().forEach(t => ScriptApp.deleteTrigger(t));
 
-  // Générer 2 actualités par jour : 8h et 14h
-  ScriptApp.newTrigger('runDailyNews').timeBased().everyDays(1).atHour(8).create();
-  ScriptApp.newTrigger('runDailyNews').timeBased().everyDays(1).atHour(14).create();
+  // Créer un trigger quotidien à 9h00
+  ScriptApp.newTrigger('runDailyArticle')
+    .timeBased()
+    .everyDays(1)
+    .atHour(9)
+    .create();
 
   SpreadsheetApp.getUi().alert(
-    '✅ Triggers installés',
-    '2 actualités seront générées automatiquement :\n- 8h00\n- 14h00',
+    '✅ Trigger installé',
+    'Un article sera généré automatiquement chaque jour à 9h00.\n\nVérifiez dans Éditions > Déclencheurs.',
     SpreadsheetApp.getUi().ButtonSet.OK
   );
 }
 
 function testManual() {
-  runDailyNews(true);
+  runDailyArticle(true);
 }
