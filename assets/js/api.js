@@ -1,7 +1,7 @@
 /** GAS proxy client — API key is secured server-side, never exposed in frontend. */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbziWhpEWrDo-nhMvRYkM8ldYQT5tJRCDlTTVlw_08djgkYCNCcAYAGMK4s4gLyygHIR/exec';
 
-export async function analyserDossierViaGAS(payload) {
+export async function analyserDossierViaGAS(payload, signal) {
   console.log('[API] Envoi à GAS avec:', payload);
 
   const response = await fetch(GAS_URL, {
@@ -15,6 +15,7 @@ export async function analyserDossierViaGAS(payload) {
       documents:    payload.documents    || [],
       informations: payload.informations || '',
     }),
+    signal,
   });
 
   console.log('[API] Statut réponse GAS:', response.status);
