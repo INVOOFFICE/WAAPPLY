@@ -298,38 +298,31 @@ function updateNewsJson() {
   // Lire toutes les actualités publiées, triées par date décroissante
   const items = data.slice(1)
     .filter(row => row[COL.STATUS - 1] === 'published' && row[COL.ID - 1])
-    .map(row => ({
-      id:           row[COL.ID - 1],
-      title:        row[COL.TITLE - 1],
-      summary:      row[COL.SUMMARY - 1],
-      tag_type:     row[COL.TAG_TYPE - 1],   // "alert" | "info" | "news"
-      tag_label:    row[COL.TAG_LABEL - 1],  // "France", "Général", etc.
-      published_at: row[COL.PUBLISHED_AT - 1] instanceof Date
-                      ? row[COL.PUBLISHED_AT - 1].toISOString()
-                      : row[COL.PUBLISHED_AT - 1],
-      is_main:      String(row[COL.IS_MAIN - 1]).toUpperCase() === 'TRUE',
-      status:       row[COL.STATUS - 1],
-    }))
+    .map(row => {
+      const title = row[COL.TITLE - 1];
+      const tagType = row[COL.TAG_TYPE - 1];
+      const tagLabel = row[COL.TAG_LABEL - 1];
+      return {
+        id:           row[COL.ID - 1],
+        title:        title,
+        slug:         slugify(title),
+        summary:      row[COL.SUMMARY - 1],
+        category:     mapCategory(tagType, tagLabel),
+        tag_type:     tagType,
+        tag_label:    tagLabel,
+        published_at: row[COL.PUBLISHED_AT - 1] instanceof Date
+                        ? row[COL.PUBLISHED_AT - 1].toISOString()
+                        : row[COL.PUBLISHED_AT - 1],
+        status:       row[COL.STATUS - 1],
+      };
+    })
     .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
 
   // Garder seulement les 20 dernières pour le fichier JSON (légèreté)
   const recent = items.slice(0, 20);
 
-  // Identifier le main : le plus récent avec is_main = true
-  const mainArticle = recent.find(a => a.is_main) || recent[0];
-
-  // Les autres (non-main), max 4 pour les news-items de la sidebar
-  const sideItems = recent.filter(a => a.id !== mainArticle.id).slice(0, 4);
-
-  const output = {
-    generated_at: new Date().toISOString(),
-    main:         mainArticle,
-    items:        sideItems,
-    all:          recent,
-  };
-
-  Logger.log(recent.length + ' actualité(s) → GitHub news.json');
-  pushFileToGithub('news.json', JSON.stringify(output, null, 2), 'chore: mise à jour news.json VisaPath');
+  Logger.log(recent.length + ' actualité(s) → GitHub blogs.json');
+  pushFileToGithub('blogs.json', JSON.stringify(recent, null, 2), 'chore: mise à jour blogs.json VisaPath');
 }
 
 // ============================================================
@@ -428,6 +421,29 @@ function safe(str, max) {
   if (!str) return '';
   str = String(str).trim();
   return str.length <= max ? str : str.substring(0, max - 1) + '…';
+}
+
+function slugify(str) {
+  if (!str) return '';
+  return String(str)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[''']/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .substring(0, 80);
+}
+
+function mapCategory(tagType, tagLabel) {
+  var pays = ['France','Espagne','Italie','Portugal','Allemagne','Pays-Bas','Belgique'];
+  if (pays.indexOf(tagLabel) !== -1) return 'Visa par pays';
+  if (tagType === 'alert') return 'Actualités Schengen';
+  if (tagType === 'news')  return 'Actualités Schengen';
+  if (tagType === 'info')  return 'Conseils pratiques';
+  return 'Actualités Schengen';
 }
 
 function sendErrorEmail(error) {

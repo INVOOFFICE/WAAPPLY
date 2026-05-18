@@ -13,9 +13,19 @@ const CAT_MAP = {
   'Profils spécifiques': { cls: 'tag-news',  label: 'Profil' },
 };
 
+const TYPE_CLS = { alert: 'tag-alert', info: 'tag-info', news: 'tag-news' };
+
 const FMT = iso => iso ? new Date(iso).toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' }) : '';
 
-function tagHtml(category) {
+function tagHtml(item) {
+  // Use tag_type/tag_label from GAS if available
+  if (item.tag_type && item.tag_label) {
+    const cls = TYPE_CLS[item.tag_type] || 'tag-info';
+    const icon = item.tag_type === 'alert' ? TAG_ICON + ' ' : '';
+    return `<span class="news-tag ${cls}">${icon}${item.tag_label}</span>`;
+  }
+  // Fallback to category-based mapping
+  const category = item.category || '';
   const m = CAT_MAP[category] || { cls: 'tag-info', label: category || 'Info' };
   const icon = m.cls === 'tag-alert' ? TAG_ICON + ' ' : '';
   return `<span class="news-tag ${m.cls}">${icon}${m.label}</span>`;
@@ -57,7 +67,7 @@ export async function loadNews() {
   container.innerHTML = `
     <a href="/blog/${esc(first.slug)}/" class="news-main-link">
       <div class="news-main">
-        ${tagHtml(first.category)}
+        ${tagHtml(first)}
         <h4>${esc(first.title)}</h4>
         ${first.summary ? `<p>${esc(first.summary)}</p>` : ''}
         <div class="news-date">${CLOCK_LG} ${FMT(first.published_at)}</div>
@@ -67,7 +77,7 @@ export async function loadNews() {
       ${limit.map(a => `
         <a href="/blog/${esc(a.slug)}/" class="news-item-link">
           <div class="news-item">
-            ${tagHtml(a.category)}
+            ${tagHtml(a)}
             <h5>${esc(a.title)}</h5>
             <div class="news-date">${CLOCK_SM} ${FMT(a.published_at)}</div>
           </div>
