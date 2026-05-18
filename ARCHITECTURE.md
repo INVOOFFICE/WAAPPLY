@@ -110,7 +110,7 @@ Une seule page HTML avec ancres (`#evaluateur`, `#pays`, `#outils`, `#blog`).
 | Évaluateur | `#evaluateur` | Formulaire 7 champs + résultat | Dynamique (JS) |
 | Destinations | `#pays` | Chips taux d'acceptation par pays | Statique |
 | Outils | `#outils` | Grille 6 fonctionnalités | Statique |
-| Blog | `#blog` | Article principal + 3 articles latéraux | Dynamique (fetch blogs.json) |
+| Blog | `#blog` | Article principal + 3 articles latéraux (avec image si image_url) | Dynamique (fetch blogs.json) |
 | Footer | `footer` | Liens, marque, copyright | Statique |
 
 ### États du blog
@@ -209,8 +209,8 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 loadNews()
   → fetch blogs.json (3 URLs fallback)
   → filtre : status === 'published' && slug && title
-  → prend le 1er article → .news-main
-  → prend les 3 suivants → .news-list
+  → prend le 1er article → .news-main (avec image si image_url)
+  → prend les 3 suivants → .news-list (avec image si image_url)
   → injection HTML dans .news-layout
 ```
 
@@ -219,8 +219,8 @@ loadNews()
 Déclenché par GitHub Actions sur chaque push modifiant `blogs.json`.
 
 Génère :
-- `blog/<slug>/index.html` — page détail optimisée SEO (Schema.org, OG, Twitter Card)
-- `blog/index.html` — index de tous les articles
+- `blog/<slug>/index.html` — page détail optimisée SEO (Schema.org, OG, Twitter Card, image hero si image_url)
+- `blog/index.html` — index de tous les articles (avec image card si image_url)
 - `sitemap.xml` — toutes les URLs
 - `llms.txt` — contexte pour LLM
 - `robots.txt` — directive crawl
@@ -313,7 +313,7 @@ Push sur `master` modifiant :
     "title": "Visa Schengen France depuis le Maroc : dossier complet 2025",
     "source": "Schengen Maroc Blog",
     "category": "Visa par pays",
-    "image_url": "",
+    "image_url": "https://images.unsplash.com/photo-xxx",  // URL image (affichée dans le blog si non vide)
     "url": "https://waapply.com/blog/visa-schengen-france-maroc-dossier/",
     "published_at": "2025-05-18T09:00:00.000Z",
     "description": "Tout savoir sur le visa Schengen France pour les Marocains...",
