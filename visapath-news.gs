@@ -217,53 +217,59 @@ function generateArticle(topic) {
 
   // ── Appel 1 : Métadonnées SEO (JSON) ──
   const metaPrompt =
-    'Tu es un expert SEO senior spécialisé dans les démarches visa et immigration pour le marché marocain francophone.\n' +
+    'Tu es un expert SEO spécialisé dans le visa Schengen pour les Marocains, tu connais par cœur les vraies questions que les gens tapent sur Google au Maroc.\n' +
     'Génère les métadonnées SEO pour un article de blog sur :\n' +
     'Sujet : "' + topic.title + '"\n' +
     'Catégorie : "' + topic.category + '"\n\n' +
-    'Contexte du site : site informatif indépendant aidant les Marocains à comprendre et préparer leur demande de visa Schengen.\n' +
-    'Cible : Marocains francophones cherchant des infos fiables sur Google Maroc — salariés, étudiants, familles, commerçants, retraités.\n' +
-    'Intentions de recherche : information utile, actualité consulaire, guide pratique, prévention des refus.\n\n' +
+    'Contexte du site : site informatif pour les Marocains qui veulent un visa Schengen — ils en ont marre des infos vagues, ils veulent du concret.\n' +
+    'Cible : Marocains de 22-45 ans, plutôt actifs (salariés, commerçants, étudiants, mères de famille) qui cherchent sur Google des réponses à leurs doutes.\n\n' +
     'Règles :\n' +
-    '- Titre SEO accrocheur, concret, localisé Maroc, max 60 caractères.\n' +
-    '- Meta description avec bénéfice clair et appel à lire, max 155 caractères.\n' +
-    '- Mots-clés pertinents : visa Schengen Maroc, documents visa Schengen, refus visa Schengen, rendez-vous TLS, VFS Maroc, passeport marocain, etc.\n\n' +
+    '- Titre SEO : max 60 car., punchy, avec un mot qui accroche l\'émotion (ex: "éviter", "refus", "gratuit", "rapide", "obligatoire").\n' +
+    '- Meta description : max 155 car., parle comme si tu répondais à un ami — pas de jargon. Finis par un appel discret à lire.\n' +
+    '- Mots-clés : 8-12, inclus des variantes "darija-friendly" comme "visa Schengen Maroc 2025", "document visa France Maroc", "rendez-vous TLS Casablanca".\n' +
+    '- Description : 1 phrase max 155 car., qui donne LA réponse à la question principale.\n' +
+    '- Summary : 2 phrases max 270 car., avec contexte marocain et bénéfice clair.\n\n' +
     'Réponds UNIQUEMENT avec ce JSON brut, sans markdown, sans texte avant ou après :\n' +
     '{\n' +
-    '  "description": "résumé humain en 1 phrase max 155 caractères",\n' +
-    '  "summary": "résumé en 2 phrases max 270 caractères avec contexte marocain",\n' +
-    '  "seo_title": "titre SEO max 60 caractères, fort pour CTR",\n' +
-    '  "meta_description": "meta description max 155 caractères avec bénéfice et CTA doux",\n' +
-    '  "keywords": "8 à 12 mots-clés séparés par virgules, sans répétition excessive"\n' +
+    '  "description": "…",\n' +
+    '  "summary": "…",\n' +
+    '  "seo_title": "…",\n' +
+    '  "meta_description": "…",\n' +
+    '  "keywords": "…"\n' +
     '}';
 
   const metaText = callGroq(metaPrompt, 700);
   const meta     = parseJsonSafe(metaText);
 
-  // ── Appel 2 : Contenu HTML complet ──
+  // ── Appel 2 : Contenu HTML complet — ton marocain, exemples concrets, FAQ réaliste ──
   const htmlPrompt =
-    'Tu es un rédacteur web expert en immigration et visa Schengen, écrivant pour un public marocain francophone.\n' +
-    'Rédige un article HTML complet et utile sur :\n' +
+    'Tu es un rédacteur marocain qui aide les gens à obtenir leur visa Schengen. Tu écris comme tu parlerais à un pote dans un café à Casablanca — chaleureux, direct, sans blabla.\n\n' +
+    'Rédige un article HTML complet sur :\n' +
     'Sujet : "' + topic.title + '"\n' +
-    'Catégorie : "' + topic.category + '"\n' +
-    'Mot-clé principal : "' + primaryKeyword + '"\n\n' +
-    'Objectif : fournir une information claire, fiable et actualisée pour 2025, qui aide réellement le lecteur marocain.\n' +
-    'Audience : Marocains souhaitant voyager en Europe — toutes catégories socioprofessionnelles.\n\n' +
-    'Structure OBLIGATOIRE dans cet ordre :\n' +
-    '1. <p>Introduction : contexte, problème concret et promesse de l\'article.</p>\n' +
-    '2. <h2>En résumé</h2> — réponse directe à la question principale en 2-3 phrases.\n' +
-    '3. Au moins 4 sections <h2> avec explications détaillées et utiles.\n' +
-    '4. Au moins 4 sous-sections <h3> réparties sous les H2.\n' +
-    '5. <h2>FAQ</h2> — 4 questions fréquentes en <h3> avec réponses courtes et précises.\n' +
-    '6. <h2>Conclusion</h2> — récapitulatif et prochaine action recommandée.\n\n' +
-    'Contraintes SEO et contenu :\n' +
-    '- Longueur cible : 1200 à 1700 mots.\n' +
-    '- Utiliser naturellement : visa Schengen Maroc, documents visa, consulat, TLS Contact, VFS Global, BLS, ambassade, passeport marocain, rendez-vous visa, refus visa, dossier visa, Schengen court séjour, long séjour, assurance voyage.\n' +
-    '- Mentionner des pays Schengen spécifiques quand c\'est pertinent (France, Espagne, Italie, Allemagne, Pays-Bas...).\n' +
-    '- Ton : clair, bienveillant, expert mais accessible. Pas alarmiste, pas promotionnel.\n' +
-    '- Ajouter des exemples concrets (délais en jours, montants en MAD ou EUR, situations réelles).\n' +
-    '- Ajouter des mises en garde utiles (attention aux arnaques, aux dossiers incomplets, etc.).\n' +
-    '- Varier les formulations. Éviter les listes artificielles et les répétitions.\n\n' +
+    'Catégorie : "' + topic.category + '"\n\n' +
+    '=== PUBLIC CIBLE ===\n' +
+    'Marocains de 22-45 ans, plutôt actifs, qui veulent voyager en Europe mais qui ont peur du refus. Beaucoup sont primo-demandeurs, certains ont déjà eu un refus. Ils veulent des réponses VRAIES, pas des généralités.\n\n' +
+    '=== STRUCTURE OBLIGATOIRE ===\n' +
+    '1. <p>Introduction : accroche directe — "Vous êtes marocain et vous voulez un visa Schengen ? Voici exactement ce qu\'il faut faire." Plante le décor : le stress, les files à VFS/TLS, la peur du refus. Promets une réponse claire.\n' +
+    '2. <h2>En résumé</h2> — la réponse courte à la question principale, 3-4 lignes max.\n' +
+    '3. Au moins 4 sections <h2> avec des sous-sections <h3>. Chaque section répond à une vraie question que les Marocains se posent. Utilise des sous-titres qui ressemblent à des recherches Google (ex: "Quels documents pour un CDI ?", "Combien coûte le visa en 2025 ?", "Où déposer à Casablanca ou Rabat ?").\n' +
+    '4. <h2>FAQ</h2> — 5 vraies questions que les Marocains tapent sur Google, avec des réponses courtes et honnêtes. Inspire-toi de questions comme :\n' +
+    '   - "Puis-je voyager dans un autre pays Schengen que celui de mon visa ?"\n' +
+    '   - "Combien de temps avant mon voyage dois-je déposer ?"\n' +
+    '   - "Est-ce que je peux travailler avec un visa touristique ?"\n' +
+    '   - "Mon passeport est-il valable pour le visa ? (6 mois ou 3 mois ?)"\n' +
+    '   - " Que faire si on me refuse le visa ?"\n' +
+    '5. <h2>Conclusion</h2> — résumé sympa + prochaine action concrète.\n\n' +
+    '=== EXIGENCES DE CONTENU ===\n' +
+    '- Longueur : 1200 à 1700 mots.\n' +
+    '- TON : conversationnel marocain francophone — utilise "vous" poli mais chaleureux. Phrases courtes. Pas de langue de bois. Évite le jargon administratif.\n' +
+    '- EXEMPLES CONCRETS OBLIGATOIRES :\n' +
+    '  * Centres : "TLS Contact à Casablanca (Boulevard Ghandi) ouvre les créneaux à 8h le lundi" — "VFS Global à Rabat, comptez 30 min de visite"\n' +
+    '  * Délais réels : "En mars 2025, les rendez-vous France à VFS Casablanca sont à 4-6 semaines. Pour l\'Italie, c\'est 2-3 semaines."\n' +
+    '  * Montants précis : "Le visa coûte 90€ (environ 980 MAD). L\'assurance voyage : 50-150 MAD selon la durée."\n' +
+    '  * Situations : "Si vous êtes commerçant à Tanger, vous devez fournir votre registre de commerce + les 2 dernières déclarations fiscales."\n' +
+    '- MISES EN GARDE UTILES : "Attention aux pages Facebook qui promettent un visa en 48h — c\'est une arnaque." "Ne réservez pas un vol non remboursable avant d\'avoir le visa."\n' +
+    '- SEO : utilise naturellement : visa Schengen Maroc, documents visa, TLS Contact, VFS Global, passeport marocain, rendez-vous visa, refus visa, consulat France Maroc, BLS International.\n\n' +
     'Liens internes obligatoires (à intégrer naturellement dans le texte) :\n' +
     '- <a href="/guide-complet/">guide complet visa Schengen Maroc</a>\n' +
     '- <a href="/documents-requis/">liste des documents requis</a>\n' +
