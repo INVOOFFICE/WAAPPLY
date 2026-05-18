@@ -36,6 +36,7 @@ const COL = {
   STATUS:           14, // N
   ADDED_AT:         15, // O
   CONTENT_HTML:     16, // P
+  ERROR_LOG:        17, // Q
 };
 
 // ============================================================
@@ -68,34 +69,52 @@ function removeAllTriggers() {
 // POINT D'ENTRÉE PRINCIPAL
 // ============================================================
 function runDailyArticle(showAlert) {
+  let article = null;
+  let row     = null;
+
   try {
     Logger.log('=== SCHENGEN BLOG — Démarrage ===');
 
     const topic = pickTopic();
     Logger.log('Sujet choisi : ' + topic.title);
 
-    const article = generateArticle(topic);
+    article = generateArticle(topic);
     Logger.log('Article généré : ' + article.title);
 
-    const row = saveToSheet(article);
+    row = saveToSheet(article);
     Logger.log('Enregistré à la ligne : ' + row);
 
-    updateBlogsJson();
-    Logger.log('GitHub mis à jour avec succès');
+    // Push GitHub avec retry interne (3 tentatives)
+    try {
+      updateBlogsJson();
+    } catch (githubErr) {
+      logSheetError(article.id, 'GitHub push failed: ' + githubErr.toString());
+      sendErrorEmail(githubErr, article.title + ' (ligne ' + row + ')');
+      throw new Error('Échec push GitHub après 3 tentatives : ' + githubErr.toString());
+    }
 
+    Logger.log('GitHub mis à jour avec succès');
     Logger.log('=== Terminé avec succès ===');
+
+    sendSuccessEmail(article.title, row);
 
     if (showAlert) {
       SpreadsheetApp.getUi().alert(
         '✅ Article généré !',
-        '"' + article.title + '"\nLigne ' + row + ' dans la feuille Articles.',
+        '"' + article.title + '"\nLigne ' + row + ' dans la feuille ' + CONFIG.SHEET_NAME + '.',
         SpreadsheetApp.getUi().ButtonSet.OK
       );
     }
 
   } catch (e) {
     Logger.log('ERREUR : ' + e.toString());
-    sendErrorEmail(e);
+
+    if (article && article.id) {
+      logSheetError(article.id, 'Final: ' + e.toString());
+    }
+
+    sendErrorEmail(e, article ? article.title + ' (ligne ' + row + ')' : null);
+
     if (showAlert) {
       SpreadsheetApp.getUi().alert('❌ Erreur', e.toString(), SpreadsheetApp.getUi().ButtonSet.OK);
     }
@@ -176,6 +195,26 @@ function pickTopic() {
   const used      = getUsedTitles();
   const available = topics.filter(t => !used.includes(t.title));
   const pool      = available.length > 0 ? available : topics;
+  const recent    = getLastPublishedTitles(10);
+
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const candidate = pool[Math.floor(Math.random() * pool.length)];
+    const candidateText = candidate.title + ' ' + candidate.category;
+
+    let tooSimilar = false;
+    for (let r = 0; r < recent.length; r++) {
+      const sim = jaccardSimilarity(candidateText, recent[r].title + ' ' + recent[r].category);
+      if (sim > 0.7) {
+        tooSimilar = true;
+        Logger.log('⚠️ Similarité ' + sim.toFixed(2) + ' avec "' + recent[r].title.substring(0, 40) + '" — re-tirage');
+        break;
+      }
+    }
+
+    if (!tooSimilar) return candidate;
+  }
+
+  Logger.log('⚠️ Aucun sujet original trouvé après 5 tentatives — dernier candidat forcé');
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
@@ -198,53 +237,59 @@ function generateArticle(topic) {
 
   // ── Appel 1 : Métadonnées SEO (JSON) ──
   const metaPrompt =
-    'Tu es un expert SEO senior spécialisé dans les démarches visa et immigration pour le marché marocain francophone.\n' +
+    'Tu es un expert SEO spécialisé dans le visa Schengen pour les Marocains, tu connais par cœur les vraies questions que les gens tapent sur Google au Maroc.\n' +
     'Génère les métadonnées SEO pour un article de blog sur :\n' +
     'Sujet : "' + topic.title + '"\n' +
     'Catégorie : "' + topic.category + '"\n\n' +
-    'Contexte du site : site informatif indépendant aidant les Marocains à comprendre et préparer leur demande de visa Schengen.\n' +
-    'Cible : Marocains francophones cherchant des infos fiables sur Google Maroc — salariés, étudiants, familles, commerçants, retraités.\n' +
-    'Intentions de recherche : information utile, actualité consulaire, guide pratique, prévention des refus.\n\n' +
+    'Contexte du site : site informatif pour les Marocains qui veulent un visa Schengen — ils en ont marre des infos vagues, ils veulent du concret.\n' +
+    'Cible : Marocains de 22-45 ans, plutôt actifs (salariés, commerçants, étudiants, mères de famille) qui cherchent sur Google des réponses à leurs doutes.\n\n' +
     'Règles :\n' +
-    '- Titre SEO accrocheur, concret, localisé Maroc, max 60 caractères.\n' +
-    '- Meta description avec bénéfice clair et appel à lire, max 155 caractères.\n' +
-    '- Mots-clés pertinents : visa Schengen Maroc, documents visa Schengen, refus visa Schengen, rendez-vous TLS, VFS Maroc, passeport marocain, etc.\n\n' +
+    '- Titre SEO : max 60 car., punchy, avec un mot qui accroche l\'émotion (ex: "éviter", "refus", "gratuit", "rapide", "obligatoire").\n' +
+    '- Meta description : max 155 car., parle comme si tu répondais à un ami — pas de jargon. Finis par un appel discret à lire.\n' +
+    '- Mots-clés : 8-12, inclus des variantes "darija-friendly" comme "visa Schengen Maroc 2025", "document visa France Maroc", "rendez-vous TLS Casablanca".\n' +
+    '- Description : 1 phrase max 155 car., qui donne LA réponse à la question principale.\n' +
+    '- Summary : 2 phrases max 270 car., avec contexte marocain et bénéfice clair.\n\n' +
     'Réponds UNIQUEMENT avec ce JSON brut, sans markdown, sans texte avant ou après :\n' +
     '{\n' +
-    '  "description": "résumé humain en 1 phrase max 155 caractères",\n' +
-    '  "summary": "résumé en 2 phrases max 270 caractères avec contexte marocain",\n' +
-    '  "seo_title": "titre SEO max 60 caractères, fort pour CTR",\n' +
-    '  "meta_description": "meta description max 155 caractères avec bénéfice et CTA doux",\n' +
-    '  "keywords": "8 à 12 mots-clés séparés par virgules, sans répétition excessive"\n' +
+    '  "description": "…",\n' +
+    '  "summary": "…",\n' +
+    '  "seo_title": "…",\n' +
+    '  "meta_description": "…",\n' +
+    '  "keywords": "…"\n' +
     '}';
 
   const metaText = callGroq(metaPrompt, 700);
   const meta     = parseJsonSafe(metaText);
 
-  // ── Appel 2 : Contenu HTML complet ──
+  // ── Appel 2 : Contenu HTML complet — ton marocain, exemples concrets, FAQ réaliste ──
   const htmlPrompt =
-    'Tu es un rédacteur web expert en immigration et visa Schengen, écrivant pour un public marocain francophone.\n' +
-    'Rédige un article HTML complet et utile sur :\n' +
+    'Tu es un rédacteur marocain qui aide les gens à obtenir leur visa Schengen. Tu écris comme tu parlerais à un pote dans un café à Casablanca — chaleureux, direct, sans blabla.\n\n' +
+    'Rédige un article HTML complet sur :\n' +
     'Sujet : "' + topic.title + '"\n' +
-    'Catégorie : "' + topic.category + '"\n' +
-    'Mot-clé principal : "' + primaryKeyword + '"\n\n' +
-    'Objectif : fournir une information claire, fiable et actualisée pour 2025, qui aide réellement le lecteur marocain.\n' +
-    'Audience : Marocains souhaitant voyager en Europe — toutes catégories socioprofessionnelles.\n\n' +
-    'Structure OBLIGATOIRE dans cet ordre :\n' +
-    '1. <p>Introduction : contexte, problème concret et promesse de l\'article.</p>\n' +
-    '2. <h2>En résumé</h2> — réponse directe à la question principale en 2-3 phrases.\n' +
-    '3. Au moins 4 sections <h2> avec explications détaillées et utiles.\n' +
-    '4. Au moins 4 sous-sections <h3> réparties sous les H2.\n' +
-    '5. <h2>FAQ</h2> — 4 questions fréquentes en <h3> avec réponses courtes et précises.\n' +
-    '6. <h2>Conclusion</h2> — récapitulatif et prochaine action recommandée.\n\n' +
-    'Contraintes SEO et contenu :\n' +
-    '- Longueur cible : 1200 à 1700 mots.\n' +
-    '- Utiliser naturellement : visa Schengen Maroc, documents visa, consulat, TLS Contact, VFS Global, BLS, ambassade, passeport marocain, rendez-vous visa, refus visa, dossier visa, Schengen court séjour, long séjour, assurance voyage.\n' +
-    '- Mentionner des pays Schengen spécifiques quand c\'est pertinent (France, Espagne, Italie, Allemagne, Pays-Bas...).\n' +
-    '- Ton : clair, bienveillant, expert mais accessible. Pas alarmiste, pas promotionnel.\n' +
-    '- Ajouter des exemples concrets (délais en jours, montants en MAD ou EUR, situations réelles).\n' +
-    '- Ajouter des mises en garde utiles (attention aux arnaques, aux dossiers incomplets, etc.).\n' +
-    '- Varier les formulations. Éviter les listes artificielles et les répétitions.\n\n' +
+    'Catégorie : "' + topic.category + '"\n\n' +
+    '=== PUBLIC CIBLE ===\n' +
+    'Marocains de 22-45 ans, plutôt actifs, qui veulent voyager en Europe mais qui ont peur du refus. Beaucoup sont primo-demandeurs, certains ont déjà eu un refus. Ils veulent des réponses VRAIES, pas des généralités.\n\n' +
+    '=== STRUCTURE OBLIGATOIRE ===\n' +
+    '1. <p>Introduction : accroche directe — "Vous êtes marocain et vous voulez un visa Schengen ? Voici exactement ce qu\'il faut faire." Plante le décor : le stress, les files à VFS/TLS, la peur du refus. Promets une réponse claire.\n' +
+    '2. <h2>En résumé</h2> — la réponse courte à la question principale, 3-4 lignes max.\n' +
+    '3. Au moins 4 sections <h2> avec des sous-sections <h3>. Chaque section répond à une vraie question que les Marocains se posent. Utilise des sous-titres qui ressemblent à des recherches Google (ex: "Quels documents pour un CDI ?", "Combien coûte le visa en 2025 ?", "Où déposer à Casablanca ou Rabat ?").\n' +
+    '4. <h2>FAQ</h2> — 5 vraies questions que les Marocains tapent sur Google, avec des réponses courtes et honnêtes. Inspire-toi de questions comme :\n' +
+    '   - "Puis-je voyager dans un autre pays Schengen que celui de mon visa ?"\n' +
+    '   - "Combien de temps avant mon voyage dois-je déposer ?"\n' +
+    '   - "Est-ce que je peux travailler avec un visa touristique ?"\n' +
+    '   - "Mon passeport est-il valable pour le visa ? (6 mois ou 3 mois ?)"\n' +
+    '   - " Que faire si on me refuse le visa ?"\n' +
+    '5. <h2>Conclusion</h2> — résumé sympa + prochaine action concrète.\n\n' +
+    '=== EXIGENCES DE CONTENU ===\n' +
+    '- Longueur : 1200 à 1700 mots.\n' +
+    '- TON : conversationnel marocain francophone — utilise "vous" poli mais chaleureux. Phrases courtes. Pas de langue de bois. Évite le jargon administratif.\n' +
+    '- EXEMPLES CONCRETS OBLIGATOIRES :\n' +
+    '  * Centres : "TLS Contact à Casablanca (Boulevard Ghandi) ouvre les créneaux à 8h le lundi" — "VFS Global à Rabat, comptez 30 min de visite"\n' +
+    '  * Délais réels : "En mars 2025, les rendez-vous France à VFS Casablanca sont à 4-6 semaines. Pour l\'Italie, c\'est 2-3 semaines."\n' +
+    '  * Montants précis : "Le visa coûte 90€ (environ 980 MAD). L\'assurance voyage : 50-150 MAD selon la durée."\n' +
+    '  * Situations : "Si vous êtes commerçant à Tanger, vous devez fournir votre registre de commerce + les 2 dernières déclarations fiscales."\n' +
+    '- MISES EN GARDE UTILES : "Attention aux pages Facebook qui promettent un visa en 48h — c\'est une arnaque." "Ne réservez pas un vol non remboursable avant d\'avoir le visa."\n' +
+    '- SEO : utilise naturellement : visa Schengen Maroc, documents visa, TLS Contact, VFS Global, passeport marocain, rendez-vous visa, refus visa, consulat France Maroc, BLS International.\n\n' +
     'Liens internes obligatoires (à intégrer naturellement dans le texte) :\n' +
     '- <a href="/guide-complet/">guide complet visa Schengen Maroc</a>\n' +
     '- <a href="/documents-requis/">liste des documents requis</a>\n' +
@@ -392,11 +437,13 @@ function saveToSheet(article) {
     sheetRow = targetRow;
     sheet.getRange(sheetRow, 1, 1, rowValues.length).setValues([rowValues]);
     sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    sheet.getRange(sheetRow, COL.ERROR_LOG).setValue('');
     Logger.log('✅ Article ligne ' + sheetRow + ' — image : ' + imageUrl);
   } else {
     sheet.appendRow(rowValues);
     sheetRow = sheet.getLastRow();
     sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    sheet.getRange(sheetRow, COL.ERROR_LOG).setValue('');
     Logger.log('✅ Article ligne ' + sheetRow + ' — sans image');
   }
 
@@ -417,7 +464,7 @@ function createSheetHeader(sheet) {
   const headers = [
     'ID', 'Title', 'Source', 'Category', 'Image URL', 'URL',
     'Published At', 'Description', 'Summary', 'SEO Title',
-    'Meta Description', 'Keywords', 'Slug', 'Status', 'Added At', 'Content HTML',
+    'Meta Description', 'Keywords', 'Slug', 'Status', 'Added At', 'Content HTML', 'Error Log',
   ];
   sheet.appendRow(headers);
   sheet.getRange(1, 1, 1, headers.length)
@@ -485,11 +532,18 @@ function updateBlogsJson() {
     }));
 
   Logger.log(articles.length + ' article(s) → GitHub');
-  pushFileToGithub(
-    'blogs.json',
-    JSON.stringify(articles, null, 2),
-    'chore: mise à jour blogs.json — ' + new Date().toISOString()
-  );
+  const json = JSON.stringify(articles, null, 2);
+  const ts   = new Date().toISOString();
+
+  const LATEST_COUNT = 10;
+  const latest = articles.slice(0, LATEST_COUNT);
+  const archive = articles.slice(LATEST_COUNT);
+
+  pushFileToGithub('blogs.json',         json,                              'chore: mise à jour blogs.json — ' + ts);
+  pushFileToGithub('blogs-latest.json',  JSON.stringify(latest, null, 2),   'chore: mise à jour blogs-latest.json — ' + ts);
+  if (archive.length > 0) {
+    pushFileToGithub('blogs-archive.json', JSON.stringify(archive, null, 2), 'chore: mise à jour blogs-archive.json — ' + ts);
+  }
 }
 
 function pushFileToGithub(path, content, message) {
@@ -504,37 +558,51 @@ function pushFileToGithub(path, content, message) {
     'X-GitHub-Api-Version': '2022-11-28',
   };
 
-  // Récupérer le SHA existant (nécessaire pour update)
-  let sha = null;
-  try {
-    const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
-    if (getResp.getResponseCode() === 200) {
-      sha = JSON.parse(getResp.getContentText()).sha;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      let sha = null;
+      try {
+        const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
+        if (getResp.getResponseCode() === 200) {
+          sha = JSON.parse(getResp.getContentText()).sha;
+        }
+      } catch (e) {
+        Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
+      }
+
+      const payload = {
+        message: message,
+        content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
+        branch:  'master',
+      };
+      if (sha) payload.sha = sha;
+
+      const response = UrlFetchApp.fetch(apiUrl, {
+        method:             'PUT',
+        headers:            headers,
+        payload:            JSON.stringify(payload),
+        muteHttpExceptions: true,
+      });
+
+      const code = response.getResponseCode();
+      if (code >= 400) {
+        throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
+      }
+
+      Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
+      return;
+
+    } catch (e) {
+      Logger.log('⚠️ Tentative ' + attempt + '/3 GitHub push échouée : ' + e.toString());
+      if (attempt < 3) {
+        const delay = Math.pow(2, attempt) * 1000;
+        Logger.log('   Nouvelle tentative dans ' + delay + 'ms...');
+        Utilities.sleep(delay);
+      } else {
+        throw e;
+      }
     }
-  } catch (e) {
-    Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
   }
-
-  const payload = {
-    message: message,
-    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-    branch:  'master',
-  };
-  if (sha) payload.sha = sha;
-
-  const response = UrlFetchApp.fetch(apiUrl, {
-    method:             'PUT',
-    headers:            headers,
-    payload:            JSON.stringify(payload),
-    muteHttpExceptions: true,
-  });
-
-  const code = response.getResponseCode();
-  if (code >= 400) {
-    throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
-  }
-
-  Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
 }
 
 // ============================================================
@@ -553,18 +621,125 @@ function generateSlug(title) {
     .substring(0, 80);
 }
 
-function sendErrorEmail(error) {
+// ============================================================
+// SIMILARITÉ — Jaccard sur tokens (évite les doublons sémantiques)
+// ============================================================
+
+var STOP_WORDS = {
+  avec:1,pour:1,dans:1,sans:1,une:1,des:1,les:1,sur:1,que:1,qui:1,
+  est:1,aux:1,par:1,son:1,ses:1,leur:1,pas:1,plus:1,visa:1,maroc:1,
+  schengen:1,comment:1,faire:1,tout:1,tous:1,entre:1,chez:1,depuis:1,
+  pendant:1,avant:1,apres:1,tres:1,bien:1,mais:1,ou:1,pour:1,car:1,
+  elle:1,nous:1,vous:1,ils:1,elles:1,ca:1,ce:1,cet:1,cette:1,ces:1,
+  sont:1,etait:1,ont:1,ete:1,avoir:1,etre:1,peut:1,peuvent:1,doit:1,
+  doivent:1,leur:1,leurs:1,quoi:1,dont:1,aussi:1,tres:1,encore:1,
+  meme:1,donc:1,enfin:1,voici:1,voila:1,ni:1,hors:1,selon:1,sous:1,
+  vers:1,des:1,plus:1,non:1,oui:1,deja:1,jamais:1,rien:1,seul:1,
+};
+
+function tokenize(text) {
+  var raw = String(text || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(function(w) { return w.length > 3 && !STOP_WORDS[w]; });
+  var seen = {};
+  return raw.filter(function(w) { return seen[w] ? false : (seen[w] = true); });
+}
+
+function jaccardSimilarity(a, b) {
+  var tokensA = tokenize(a);
+  var tokensB = tokenize(b);
+  if (tokensA.length === 0 && tokensB.length === 0) return 1;
+  if (tokensA.length === 0 || tokensB.length === 0) return 0;
+
+  var intersection = 0;
+  for (var i = 0; i < tokensA.length; i++) {
+    for (var j = 0; j < tokensB.length; j++) {
+      if (tokensA[i] === tokensB[j]) { intersection++; break; }
+    }
+  }
+
+  var union = tokensA.length + tokensB.length - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+
+function getLastPublishedTitles(n) {
+  var sheet = getSheet();
+  var data  = sheet.getDataRange().getValues();
+  var result = [];
+  for (var i = data.length - 1; i > 0 && result.length < n; i--) {
+    if (String(data[i][COL.ID - 1] || '').trim() !== '') {
+      result.push({
+        title: data[i][COL.TITLE - 1] || '',
+        category: data[i][COL.CATEGORY - 1] || '',
+      });
+    }
+  }
+  return result;
+}
+
+// ============================================================
+// ERRORS — Log feuille + email d'alerte
+// ============================================================
+
+function logSheetError(articleId, errorMessage) {
+  try {
+    const sheet = getSheet();
+    const data  = sheet.getDataRange().getValues();
+    for (let i = 1; i < data.length; i++) {
+      if (String(data[i][COL.ID - 1] || '').trim() === String(articleId || '').trim()) {
+        const row = i + 1;
+        const ts  = new Date().toISOString();
+        const log = '[' + ts + '] ' + errorMessage;
+        const prev = String(data[i][COL.ERROR_LOG - 1] || '').trim();
+        const full = prev ? prev + '\n' + log : log;
+        sheet.getRange(row, COL.ERROR_LOG).setValue(full.substring(0, 5000));
+        Logger.log('📝 Erreur loguée ligne ' + row + ' : ' + log);
+        return;
+      }
+    }
+    Logger.log('⚠️ Ligne introuvable pour l\'ID : ' + articleId);
+  } catch (e2) {
+    Logger.log('⚠️ Impossible d\'écrire error_log : ' + e2);
+  }
+}
+
+function sendErrorEmail(error, articleInfo) {
+  try {
+    const subject = articleInfo
+      ? '[SCHENGEN BLOG] Échec publication : ' + articleInfo
+      : '[SCHENGEN BLOG] Erreur génération article';
+
+    const body =
+      'Une erreur est survenue lors de la génération/publication automatique d\'article.\n\n' +
+      (articleInfo ? 'Article : ' + articleInfo + '\n\n' : '') +
+      'Erreur :\n' + error.toString() + '\n\n' +
+      'Stack trace :\n' + (error.stack || 'Non disponible') + '\n\n' +
+      'Date : ' + new Date().toISOString() + '\n' +
+      'Feuille : ' + CONFIG.SHEET_NAME;
+
+    GmailApp.sendEmail(Session.getActiveUser().getEmail(), subject, body);
+    Logger.log('📧 Email d\'alerte envoyé');
+  } catch (e) {
+    Logger.log('Email d\'alerte non envoyé : ' + e);
+  }
+}
+
+function sendSuccessEmail(articleTitle, row) {
   try {
     GmailApp.sendEmail(
       Session.getActiveUser().getEmail(),
-      '[SCHENGEN BLOG] Erreur génération article',
-      'Une erreur est survenue lors de la génération automatique d\'article.\n\n' +
-      'Erreur :\n' + error.toString() + '\n\n' +
-      'Stack trace :\n' + (error.stack || 'Non disponible') + '\n\n' +
+      '[SCHENGEN BLOG] ✅ Article publié',
+      'Article publié avec succès sur GitHub Pages.\n\n' +
+      'Titre : ' + articleTitle + '\n' +
+      'Ligne : ' + row + '\n' +
+      'URL : ' + CONFIG.SITE_URL + '/blog/\n' +
       'Date : ' + new Date().toISOString()
     );
+    Logger.log('📧 Email de confirmation envoyé');
   } catch (e) {
-    Logger.log('Email d\'erreur non envoyé : ' + e);
+    Logger.log('Email de confirmation non envoyé : ' + e);
   }
 }
 

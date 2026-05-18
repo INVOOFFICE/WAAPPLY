@@ -66,6 +66,7 @@ export async function calculer() {
 
   document.getElementById('loader').classList.add('on');
 
+  const payload    = { pays, typeVisa, sit, revenu, hist, solde, liens };
   const gasPayload = {
     pays,
     motif: typeVisa,
@@ -74,19 +75,31 @@ export async function calculer() {
     informations: `Revenu: ${revenu} MAD mensuel. Historique Schengen: ${hist}. Solde bancaire: ${solde} MAD. Liens avec le Maroc: ${liens}.`
   };
 
-  const gasPromise = analyserDossierViaGAS(gasPayload)
-    .then(data => gasToInternal(data))
-    .catch(err => { console.warn('[Evaluator] GAS a échoué:', err); return null; });
+  // Start both GAS and local score in parallel
+  const controller = new AbortController();
 
-  const timeout = new Promise(resolve => setTimeout(() => resolve('timeout'), 3000));
+  const gasPromise = analyserDossierViaGAS(gasPayload, controller.signal)
+    .then(data => ({ fromLocal: false, result: gasToInternal(data) }))
+    .catch(err => {
+      if (err.name === 'AbortError') console.warn('[Evaluator] GAS annulé (timeout 2s)');
+      else console.warn('[Evaluator] GAS a échoué:', err);
+      return null;
+    });
+
+  const localResult = localScore(payload);
+
+  const timeout = new Promise(resolve => setTimeout(() => {
+    controller.abort();
+    resolve({ fromLocal: true, result: localResult });
+  }, 2000));
+
   const winner = await Promise.race([gasPromise, timeout]);
 
-  const result = (winner === 'timeout')
-    ? localScore({ pays, typeVisa, sit, revenu, hist, solde, liens })
-    : (winner || localScore({ pays, typeVisa, sit, revenu, hist, solde, liens }));
+  const fromLocal = !winner || winner.fromLocal;
+  const finalResult = fromLocal ? localResult : winner.result;
 
   document.getElementById('loader').classList.remove('on');
-  showResult(result);
+  showResult(finalResult, fromLocal);
 }
 
 /* ── Convertit la réponse GAS vers le format interne ── */
@@ -111,12 +124,20 @@ function gasToInternal(data) {
   return { pct, verdict, vcls, barColor, cells, tips };
 }
 
-function showResult(r) {
+function showResult(r, fromLocal) {
   try {
     document.getElementById('res-pct').textContent = (r.pct || 0) + '%';
     const vEl = document.getElementById('res-verdict');
     vEl.textContent = r.verdict || 'Non disponible';
     vEl.className = 'result-verdict ' + (r.vcls || 'v-low');
+
+    const badgeEl = document.getElementById('res-badge');
+    if (fromLocal) {
+      badgeEl.textContent = '⚠ Résultat estimé';
+      badgeEl.className = 'result-badge result-badge--local';
+    } else {
+      badgeEl.className = 'result-badge';
+    }
     document.getElementById('res-bar').style.background = r.barColor || 'linear-gradient(90deg, var(--accent), var(--accent-2))';
 
     document.getElementById('res-grid').innerHTML = (r.cells || []).map(c => `

@@ -43,7 +43,7 @@ export async function loadNews() {
   if (!container) return;
 
   let items;
-  const urls = ['blogs.json', '/WAAPPLY/blogs.json', '/blogs.json'];
+  const urls = ['blogs-latest.json', '/WAAPPLY/blogs-latest.json', '/blogs-latest.json', 'blogs.json', '/WAAPPLY/blogs.json', '/blogs.json'];
   for (const url of urls) {
     try {
       const res = await fetch(url, { cache: 'no-cache' });

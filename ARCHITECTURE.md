@@ -46,7 +46,9 @@ visapath/
 ├── scripts/
 │   └── build-news-pages.mjs            # Build statique des pages blog (Node.js)
 │
-├── blogs.json                          # Données du blog (pushé par GAS, lu par frontend + build)
+├── blogs.json                          # Données du blog (complet, rétrocompatibilité)
+├── blogs-latest.json                    # 10 articles les plus récents (frontend)
+├── sw.js                                # Service Worker (cache + ETag revalidation)
 ├── .github/workflows/
 │   └── build-static-recipes.yml        # CI : génère blog/ + sitemap sur push blogs.json
 ├── visapath-news.gs                    # Google Apps Script (automatisation blog)
@@ -110,7 +112,7 @@ Une seule page HTML avec ancres (`#evaluateur`, `#pays`, `#outils`, `#blog`).
 | Évaluateur | `#evaluateur` | Formulaire 7 champs + résultat | Dynamique (JS) |
 | Destinations | `#pays` | Chips taux d'acceptation par pays | Statique |
 | Outils | `#outils` | Grille 6 fonctionnalités | Statique |
-| Blog | `#blog` | Article principal + 3 articles latéraux | Dynamique (fetch blogs.json) |
+| Blog | `#blog` | Article principal + 3 articles latéraux (avec image si image_url) | Dynamique (fetch blogs.json) |
 | Footer | `footer` | Liens, marque, copyright | Statique |
 
 ### États du blog
@@ -133,13 +135,16 @@ calculer() dans evaluator.js
     │
     ├─▶ validerFormulaire() → messages d'erreur inline
     │
-    ├─▶ analyserDossierViaGAS() → API Google Apps Script (proxy)
-    │   └─ timeout 3s → fallback local
+    ├─▶ (démarrés en parallèle)
+    │   ├─ analyserDossierViaGAS() via AbortController ← 2s max
+    │   └─ localScore() immédiat (synchrone)
     │
-    └─▶ localScore() → algorithme offline (COUNTRY map + règles)
-        │
-        ▼
-    showResult() → injecte score %, verdict, barre, cellules, conseils
+    ├─▶ Promise.race [GAS, timeout 2s]
+    │   ├─ GAS gagne → résultat IA, badge masqué
+    │   └─ Timeout → controller.abort(), badge "⚠ Résultat estimé"
+    │
+    ▼
+showResult() → injecte score %, verdict, badge, barre, cellules, conseils
 ```
 
 ### Les 7 champs du formulaire
@@ -178,11 +183,16 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 1. `pickTopic()` → sélectionne aléatoirement un sujet non utilisé (55 sujets, 7 catégories)
 2. `generateArticle(topic)` → 2 appels Groq :
    - Appel 1 → métadonnées SEO (JSON) : description, summary, seo_title, meta_description, keywords
-   - Appel 2 → contenu HTML complet (1200-1700 mots, structure H2/H3, FAQ, liens internes)
+   - Appel 2 → contenu HTML complet (1200-1700 mots, **ton conversationnel marocain**, exemples concrets TLS/VFS, détail délais et coûts en MAD, FAQ basée sur les vraies questions Google)
 3. `saveToSheet(article)` → Google Sheet (16 colonnes)
-4. `updateBlogsJson()` → push `blogs.json` sur GitHub (master)
+4. `updateBlogsJson()` → push `blogs.json` + `blogs-latest.json` + `blogs-archive.json` sur GitHub (master, **3 tentatives exponentielles**)
+5. `sendSuccessEmail()` → email de confirmation (MailApp) si tout réussit
 
-**Structure Google Sheet (16 colonnes) :**
+En cas d'échec (Groq, GitHub API, etc.) :
+- `logSheetError()` → écrit l'erreur avec timestamp dans la colonne **Q (Error Log)**
+- `sendErrorEmail()` → alerte email avec titre article + stack trace
+
+**Structure Google Sheet (17 colonnes) :**
 
 | Col | Champ | Description |
 |---|---|---|
@@ -202,25 +212,41 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 | N | Status | "published" |
 | O | Added At | ISO date |
 | P | Content HTML | Article complet 1200-1700 mots |
+| Q | Error Log | Historique des erreurs (timestamp + message), cumulatif |
 
 ### Frontend (`news.js`)
 
 ```js
 loadNews()
-  → fetch blogs.json (3 URLs fallback)
+  → fetch blogs-latest.json (via SW cache + ETag revalidation)
   → filtre : status === 'published' && slug && title
-  → prend le 1er article → .news-main
-  → prend les 3 suivants → .news-list
+  → prend le 1er article → .news-main (avec image si image_url)
+  → prend les 3 suivants → .news-list (avec image si image_url)
   → injection HTML dans .news-layout
 ```
+
+### Service Worker (`sw.js`)
+
+- Intercepte les requêtes vers `blogs-latest.json` et `blogs-archive.json`
+- **Stale-while-revalidate** : sert la version en cache instantanément, puis revalide en arrière-plan avec `If-None-Match` (ETag) / `If-Modified-Since`
+- Cache nommé `blog-data-v1`, nettoyé automatiquement à l'activation
+- En cas de réseau indisponible, le cache fait office de fallback
+
+### Fichiers JSON générés
+
+| Fichier | Contenu | Utilisé par |
+|---|---|---|
+| `blogs.json` | Tous les articles (rétrocompatibilité) | Build script |
+| `blogs-latest.json` | 10 premiers articles | Frontend (`news.js`) |
+| `blogs-archive.json` | Articles 11+ (si >10) | Pagination future |
 
 ### Build statique (`build-news-pages.mjs`)
 
 Déclenché par GitHub Actions sur chaque push modifiant `blogs.json`.
 
 Génère :
-- `blog/<slug>/index.html` — page détail optimisée SEO (Schema.org, OG, Twitter Card)
-- `blog/index.html` — index de tous les articles
+- `blog/<slug>/index.html` — page détail optimisée SEO (Schema.org, OG, Twitter Card, image hero si image_url)
+- `blog/index.html` — index de tous les articles (avec image card si image_url)
 - `sitemap.xml` — toutes les URLs
 - `llms.txt` — contexte pour LLM
 - `robots.txt` — directive crawl
@@ -304,7 +330,11 @@ Push sur `master` modifiant :
 
 ## 9. Formats de données
 
-### blogs.json (flat array — poussé par GAS, lu par frontend + build)
+### blogs.json / blogs-latest.json / blogs-archive.json (flat array)
+
+`blogs.json` contient tous les articles (rétrocompatibilité).  
+`blogs-latest.json` contient les 10 plus récents (utilisé par le frontend).  
+`blogs-archive.json` contient les articles 11+ (généré seulement si >10 articles).
 
 ```json
 [
@@ -313,7 +343,7 @@ Push sur `master` modifiant :
     "title": "Visa Schengen France depuis le Maroc : dossier complet 2025",
     "source": "Schengen Maroc Blog",
     "category": "Visa par pays",
-    "image_url": "",
+    "image_url": "https://images.unsplash.com/photo-xxx",  // URL image (affichée dans le blog si non vide)
     "url": "https://waapply.com/blog/visa-schengen-france-maroc-dossier/",
     "published_at": "2025-05-18T09:00:00.000Z",
     "description": "Tout savoir sur le visa Schengen France pour les Marocains...",
