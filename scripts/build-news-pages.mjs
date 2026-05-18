@@ -264,6 +264,15 @@ function buildBlogPage(item, allItems, related) {
   <link rel="alternate" hreflang="fr" href="${canonicalUrl}">
   <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-59DENN6PGQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-59DENN6PGQ');
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:type"        content="article">
   <meta property="og:title"       content="${escAttr(item.seo_title || item.title)}">
@@ -772,6 +781,15 @@ function buildBlogIndex(items) {
   <link rel="canonical" href="${SITE_URL}/blog/">
   <link rel="alternate" hreflang="fr" href="${SITE_URL}/blog/">
   <link rel="alternate" hreflang="x-default" href="${SITE_URL}/blog/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-59DENN6PGQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-59DENN6PGQ');
+  </script>
 
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Blog Visa Schengen — Schengen Maroc">
