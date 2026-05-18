@@ -183,7 +183,7 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 1. `pickTopic()` → sélectionne aléatoirement un sujet non utilisé (55 sujets, 7 catégories)
 2. `generateArticle(topic)` → 2 appels Groq :
    - Appel 1 → métadonnées SEO (JSON) : description, summary, seo_title, meta_description, keywords
-   - Appel 2 → contenu HTML complet (1200-1700 mots, structure H2/H3, FAQ, liens internes)
+   - Appel 2 → contenu HTML complet (1200-1700 mots, **ton conversationnel marocain**, exemples concrets TLS/VFS, détail délais et coûts en MAD, FAQ basée sur les vraies questions Google)
 3. `saveToSheet(article)` → Google Sheet (16 colonnes)
 4. `updateBlogsJson()` → push `blogs.json` + `blogs-latest.json` + `blogs-archive.json` sur GitHub (master, **3 tentatives exponentielles**)
 5. `sendSuccessEmail()` → email de confirmation (MailApp) si tout réussit
