@@ -41,7 +41,7 @@ const CORE_INTERNAL_LINKS = [
 ];
 
 // WhatsApp CTA (repris du GAS)
-const CTA_WHATSAPP = 'https://wa.me/212XXXXXXXXX?text=Bonjour%20%F0%9F%91%8B%20Je%20voudrais%20des%20infos%20sur%20le%20visa%20Schengen.';
+const CTA_WHATSAPP = 'https://wa.me/34618642696?text=Bonjour%20%F0%9F%91%8B%20Je%20voudrais%20des%20infos%20sur%20le%20visa%20Schengen.';
 
 // Entités sémantiques pour schema.org et llms.txt
 const ENTITY_TOPICS = [
