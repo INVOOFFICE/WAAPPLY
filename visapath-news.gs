@@ -239,18 +239,31 @@ function generateArticle(topic) {
 
   // ── Appel 1 : Métadonnées SEO (JSON) ──
   const metaPrompt =
-    'Tu es un expert SEO spécialisé dans le visa Schengen pour les Marocains, tu connais par cœur les vraies questions que les gens tapent sur Google au Maroc.\n' +
-    'Génère les métadonnées SEO pour un article de blog sur :\n' +
+    'Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".\n' +
+    'Tu connais par cœur les vraies recherches Google des utilisateurs marocains.\n\n' +
+    'OBJECTIF : générer des métadonnées SEO capables de positionner l\'article sur Google Maroc.\n\n' +
+    'Avant d\'écrire, identifie :\n' +
+    '1. Le mot-clé principal (celui qui a le plus de volume de recherche)\n' +
+    '2. 10 mots-clés secondaires (longue traîne, conversationnels)\n' +
+    '3. 10 questions Google potentielles que les Marocains tapent sur ce sujet\n' +
+    '4. Les variantes locales marocaines (ex: "tls rabat", "prix visa mad", "rendez-vous vfs casa")\n\n' +
+    'IMPORTANT — Le mot-clé principal doit pouvoir apparaître :\n' +
+    '- dans le H1 de l\'article\n' +
+    '- dans les 40 premiers mots\n' +
+    '- dans un H2\n' +
+    '- dans la meta description\n' +
+    '- dans l\'URL\n' +
+    '- dans le title SEO\n\n' +
     'Sujet : "' + topic.title + '"\n' +
     'Catégorie : "' + topic.category + '"\n\n' +
     'Contexte du site : site informatif pour les Marocains qui veulent un visa Schengen — ils en ont marre des infos vagues, ils veulent du concret.\n' +
     'Cible : Marocains de 22-45 ans, plutôt actifs (salariés, commerçants, étudiants, mères de famille) qui cherchent sur Google des réponses à leurs doutes.\n\n' +
     'Règles :\n' +
-    '- Titre SEO : max 60 car., punchy, avec un mot qui accroche l\'émotion (ex: "éviter", "refus", "gratuit", "rapide", "obligatoire").\n' +
-    '- Meta description : max 155 car., parle comme si tu répondais à un ami — pas de jargon. Finis par un appel discret à lire.\n' +
-    '- Mots-clés : 8-12, inclus des variantes "darija-friendly" comme "visa Schengen Maroc 2025", "document visa France Maroc", "rendez-vous TLS Casablanca".\n' +
-    '- Description : 1 phrase max 155 car., qui donne LA réponse à la question principale.\n' +
-    '- Summary : 2 phrases max 270 car., avec contexte marocain et bénéfice clair.\n\n' +
+    '- Titre SEO : max 60 car., punchy, avec un mot qui accroche l\'émotion (ex: "éviter", "refus", "gratuit", "rapide", "obligatoire"). Inclut le mot-clé principal.\n' +
+    '- Meta description : max 155 car., parle comme si tu répondais à un ami — pas de jargon. Mot-clé principal en début. Finis par un appel discret à lire.\n' +
+    '- Mots-clés : 8-12, inclus des variantes "darija-friendly" comme "visa Schengen Maroc 2026", "document visa France Maroc", "rendez-vous TLS Casablanca", "prix visa mad".\n' +
+    '- Description : 1 phrase max 155 car., qui donne LA réponse à la question principale. Mot-clé principal en premier mot si possible.\n' +
+    '- Summary : 2 phrases max 270 car., avec contexte marocain et bénéfice clair. Mot-clé principal dans la 1ère phrase.\n\n' +
     'Réponds UNIQUEMENT avec ce JSON brut, sans markdown, sans texte avant ou après :\n' +
     '{\n' +
     '  "description": "…",\n' +
@@ -264,42 +277,60 @@ function generateArticle(topic) {
   const meta     = parseJsonSafe(metaText);
 
   // ── Appel 2 : Contenu HTML complet — ton marocain, exemples concrets, FAQ réaliste ──
+  const mainKeyword = topic.seo_title || topic.title;
   const htmlPrompt =
-    'Tu es un rédacteur marocain qui aide les gens à obtenir leur visa Schengen. Tu écris comme tu parlerais à un pote dans un café à Casablanca — chaleureux, direct, sans blabla.\n\n' +
+    'Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".\n' +
+    'Tu écris comme tu parlerais à un pote dans un café à Casablanca — chaleureux, direct, sans blabla.\n\n' +
     'Rédige un article HTML complet sur :\n' +
     'Sujet : "' + topic.title + '"\n' +
     'Catégorie : "' + topic.category + '"\n\n' +
     '=== PUBLIC CIBLE ===\n' +
     'Marocains de 22-45 ans, plutôt actifs, qui veulent voyager en Europe mais qui ont peur du refus. Beaucoup sont primo-demandeurs, certains ont déjà eu un refus. Ils veulent des réponses VRAIES, pas des généralités.\n\n' +
+    '=== OPTIMISATION GOOGLE MAROC + GOOGLE DISCOVER ===\n' +
+    '- Le mot-clé principal "' + mainKeyword + '" doit apparaître :\n' +
+    '  * dans le H1 (titre principal de l\'article)\n' +
+    '  * dans les 40 premiers mots de l\'introduction\n' +
+    '  * dans au moins un H2\n' +
+    '  * dans la conclusion\n' +
+    '- Utilise 10 mots-clés secondaires naturels (longue traîne, questions Google, variantes marocaines)\n' +
+    '- Paragraphes courts (2-4 phrases max) — lisibilité mobile\n' +
+    '- Ton optimisé Google Discover : accrocheur, utile, personnel\n' +
+    '- Mentionne des villes marocaines (Casablanca, Rabat, Tanger, Marrakech, Fès, Oujda, Agadir) si pertinent\n\n' +
     '=== STRUCTURE OBLIGATOIRE ===\n' +
-    '1. <p>Introduction : accroche directe — "Vous êtes marocain et vous voulez un visa Schengen ? Voici exactement ce qu\'il faut faire." Plante le décor : le stress, les files à VFS/TLS, la peur du refus. Promets une réponse claire.\n' +
+    '1. <p>Introduction : accroche directe — "Vous êtes marocain et vous voulez un visa Schengen ? Voici exactement ce qu\'il faut faire." Plante le décor : le stress, les files à VFS/TLS, la peur du refus. Promets une réponse claire. Le mot-clé principal doit être dans les 40 premiers mots.\n' +
     '2. <h2>En résumé</h2> — la réponse courte à la question principale, 3-4 lignes max.\n' +
-    '3. Au moins 4 sections <h2> avec des sous-sections <h3>. Chaque section répond à une vraie question que les Marocains se posent. Utilise des sous-titres qui ressemblent à des recherches Google (ex: "Quels documents pour un CDI ?", "Combien coûte le visa en 2025 ?", "Où déposer à Casablanca ou Rabat ?").\n' +
-    '4. <h2>FAQ</h2> — 5 vraies questions que les Marocains tapent sur Google, avec des réponses courtes et honnêtes. Inspire-toi de questions comme :\n' +
+    '3. Au moins 5 sections <h2> avec des sous-sections <h3>. Chaque section répond à une vraie question que les Marocains se posent. Utilise des sous-titres qui ressemblent à des recherches Google (ex: "Quels documents pour un CDI ?", "Combien coûte le visa en 2026 ?", "Où déposer à Casablanca ou Rabat ?", "Quel délai pour un visa Italie depuis le Maroc ?").\n' +
+    '4. Si pertinent, ajoute un <tableau comparatif> (ex: comparaison des frais, des délais par centre, des documents par profil). Utilise <table>, <thead>, <tbody>, <tr>, <th>, <td>.\n' +
+    '5. <h2>FAQ</h2> — 5 à 7 vraies questions que les Marocains tapent sur Google, avec des réponses courtes et honnêtes. Inspire-toi de questions comme :\n' +
     '   - "Puis-je voyager dans un autre pays Schengen que celui de mon visa ?"\n' +
     '   - "Combien de temps avant mon voyage dois-je déposer ?"\n' +
     '   - "Est-ce que je peux travailler avec un visa touristique ?"\n' +
     '   - "Mon passeport est-il valable pour le visa ? (6 mois ou 3 mois ?)"\n' +
-    '   - " Que faire si on me refuse le visa ?"\n' +
-    '5. <h2>Conclusion</h2> — résumé sympa + prochaine action concrète.\n\n' +
+    '   - "Que faire si on me refuse le visa ?"\n' +
+    '   - "Quel est le prix du visa Schengen en 2026 ?"\n' +
+    '   - "Puis-je refaire une demande après un refus ?"\n' +
+    '6. <h2>Conclusion</h2> — résumé sympa + CTA vers waapply.com (guide complet, documents, ou WhatsApp).\n\n' +
     '=== EXIGENCES DE CONTENU ===\n' +
-    '- Longueur : 1200 à 1700 mots.\n' +
+    '- Longueur : 1800 à 2500 mots (minimum 1800).\n' +
     '- TON : conversationnel marocain francophone — utilise "vous" poli mais chaleureux. Phrases courtes. Pas de langue de bois. Évite le jargon administratif.\n' +
+    '- Écriture simple et utile — comme si tu répondais aux questions d\'un cousin qui prépare son dossier.\n' +
+    '- H2/H3 riches en mots-clés naturels (pas de keyword stuffing).\n' +
     '- EXEMPLES CONCRETS OBLIGATOIRES :\n' +
     '  * Centres : "TLS Contact à Casablanca (Boulevard Ghandi) ouvre les créneaux à 8h le lundi" — "VFS Global à Rabat, comptez 30 min de visite"\n' +
-    '  * Délais réels : "En mars 2025, les rendez-vous France à VFS Casablanca sont à 4-6 semaines. Pour l\'Italie, c\'est 2-3 semaines."\n' +
-    '  * Montants précis : "Le visa coûte 90€ (environ 980 MAD). L\'assurance voyage : 50-150 MAD selon la durée."\n' +
+    '  * Délais réels : "En 2026, les rendez-vous France à TLS Casablanca sont à 4-6 semaines. Pour l\'Italie via VFS, c\'est 2-3 semaines."\n' +
+    '  * Montants précis en MAD : "Le visa coûte 90€ (environ 980 MAD). L\'assurance voyage : 50-150 MAD selon la durée. Comptez 200-350 MAD de frais TLS/VFS."\n' +
     '  * Situations : "Si vous êtes commerçant à Tanger, vous devez fournir votre registre de commerce + les 2 dernières déclarations fiscales."\n' +
     '- MISES EN GARDE UTILES : "Attention aux pages Facebook qui promettent un visa en 48h — c\'est une arnaque." "Ne réservez pas un vol non remboursable avant d\'avoir le visa."\n' +
-    '- SEO : utilise naturellement : visa Schengen Maroc, documents visa, TLS Contact, VFS Global, passeport marocain, rendez-vous visa, refus visa, consulat France Maroc, BLS International.\n\n' +
+    '- CONSEILS PRATIQUES CONCRETS : donne des astces que les Marocains peuvent appliquer immédiatement (ex: vérifier les créneaux TLS tôt le matin, préparer un solde de 30 000 MAD pour la France).\n' +
+    '- SEO : utilise naturellement : visa Schengen Maroc, documents visa, TLS Contact, VFS Global, passeport marocain, rendez-vous visa, refus visa, consulat France Maroc, BLS International, prix visa MAD, délai visa, lettre motivation visa.\n\n' +
     'Liens internes obligatoires (à intégrer naturellement dans le texte) :\n' +
     '- <a href="/guide-complet/">guide complet visa Schengen Maroc</a>\n' +
     '- <a href="/documents-requis/">liste des documents requis</a>\n' +
     '- <a href="/refus-recours/">que faire en cas de refus</a>\n' +
     '- <a href="/actualites/">actualités consulaires Schengen</a>\n' +
     '- <a href="/par-pays/">visa Schengen par pays</a>\n\n' +
-    'Balises autorisées : h2, h3, p, ul, ol, li, strong, em, a.\n' +
-    'INTERDIT : h1, html, head, body, script, style, table, markdown (```), commentaires.\n' +
+    'Balises autorisées : h2, h3, p, ul, ol, li, strong, em, a, table, thead, tbody, tr, th, td.\n' +
+    'INTERDIT : h1, html, head, body, script, style, markdown (```), commentaires.\n' +
     'Commence directement par <p>.';
 
   const contentHtml = callGroq(htmlPrompt, 8000);

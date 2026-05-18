@@ -189,29 +189,115 @@ Google Sheet (topics + données)
 
 Chaque article blog cible un **mot-clé principal** (dans le titre, H1, description, URL) et **8-12 mots-clés secondaires** (dans `keywords`, `about`, contenu).
 
-**Exemple de prompt Groq pour les métadonnées SEO :**
+### Processus de recherche de mots-clés avant rédaction
+
+Avant chaque article, le prompt Groq identifie systématiquement :
+1. **Mot-clé principal** — le plus gros volume de recherche Google Maroc
+2. **10 mots-clés secondaires** — longue traîne, conversationnels, en français marocain
+3. **10 questions Google potentielles** — extraites des "People also ask" et des suggestions Google
+4. **Variantes locales marocaines** — ex: "tls rabat", "prix visa mad", "rendez-vous vfs casa", "document visa france maroc"
+
+### Règles de placement du mot-clé principal
+
+| Emplacement | Obligatoire ? |
+|---|---|
+| H1 (titre de l'article) | ✅ |
+| 40 premiers mots de l'introduction | ✅ |
+| Au moins un H2 | ✅ |
+| Meta description | ✅ |
+| URL (slug) | ✅ |
+| Title SEO (< 60 car.) | ✅ |
+| Conclusion | ✅ (fortement recommandé) |
+
+### Nouveaux critères de contenu (2026)
+
+| Critère | Ancien | Nouveau |
+|---|---|---|
+| Longueur minimale | 1200 mots | **1800 mots** |
+| Structure | 4 sections H2 | **5+ sections H2** |
+| Tableaux | Interdits | **Autorisés si pertinents** (frais, délais, comparatifs) |
+| Questions FAQ | 5 | **5 à 7** |
+| Villes marocaines | Optionnel | **Recommandé** (Casablanca, Rabat, Tanger, Marrakech, Fès) |
+| Mots-clés secondaires | Implicites | **10 explicites** + variantes locales |
+| Google Discover | Non mentionné | **Optimisation explicite** |
+| Conseils pratiques | Optionnel | **Obligatoire** + actionnables immédiatement |
+
+### Exemples de recherches réelles ciblées
+
+Ces 10 requêtes Google sont la priorité absolue :
+
+1. `visa france maroc`
+2. `rendez-vous tls france rabat`
+3. `visa espagne maroc documents`
+4. `refus visa france maroc`
+5. `combien compte bancaire visa schengen`
+6. `délai visa italie maroc`
+7. `visa portugal maroc`
+8. `prix visa schengen maroc`
+9. `lettre motivation visa france pdf`
+10. `visa schengen pour marocains`
+
+Chaque article doit donner l'impression qu'il répond EXACTEMENT à ce qu'un Marocain a tapé sur Google.
+
+**Prompt métadonnées SEO (GAS `visapath-news.gs`) :**
 
 ```
-Generate a JSON object for SEO metadata for a Schengen visa article targeting
-Moroccan readers. Topic: [topic]. Language: French (Morocco).
-Include: title (in H1 format), seo_title (<60 chars), meta_description (<155 chars),
-summary (<270 chars), keywords (8-12 comma-separated).
-The title must be conversational Moroccan French, include the main keyword early,
-and avoid generic titles.
+Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".
+Tu connais par cœur les vraies recherches Google des utilisateurs marocains.
+
+Avant d'écrire, identifie :
+1. Le mot-clé principal (celui qui a le plus de volume de recherche)
+2. 10 mots-clés secondaires (longue traîne, conversationnels)
+3. 10 questions Google potentielles que les Marocains tapent
+4. Les variantes locales marocaines (ex: "tls rabat", "prix visa mad")
+
+IMPORTANT — Le mot-clé principal doit pouvoir apparaître :
+- dans le H1 de l'article
+- dans les 40 premiers mots
+- dans un H2
+- dans la meta description
+- dans l'URL
+- dans le title SEO
+
+Règles :
+- Titre SEO : max 60 car., punchy, mot-clé principal inclus
+- Meta description : max 155 car., mot-clé principal en début
+- Mots-clés : 8-12 variantes "darija-friendly"
+- Description : 1 phrase, mot-clé en premier mot si possible
+- Summary : 2 phrases avec bénéfice clair
 ```
 
-**Exemple de prompt Groq pour le contenu :**
+**Prompt contenu HTML (GAS `visapath-news.gs`) :**
 
 ```
-Write a complete HTML article in French (Moroccan dialect style) about [topic].
-Minimum 1200 words, maximum 1700 words.
-- Tone: conversational Moroccan French, use "vous", include concrete examples
-  (VFS Global, TLS Contact, BLS International)
-- Mention amounts in MAD
-- Include real questions from Google Search in the FAQ section
-- Structure: <h2> sections, bullet points, strong tags on key phrases
-- Add 2-3 internal links to waapply.com pages
-- The first 40 words must contain the main keyword
+Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".
+Tu écris comme tu parlerais à un pote dans un café à Casablanca.
+
+Rédige un article HTML complet sur : [sujet]
+
+=== OPTIMISATION GOOGLE MAROC + GOOGLE DISCOVER ===
+- Le mot-clé principal doit apparaître : dans le H1, les 40 premiers mots,
+  un H2, la conclusion
+- Paragraphes courts — lisibilité mobile
+- Ton optimisé Google Discover : accrocheur, utile, personnel
+- Mentionne des villes marocaines si pertinent
+
+=== STRUCTURE OBLIGATOIRE ===
+1. Introduction : mot-clé principal dans les 40 premiers mots
+2. <h2>En résumé</h2>
+3. Au moins 5 sections <h2> + sous-sections <h3>
+4. Si pertinent : <tableau comparatif> (frais, délais, documents)
+5. <h2>FAQ</h2> — 5 à 7 vraies questions Google
+6. <h2>Conclusion</h2> — CTA vers waapply.com
+
+=== EXIGENCES ===
+- Longueur : 1800 à 2500 mots (minimum 1800)
+- TON : conversationnel marocain, phrases courtes, pas de jargon
+- Montants précis en MAD, délais réels, exemples TLS/VFS/BLS
+- Mises en garde utiles (arnaques, erreurs fréquentes)
+- Conseils pratiques concrets applicables immédiatement
+- Liens internes vers /guide-complet/, /documents-requis/, /refus-recours/,
+  /actualites/, /par-pays/
 ```
 
 ### Maillage interne
@@ -293,7 +379,21 @@ Plaqué sur l'ensemble du site via GitHub Pages.
 
 ---
 
-## 8. Évolution prévue
+## 8. Nouveautés SEO appliquées (mai 2026)
+
+| Mise à jour | Détaillé dans |
+|---|---|
+| Mots-clés : identification de 10 secondaires + 10 questions + variantes locales avant rédaction | Section 4 — Processus |
+| Placement strict du mot-clé principal (H1, 40 mots, H2, meta, URL, title) | Section 4 — Règles |
+| Longueur article : 1800-2500 mots (au lieu de 1200-1700) | Section 4 — Critères |
+| Tableaux comparatifs autorisés (frais, délais, documents) | Prompt contenu |
+| Optimisation Google Discover explicite | Prompt contenu |
+| Conseils pratiques actionnables immédiatement | Prompt contenu |
+| 10 recherches réelles ciblées en priorité | Section 4 — Exemples |
+
+---
+
+## 9. Évolution prévue
 
 - **ETIAS** → création d'une page dédiée dès le lancement officiel (mi-2026)
 - **EES** → mise à jour des pages existantes avec les nouvelles règles d'entrée/sortie
