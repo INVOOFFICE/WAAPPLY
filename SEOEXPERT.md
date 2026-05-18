@@ -197,6 +197,19 @@ Avant chaque article, le prompt Groq identifie systématiquement :
 3. **10 questions Google potentielles** — extraites des "People also ask" et des suggestions Google
 4. **Variantes locales marocaines** — ex: "tls rabat", "prix visa mad", "rendez-vous vfs casa", "document visa france maroc"
 
+### Règles absolues de génération
+
+| Règle | Appliquée ? |
+|---|---|
+| HTML propre uniquement (pas de Markdown) | ✅ |
+| Aucun script, style inline, iframe | ✅ |
+| Une seule intention SEO par article | ✅ |
+| Aucun contenu dupliqué | ✅ |
+| URL en kebab-case, sans caractères spéciaux | ✅ (via `generateSlug()`) |
+| Mots-clés : minimum 12 | ✅ |
+| Slug inclus dans la réponse JSON de Groq | ✅ |
+| Balises autorisées : h2, h3, p, ul, li, strong, table, thead, tbody, tr, td, th, a | ✅ |
+
 ### Règles de placement du mot-clé principal
 
 | Emplacement | Obligatoire ? |
@@ -213,14 +226,20 @@ Avant chaque article, le prompt Groq identifie systématiquement :
 
 | Critère | Ancien | Nouveau |
 |---|---|---|
-| Longueur minimale | 1200 mots | **1800 mots** |
+| Longueur minimale | 1200 mots | **1800 mots (max 2500)** |
 | Structure | 4 sections H2 | **5+ sections H2** |
 | Tableaux | Interdits | **Autorisés si pertinents** (frais, délais, comparatifs) |
 | Questions FAQ | 5 | **5 à 7** |
-| Villes marocaines | Optionnel | **Recommandé** (Casablanca, Rabat, Tanger, Marrakech, Fès) |
+| Villes marocaines | Optionnel | **Recommandé** (Casablanca, Rabat, Tanger, Marrakech, Fès, Agadir, Oujda) |
 | Mots-clés secondaires | Implicites | **10 explicites** + variantes locales |
+| Mots-clés minimum | 8-12 | **12 minimum** |
 | Google Discover | Non mentionné | **Optimisation explicite** |
 | Conseils pratiques | Optionnel | **Obligatoire** + actionnables immédiatement |
+| Slug dans métadonnées | Non (généré par code) | **Oui** (Groq génère le slug idéal dans le JSON) |
+| Balises autorisées | h2, h3, p, ul, ol, li, strong, em, a, table... | **h2, h3, p, ul, li, strong, table, thead, tbody, tr, td, th, a** (em et ol retirés) |
+| Interdictions | script, style, markdown | **+ iframe, style inline, em, ol, commentaires** |
+| Recherches réelles ciblées | Non listées | **10 requêtes Google Maroc explicites** |
+| Intention SEO | Implicite | **Une seule intention par article** |
 
 ### Exemples de recherches réelles ciblées
 
@@ -390,6 +409,12 @@ Plaqué sur l'ensemble du site via GitHub Pages.
 | Optimisation Google Discover explicite | Prompt contenu |
 | Conseils pratiques actionnables immédiatement | Prompt contenu |
 | 10 recherches réelles ciblées en priorité | Section 4 — Exemples |
+| Slug dans métadonnées (JSON Groq) | Prompt meta |
+| Mots-clés : minimum 12 (au lieu de 8-12) | Prompt meta |
+| Balises autorisées restreintes (plus de `em`, `ol`) | Prompt contenu |
+| Interdiction iframe + style inline | Prompt contenu |
+| Une seule intention SEO par article | Prompt contenu |
+| Règles absolues de génération | Section 4 — Règles absolues |
 
 ---
 
