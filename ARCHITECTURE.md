@@ -133,13 +133,16 @@ calculer() dans evaluator.js
     │
     ├─▶ validerFormulaire() → messages d'erreur inline
     │
-    ├─▶ analyserDossierViaGAS() → API Google Apps Script (proxy)
-    │   └─ timeout 3s → fallback local
+    ├─▶ (démarrés en parallèle)
+    │   ├─ analyserDossierViaGAS() via AbortController ← 2s max
+    │   └─ localScore() immédiat (synchrone)
     │
-    └─▶ localScore() → algorithme offline (COUNTRY map + règles)
-        │
-        ▼
-    showResult() → injecte score %, verdict, barre, cellules, conseils
+    ├─▶ Promise.race [GAS, timeout 2s]
+    │   ├─ GAS gagne → résultat IA, badge masqué
+    │   └─ Timeout → controller.abort(), badge "⚠ Résultat estimé"
+    │
+    ▼
+showResult() → injecte score %, verdict, badge, barre, cellules, conseils
 ```
 
 ### Les 7 champs du formulaire
