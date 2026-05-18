@@ -46,7 +46,9 @@ visapath/
 ├── scripts/
 │   └── build-news-pages.mjs            # Build statique des pages blog (Node.js)
 │
-├── blogs.json                          # Données du blog (pushé par GAS, lu par frontend + build)
+├── blogs.json                          # Données du blog (complet, rétrocompatibilité)
+├── blogs-latest.json                    # 10 articles les plus récents (frontend)
+├── sw.js                                # Service Worker (cache + ETag revalidation)
 ├── .github/workflows/
 │   └── build-static-recipes.yml        # CI : génère blog/ + sitemap sur push blogs.json
 ├── visapath-news.gs                    # Google Apps Script (automatisation blog)
@@ -183,7 +185,7 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
    - Appel 1 → métadonnées SEO (JSON) : description, summary, seo_title, meta_description, keywords
    - Appel 2 → contenu HTML complet (1200-1700 mots, structure H2/H3, FAQ, liens internes)
 3. `saveToSheet(article)` → Google Sheet (16 colonnes)
-4. `updateBlogsJson()` → push `blogs.json` sur GitHub (master, **3 tentatives exponentielles**)
+4. `updateBlogsJson()` → push `blogs.json` + `blogs-latest.json` + `blogs-archive.json` sur GitHub (master, **3 tentatives exponentielles**)
 5. `sendSuccessEmail()` → email de confirmation (MailApp) si tout réussit
 
 En cas d'échec (Groq, GitHub API, etc.) :
@@ -216,12 +218,27 @@ En cas d'échec (Groq, GitHub API, etc.) :
 
 ```js
 loadNews()
-  → fetch blogs.json (3 URLs fallback)
+  → fetch blogs-latest.json (via SW cache + ETag revalidation)
   → filtre : status === 'published' && slug && title
   → prend le 1er article → .news-main (avec image si image_url)
   → prend les 3 suivants → .news-list (avec image si image_url)
   → injection HTML dans .news-layout
 ```
+
+### Service Worker (`sw.js`)
+
+- Intercepte les requêtes vers `blogs-latest.json` et `blogs-archive.json`
+- **Stale-while-revalidate** : sert la version en cache instantanément, puis revalide en arrière-plan avec `If-None-Match` (ETag) / `If-Modified-Since`
+- Cache nommé `blog-data-v1`, nettoyé automatiquement à l'activation
+- En cas de réseau indisponible, le cache fait office de fallback
+
+### Fichiers JSON générés
+
+| Fichier | Contenu | Utilisé par |
+|---|---|---|
+| `blogs.json` | Tous les articles (rétrocompatibilité) | Build script |
+| `blogs-latest.json` | 10 premiers articles | Frontend (`news.js`) |
+| `blogs-archive.json` | Articles 11+ (si >10) | Pagination future |
 
 ### Build statique (`build-news-pages.mjs`)
 
@@ -313,7 +330,11 @@ Push sur `master` modifiant :
 
 ## 9. Formats de données
 
-### blogs.json (flat array — poussé par GAS, lu par frontend + build)
+### blogs.json / blogs-latest.json / blogs-archive.json (flat array)
+
+`blogs.json` contient tous les articles (rétrocompatibilité).  
+`blogs-latest.json` contient les 10 plus récents (utilisé par le frontend).  
+`blogs-archive.json` contient les articles 11+ (généré seulement si >10 articles).
 
 ```json
 [
