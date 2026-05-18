@@ -195,6 +195,26 @@ function pickTopic() {
   const used      = getUsedTitles();
   const available = topics.filter(t => !used.includes(t.title));
   const pool      = available.length > 0 ? available : topics;
+  const recent    = getLastPublishedTitles(10);
+
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const candidate = pool[Math.floor(Math.random() * pool.length)];
+    const candidateText = candidate.title + ' ' + candidate.category;
+
+    let tooSimilar = false;
+    for (let r = 0; r < recent.length; r++) {
+      const sim = jaccardSimilarity(candidateText, recent[r].title + ' ' + recent[r].category);
+      if (sim > 0.7) {
+        tooSimilar = true;
+        Logger.log('⚠️ Similarité ' + sim.toFixed(2) + ' avec "' + recent[r].title.substring(0, 40) + '" — re-tirage');
+        break;
+      }
+    }
+
+    if (!tooSimilar) return candidate;
+  }
+
+  Logger.log('⚠️ Aucun sujet original trouvé après 5 tentatives — dernier candidat forcé');
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
@@ -599,6 +619,64 @@ function generateSlug(title) {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
     .substring(0, 80);
+}
+
+// ============================================================
+// SIMILARITÉ — Jaccard sur tokens (évite les doublons sémantiques)
+// ============================================================
+
+var STOP_WORDS = {
+  avec:1,pour:1,dans:1,sans:1,une:1,des:1,les:1,sur:1,que:1,qui:1,
+  est:1,aux:1,par:1,son:1,ses:1,leur:1,pas:1,plus:1,visa:1,maroc:1,
+  schengen:1,comment:1,faire:1,tout:1,tous:1,entre:1,chez:1,depuis:1,
+  pendant:1,avant:1,apres:1,tres:1,bien:1,mais:1,ou:1,pour:1,car:1,
+  elle:1,nous:1,vous:1,ils:1,elles:1,ca:1,ce:1,cet:1,cette:1,ces:1,
+  sont:1,etait:1,ont:1,ete:1,avoir:1,etre:1,peut:1,peuvent:1,doit:1,
+  doivent:1,leur:1,leurs:1,quoi:1,dont:1,aussi:1,tres:1,encore:1,
+  meme:1,donc:1,enfin:1,voici:1,voila:1,ni:1,hors:1,selon:1,sous:1,
+  vers:1,des:1,plus:1,non:1,oui:1,deja:1,jamais:1,rien:1,seul:1,
+};
+
+function tokenize(text) {
+  var raw = String(text || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(function(w) { return w.length > 3 && !STOP_WORDS[w]; });
+  var seen = {};
+  return raw.filter(function(w) { return seen[w] ? false : (seen[w] = true); });
+}
+
+function jaccardSimilarity(a, b) {
+  var tokensA = tokenize(a);
+  var tokensB = tokenize(b);
+  if (tokensA.length === 0 && tokensB.length === 0) return 1;
+  if (tokensA.length === 0 || tokensB.length === 0) return 0;
+
+  var intersection = 0;
+  for (var i = 0; i < tokensA.length; i++) {
+    for (var j = 0; j < tokensB.length; j++) {
+      if (tokensA[i] === tokensB[j]) { intersection++; break; }
+    }
+  }
+
+  var union = tokensA.length + tokensB.length - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+
+function getLastPublishedTitles(n) {
+  var sheet = getSheet();
+  var data  = sheet.getDataRange().getValues();
+  var result = [];
+  for (var i = data.length - 1; i > 0 && result.length < n; i--) {
+    if (String(data[i][COL.ID - 1] || '').trim() !== '') {
+      result.push({
+        title: data[i][COL.TITLE - 1] || '',
+        category: data[i][COL.CATEGORY - 1] || '',
+      });
+    }
+  }
+  return result;
 }
 
 // ============================================================
