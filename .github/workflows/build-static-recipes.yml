@@ -9,7 +9,7 @@ name: Build static blog pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "blogs.json"
       - "scripts/build-news-pages.mjs"
