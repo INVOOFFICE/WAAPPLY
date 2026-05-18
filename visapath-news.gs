@@ -506,11 +506,18 @@ function updateBlogsJson() {
     }));
 
   Logger.log(articles.length + ' article(s) → GitHub');
-  pushFileToGithub(
-    'blogs.json',
-    JSON.stringify(articles, null, 2),
-    'chore: mise à jour blogs.json — ' + new Date().toISOString()
-  );
+  const json = JSON.stringify(articles, null, 2);
+  const ts   = new Date().toISOString();
+
+  const LATEST_COUNT = 10;
+  const latest = articles.slice(0, LATEST_COUNT);
+  const archive = articles.slice(LATEST_COUNT);
+
+  pushFileToGithub('blogs.json',         json,                              'chore: mise à jour blogs.json — ' + ts);
+  pushFileToGithub('blogs-latest.json',  JSON.stringify(latest, null, 2),   'chore: mise à jour blogs-latest.json — ' + ts);
+  if (archive.length > 0) {
+    pushFileToGithub('blogs-archive.json', JSON.stringify(archive, null, 2), 'chore: mise à jour blogs-archive.json — ' + ts);
+  }
 }
 
 function pushFileToGithub(path, content, message) {
