@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://schengen-maroc.com/sitemap.xml
+Sitemap: https://waapply.com/sitemap.xml

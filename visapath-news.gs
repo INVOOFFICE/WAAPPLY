@@ -15,7 +15,7 @@ const CONFIG = {
   GITHUB_OWNER: PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER'),
   GITHUB_REPO:  PropertiesService.getScriptProperties().getProperty('GITHUB_REPO'),
   SHEET_NAME:   'Articles',
-  SITE_URL:     'https://schengen-maroc.com', // ← Remplace par ton URL
+  SITE_URL:     'https://waapply.com',
   CTA_WHATSAPP: 'https://wa.me/212XXXXXXXXX?text=Bonjour%20%F0%9F%91%8B%20Je%20voudrais%20des%20infos%20sur%20le%20visa%20Schengen.',
 };
 

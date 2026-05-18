@@ -26,7 +26,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ── Configuration — adapter si besoin ──────────────────────
 const ROOT     = path.resolve(__dirname, '..');
-const SITE_URL = 'https://schengen-maroc.com'; // ← aligné avec le GAS
+const SITE_URL = 'https://waapply.com';
 
 // Dossier de sortie des pages blog (correspond à l'URL /blog/)
 const BLOG_DIR_NAME = 'blog';

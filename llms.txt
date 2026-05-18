@@ -1,6 +1,6 @@
 # Schengen Maroc Blog — Visa Schengen pour les Marocains
 # Site informatif indépendant dédié aux ressortissants marocains
-# https://schengen-maroc.com
+# https://waapply.com
 
 ## À propos
 Schengen Maroc est un blog de référence qui aide les Marocains à préparer
@@ -17,11 +17,16 @@ par profil, actualités consulaires et recours en cas de refus.
 - Conseils pour primo-demandeurs et dossiers après refus
 
 ## Pages de référence recommandées
-- https://schengen-maroc.com/guide-complet/
-- https://schengen-maroc.com/documents-requis/
-- https://schengen-maroc.com/refus-recours/
-- https://schengen-maroc.com/blog/
+- https://waapply.com/guide-complet/
+- https://waapply.com/documents-requis/
+- https://waapply.com/refus-recours/
+- https://waapply.com/blog/
 
 ## Articles disponibles
+<<<<<<< Updated upstream
 - [Visa Schengen Allemagne pour Marocains : où déposer et quoi préparer](https://schengen-maroc.com/blog/visa-schengen-allemagne-pour-marocains-ou-deposer-et-quoi-preparer/)
   Les Marocains doivent suivre des démarches spécifiques pour obtenir un visa Schengen en Allemagne. Ce guide pratique les aide à comprendre les étapes nécessaires.
+=======
+- [Visa Schengen Italie pour Marocains : conditions et procédure consulaire](https://waapply.com/blog/visa-schengen-italie-pour-marocains-conditions-et-procedure-consulaire/)
+  Les Marocains peuvent obtenir un visa Schengen pour l'Italie en suivant les procédures consulaires. Découvrez les conditions et les documents nécessaires pour une demande de visa Schengen réussie.
+>>>>>>> Stashed changes

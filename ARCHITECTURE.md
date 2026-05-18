@@ -314,7 +314,7 @@ Push sur `master` modifiant :
     "source": "Schengen Maroc Blog",
     "category": "Visa par pays",
     "image_url": "",
-    "url": "https://schengen-maroc.com/blog/visa-schengen-france-maroc-dossier/",
+    "url": "https://waapply.com/blog/visa-schengen-france-maroc-dossier/",
     "published_at": "2025-05-18T09:00:00.000Z",
     "description": "Tout savoir sur le visa Schengen France pour les Marocains...",
     "summary": "Guide complet avec documents, délais, rendez-vous VFS Global...",
