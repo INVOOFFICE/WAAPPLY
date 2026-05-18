@@ -180,9 +180,14 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
    - Appel 1 → métadonnées SEO (JSON) : description, summary, seo_title, meta_description, keywords
    - Appel 2 → contenu HTML complet (1200-1700 mots, structure H2/H3, FAQ, liens internes)
 3. `saveToSheet(article)` → Google Sheet (16 colonnes)
-4. `updateBlogsJson()` → push `blogs.json` sur GitHub (master)
+4. `updateBlogsJson()` → push `blogs.json` sur GitHub (master, **3 tentatives exponentielles**)
+5. `sendSuccessEmail()` → email de confirmation (MailApp) si tout réussit
 
-**Structure Google Sheet (16 colonnes) :**
+En cas d'échec (Groq, GitHub API, etc.) :
+- `logSheetError()` → écrit l'erreur avec timestamp dans la colonne **Q (Error Log)**
+- `sendErrorEmail()` → alerte email avec titre article + stack trace
+
+**Structure Google Sheet (17 colonnes) :**
 
 | Col | Champ | Description |
 |---|---|---|
@@ -202,6 +207,7 @@ Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 | N | Status | "published" |
 | O | Added At | ISO date |
 | P | Content HTML | Article complet 1200-1700 mots |
+| Q | Error Log | Historique des erreurs (timestamp + message), cumulatif |
 
 ### Frontend (`news.js`)
 

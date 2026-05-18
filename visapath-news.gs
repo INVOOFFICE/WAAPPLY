@@ -36,6 +36,7 @@ const COL = {
   STATUS:           14, // N
   ADDED_AT:         15, // O
   CONTENT_HTML:     16, // P
+  ERROR_LOG:        17, // Q
 };
 
 // ============================================================
@@ -68,34 +69,52 @@ function removeAllTriggers() {
 // POINT D'ENTRÉE PRINCIPAL
 // ============================================================
 function runDailyArticle(showAlert) {
+  let article = null;
+  let row     = null;
+
   try {
     Logger.log('=== SCHENGEN BLOG — Démarrage ===');
 
     const topic = pickTopic();
     Logger.log('Sujet choisi : ' + topic.title);
 
-    const article = generateArticle(topic);
+    article = generateArticle(topic);
     Logger.log('Article généré : ' + article.title);
 
-    const row = saveToSheet(article);
+    row = saveToSheet(article);
     Logger.log('Enregistré à la ligne : ' + row);
 
-    updateBlogsJson();
-    Logger.log('GitHub mis à jour avec succès');
+    // Push GitHub avec retry interne (3 tentatives)
+    try {
+      updateBlogsJson();
+    } catch (githubErr) {
+      logSheetError(article.id, 'GitHub push failed: ' + githubErr.toString());
+      sendErrorEmail(githubErr, article.title + ' (ligne ' + row + ')');
+      throw new Error('Échec push GitHub après 3 tentatives : ' + githubErr.toString());
+    }
 
+    Logger.log('GitHub mis à jour avec succès');
     Logger.log('=== Terminé avec succès ===');
+
+    sendSuccessEmail(article.title, row);
 
     if (showAlert) {
       SpreadsheetApp.getUi().alert(
         '✅ Article généré !',
-        '"' + article.title + '"\nLigne ' + row + ' dans la feuille Articles.',
+        '"' + article.title + '"\nLigne ' + row + ' dans la feuille ' + CONFIG.SHEET_NAME + '.',
         SpreadsheetApp.getUi().ButtonSet.OK
       );
     }
 
   } catch (e) {
     Logger.log('ERREUR : ' + e.toString());
-    sendErrorEmail(e);
+
+    if (article && article.id) {
+      logSheetError(article.id, 'Final: ' + e.toString());
+    }
+
+    sendErrorEmail(e, article ? article.title + ' (ligne ' + row + ')' : null);
+
     if (showAlert) {
       SpreadsheetApp.getUi().alert('❌ Erreur', e.toString(), SpreadsheetApp.getUi().ButtonSet.OK);
     }
@@ -392,11 +411,13 @@ function saveToSheet(article) {
     sheetRow = targetRow;
     sheet.getRange(sheetRow, 1, 1, rowValues.length).setValues([rowValues]);
     sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    sheet.getRange(sheetRow, COL.ERROR_LOG).setValue('');
     Logger.log('✅ Article ligne ' + sheetRow + ' — image : ' + imageUrl);
   } else {
     sheet.appendRow(rowValues);
     sheetRow = sheet.getLastRow();
     sheet.getRange(sheetRow, COL.CONTENT_HTML).setValue(article.content_html || '');
+    sheet.getRange(sheetRow, COL.ERROR_LOG).setValue('');
     Logger.log('✅ Article ligne ' + sheetRow + ' — sans image');
   }
 
@@ -417,7 +438,7 @@ function createSheetHeader(sheet) {
   const headers = [
     'ID', 'Title', 'Source', 'Category', 'Image URL', 'URL',
     'Published At', 'Description', 'Summary', 'SEO Title',
-    'Meta Description', 'Keywords', 'Slug', 'Status', 'Added At', 'Content HTML',
+    'Meta Description', 'Keywords', 'Slug', 'Status', 'Added At', 'Content HTML', 'Error Log',
   ];
   sheet.appendRow(headers);
   sheet.getRange(1, 1, 1, headers.length)
@@ -504,37 +525,51 @@ function pushFileToGithub(path, content, message) {
     'X-GitHub-Api-Version': '2022-11-28',
   };
 
-  // Récupérer le SHA existant (nécessaire pour update)
-  let sha = null;
-  try {
-    const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
-    if (getResp.getResponseCode() === 200) {
-      sha = JSON.parse(getResp.getContentText()).sha;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      let sha = null;
+      try {
+        const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
+        if (getResp.getResponseCode() === 200) {
+          sha = JSON.parse(getResp.getContentText()).sha;
+        }
+      } catch (e) {
+        Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
+      }
+
+      const payload = {
+        message: message,
+        content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
+        branch:  'master',
+      };
+      if (sha) payload.sha = sha;
+
+      const response = UrlFetchApp.fetch(apiUrl, {
+        method:             'PUT',
+        headers:            headers,
+        payload:            JSON.stringify(payload),
+        muteHttpExceptions: true,
+      });
+
+      const code = response.getResponseCode();
+      if (code >= 400) {
+        throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
+      }
+
+      Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
+      return;
+
+    } catch (e) {
+      Logger.log('⚠️ Tentative ' + attempt + '/3 GitHub push échouée : ' + e.toString());
+      if (attempt < 3) {
+        const delay = Math.pow(2, attempt) * 1000;
+        Logger.log('   Nouvelle tentative dans ' + delay + 'ms...');
+        Utilities.sleep(delay);
+      } else {
+        throw e;
+      }
     }
-  } catch (e) {
-    Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
   }
-
-  const payload = {
-    message: message,
-    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-    branch:  'master',
-  };
-  if (sha) payload.sha = sha;
-
-  const response = UrlFetchApp.fetch(apiUrl, {
-    method:             'PUT',
-    headers:            headers,
-    payload:            JSON.stringify(payload),
-    muteHttpExceptions: true,
-  });
-
-  const code = response.getResponseCode();
-  if (code >= 400) {
-    throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
-  }
-
-  Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
 }
 
 // ============================================================
@@ -553,18 +588,67 @@ function generateSlug(title) {
     .substring(0, 80);
 }
 
-function sendErrorEmail(error) {
+// ============================================================
+// ERRORS — Log feuille + email d'alerte
+// ============================================================
+
+function logSheetError(articleId, errorMessage) {
+  try {
+    const sheet = getSheet();
+    const data  = sheet.getDataRange().getValues();
+    for (let i = 1; i < data.length; i++) {
+      if (String(data[i][COL.ID - 1] || '').trim() === String(articleId || '').trim()) {
+        const row = i + 1;
+        const ts  = new Date().toISOString();
+        const log = '[' + ts + '] ' + errorMessage;
+        const prev = String(data[i][COL.ERROR_LOG - 1] || '').trim();
+        const full = prev ? prev + '\n' + log : log;
+        sheet.getRange(row, COL.ERROR_LOG).setValue(full.substring(0, 5000));
+        Logger.log('📝 Erreur loguée ligne ' + row + ' : ' + log);
+        return;
+      }
+    }
+    Logger.log('⚠️ Ligne introuvable pour l\'ID : ' + articleId);
+  } catch (e2) {
+    Logger.log('⚠️ Impossible d\'écrire error_log : ' + e2);
+  }
+}
+
+function sendErrorEmail(error, articleInfo) {
+  try {
+    const subject = articleInfo
+      ? '[SCHENGEN BLOG] Échec publication : ' + articleInfo
+      : '[SCHENGEN BLOG] Erreur génération article';
+
+    const body =
+      'Une erreur est survenue lors de la génération/publication automatique d\'article.\n\n' +
+      (articleInfo ? 'Article : ' + articleInfo + '\n\n' : '') +
+      'Erreur :\n' + error.toString() + '\n\n' +
+      'Stack trace :\n' + (error.stack || 'Non disponible') + '\n\n' +
+      'Date : ' + new Date().toISOString() + '\n' +
+      'Feuille : ' + CONFIG.SHEET_NAME;
+
+    GmailApp.sendEmail(Session.getActiveUser().getEmail(), subject, body);
+    Logger.log('📧 Email d\'alerte envoyé');
+  } catch (e) {
+    Logger.log('Email d\'alerte non envoyé : ' + e);
+  }
+}
+
+function sendSuccessEmail(articleTitle, row) {
   try {
     GmailApp.sendEmail(
       Session.getActiveUser().getEmail(),
-      '[SCHENGEN BLOG] Erreur génération article',
-      'Une erreur est survenue lors de la génération automatique d\'article.\n\n' +
-      'Erreur :\n' + error.toString() + '\n\n' +
-      'Stack trace :\n' + (error.stack || 'Non disponible') + '\n\n' +
+      '[SCHENGEN BLOG] ✅ Article publié',
+      'Article publié avec succès sur GitHub Pages.\n\n' +
+      'Titre : ' + articleTitle + '\n' +
+      'Ligne : ' + row + '\n' +
+      'URL : ' + CONFIG.SITE_URL + '/blog/\n' +
       'Date : ' + new Date().toISOString()
     );
+    Logger.log('📧 Email de confirmation envoyé');
   } catch (e) {
-    Logger.log('Email d\'erreur non envoyé : ' + e);
+    Logger.log('Email de confirmation non envoyé : ' + e);
   }
 }
 
