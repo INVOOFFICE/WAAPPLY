@@ -261,6 +261,8 @@ function buildBlogPage(item, allItems, related) {
   <meta name="keywords" content="${escAttr(item.keywords || '')}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="alternate" hreflang="fr" href="${canonicalUrl}">
+  <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="article">
@@ -614,7 +616,7 @@ function buildBlogPage(item, allItems, related) {
       ${item.category ? `<span class="news-meta-source">${escHtml(item.category)}</span>` : ''}
     </div>
 
-    ${item.image_url ? `<div class="news-hero-img"><img src="${escAttr(item.image_url)}" alt="${escHtml(item.title)}" loading="lazy"></div>` : ''}
+    ${item.image_url ? `<div class="news-hero-img"><img src="${escAttr(item.image_url)}" srcset="${srcsetAttr(item.image_url)}" sizes="(max-width: 768px) 100vw, 800px" alt="${escHtml(item.title)}" loading="lazy"></div>` : ''}
   </div>
 
   <!-- CORPS DE L'ARTICLE -->
@@ -748,7 +750,7 @@ function buildBlogIndex(items) {
 
     return `
     <a href="/blog/${item.slug}/" class="blog-card">
-      ${item.image_url ? `<img src="${escHtml(item.image_url)}" alt="" class="blog-card-img" loading="lazy">` : ''}
+      ${item.image_url ? `<img src="${escHtml(item.image_url)}" srcset="${srcsetAttr(item.image_url)}" sizes="(max-width: 768px) 100vw, 320px" alt="" class="blog-card-img" loading="lazy">` : ''}
       <div class="blog-card-top">
         <span class="news-tag ${tagCls}">${escHtml(tag.label)}</span>
         <span class="blog-card-date">${date}</span>
@@ -768,11 +770,26 @@ function buildBlogIndex(items) {
   <meta name="description" content="Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains. Dossier, documents, refus, rendez-vous TLS et VFS Global.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${SITE_URL}/blog/">
+  <link rel="alternate" hreflang="fr" href="${SITE_URL}/blog/">
+  <link rel="alternate" hreflang="x-default" href="${SITE_URL}/blog/">
+
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Blog Visa Schengen — Schengen Maroc">
   <meta property="og:description" content="Tous les articles sur le visa Schengen pour les Marocains.">
   <meta property="og:url"         content="${SITE_URL}/blog/">
   <meta property="og:site_name"   content="Schengen Maroc">
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "${SITE_URL}/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog",    "item": "${SITE_URL}/blog/" }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -999,3 +1016,10 @@ function generateSlug(title) {
 function escHtml(str) { return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function escAttr(str) { return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
 function escJson(str) { return String(str || '').replace(/\\/g,'\\\\').replace(/"/g,'\\"'); }
+
+function srcsetAttr(url) {
+  if (!url) return '';
+  const widths = [640, 960, 1280];
+  const sep = url.includes('?') ? '&' : '?';
+  return widths.map(w => `${url}${sep}w=${w} ${w}w`).join(', ');
+}
