@@ -135,12 +135,7 @@
 
 .news-mini { padding:1rem 1.5rem; }
 .news-mini h5 { margin-bottom:.15rem; }
-.news-main-col > .news-item:last-child {
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
+.news-main-col > .news-item:last-child { margin-bottom:0; }
 
 /* Skeleton loading */
 .skel {

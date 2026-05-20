@@ -61,8 +61,9 @@ export async function loadNews() {
     return;
   }
 
-  const [first, second, third, fourth, fifth, sixth, ..._rest] = items;
-  const rightItems = [fourth, fifth, sixth].filter(Boolean);
+  const [first, second, third, fourth, fifth, sixth, seventh, eighth, ..._rest] = items;
+  const leftMini = [third, fourth].filter(Boolean);
+  const rightItems = [fifth, sixth, seventh, eighth].filter(Boolean);
 
   container.innerHTML = `
     <div class="news-main-col">
@@ -87,15 +88,15 @@ export async function loadNews() {
         </div>
       </a>
       ` : ''}
-      ${third ? `
-      <a href="blog/${esc(third.slug)}/" class="news-item-link">
+      ${leftMini.map(a => `
+      <a href="blog/${esc(a.slug)}/" class="news-item-link">
         <div class="news-item news-mini">
-          ${tagHtml(third)}
-          <h5>${esc(third.title)}</h5>
-          <div class="news-date">${CLOCK_SM} ${FMT(third.published_at)}</div>
+          ${tagHtml(a)}
+          <h5>${esc(a.title)}</h5>
+          <div class="news-date">${CLOCK_SM} ${FMT(a.published_at)}</div>
         </div>
       </a>
-      ` : ''}
+      `).join('')}
     </div>
     <div class="news-list">
       ${rightItems.map(a => `
