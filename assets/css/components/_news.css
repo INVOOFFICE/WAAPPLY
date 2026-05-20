@@ -133,8 +133,8 @@
   margin-bottom:.3rem;
 }
 
-.news-mini { padding:1rem 1.5rem; }
-.news-mini h5 { margin-bottom:.15rem; }
+.news-mini.news-sub { padding:1rem 1.5rem; border-top:1px solid var(--border); }
+.news-mini .news-sub-body h5 { margin-bottom:.15rem; }
 .news-main-col > .news-item:last-child { margin-bottom:0; }
 
 /* Skeleton loading */
