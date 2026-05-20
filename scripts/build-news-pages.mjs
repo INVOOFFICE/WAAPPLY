@@ -110,24 +110,8 @@ allItems.forEach(item => {
 
 console.log(`📝 ${allItems.length} article(s) à traiter...`);
 
-// ============================================================
-// GÉNÉRATION DES FICHIERS JSON (latest + archive)
-// ============================================================
-const LATEST_COUNT = 10;
-const latest = allItems.slice(0, LATEST_COUNT);
-const archive = allItems.slice(LATEST_COUNT);
-
-fs.writeFileSync(path.join(ROOT, 'blogs-latest.json'), JSON.stringify(latest, null, 2), 'utf8');
-console.log(`  ✅ blogs-latest.json (${latest.length} articles)`);
-
-if (archive.length > 0) {
-  fs.writeFileSync(path.join(ROOT, 'blogs-archive.json'), JSON.stringify(archive, null, 2), 'utf8');
-  console.log(`  ✅ blogs-archive.json (${archive.length} articles)`);
-}
-
-// Toujours garder blogs.json complet pour rétrocompatibilité
-fs.writeFileSync(path.join(ROOT, 'blogs.json'), JSON.stringify(allItems, null, 2), 'utf8');
-console.log(`  ✅ blogs.json (${allItems.length} articles, rétrocompatibilité)`);
+// blogs.json n'est pas réécrit ici — il est géré exclusivement par le GAS
+// via pushFilesToGithub() pour éviter les conflits de push simultané.
 
 // ============================================================
 // GÉNÉRATION DES PAGES INDIVIDUELLES — blog/<slug>/
