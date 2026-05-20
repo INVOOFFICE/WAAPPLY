@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://waapply.com/</loc>
     <changefreq>weekly</changefreq>
@@ -11,63 +12,93 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://waapply.com/guide-complet/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://waapply.com/documents-requis/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://waapply.com/refus-recours/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://waapply.com/par-pays/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://waapply.com/blog/visa-schengen-allemagne-pour-marocains-ou-deposer-et-quoi-preparer/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-18</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7235804/pexels-photo-7235804.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/visa-schengen-pour-mineur-marocain-autorisation-parentale-et-demarches/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-18</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7235892/pexels-photo-7235892.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/visa-schengen-multiple-entrees-qui-peut-en-beneficier-au-maroc/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-19</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7010140/pexels-photo-7010140.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/taux-de-refus-visa-schengen-pour-les-marocains-donnees-officielles-2024-2025/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-19</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/13080790/pexels-photo-13080790.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/assurance-voyage-visa-schengen-comment-choisir-la-bonne-couverture-au-maroc/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/32642485/pexels-photo-32642485/free-photo-of-travel-essentials-passport-credit-cards-and-boarding-pass.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/visa-schengen-suisse-pour-marocains-specificites-hors-ue/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/32060712/pexels-photo-32060712/free-photo-of-polish-passport-and-travel-documents-on-bed-surface.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/visa-schengen-pour-salarie-marocain-prouver-son-attachement-au-maroc/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7235807/pexels-photo-7235807.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/nouvelles-regles-consulaires-europe-2025-impact-sur-les-marocains/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/4922085/pexels-photo-4922085.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/attestation-de-travail-pour-visa-schengen-modele-et-conseils/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7235900/pexels-photo-7235900.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://waapply.com/blog/refus-visa-schengen-au-maroc-causes-frequentes-et-comment-reagir/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-05-20</lastmod>
+    <image:image><image:loc>https://images.pexels.com/photos/7235814/pexels-photo-7235814.jpeg</image:loc></image:image>
   </url>
 </urlset>

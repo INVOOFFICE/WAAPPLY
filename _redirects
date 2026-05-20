@@ -1,0 +1,14 @@
+# Redirections ancien domaine → waapply.com
+https://schengen-maroc.com/*  https://waapply.com/:splat  301
+
+# Redirections spécifiques (anciennes URLs)
+/blog/visa-schengen-italie-pour-marocains-conditions-et-procedure-consulaire/  /blog/  301
+
+# Pages sans trailing slash → avec trailing slash
+/guide-complet  /guide-complet/  301
+/documents-requis  /documents-requis/  301
+/refus-recours  /refus-recours/  301
+/par-pays  /par-pays/  301
+
+# Articles orphelins → blog
+/visa-schengen-allemagne-pour-marocains-ou-deposer-et-quoi-preparer  /blog/visa-schengen-allemagne-pour-marocains-ou-deposer-et-quoi-preparer/  301

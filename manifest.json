@@ -1,0 +1,29 @@
+{
+  "name": "VisaPath — Guide Schengen Intelligent",
+  "short_name": "VisaPath",
+  "description": "Plateforme de référence pour les Marocains souhaitant obtenir un visa Schengen.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080C14",
+  "theme_color": "#0a0b12",
+  "orientation": "portrait-primary",
+  "lang": "fr-FR",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%234F7CFF'/><path d='M96 24L152 68V132L96 176L40 132V68L96 24Z' fill='white' stroke='white' stroke-width='4' stroke-linejoin='round'/><path d='M96 60V120M72 82L96 60L120 82' stroke='%234F7CFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%234F7CFF'/><path d='M256 64L400 180V340L256 456L112 340V180L256 64Z' fill='white' stroke='white' stroke-width='8' stroke-linejoin='round'/><path d='M256 160V320M192 220L256 160L320 220' stroke='%234F7CFF' stroke-width='12' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["travel", "utilities"],
+  "prefer_related_applications": false
+}

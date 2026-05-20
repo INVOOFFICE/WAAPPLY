@@ -106,6 +106,9 @@ const allItems = (Array.isArray(rawData) ? rawData : (rawData.all || []))
 // Ajouter slug si absent (ne devrait pas arriver, le GAS le génère)
 allItems.forEach(item => {
   if (!item.slug) item.slug = generateSlug(item.title);
+  // Normaliser les URLs de l'ancien domaine
+  if (item.image_url) item.image_url = item.image_url.replace(/https?:\/\/schengen-maroc\.com/gi, SITE_URL);
+  if (item.url) item.url = item.url.replace(/https?:\/\/schengen-maroc\.com/gi, SITE_URL);
 });
 
 console.log(`📝 ${allItems.length} article(s) à traiter...`);
@@ -139,28 +142,79 @@ console.log(`  ✅ ${BLOG_DIR_NAME}/index.html`);
 // ============================================================
 // GÉNÉRATION DE sitemap.xml
 // ============================================================
+const pillarPages = [
+  '/guide-complet/',
+  '/documents-requis/',
+  '/refus-recours/',
+  '/par-pays/',
+];
 const sitemapUrls = [
   { loc: `${SITE_URL}/`,            priority: '1.0', changefreq: 'weekly' },
   { loc: `${SITE_URL}/blog/`,       priority: '0.9', changefreq: 'daily'  },
+  ...pillarPages.map(p => ({
+    loc:        `${SITE_URL}${p}`,
+    priority:   '0.8',
+    changefreq: 'monthly',
+  })),
   ...allItems.map(a => ({
     loc:        `${SITE_URL}/blog/${a.slug}/`,
     priority:   '0.7',
     changefreq: 'weekly',
     lastmod:    a.published_at ? a.published_at.substring(0, 10) : '',
+    image:      a.image_url || null,
   })),
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapUrls.map(u => `  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${sitemapUrls.map(u => {
+  const imgTag = u.image ? `\n    <image:image><image:loc>${u.image}</image:loc></image:image>` : '';
+  return `  <url>
     <loc>${u.loc}</loc>
     <changefreq>${u.changefreq}</changefreq>
-    <priority>${u.priority}</priority>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}
-  </url>`).join('\n')}
+    <priority>${u.priority}</priority>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}${imgTag}
+  </url>`;
+}).join('\n')}
 </urlset>`;
 
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 console.log('  ✅ sitemap.xml');
+
+// ============================================================
+// GÉNÉRATION DE rss.xml
+// ============================================================
+const rssItems = allItems.slice(0, 20).map(a => `
+  <item>
+    <title><![CDATA[${a.title}]]></title>
+    <link>${SITE_URL}/blog/${a.slug}/</link>
+    <description><![CDATA[${a.summary || a.title}]]></description>
+    <pubDate>${a.published_at ? new Date(a.published_at).toUTCString() : ''}</pubDate>
+    <guid isPermaLink="true">${SITE_URL}/blog/${a.slug}/</guid>
+    ${a.image_url ? `<enclosure url="${a.image_url}" type="image/jpeg"/>` : ''}
+    <category>${escHtml(a.category || 'Visa Schengen')}</category>
+  </item>`).join('\n');
+
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VisaPath — Blog Visa Schengen pour les Marocains</title>
+    <link>${SITE_URL}/blog/</link>
+    <description>Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains.</description>
+    <language>fr</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>${SITE_URL}/assets/img/og-default.jpg</url>
+      <title>VisaPath Blog</title>
+      <link>${SITE_URL}/blog/</link>
+    </image>
+    ${rssItems}
+  </channel>
+</rss>`;
+
+fs.writeFileSync(path.join(ROOT, 'rss.xml'), rss, 'utf8');
+console.log('  ✅ rss.xml');
 
 // ============================================================
 // GÉNÉRATION DE llms.txt
@@ -226,7 +280,7 @@ function buildBlogPage(item, allItems, related) {
   const TAG_CSS = { alert: 'tag-alert', info: 'tag-info', news: 'tag-news' };
   const tagCls  = TAG_CSS[tag.type] || 'tag-info';
 
-  const pageTitle    = escHtml(item.seo_title || item.title) + ' — Schengen Maroc';
+  const pageTitle    = escHtml(item.seo_title || item.title) + ' | VisaPath — Guide Schengen';
   const metaDesc     = escAttr(item.meta_description || item.summary || item.title);
   const canonicalUrl = `${SITE_URL}/blog/${item.slug}/`;
 
@@ -247,6 +301,8 @@ function buildBlogPage(item, allItems, related) {
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="alternate" hreflang="fr" href="${canonicalUrl}">
   <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">
+  <meta name="theme-color" content="#080C14">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><path d='M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z' fill='%234F7CFF' stroke='%234F7CFF' stroke-width='1.5' stroke-linejoin='round'/><path d='M9 6V12M6 7.5L9 6L12 7.5' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-59DENN6PGQ"></script>
@@ -262,14 +318,17 @@ function buildBlogPage(item, allItems, related) {
   <meta property="og:title"       content="${escAttr(item.seo_title || item.title)}">
   <meta property="og:description" content="${metaDesc}">
   <meta property="og:url"         content="${canonicalUrl}">
-  <meta property="og:site_name"   content="Schengen Maroc">
+  <meta property="og:site_name"   content="VisaPath">
+  <meta property="og:locale"      content="fr_FR">
   ${item.image_url ? `<meta property="og:image" content="${escAttr(item.image_url)}">` : ''}
   <meta property="article:published_time" content="${item.published_at || ''}">
+  <meta property="article:modified_time"  content="${item.added_at || item.published_at || ''}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="${escAttr(item.seo_title || item.title)}">
   <meta name="twitter:description" content="${metaDesc}">
+  ${item.image_url ? `<meta name="twitter:image" content="${escAttr(item.image_url)}">` : ''}
 
   <!-- Schema.org BlogPosting + Breadcrumb -->
   <script type="application/ld+json">
@@ -283,12 +342,12 @@ function buildBlogPage(item, allItems, related) {
     "inLanguage": "fr-MA",
     "author": {
       "@type": "Organization",
-      "name": "Schengen Maroc",
+      "name": "VisaPath",
       "url": "${SITE_URL}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Schengen Maroc",
+      "name": "VisaPath",
       "url": "${SITE_URL}"
     },
     "mainEntityOfPage": "${canonicalUrl}",
@@ -759,12 +818,15 @@ function buildBlogIndex(items) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Visa Schengen pour les Marocains — Schengen Maroc</title>
+  <title>Blog Visa Schengen pour les Marocains | VisaPath — Guide Schengen</title>
   <meta name="description" content="Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains. Dossier, documents, refus, rendez-vous TLS et VFS Global.">
+  <meta name="keywords" content="visa Schengen Maroc, blog Schengen, conseils visa Maroc, guides Schengen, actualités consulaires">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#080C14">
   <link rel="canonical" href="${SITE_URL}/blog/">
   <link rel="alternate" hreflang="fr" href="${SITE_URL}/blog/">
   <link rel="alternate" hreflang="x-default" href="${SITE_URL}/blog/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><path d='M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z' fill='%234F7CFF' stroke='%234F7CFF' stroke-width='1.5' stroke-linejoin='round'/><path d='M9 6V12M6 7.5L9 6L12 7.5' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-59DENN6PGQ"></script>
@@ -775,21 +837,45 @@ function buildBlogIndex(items) {
     gtag('config', 'G-59DENN6PGQ');
   </script>
 
+  <!-- Open Graph -->
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Blog Visa Schengen — Schengen Maroc">
+  <meta property="og:title"       content="Blog Visa Schengen — VisaPath">
   <meta property="og:description" content="Tous les articles sur le visa Schengen pour les Marocains.">
   <meta property="og:url"         content="${SITE_URL}/blog/">
-  <meta property="og:site_name"   content="Schengen Maroc">
+  <meta property="og:site_name"   content="VisaPath">
+  <meta property="og:locale"      content="fr_FR">
 
-  <!-- BreadcrumbList -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Blog Visa Schengen — VisaPath">
+  <meta name="twitter:description" content="Tous les articles sur le visa Schengen pour les Marocains.">
+
+  <!-- BreadcrumbList + CollectionPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "${SITE_URL}/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog",    "item": "${SITE_URL}/blog/" }
-    ]
+    "@type": "CollectionPage",
+    "name": "Blog Visa Schengen pour les Marocains",
+    "description": "Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains.",
+    "url": "${SITE_URL}/blog/",
+    "inLanguage": "fr-FR",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        ${items.map((item, i) => `{
+          "@type": "ListItem",
+          "position": ${i + 1},
+          "url": "${SITE_URL}/blog/${item.slug}/"
+        }`).join(',\n        ')}
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "${SITE_URL}/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog",    "item": "${SITE_URL}/blog/" }
+      ]
+    }
   }
   </script>
 
@@ -1024,7 +1110,7 @@ function escJson(str) {
     .replace(/\n/g, '\\n')
     .replace(/\r/g, '\\r')
     .replace(/\t/g, '\\t')
-    .replace(/\b/g, '\\b')
+    .replace(/\x08/g, '\\b')
     .replace(/\f/g, '\\f')
     .replace(/[\x00-\x1f]/g, '');
 }
