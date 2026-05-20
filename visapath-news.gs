@@ -583,19 +583,19 @@ function updateBlogsJson() {
   const latest = articles.slice(0, LATEST_COUNT);
   const archive = articles.slice(LATEST_COUNT);
 
-  pushFileToGithub('blogs.json',         json,                              'chore: mise à jour blogs.json — ' + ts);
-  pushFileToGithub('blogs-latest.json',  JSON.stringify(latest, null, 2),   'chore: mise à jour blogs-latest.json — ' + ts);
+  const filesToPush = [
+    { path: 'blogs.json',        content: json },
+    { path: 'blogs-latest.json', content: JSON.stringify(latest, null, 2) },
+  ];
   if (archive.length > 0) {
-    pushFileToGithub('blogs-archive.json', JSON.stringify(archive, null, 2), 'chore: mise à jour blogs-archive.json — ' + ts);
+    filesToPush.push({ path: 'blogs-archive.json', content: JSON.stringify(archive, null, 2) });
   }
+
+  pushFilesToGithub(filesToPush, 'chore: mise à jour blogs — ' + ts);
 }
 
-function pushFileToGithub(path, content, message) {
-  const apiUrl =
-    'https://api.github.com/repos/' +
-    CONFIG.GITHUB_OWNER + '/' + CONFIG.GITHUB_REPO +
-    '/contents/' + path;
-
+function pushFilesToGithub(files, message) {
+  const apiBase = 'https://api.github.com/repos/' + CONFIG.GITHUB_OWNER + '/' + CONFIG.GITHUB_REPO;
   const headers = {
     'Authorization':        'Bearer ' + CONFIG.GITHUB_TOKEN,
     'Accept':               'application/vnd.github+json',
@@ -604,47 +604,44 @@ function pushFileToGithub(path, content, message) {
 
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      let sha = null;
-      try {
-        const getResp = UrlFetchApp.fetch(apiUrl, { headers: headers, muteHttpExceptions: true });
-        if (getResp.getResponseCode() === 200) {
-          sha = JSON.parse(getResp.getContentText()).sha;
-        }
-      } catch (e) {
-        Logger.log('SHA non trouvé (nouveau fichier) : ' + e);
-      }
+      const refResp = UrlFetchApp.fetch(apiBase + '/git/refs/heads/master', { headers: headers, muteHttpExceptions: true });
+      if (refResp.getResponseCode() !== 200) throw new Error('Réf introuvable: ' + refResp.getContentText());
+      const latestCommitSha = JSON.parse(refResp.getContentText()).object.sha;
 
-      const payload = {
-        message: message,
-        content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-        branch:  'master',
-      };
-      if (sha) payload.sha = sha;
+      const commitResp = UrlFetchApp.fetch(apiBase + '/git/commits/' + latestCommitSha, { headers: headers, muteHttpExceptions: true });
+      if (commitResp.getResponseCode() !== 200) throw new Error('Commit introuvable: ' + commitResp.getContentText());
+      const baseTreeSha = JSON.parse(commitResp.getContentText()).tree.sha;
 
-      const response = UrlFetchApp.fetch(apiUrl, {
-        method:             'PUT',
-        headers:            headers,
-        payload:            JSON.stringify(payload),
-        muteHttpExceptions: true,
+      const treeEntries = files.map(function(f) {
+        const blobPayload = { content: Utilities.base64Encode(f.content, Utilities.Charset.UTF_8), encoding: 'base64' };
+        const blobResp = UrlFetchApp.fetch(apiBase + '/git/blobs', {
+          method: 'POST', headers: headers, payload: JSON.stringify(blobPayload), muteHttpExceptions: true,
+        });
+        if (blobResp.getResponseCode() !== 201) throw new Error('Blob ' + f.path + ' échoué: ' + blobResp.getContentText());
+        return { path: f.path, sha: JSON.parse(blobResp.getContentText()).sha, mode: '100644', type: 'blob' };
       });
 
-      const code = response.getResponseCode();
-      if (code >= 400) {
-        throw new Error('GitHub API error ' + code + ' : ' + response.getContentText());
-      }
+      const treeResp = UrlFetchApp.fetch(apiBase + '/git/trees', {
+        method: 'POST', headers: headers, payload: JSON.stringify({ base_tree: baseTreeSha, tree: treeEntries }), muteHttpExceptions: true,
+      });
+      if (treeResp.getResponseCode() !== 201) throw new Error('Tree échoué: ' + treeResp.getContentText());
 
-      Logger.log('✅ GitHub push OK : ' + path + ' (' + code + ')');
+      const newCommitResp = UrlFetchApp.fetch(apiBase + '/git/commits', {
+        method: 'POST', headers: headers, payload: JSON.stringify({ message: message, tree: JSON.parse(treeResp.getContentText()).sha, parents: [latestCommitSha] }), muteHttpExceptions: true,
+      });
+      if (newCommitResp.getResponseCode() !== 201) throw new Error('Commit échoué: ' + newCommitResp.getContentText());
+
+      const updateResp = UrlFetchApp.fetch(apiBase + '/git/refs/heads/master', {
+        method: 'PATCH', headers: headers, payload: JSON.stringify({ sha: JSON.parse(newCommitResp.getContentText()).sha, force: false }), muteHttpExceptions: true,
+      });
+      if (updateResp.getResponseCode() !== 200) throw new Error('Ref échouée: ' + updateResp.getContentText());
+
+      Logger.log('✅ GitHub push OK: ' + files.map(function(f) { return f.path; }).join(', '));
       return;
 
     } catch (e) {
-      Logger.log('⚠️ Tentative ' + attempt + '/3 GitHub push échouée : ' + e.toString());
-      if (attempt < 3) {
-        const delay = Math.pow(2, attempt) * 1000;
-        Logger.log('   Nouvelle tentative dans ' + delay + 'ms...');
-        Utilities.sleep(delay);
-      } else {
-        throw e;
-      }
+      Logger.log('⚠️ Tentative ' + attempt + '/3 multi-push échouée : ' + e.toString());
+      if (attempt < 3) { Utilities.sleep(Math.pow(2, attempt) * 1000); } else { throw e; }
     }
   }
 }
