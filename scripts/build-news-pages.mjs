@@ -1033,7 +1033,17 @@ function generateSlug(title) {
 
 function escHtml(str) { return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function escAttr(str) { return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
-function escJson(str) { return String(str || '').replace(/\\/g,'\\\\').replace(/"/g,'\\"'); }
+function escJson(str) {
+  return String(str || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '\\r')
+    .replace(/\t/g, '\\t')
+    .replace(/\b/g, '\\b')
+    .replace(/\f/g, '\\f')
+    .replace(/[\x00-\x1f]/g, '');
+}
 
 function srcsetAttr(url) {
   if (!url) return '';

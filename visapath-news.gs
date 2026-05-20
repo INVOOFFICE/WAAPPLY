@@ -101,11 +101,11 @@ function runDailyArticle(showAlert) {
     sendSuccessEmail(article.title, row);
 
     if (showAlert) {
-      SpreadsheetApp.getUi().alert(
+      try { SpreadsheetApp.getUi().alert(
         '✅ Article généré !',
         '"' + article.title + '"\nLigne ' + row + ' dans la feuille ' + CONFIG.SHEET_NAME + '.',
         SpreadsheetApp.getUi().ButtonSet.OK
-      );
+      ); } catch (e) { Logger.log('UI non disponible (succès) : ' + e); }
     }
 
   } catch (e) {
@@ -118,7 +118,7 @@ function runDailyArticle(showAlert) {
     sendErrorEmail(e, article ? article.title + ' (ligne ' + row + ')' : null);
 
     if (showAlert) {
-      SpreadsheetApp.getUi().alert('❌ Erreur', e.toString(), SpreadsheetApp.getUi().ButtonSet.OK);
+      try { SpreadsheetApp.getUi().alert('❌ Erreur', e.toString(), SpreadsheetApp.getUi().ButtonSet.OK); } catch (e2) { Logger.log('UI non disponible (erreur) : ' + e2); }
     }
   }
 }
