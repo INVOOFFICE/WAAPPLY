@@ -91,6 +91,7 @@ export async function loadNews() {
       ${leftMini.map(a => `
       <a href="blog/${esc(a.slug)}/" class="news-item-link">
         <div class="news-item news-mini">
+          ${a.image_url ? `<img src="${esc(a.image_url)}" alt="" class="news-item-img" loading="lazy">` : ''}
           ${tagHtml(a)}
           <h5>${esc(a.title)}</h5>
           <div class="news-date">${CLOCK_SM} ${FMT(a.published_at)}</div>
