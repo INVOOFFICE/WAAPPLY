@@ -133,6 +133,9 @@
   margin-bottom:.3rem;
 }
 
+.news-mini { padding:1rem 1.5rem; }
+.news-mini h5 { margin-bottom:.15rem; }
+
 /* Skeleton loading */
 .skel {
   background:linear-gradient(90deg,var(--bg-1) 25%,var(--surface) 50%,var(--bg-1) 75%);
@@ -153,6 +156,9 @@
 .skel-sub { padding:1rem 1.5rem; display:flex; gap:1rem; align-items:center; }
 .skel-thumb { width:80px; height:80px; border-radius:var(--r); flex-shrink:0; }
 .skel-sub .news-sub-body { display:flex; flex-direction:column; gap:.35rem; }
+
+/* Mini card skeleton */
+.skel-mini { padding:1rem 1.5rem; display:flex; flex-direction:column; gap:.35rem; border-top:1px solid var(--border); }
 
 /* Skeleton in side list */
 .skel-item { padding:1.3rem 1.5rem; display:flex; flex-direction:column; }
