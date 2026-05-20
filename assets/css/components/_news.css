@@ -135,7 +135,12 @@
 
 .news-mini { padding:1rem 1.5rem; }
 .news-mini h5 { margin-bottom:.15rem; }
-.news-main-col > .news-item:last-child { flex:1; }
+.news-main-col > .news-item:last-child {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 
 /* Skeleton loading */
 .skel {
