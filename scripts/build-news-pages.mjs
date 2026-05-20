@@ -819,7 +819,7 @@ function buildBlogIndex(items) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Visa Schengen pour les Marocains | VisaPath — Guide Schengen</title>
-  <meta name="description" content="Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains. Dossier, documents, refus, rendez-vous TLS et VFS Global.">
+  <meta name="description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus, rendez-vous TLS et VFS Global, et actualités consulaires.">
   <meta name="keywords" content="visa Schengen Maroc, blog Schengen, conseils visa Maroc, guides Schengen, actualités consulaires">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#080C14">
@@ -840,7 +840,7 @@ function buildBlogIndex(items) {
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Blog Visa Schengen — VisaPath">
-  <meta property="og:description" content="Tous les articles sur le visa Schengen pour les Marocains.">
+  <meta property="og:description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus et actualités consulaires.">
   <meta property="og:url"         content="${SITE_URL}/blog/">
   <meta property="og:site_name"   content="VisaPath">
   <meta property="og:locale"      content="fr_FR">
@@ -848,7 +848,7 @@ function buildBlogIndex(items) {
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Blog Visa Schengen — VisaPath">
-  <meta name="twitter:description" content="Tous les articles sur le visa Schengen pour les Marocains.">
+  <meta name="twitter:description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus et actualités consulaires.">
 
   <!-- BreadcrumbList + CollectionPage -->
   <script type="application/ld+json">
