@@ -8,6 +8,8 @@
   .form-grid { grid-template-columns:1fr; }
   .features-grid { grid-template-columns:1fr; }
   .news-layout { grid-template-columns:1fr; }
+  .news-sub { flex-direction:column; align-items:stretch; }
+  .news-sub-img { width:100%; height:120px; }
   .result-grid { grid-template-columns:1fr; }
   .eval-header,.eval-body,.eval-actions,.result-tips,#result { padding-left:1.5rem; padding-right:1.5rem; }
   footer { grid-template-columns:1fr 1fr; padding:3rem 1.5rem 2rem; }

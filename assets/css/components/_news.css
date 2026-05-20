@@ -9,12 +9,20 @@
   overflow:hidden;
 }
 
+.news-main-col {
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  background:var(--border);
+}
+
 .news-main {
   background:var(--bg-1);
   padding:2rem;
   cursor:pointer;
   transition:background .2s;
   position:relative;
+  flex:1;
 }
 
 .news-main-img {
@@ -25,6 +33,33 @@
   margin-bottom:1rem;
 }
 .news-main:hover { background:var(--bg-2); }
+
+.news-sub-link { text-decoration:none; color:inherit; display:block; }
+.news-sub {
+  background:var(--bg-1);
+  padding:1rem 1.5rem;
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  cursor:pointer;
+  transition:background .18s;
+}
+.news-sub:hover { background:var(--bg-2); }
+.news-sub-img {
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:var(--r);
+  flex-shrink:0;
+}
+.news-sub-body { flex:1; min-width:0; }
+.news-sub-body h5 {
+  font-size:.85rem;
+  font-weight:600;
+  line-height:1.4;
+  margin-bottom:.25rem;
+}
+.news-sub-body .news-date { margin-top:.25rem; }
 
 .news-tag {
   display:inline-flex;
@@ -113,6 +148,11 @@
 .skel-tag-sm { width:60px;height:18px;margin-bottom:.5rem; }
 .skel-line   { width:90%;height:14px;margin-bottom:.4rem; }
 .skel-line.short { width:55%; }
+
+/* Sub card skeleton */
+.skel-sub { padding:1rem 1.5rem; display:flex; gap:1rem; align-items:center; }
+.skel-thumb { width:80px; height:80px; border-radius:var(--r); flex-shrink:0; }
+.skel-sub .news-sub-body { display:flex; flex-direction:column; gap:.35rem; }
 
 /* Skeleton in side list */
 .skel-item { padding:1.3rem 1.5rem; display:flex; flex-direction:column; }

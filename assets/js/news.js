@@ -61,21 +61,35 @@ export async function loadNews() {
     return;
   }
 
-  const [first, ...rest] = items;
-  const limit = rest.slice(0, 3);
+  const [first, second, third, fourth, fifth, ..._rest] = items;
+  const rightItems = [third, fourth, fifth].filter(Boolean);
 
   container.innerHTML = `
-    <a href="blog/${esc(first.slug)}/" class="news-main-link">
-      <div class="news-main">
-        ${first.image_url ? `<img src="${esc(first.image_url)}" alt="" class="news-main-img" loading="lazy">` : ''}
-        ${tagHtml(first)}
-        <h4>${esc(first.title)}</h4>
-        ${first.summary ? `<p>${esc(first.summary)}</p>` : ''}
-        <div class="news-date">${CLOCK_LG} ${FMT(first.published_at)}</div>
-      </div>
-    </a>
+    <div class="news-main-col">
+      <a href="blog/${esc(first.slug)}/" class="news-main-link">
+        <div class="news-main">
+          ${first.image_url ? `<img src="${esc(first.image_url)}" alt="" class="news-main-img" loading="lazy">` : ''}
+          ${tagHtml(first)}
+          <h4>${esc(first.title)}</h4>
+          ${first.summary ? `<p>${esc(first.summary)}</p>` : ''}
+          <div class="news-date">${CLOCK_LG} ${FMT(first.published_at)}</div>
+        </div>
+      </a>
+      ${second ? `
+      <a href="blog/${esc(second.slug)}/" class="news-sub-link">
+        <div class="news-sub">
+          ${second.image_url ? `<img src="${esc(second.image_url)}" alt="" class="news-sub-img" loading="lazy">` : ''}
+          <div class="news-sub-body">
+            ${tagHtml(second)}
+            <h5>${esc(second.title)}</h5>
+            <div class="news-date">${CLOCK_SM} ${FMT(second.published_at)}</div>
+          </div>
+        </div>
+      </a>
+      ` : ''}
+    </div>
     <div class="news-list">
-      ${limit.map(a => `
+      ${rightItems.map(a => `
         <a href="blog/${esc(a.slug)}/" class="news-item-link">
           <div class="news-item">
             ${a.image_url ? `<img src="${esc(a.image_url)}" alt="" class="news-item-img" loading="lazy">` : ''}
