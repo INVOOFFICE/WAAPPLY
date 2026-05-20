@@ -61,9 +61,9 @@ export async function loadNews() {
     return;
   }
 
-  const [first, second, third, fourth, fifth, sixth, seventh, eighth, ..._rest] = items;
+  const [first, second, third, fourth, fifth, sixth, seventh, ..._rest] = items;
   const leftMini = [third, fourth].filter(Boolean);
-  const rightItems = [fifth, sixth, seventh, eighth].filter(Boolean);
+  const rightItems = [fifth, sixth, seventh].filter(Boolean);
 
   container.innerHTML = `
     <div class="news-main-col">
