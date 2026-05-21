@@ -36,7 +36,7 @@ const CORE_INTERNAL_LINKS = [
   { href: '/guide-complet/',  anchor: 'Guide complet visa Schengen Maroc' },
   { href: '/documents-requis/', anchor: 'Liste des documents requis'       },
   { href: '/refus-recours/',  anchor: 'Que faire en cas de refus'          },
-  { href: '/actualites/',     anchor: 'Actualités consulaires Schengen'    },
+  { href: '/blog/',           anchor: 'Blog Schengen — actualités'          },
   { href: '/par-pays/',       anchor: 'Visa Schengen par pays'             },
 ];
 
@@ -766,7 +766,7 @@ function buildBlogPage(item, allItems, related) {
       <h6>Ressources</h6>
       <ul>
         <li><a href="/blog/">Blog Schengen</a></li>
-        <li><a href="/actualites/">Actualités</a></li>
+        <li><a href="/blog/">Blog Schengen</a></li>
         <li><a href="${CTA_WHATSAPP}" target="_blank" rel="noopener">Contact WhatsApp</a></li>
       </ul>
     </div>
@@ -1025,7 +1025,7 @@ function buildBlogIndex(items) {
     <div class="footer-col">
       <h6>Ressources</h6>
       <ul>
-        <li><a href="/actualites/">Actualités</a></li>
+        <li><a href="/blog/">Blog Schengen</a></li>
         <li><a href="${CTA_WHATSAPP}" target="_blank" rel="noopener">Contact WhatsApp</a></li>
       </ul>
     </div>

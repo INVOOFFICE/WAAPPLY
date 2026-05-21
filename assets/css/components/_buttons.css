@@ -43,3 +43,26 @@
   transform:translateY(-1px);
   box-shadow:0 8px 28px rgba(232,184,90,0.25);
 }
+
+.btn-whatsapp {
+  background:#25D366;
+  color:#fff;
+  font-weight:600;
+}
+.btn-whatsapp:hover {
+  background:#1da851;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(37,211,102,0.3);
+}
+
+.btn-whatsapp-outline {
+  background:transparent;
+  color:#25D366;
+  border:1.5px solid #25D366;
+  font-weight:600;
+}
+.btn-whatsapp-outline:hover {
+  background:rgba(37,211,102,0.1);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(37,211,102,0.15);
+}

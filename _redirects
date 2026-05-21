@@ -2,7 +2,8 @@
 https://schengen-maroc.com/*  https://waapply.com/:splat  301
 
 # Redirections spécifiques (anciennes URLs)
-/blog/visa-schengen-italie-pour-marocains-conditions-et-procedure-consulaire/  /blog/  301
+# /actualites/ n'existe pas encore → rediriger vers le blog
+/actualites/  /blog/  301
 
 # Pages sans trailing slash → avec trailing slash
 /guide-complet  /guide-complet/  301
