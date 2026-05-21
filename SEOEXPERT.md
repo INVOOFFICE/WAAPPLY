@@ -1,4 +1,4 @@
-# SEOEXPERT — Architecture SEO de l'interface Schengen Maroc
+# SEOEXPERT — Architecture SEO de l'interface Visa Schengen
 
 ## Vue d'ensemble
 
@@ -50,7 +50,7 @@ Chaque page suit un template strict avec les balises suivantes :
 <meta property="og:title"       content="<60 car.>">
 <meta property="og:description" content="<155 car.>">
 <meta property="og:url"         content="https://waapply.com/<path>/">
-<meta property="og:site_name"   content="Schengen Maroc">
+<meta property="og:site_name"   content="Visa Schengen">
 <meta property="og:image"       content="https://images.unsplash.com/<id>?q=80&w=1172&auto=format&fit=crop">
 
 <!-- Twitter Card -->
@@ -76,8 +76,8 @@ Deux blocs obligatoires sur chaque page :
   "datePublished": "2025-01-15T09:00:00.000Z",
   "dateModified": "2026-05-18T09:00:00.000Z",
   "inLanguage": "fr-MA",
-  "author": { "@type": "Organization", "name": "Schengen Maroc", "url": "https://waapply.com" },
-  "publisher": { "@type": "Organization", "name": "Schengen Maroc", "url": "https://waapply.com" },
+  "author": { "@type": "Organization", "name": "Visa Schengen", "url": "https://waapply.com" },
+  "publisher": { "@type": "Organization", "name": "Visa Schengen", "url": "https://waapply.com" },
   "mainEntityOfPage": "https://waapply.com/<path>/",
   "about": ["tag1","tag2",...],
   "keywords": "mot-clé1, mot-clé2, ..."

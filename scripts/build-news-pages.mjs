@@ -1,5 +1,5 @@
 // ============================================================
-// SCHENGEN MAROC BLOG — Build static blog pages
+// Visa Schengen BLOG — Build static blog pages
 // scripts/build-news-pages.mjs
 //
 // ✅ Compatible avec le Google Apps Script (Code.gs) :
@@ -219,12 +219,12 @@ console.log('  ✅ rss.xml');
 // ============================================================
 // GÉNÉRATION DE llms.txt
 // ============================================================
-const llms = `# Schengen Maroc Blog — Visa Schengen pour les Marocains
+const llms = `# Visa Schengen Blog — Visa Schengen pour les Marocains
 # Site informatif indépendant dédié aux ressortissants marocains
 # ${SITE_URL}
 
 ## À propos
-Schengen Maroc est un blog de référence qui aide les Marocains à préparer
+Visa Schengen est un blog de référence qui aide les Marocains à préparer
 et réussir leur demande de visa Schengen : constitution du dossier, conseils
 par profil, actualités consulaires et recours en cas de refus.
 
@@ -264,7 +264,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
 fs.writeFileSync(path.join(ROOT, 'robots.txt'), robots, 'utf8');
 console.log('  ✅ robots.txt');
 
-console.log('\n🎉 Build Schengen Maroc terminé avec succès !');
+console.log('\n🎉 Build Visa Schengen terminé avec succès !');
 
 // ============================================================
 // TEMPLATE — Page article individuelle
@@ -628,7 +628,7 @@ function buildBlogPage(item, allItems, related) {
           <path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="logo-text">Schengen<span>Maroc</span></span>
+      <span class="logo-text">Visa <span>Schengen</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="/guide-complet/">Guide</a></li>
@@ -664,7 +664,7 @@ function buildBlogPage(item, allItems, related) {
         </svg>
         ${dateFormatted}
       </div>
-      <span class="news-meta-source">Schengen Maroc · Blog</span>
+      <span class="news-meta-source">Visa Schengen · Blog</span>
       ${item.category ? `<span class="news-meta-source">${escHtml(item.category)}</span>` : ''}
     </div>
 
@@ -678,7 +678,7 @@ function buildBlogPage(item, allItems, related) {
 
     <!-- Liens internes -->
     <div class="internal-links-block">
-      <h3>Ressources Schengen Maroc</h3>
+      <h3>Ressources Visa Schengen</h3>
       <ul>
         ${CORE_INTERNAL_LINKS.map(l =>
           `<li><a href="${l.href}">${escHtml(l.anchor)}</a></li>`
@@ -741,7 +741,7 @@ function buildBlogPage(item, allItems, related) {
             <path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="logo-text">Schengen<span>Maroc</span></span>
+        <span class="logo-text">Visa <span>Schengen</span></span>
       </a>
       <p>Le blog de référence pour les Marocains souhaitant voyager en Europe.</p>
     </div>
@@ -772,7 +772,7 @@ function buildBlogPage(item, allItems, related) {
     </div>
   </footer>
   <div class="footer-bottom">
-    <span>© ${new Date().getFullYear()} Schengen Maroc</span>
+    <span>© ${new Date().getFullYear()} Visa Schengen</span>
     <span>Site informatif indépendant — non officiel. Consultez toujours l'ambassade concernée.</span>
   </div>
 
@@ -970,7 +970,7 @@ function buildBlogIndex(items) {
           <path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="logo-text">Schengen<span>Maroc</span></span>
+      <span class="logo-text">Visa <span>Schengen</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="/guide-complet/">Guide</a></li>
@@ -984,7 +984,7 @@ function buildBlogIndex(items) {
 
   <div class="page-header">
     <div class="page-kicker">Mis à jour automatiquement</div>
-    <h1 class="page-title">Blog <span class="dim">Schengen Maroc</span></h1>
+    <h1 class="page-title">Blog <span class="dim">Visa Schengen</span></h1>
     <p class="page-sub">Guides, conseils et actualités pour préparer votre visa Schengen depuis le Maroc.</p>
   </div>
 
@@ -1001,7 +1001,7 @@ function buildBlogIndex(items) {
             <path d="M9 6V12M6 7.5L9 6L12 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="logo-text">Schengen<span>Maroc</span></span>
+        <span class="logo-text">Visa <span>Schengen</span></span>
       </a>
       <p>Le blog de référence pour les Marocains souhaitant voyager en Europe.</p>
     </div>
@@ -1031,7 +1031,7 @@ function buildBlogIndex(items) {
     </div>
   </footer>
   <div class="footer-bottom">
-    <span>© ${new Date().getFullYear()} Schengen Maroc</span>
+    <span>© ${new Date().getFullYear()} Visa Schengen</span>
     <span>Site informatif indépendant — non officiel. Consultez toujours l'ambassade concernée.</span>
   </div>
 

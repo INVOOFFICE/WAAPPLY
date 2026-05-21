@@ -198,7 +198,7 @@ En cas d'échec (Groq, GitHub API, etc.) :
 |---|---|---|
 | A | ID | UUID |
 | B | Title | Titre complet |
-| C | Source | "Schengen Maroc Blog" |
+| C | Source | "Visa Schengen Blog" |
 | D | Category | Actualités Schengen, Visa par pays, Dossier & Documents, etc. |
 | E | Image URL | URL image (pré-remplie manuelle) |
 | F | URL | URL canonical complète |
@@ -341,7 +341,7 @@ Push sur `master` modifiant :
   {
     "id": "uuid",
     "title": "Visa Schengen France depuis le Maroc : dossier complet 2025",
-    "source": "Schengen Maroc Blog",
+    "source": "Visa Schengen Blog",
     "category": "Visa par pays",
     "image_url": "https://images.unsplash.com/photo-xxx",  // URL image (affichée dans le blog si non vide)
     "url": "https://waapply.com/blog/visa-schengen-france-maroc-dossier/",

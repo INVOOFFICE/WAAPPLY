@@ -1,5 +1,5 @@
 // ============================================================
-// SCHENGEN MAROC BLOG — Automatisation avec Groq + GitHub
+// Visa Schengen BLOG — Automatisation avec Groq + GitHub
 // Google Apps Script — Code.gs
 // ============================================================
 // Propriétés du script à configurer dans Project Settings :
@@ -349,7 +349,7 @@ function generateArticle(topic) {
   return {
     id:               Utilities.getUuid(),
     title:            topic.title,
-    source:           'Schengen Maroc Blog',
+    source:           'Visa Schengen Blog',
     category:         topic.category,
     image_url:        '',
     url:              CONFIG.SITE_URL + '/blog/' + slug + '/',
