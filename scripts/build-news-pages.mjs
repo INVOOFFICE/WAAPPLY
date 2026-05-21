@@ -299,6 +299,7 @@ function buildBlogPage(item, allItems, related) {
   <meta name="keywords" content="${escAttr(item.keywords || '')}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${canonicalUrl}">
+  <script>if(location.hostname==='www.waapply.com'){location.replace('${canonicalUrl}')}</script>
   <link rel="alternate" hreflang="fr" href="${canonicalUrl}">
   <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">
   <meta name="theme-color" content="#080C14">
@@ -824,6 +825,7 @@ function buildBlogIndex(items) {
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#080C14">
   <link rel="canonical" href="${SITE_URL}/blog/">
+  <script>if(location.hostname==='www.waapply.com'){location.replace('${SITE_URL}/blog/')}</script>
   <link rel="alternate" hreflang="fr" href="${SITE_URL}/blog/">
   <link rel="alternate" hreflang="x-default" href="${SITE_URL}/blog/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><path d='M9 2L15 5.5V12.5L9 16L3 12.5V5.5L9 2Z' fill='%234F7CFF' stroke='%234F7CFF' stroke-width='1.5' stroke-linejoin='round'/><path d='M9 6V12M6 7.5L9 6L12 7.5' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
