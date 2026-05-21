@@ -1,4 +1,4 @@
-# VisaPath — Architecture Globale
+# Visa Schengen — Architecture Globale
 
 ## Vue d'ensemble
 
@@ -9,7 +9,7 @@ Plateforme statique (GitHub Pages) pour l'évaluation et l'information sur le vi
 ## 1. Structure des fichiers
 
 ```
-visapath/
+Visa Schengen/
 ├── index.html                          # Page unique SPA-like
 │
 ├── assets/
@@ -51,7 +51,7 @@ visapath/
 ├── sw.js                                # Service Worker (cache + ETag revalidation)
 ├── .github/workflows/
 │   └── build-static-recipes.yml        # CI : génère blog/ + sitemap sur push blogs.json
-├── visapath-news.gs                    # Google Apps Script (automatisation blog)
+├── Visa Schengen-news.gs                    # Google Apps Script (automatisation blog)
 ├── .nojekyll                           # Désactive Jekyll sur GitHub Pages
 └── ARCHITECTURE.md                     # Ce fichier
 ```
@@ -62,7 +62,7 @@ visapath/
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  GOOGLE APPS SCRIPT (visapath-news.gs)                          │
+│  GOOGLE APPS SCRIPT (Visa Schengen-news.gs)                          │
 │                                                                 │
 │  ┌──────────┐    ┌──────────┐    ┌─────────────────────┐       │
 │  │  Groq AI  │───▶│  Google  │───▶│  updateBlogsJson()  │       │
@@ -175,7 +175,7 @@ Score final : entre 8 et 96.
 
 ## 5. Système Blog
 
-### Google Apps Script (`visapath-news.gs`)
+### Google Apps Script (`Visa Schengen-news.gs`)
 
 Déclenché quotidiennement (9h) ou manuellement via menu Sheets.
 

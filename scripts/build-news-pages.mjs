@@ -198,7 +198,7 @@ const rssItems = allItems.slice(0, 20).map(a => `
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>VisaPath — Blog Visa Schengen pour les Marocains</title>
+    <title>Visa Schengen — Blog Visa Schengen pour les Marocains</title>
     <link>${SITE_URL}/blog/</link>
     <description>Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains.</description>
     <language>fr</language>
@@ -206,7 +206,7 @@ const rss = `<?xml version="1.0" encoding="UTF-8"?>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>${SITE_URL}/assets/img/og-default.jpg</url>
-      <title>VisaPath Blog</title>
+      <title>Visa Schengen Blog</title>
       <link>${SITE_URL}/blog/</link>
     </image>
     ${rssItems}
@@ -280,7 +280,7 @@ function buildBlogPage(item, allItems, related) {
   const TAG_CSS = { alert: 'tag-alert', info: 'tag-info', news: 'tag-news' };
   const tagCls  = TAG_CSS[tag.type] || 'tag-info';
 
-  const pageTitle    = escHtml(item.seo_title || item.title) + ' | VisaPath — Guide Schengen';
+  const pageTitle    = escHtml(item.seo_title || item.title) + ' | Visa Schengen — Guide Schengen';
   const metaDesc     = escAttr(item.meta_description || item.summary || item.title);
   const canonicalUrl = `${SITE_URL}/blog/${item.slug}/`;
 
@@ -318,7 +318,7 @@ function buildBlogPage(item, allItems, related) {
   <meta property="og:title"       content="${escAttr(item.seo_title || item.title)}">
   <meta property="og:description" content="${metaDesc}">
   <meta property="og:url"         content="${canonicalUrl}">
-  <meta property="og:site_name"   content="VisaPath">
+  <meta property="og:site_name"   content="Visa Schengen">
   <meta property="og:locale"      content="fr_FR">
   ${item.image_url ? `<meta property="og:image" content="${escAttr(item.image_url)}">` : ''}
   <meta property="article:published_time" content="${item.published_at || ''}">
@@ -342,12 +342,12 @@ function buildBlogPage(item, allItems, related) {
     "inLanguage": "fr-MA",
     "author": {
       "@type": "Organization",
-      "name": "VisaPath",
+      "name": "Visa Schengen",
       "url": "${SITE_URL}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "VisaPath",
+      "name": "Visa Schengen",
       "url": "${SITE_URL}"
     },
     "mainEntityOfPage": "${canonicalUrl}",
@@ -818,7 +818,7 @@ function buildBlogIndex(items) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Visa Schengen pour les Marocains | VisaPath — Guide Schengen</title>
+  <title>Blog Visa Schengen pour les Marocains | Visa Schengen — Guide Schengen</title>
   <meta name="description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus, rendez-vous TLS et VFS Global, et actualités consulaires.">
   <meta name="keywords" content="visa Schengen Maroc, blog Schengen, conseils visa Maroc, guides Schengen, actualités consulaires">
   <meta name="robots" content="index, follow">
@@ -839,15 +839,15 @@ function buildBlogIndex(items) {
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Blog Visa Schengen — VisaPath">
+  <meta property="og:title"       content="Blog Visa Schengen — Visa Schengen">
   <meta property="og:description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus et actualités consulaires.">
   <meta property="og:url"         content="${SITE_URL}/blog/">
-  <meta property="og:site_name"   content="VisaPath">
+  <meta property="og:site_name"   content="Visa Schengen">
   <meta property="og:locale"      content="fr_FR">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Blog Visa Schengen — VisaPath">
+  <meta name="twitter:title"       content="Blog Visa Schengen — Visa Schengen">
   <meta name="twitter:description" content="Tout savoir sur le visa Schengen pour les Marocains : guides par pays, modèles de documents, conseils pour éviter le refus et actualités consulaires.">
 
   <!-- BreadcrumbList + CollectionPage -->

@@ -1,6 +1,6 @@
 {
-  "name": "VisaPath — Guide Schengen Intelligent",
-  "short_name": "VisaPath",
+  "name": "Visa Schengen — Guide Schengen Intelligent",
+  "short_name": "Visa Schengen",
   "description": "Plateforme de référence pour les Marocains souhaitant obtenir un visa Schengen.",
   "start_url": "/",
   "display": "standalone",

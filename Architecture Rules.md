@@ -1,4 +1,4 @@
-# VisaPath — Architecture Rules
+# Visa Schengen — Architecture Rules
 > This file is the single source of truth for any project modification.
 > OpenCode must read and fully comply with it before each task.
 
@@ -7,7 +7,7 @@
 ## 1. File Structure
 
 ```
-visapath/
+Visa Schengen/
 ├── index.html
 ├── assets/
 │   ├── css/
@@ -266,4 +266,4 @@ const totalScore = 0;
 
 ---
 
-*Last updated: May 2025 — VisaPath Morocco*
+*Last updated: May 2025 — Visa Schengen Morocco*

@@ -239,7 +239,7 @@ function generateArticle(topic) {
 
   // ── Appel 1 : Métadonnées SEO (JSON) ──
   const metaPrompt =
-    'Tu es le moteur de génération SEO officiel de WAAPPLY (VisaPath), plateforme spécialisée dans le visa Schengen pour les Marocains.\n' +
+    'Tu es le moteur de génération SEO officiel de WAAPPLY (Visa Schengen), plateforme spécialisée dans le visa Schengen pour les Marocains.\n' +
     'Tu connais par cœur les vraies recherches Google des utilisateurs marocains.\n\n' +
     'OBJECTIF : générer des métadonnées SEO capables de positionner l\'article sur Google Maroc, Google Discover et les assistants IA.\n\n' +
     'RÈGLES ABSOLUES :\n' +
@@ -287,7 +287,7 @@ function generateArticle(topic) {
   // ── Appel 2 : Contenu HTML complet — ton marocain, exemples concrets, FAQ réaliste ──
   const mainKeyword = topic.seo_title || topic.title;
   const htmlPrompt =
-    'Tu es le moteur de génération SEO officiel de WAAPPLY (VisaPath), plateforme spécialisée dans le visa Schengen pour les Marocains.\n' +
+    'Tu es le moteur de génération SEO officiel de WAAPPLY (Visa Schengen), plateforme spécialisée dans le visa Schengen pour les Marocains.\n' +
     'Tu écris comme tu parlerais à un pote dans un café à Casablanca — chaleureux, direct, sans blabla.\n\n' +
     'Rédige un article HTML complet sur :\n' +
     'Sujet : "' + topic.title + '"\n' +

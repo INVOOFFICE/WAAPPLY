@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>VisaPath — Blog Visa Schengen pour les Marocains</title>
+    <title>Visa Schengen — Blog Visa Schengen pour les Marocains</title>
     <link>https://waapply.com/blog/</link>
     <description>Conseils, guides et actualités sur le visa Schengen pour les ressortissants marocains.</description>
     <language>fr</language>
@@ -9,7 +9,7 @@
     <atom:link href="https://waapply.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://waapply.com/assets/img/og-default.jpg</url>
-      <title>VisaPath Blog</title>
+      <title>Visa Schengen Blog</title>
       <link>https://waapply.com/blog/</link>
     </image>
     

@@ -1,4 +1,4 @@
-# Audit SEO — VisaPath / waapply.com
+# Audit SEO — Visa Schengen / waapply.com
 
 **Date :** 20 mai 2026
 **Outil :** Audit manuel complet (code source + pages générées)
@@ -141,7 +141,7 @@ Le site a un service worker (`sw.js`) mais aucun manifeste PWA. Pas d'icône, pa
 
 ### H7. Page d'accueil pas dans la balise `<title>` des articles de blog
 
-Les articles générés ont `<title>` au format `"Titre Article — Schengen Maroc"` (hardcodé dans le template `buildBlogPage()`). Devrait être `"Titre Article | VisaPath — Guide Schengen"` pour cohérence de marque.
+Les articles générés ont `<title>` au format `"Titre Article — Schengen Maroc"` (hardcodé dans le template `buildBlogPage()`). Devrait être `"Titre Article | Visa Schengen — Guide Schengen"` pour cohérence de marque.
 
 ---
 

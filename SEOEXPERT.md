@@ -258,7 +258,7 @@ Ces 10 requêtes Google sont la priorité absolue :
 
 Chaque article doit donner l'impression qu'il répond EXACTEMENT à ce qu'un Marocain a tapé sur Google.
 
-**Prompt métadonnées SEO (GAS `visapath-news.gs`) :**
+**Prompt métadonnées SEO (GAS `Visa Schengen-news.gs`) :**
 
 ```
 Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".
@@ -286,7 +286,7 @@ Règles :
 - Summary : 2 phrases avec bénéfice clair
 ```
 
-**Prompt contenu HTML (GAS `visapath-news.gs`) :**
+**Prompt contenu HTML (GAS `Visa Schengen-news.gs`) :**
 
 ```
 Tu es un expert SEO spécialisé dans la niche "Visa Schengen pour les Marocains".
