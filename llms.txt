@@ -1,9 +1,9 @@
-# Schengen Maroc Blog — Visa Schengen pour les Marocains
+# Visa Schengen Blog — Visa Schengen pour les Marocains
 # Site informatif indépendant dédié aux ressortissants marocains
 # https://waapply.com
 
 ## À propos
-Schengen Maroc est un blog de référence qui aide les Marocains à préparer
+Visa Schengen est un blog de référence qui aide les Marocains à préparer
 et réussir leur demande de visa Schengen : constitution du dossier, conseils
 par profil, actualités consulaires et recours en cas de refus.
 
