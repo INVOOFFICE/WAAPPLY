@@ -63,7 +63,10 @@
 
 .premium-card .btn-whatsapp {
   align-self:flex-start;
-  margin-top:.25rem;
+  margin-top:.5rem;
+  width:100%;
+  justify-content:center;
+  text-align:center;
 }
 
 .premium-footer {

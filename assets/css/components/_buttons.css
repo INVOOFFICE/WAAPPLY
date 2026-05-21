@@ -9,6 +9,7 @@
   cursor:pointer;
   font-family:'Instrument Sans',sans-serif;
   font-weight:600;
+  text-decoration:none;
   transition:all .18s;
 }
 
@@ -48,11 +49,21 @@
   background:#25D366;
   color:#fff;
   font-weight:600;
+  gap:0.5rem;
+  border-radius:8px;
+  padding:0.5rem 1.1rem;
+  will-change:transform;
 }
 .btn-whatsapp:hover {
   background:#1da851;
   transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(37,211,102,0.3);
+  box-shadow:0 8px 24px rgba(37,211,102,0.35);
+  color:#fff;
+  text-decoration:none;
+}
+.btn-whatsapp:active {
+  transform:translateY(0);
+  box-shadow:0 2px 8px rgba(37,211,102,0.2);
 }
 
 .btn-whatsapp-outline {
@@ -64,5 +75,11 @@
 .btn-whatsapp-outline:hover {
   background:rgba(37,211,102,0.1);
   transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(37,211,102,0.15);
+  box-shadow:0 8px 24px rgba(37,211,102,0.15);
+  text-decoration:none;
+}
+
+.btn-whatsapp svg,
+.btn-whatsapp-outline svg {
+  flex-shrink:0;
 }
