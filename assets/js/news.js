@@ -43,17 +43,24 @@ export async function loadNews() {
   if (!container) return;
 
   let items;
-  const urls = ['blogs-latest.json', '/WAAPPLY/blogs-latest.json', '/blogs-latest.json', 'blogs.json', '/WAAPPLY/blogs.json', '/blogs.json'];
-  for (const url of urls) {
-    try {
-      const res = await fetch(url, { cache: 'no-cache' });
-      if (!res.ok) continue;
-      const raw = await res.json();
-      items = (Array.isArray(raw) ? raw : (raw.all || []))
-        .filter(i => i.status === 'published' && i.slug && i.title);
-      if (items.length > 0) break;
-    } catch (_) { /* try next */ }
-  }
+  const controller = new AbortController();
+  const signal = controller.signal;
+  setTimeout(() => controller.abort(), 3000);
+
+  const urls = ['blogs-latest.json', '/blogs-latest.json', 'blogs.json', '/blogs.json'];
+  try {
+    const winner = await Promise.any(urls.map(url =>
+      fetch(url, { signal, cache: 'no-cache' }).then(async res => {
+        if (!res.ok) throw new Error('status ' + res.status);
+        const raw = await res.json();
+        const list = (Array.isArray(raw) ? raw : (raw.all || []))
+          .filter(i => i.status === 'published' && i.slug && i.title);
+        if (list.length === 0) throw new Error('empty');
+        return list;
+      })
+    ));
+    items = winner;
+  } catch (_) {}
 
   if (!items || items.length === 0) {
     console.warn('[Blog] blogs.json introuvable');

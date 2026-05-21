@@ -1,4 +1,6 @@
 /* Hero section */
+.hero h1 { font-family:system-ui; }
+
 .hero {
   position:relative;
   z-index:1;
