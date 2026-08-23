@@ -1,10 +1,42 @@
 // Desktop/mobile navigation: hamburger toggles the mobile drawer.
 // Also: scroll-spy highlights the active desktop nav link; clicking the
-// drawer backdrop closes it.
+// drawer backdrop closes it. While open, the drawer locks body scroll,
+// hides page content from assistive tech and traps keyboard focus.
+
+let lastDrawerFocus = null;
 
 function toggleMobileNav(){
-  document.getElementById('mobileNav').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
+  const nav = document.getElementById('mobileNav');
+  const isOpen = nav.classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open', isOpen);
+  // Lock background scroll while the drawer is open.
+  document.body.classList.toggle('nav-open', isOpen);
+  // Hide page content from AT while the drawer is open.
+  ['#site-header', '#main', 'footer', '.sticky-mobile-cta'].forEach(function(sel){
+    const el = document.querySelector(sel);
+    if(!el){ return; }
+    if(isOpen){ el.setAttribute('aria-hidden', 'true'); }
+    else{ el.removeAttribute('aria-hidden'); }
+  });
+  // Focus: into the first link on open, back to the trigger on close.
+  if(isOpen){
+    lastDrawerFocus = document.activeElement;
+    const firstLink = nav.querySelector('a[href]');
+    if(firstLink){ firstLink.focus({preventScroll:true}); }
+  }else{
+    const restoreTo = lastDrawerFocus && document.contains(lastDrawerFocus) && !nav.contains(lastDrawerFocus)
+      ? lastDrawerFocus
+      : document.getElementById('hamburger');
+    // Defer by one frame: when closing was triggered by clicking a link, the
+    // browser processes the fragment navigation's focus reset after the click
+    // handlers — restoring synchronously gets overwritten.
+    requestAnimationFrame(function(){
+      if(!nav.classList.contains('open') && document.contains(restoreTo)){
+        restoreTo.focus({preventScroll:true});
+      }
+    });
+    lastDrawerFocus = null;
+  }
 }
 
 // --- Scroll spy (desktop nav) ---
@@ -48,6 +80,27 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape'){
     const nav = document.getElementById('mobileNav');
     if(nav && nav.classList.contains('open')){ toggleMobileNav(); }
+  }
+});
+
+// --- Focus trap: Tab/Shift+Tab stay inside the open drawer ---
+document.addEventListener('keydown', function(e){
+  if(e.key !== 'Tab'){ return; }
+  const nav = document.getElementById('mobileNav');
+  if(!nav || !nav.classList.contains('open')){ return; }
+  const focusables = Array.prototype.filter.call(
+    nav.querySelectorAll('a[href], button:not([disabled])'),
+    function(el){ return el.offsetParent !== null; }
+  );
+  if(!focusables.length){ return; }
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if(e.shiftKey && document.activeElement === first){
+    e.preventDefault(); last.focus();
+  } else if(!e.shiftKey && document.activeElement === last){
+    e.preventDefault(); first.focus();
+  } else if(!nav.contains(document.activeElement)){
+    e.preventDefault(); first.focus();
   }
 });
 

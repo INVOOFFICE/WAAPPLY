@@ -1,54 +1,78 @@
-/* Design tokens — single source of truth for colors, gradients, shadows, radii, fonts. */
+/* Design tokens — single source of truth for colors, gradients, shadows, radii, fonts.
+   Palette « Bleu nuit + Émeraude » : accent principal émeraude (--gold-* roles),
+   accent secondaire bleu clair, fonds bleu nuit profonds. */
 :root{
   /* ===== Core palette ===== */
-  --ink:#050B18;              /* near-black navy for deep sections */
-  --navy:#0A1730;             /* refined deep navy */
-  --navy-2:#122448;           /* lighter navy for gradients */
-  --blue:#2955C9;             /* action / technology */
-  --blue-light:#4E7FE8;
-  --gold-1:#FBE6A6;
-  --gold-2:#F0C24B;
-  --gold-3:#C9971F;           /* deep gold for text contrast */
+  --ink:#050710;              /* near-black night for deep sections */
+  --navy:#0A0F1E;             /* refined deep night blue */
+  --navy-2:#12203D;           /* lighter night blue for gradients */
+  --blue:#3B82F6;             /* secondary accent / technology */
+  --blue-light:#60A5FA;
+  --blue-strong:#2563EB;      /* darker blue for small labels on tinted backgrounds (AA) */
+  /* ⚠️ NAMING DEBT — assumé : --gold-1/2/3 et --grad-gold désignent désormais la famille ÉMERAUDE
+     (accent principal). Noms conservés pour compat descendante ; ne pas recréer de vrais tokens or. */
+  --gold-1:#6EE7B7;           /* emerald light — top of accent gradient (decorative surfaces only) */
+  --gold-2:#10B981;           /* emerald — primary accent */
+  --gold-3:#047857;           /* deep emerald — lightest emerald passing AA with white text */
   --gold: var(--gold-2);
   --bg:#F8F9FC;
   --bg2:#EEF3FB;
   --paper:#FFFFFF;
   --text:#0E1B33;
   --slate:#55647E;
-  --green:#16A34A;
+  --green:#15803D;            /* status success — deliberately darker/franker than the emerald accent */
+  --green-deep:#166534;       /* readable green for small status text */
   --amber-ink:#8A6A10;        /* readable amber for pending states */
   --danger:#C02626;
 
   /* ===== Tints & washes (derived from core palette) ===== */
-  --tint-green:rgba(22,163,74,0.12);
-  --tint-gold:rgba(240,194,75,0.20);
+  --tint-green:rgba(21,128,61,0.12);
+  --tint-gold:rgba(16,185,129,0.20);
   --tint-red:rgba(192,38,38,0.10);
-  --wash-gold:rgba(240,194,75,0.09);
-  --wash-blue:rgba(41,85,201,0.05);
-  --wash-green:rgba(22,163,74,0.05);
+  --wash-gold:rgba(16,185,129,0.09);
+  --wash-blue:rgba(59,130,246,0.05);
+  --wash-blue-2:rgba(59,130,246,0.09);
+  --wash-green:rgba(21,128,61,0.05);
   --wash-red:rgba(192,38,38,0.04);
-  --line-green:rgba(22,163,74,0.18);
+  --line-green:rgba(21,128,61,0.18);
   --line-red:rgba(192,38,38,0.15);
 
   /* ===== Lines ===== */
   --border: rgba(10,23,48,0.08);
   --border-strong: rgba(10,23,48,0.15);
+  --line-blue: rgba(59,130,246,0.32);     /* hover/open accents on light cards */
+  --line-gold: rgba(16,185,129,0.42);     /* featured-card accent hairlines */
 
   /* ===== Depth (subtle by design) ===== */
   --shadow-xs: 0 1px 2px rgba(10,23,48,0.05);
   --shadow-sm: 0 4px 16px -8px rgba(10,23,48,0.10);
   --shadow: 0 8px 28px -14px rgba(10,23,48,0.14);
   --shadow-lg: 0 28px 64px -28px rgba(10,23,48,0.26);
-  --shadow-gold: 0 14px 34px -14px rgba(240,194,75,0.45);
+  --shadow-gold: 0 14px 34px -14px rgba(16,185,129,0.45);
+  --shadow-blue: 0 8px 20px -8px rgba(59,130,246,0.5);
+  --shadow-navy: 0 30px 64px -24px rgba(10,23,48,0.45);
 
   /* ===== Shape ===== */
   --radius: 18px;
   --radius-lg: 24px;
+  /* Radius scale (audit 2026-08) : --radius-sm = médiane du cluster des petites
+     valeurs isolées réelles (11–14px, éléments compacts). --radius-pill pour les
+     pills/badges 100%. Hors échelle (volontairement en dur) : hairlines 2–3px,
+     bandes décoratives 0 0 4px 4px, cercles géométriques 50%, et tout le mock .pp-*. */
+  --radius-sm: 12px;
+  --radius-pill: 100px;
 
   /* ===== Gradients ===== */
-  --grad-blue: linear-gradient(135deg, #3563D4 0%, #17348A 100%);
+  --grad-blue: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
   --grad-gold: linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-3) 100%);
+  /* Text-bearing accent surfaces (buttons, numbered chips, badges) — dark zone only:
+     starts at --gold-3 because white text on #10B981 tops out at 2.54:1 (<4.5 AA).
+     Range with white: 5.49:1 → 7.03:1 across the whole surface. */
+  --grad-gold-deep: linear-gradient(135deg, var(--gold-3) 0%, #065F46 100%);
   --grad-navy: linear-gradient(168deg, var(--navy-2) 0%, var(--ink) 82%);
+
+  /* ===== Decorative surfaces (hero / final CTA overlays) ===== */
+  --grid-line: rgba(255,255,255,0.045);
 
   /* ===== Type ===== */
   /* IBM Plex Sans Arabic everywhere (headings + UI): modern SaaS voice.
@@ -56,4 +80,30 @@
   --font-ar: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
   --font-heading: var(--font-ar);
   --font-lat: 'IBM Plex Sans', sans-serif;
+
+  /* ===== Typographic scale (audit 2026-08) =====
+     Paliers calés sur les tailles dominantes extraites du CSS ; tolérance de
+     remplacement ≤1px. Hors échelle (volontairement en dur) : titres fluides
+     clamp(), .price-tag (display), et tout le mock produit .pp-* (rôle="img"). */
+  --fs-xs: 13px;      /* eyebrows, micro-labels */
+  --fs-sm: 14px;      /* chips, listes secondaires */
+  --fs-base: 16px;    /* corps de texte, boutons */
+  --fs-md: 17px;      /* intros, questions FAQ */
+  --fs-lg: 17.5px;    /* nav drawer, titres h4 */
+  --fs-xl: 22px;      /* titres de carte mis en avant */
+
+  /* ===== Spacing scale (audit 2026-08) =====
+     Grille ×4 : --space-N = N×4px. Remplacement toléré ≤2px, arrondi
+     conservateur vers le bas (6→4, 10→8, 14→12…). Le rythme structurel
+     des sections (≥44px : paddings 44–112) reste en dur par design. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
 }
