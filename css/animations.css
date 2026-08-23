@@ -1,0 +1,34 @@
+/* Motion system: scroll-reveal classes, shared @keyframes, reduced-motion overrides. */
+
+/* Scroll reveal — one premium ease-out curve for the whole page.
+   Variants below only restyle the pre-entrance state (:not(.in) keeps them
+   specificity-safe against .reveal.in regardless of source order). */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);}
+.reveal.in{opacity:1; transform:none;}
+
+/* Directional entrances (page is RTL: inline start = right, end = left) */
+.reveal.from-start:not(.in){transform:translateX(32px);}
+.reveal.from-end:not(.in){transform:translateX(-32px);}
+
+/* Soft pop entrance: rise + gentle scale */
+.reveal.pop:not(.in){transform:translateY(16px) scale(0.965);}
+
+@keyframes floaty{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-9px);}
+}
+@keyframes pulse-dot{
+  0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0.45);}
+  60%{box-shadow:0 0 0 7px rgba(22,163,74,0);}
+}
+/* Barely-there golden heartbeat for eyebrow dots */
+@keyframes pulse-gold{
+  0%,100%{box-shadow:0 0 0 0 rgba(240,194,75,0.35);}
+  60%{box-shadow:0 0 0 6px rgba(240,194,75,0);}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1; transform:none; transition:none;}
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}

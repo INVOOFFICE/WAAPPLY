@@ -1,0 +1,6 @@
+/* Minimal browser-defaults reset. */
+*{box-sizing:border-box; margin:0; padding:0;}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit; cursor:pointer; border:none;}

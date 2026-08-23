@@ -1,0 +1,59 @@
+/* Design tokens — single source of truth for colors, gradients, shadows, radii, fonts. */
+:root{
+  /* ===== Core palette ===== */
+  --ink:#050B18;              /* near-black navy for deep sections */
+  --navy:#0A1730;             /* refined deep navy */
+  --navy-2:#122448;           /* lighter navy for gradients */
+  --blue:#2955C9;             /* action / technology */
+  --blue-light:#4E7FE8;
+  --gold-1:#FBE6A6;
+  --gold-2:#F0C24B;
+  --gold-3:#C9971F;           /* deep gold for text contrast */
+  --gold: var(--gold-2);
+  --bg:#F8F9FC;
+  --bg2:#EEF3FB;
+  --paper:#FFFFFF;
+  --text:#0E1B33;
+  --slate:#55647E;
+  --green:#16A34A;
+  --amber-ink:#8A6A10;        /* readable amber for pending states */
+  --danger:#C02626;
+
+  /* ===== Tints & washes (derived from core palette) ===== */
+  --tint-green:rgba(22,163,74,0.12);
+  --tint-gold:rgba(240,194,75,0.20);
+  --tint-red:rgba(192,38,38,0.10);
+  --wash-gold:rgba(240,194,75,0.09);
+  --wash-blue:rgba(41,85,201,0.05);
+  --wash-green:rgba(22,163,74,0.05);
+  --wash-red:rgba(192,38,38,0.04);
+  --line-green:rgba(22,163,74,0.18);
+  --line-red:rgba(192,38,38,0.15);
+
+  /* ===== Lines ===== */
+  --border: rgba(10,23,48,0.08);
+  --border-strong: rgba(10,23,48,0.15);
+
+  /* ===== Depth (subtle by design) ===== */
+  --shadow-xs: 0 1px 2px rgba(10,23,48,0.05);
+  --shadow-sm: 0 4px 16px -8px rgba(10,23,48,0.10);
+  --shadow: 0 8px 28px -14px rgba(10,23,48,0.14);
+  --shadow-lg: 0 28px 64px -28px rgba(10,23,48,0.26);
+  --shadow-gold: 0 14px 34px -14px rgba(240,194,75,0.45);
+
+  /* ===== Shape ===== */
+  --radius: 18px;
+  --radius-lg: 24px;
+
+  /* ===== Gradients ===== */
+  --grad-blue: linear-gradient(135deg, #3563D4 0%, #17348A 100%);
+  --grad-gold: linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-3) 100%);
+  --grad-navy: linear-gradient(168deg, var(--navy-2) 0%, var(--ink) 82%);
+
+  /* ===== Type ===== */
+  /* IBM Plex Sans Arabic everywhere (headings + UI): modern SaaS voice.
+     Family caps at weight 700 — heavier sizes come from scale, not faux-bold. */
+  --font-ar: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+  --font-heading: var(--font-ar);
+  --font-lat: 'IBM Plex Sans', sans-serif;
+}

@@ -1,0 +1,11 @@
+# Secrets / environment — never commit
+.env
+*.env
+
+# OS noise
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Logs
+*.log

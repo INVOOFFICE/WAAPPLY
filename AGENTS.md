@@ -1,0 +1,34 @@
+# AGENTS.md
+
+Single-page marketing site for WAAPPLY (Arabic service organizing job applications for Europe). Vanilla HTML + CSS + JS, split into small files. No framework, no npm, no build step, no dependencies, no tests.
+
+## Architecture
+
+- `index.html` — all markup only (no inline `<style>`/`<script>` blocks).
+- `css/` — `variables.css` (design tokens, single source of truth), `reset.css`, `base.css`, `layout.css` (header/nav/mobile drawer/containers/logo), `components.css` (buttons, FAQ, sticky CTA), `sections.css` (per-section styles incl. footer), `animations.css` (`.reveal`/`.in`, keyframes, `prefers-reduced-motion`), `responsive.css` (the 980px and 600px media queries only).
+- `js/` — plain scripts loaded at the end of `<body>`: `navigation.js` (drawer + scroll-spy + Escape-close), `faq.js` (accordion + Enter/Space keyboard support), `animations.js`, `app.js` (global init: header scroll shadow). Each file owns one responsibility.
+- `assets/` — local assets only; currently `logo.svg` (official brand logo, used via `<img src="assets/logo.svg" class="logo-img">` in header and footer — do not recreate an inline/text logo). This is the canonical logo file; the root-level `logo.svg` is only the untouched original source copy. Fonts come from Google Fonts CDN.
+- Head SEO block: canonical is exactly `https://waapply.com/` (no www, no alternate canonicals) — also used in `og:url`, JSON-LD ids/urls and `sitemap.xml`; `robots.txt` references `https://waapply.com/sitemap.xml`. JSON-LD lives in a single `<script type="application/ld+json">` in `<head>` with an `@graph` of Organization / WebSite / WebPage / Service (+2 Offers, MAD) / FAQPage (7 questions mirroring the visible FAQ). Keep structured data in sync with visible content; never add LocalBusiness, Review or AggregateRating (no real-world evidence). No `og:image` until a real PNG/JPG social asset exists (SVG logo is not supported as og:image).
+- Page flow (compact single-page structure): skip-link → header/nav → mobile drawer → `<main id="main">` containing hero `#top` → why `#why` (merged benefits + services, 6 cards) → how `#how` (5-step timeline + `.how-proof` sub-block containing the demo `dashboard-mock`) → pricing `#pricing` → who `#who` → faq `#faq` (7 questions, definition first) → final CTA `</main>` → footer (+ sticky mobile CTA outside main). There is no registration modal — conversion CTAs open WhatsApp directly. Anchors like `#services`, `#benefits`, `#problem`, `#solution`, `#europe`, `#system`, `#disclaimer` no longer exist — nav and footer link only to `#top`, `#why`, `#how`, `#pricing`, `#faq`.
+
+## Hard constraints
+
+- MUST keep working when opening `index.html` directly over `file://`: no ES modules (`type="module"`), no bundler, no fetch of local JSON. Scripts stay classic `<script src>` tags.
+- Functions called from inline HTML attributes must remain on `window`: `toggleMobileNav()`, `toggleFaq(el)`. Each js file ends with explicit `window.fn = fn;` assignments — keep them when editing.
+
+## Conventions
+
+- Page is `<html lang="ar" dir="rtl">`; copy is Moroccan Darija / MSA. New UI must stay RTL-consistent (e.g., flow-chain arrows use `←`).
+- Wrap Latin text, numbers, and prices in `class="latin"` (switches to IBM Plex Sans). Headings use IBM Plex Sans Arabic via `--font-heading` (`h1–h4`, weights 700/600 — the family has no 800; never request `wght@800` from Google Fonts).
+- Icons: one family only — Lucide-style outline icons embedded as an inline SVG sprite at the top of `<body>` (`<symbol id="i-*">`, 24×24, stroke-based). Use `<svg class="ic" aria-hidden="true"><use href="#i-name"/></svg>`; base `.ic` lives in components.css (18px, stroke 2, round caps), per-component overrides size/stroke it (benefit 26/30px featured, timeline `.tl-ico` 17px blue, chips 14px, price checks 11px in a 19px disc, who marks 13px, FAQ plus 13px). Never introduce emojis or Unicode glyphs as UI icons; add new symbols to the sprite only when needed (keep it lean).
+- Style exclusively with the design tokens in `css/variables.css` (`--navy`, `--blue`, `--gold-1..3`, `--grad-blue/gold/navy`, `--shadow*`, `--radius`); never hardcode hex values in other css files.
+- Buttons: the base `.btn` carries `border:1.5px solid transparent` so solid and outlined variants keep the same rendered height (~51px; `.btn-lg` ≈60px) — don't remove it or side-by-side button pairs misalign. Pricing CTAs are full-width anchors aligned by `.price-card .btn{margin-top:auto}` (cards are flex columns).
+- Scroll animations: give new sections/cards `class="reveal"`; the IntersectionObserver in `js/animations.js` adds `.in` on scroll. Optional entrance variants: `from-start`/`from-end` (horizontal slide, RTL-aware) and `pop` (rise+scale); optional `data-delay="<ms>"` staggers the `.in` timing via JS (no CSS transition-delay, so hovers stay instant). Preserve the `prefers-reduced-motion` overrides in `css/animations.css`.
+- Section rhythm alternates backgrounds to avoid flat runs: light sections sit on `--bg` by default, add class `alt-bg` (→ `--bg2`) for contrast (currently on `#who`; `#how` keeps its inline `style="background:var(--bg2);"`). In `#why`, the two principal benefits use `class="benefit-card featured"` (span 2 of the 4-col grid, gold icon) — keep exactly two. Primary conversion buttons can take `btn-lg`; on dark sections the secondary button is `btn-ghost-light` (not a second solid).
+- Responsive breakpoints live only in `css/responsive.css`: 980px (mobile nav drawer + sticky bottom CTA appear, `body` gains `padding-bottom:78px`) and 600px. Check 980px and 600px when touching layout.
+
+## Gotchas
+
+- All conversion/contact CTAs («ابدأ الآن», package buttons, «تواصل معنا فالواتساب», footer «واتساب», sticky CTA) point to `https://wa.me/32465327875?text=<percent-encoded Darija message>`. Package buttons prefill a message naming the pack and its price (3 أشهر / 1,000 DH — 6 أشهر / 1,400 DH); generic «ابدأ الآن» buttons prefill a general info request. Keep messages URL-encoded (`[Uri]::EscapeDataString` / `encodeURIComponent`) — never paste raw Arabic into the query string.
+- The pricing/dashboard stats/table are demo data (disclaimed on-page). Don't treat them as real.
+- `html` sets `scroll-behavior:smooth`; when driving the page programmatically (Playwright/QA), force `document.documentElement.style.scrollBehavior='auto'` before scripted scrolling, or scrollTo jumps lag behind and reveals/overflow measurements give false results.

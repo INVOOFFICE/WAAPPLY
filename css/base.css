@@ -1,0 +1,40 @@
+/* Global base: html/body, typography, global utilities, focus visibility. */
+html{scroll-behavior:smooth;}
+body{
+  font-family: var(--font-ar);
+  background: var(--bg);
+  color: var(--text);
+  font-size:16px;
+  line-height:1.8;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+h1,h2,h3,h4{
+  font-family: var(--font-heading);
+  letter-spacing:0;               /* negative tracking breaks Arabic joins */
+}
+h1,h2{font-weight:700;}
+h3{font-weight:700;}
+h4{font-weight:600;}
+::selection{background:var(--blue); color:#fff;}
+
+.text-gradient-gold{
+  background:var(--grad-gold); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.latin{font-family: var(--font-lat); letter-spacing:0.2px;}
+
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+  outline:2px solid var(--blue); outline-offset:2px;
+}
+
+/* Skip link: hidden until keyboard-focused (first focusable element in body) */
+.skip-link{
+  position:absolute; top:-52px; right:16px; z-index:200;
+  background:var(--navy); color:#fff; padding:10px 18px;
+  border-radius:0 0 12px 12px; font-weight:600; font-size:15px;
+  transition:top .2s ease;
+}
+.skip-link:focus{top:0;}
