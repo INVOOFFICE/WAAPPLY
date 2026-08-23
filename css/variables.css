@@ -71,6 +71,10 @@
   --grad-gold-deep: linear-gradient(135deg, var(--gold-3) 0%, #065F46 100%);
   --grad-navy: linear-gradient(168deg, var(--navy-2) 0%, var(--ink) 82%);
 
+  /* ===== Motion curves (signature easings — use these, never raw cubic-bezier) ===== */
+  --ease-entrance: cubic-bezier(.22, 1, .36, 1);   /* reveals, drawer, large transforms */
+  --ease-interact: cubic-bezier(.2, .8, .2, 1);    /* hover micro-interactions (buttons) */
+
   /* ===== Decorative surfaces (hero / final CTA overlays) ===== */
   --grid-line: rgba(255,255,255,0.045);
 

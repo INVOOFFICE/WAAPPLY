@@ -12,7 +12,7 @@
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:9px;
   padding:13px 27px; border:1.5px solid transparent; border-radius:var(--radius-sm); font-weight:600; font-size:15.5px; line-height:1.5;
-  transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background .25s ease, border-color .25s ease, color .25s ease;
+  transition: transform .22s var(--ease-interact), box-shadow .25s ease, background .25s ease, border-color .25s ease, color .25s ease;
   white-space:nowrap; position:relative;
 }
 .btn:active{transform:translateY(0) scale(.98);}
@@ -37,7 +37,7 @@
 .btn-gold:hover{transform:translateY(-2px); box-shadow:0 20px 40px -16px rgba(16,185,129,0.5);}
 /* Directional micro-feedback: the RTL arrow leans into its travel */
 .btn-gold:hover .ic{transform:translateX(-3px);}
-.btn-gold .ic{transition:transform .25s cubic-bezier(.22,1,.36,1);}
+.btn-gold .ic{transition:transform .25s var(--ease-entrance);}
 
 .btn-whatsapp{
   background:var(--green); color:#fff; box-shadow:0 8px 20px -6px rgba(21,128,61,0.45);
@@ -87,10 +87,10 @@
 .faq-q .plus{
   width:34px; height:34px; border-radius:50%; background:var(--bg2); color:var(--blue); flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
-  transition:transform .32s cubic-bezier(.22,1,.36,1), background .25s ease, color .25s ease;
+  transition:transform .32s var(--ease-entrance), background .25s ease, color .25s ease;
 }
 .faq-item.open .faq-q .plus{background:var(--grad-blue); color:#fff;}
 .faq-q .plus .ic{width:14px; height:14px; stroke-width:2.4;}
 .faq-item.open .faq-q .plus{transform:rotate(45deg);}
-.faq-a{max-height:0; overflow:hidden; transition:max-height .38s cubic-bezier(.22,1,.36,1);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .38s var(--ease-entrance);}
 .faq-a-inner{padding:0 var(--space-6) var(--space-6); font-size:var(--fs-base); color:var(--slate); line-height:1.95;}

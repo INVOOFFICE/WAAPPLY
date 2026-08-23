@@ -208,7 +208,7 @@
 .pp-bar span{
   display:block; height:100%; width:0; border-radius:100px;
   background:linear-gradient(to right, var(--blue-light), var(--blue));
-  transition:width 1s cubic-bezier(.22,1,.36,1) .4s;
+  transition:width 1s var(--ease-entrance) .4s;
 }
 /* La barre se remplit quand le hero entre dans le viewport (reveal existant) */
 .reveal.in .pp-bar span{width:93%;}
@@ -275,7 +275,7 @@
   border:1px solid var(--line-gold); border-radius:var(--radius-lg);
   padding:var(--space-8) var(--space-8);
   box-shadow:var(--shadow-sm);
-  transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .55s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease;
+  transition:transform .45s var(--ease-entrance), opacity .55s var(--ease-entrance), box-shadow .35s ease, border-color .35s ease;
 }
 .benefit-card.featured:hover{
   transform:translateY(-5px); border-color:rgba(16,185,129,0.65); box-shadow:var(--shadow);
@@ -284,7 +284,7 @@
   width:60px; height:60px; border-radius:var(--radius); background:var(--grad-gold);
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   box-shadow:0 10px 22px -10px rgba(16,185,129,0.55), inset 0 1px 0 rgba(255,255,255,0.55);
-  transition:transform .35s cubic-bezier(.22,1,.36,1);
+  transition:transform .35s var(--ease-entrance);
 }
 .benefit-card.featured:hover .benefit-icon{transform:scale(1.06) rotate(-3deg);}
 .benefit-icon .ic{width:28px; height:28px; color:var(--ink); stroke-width:2.1;}
@@ -296,13 +296,13 @@
   background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
   box-shadow:var(--shadow-xs);
   padding:var(--space-6) var(--space-6);
-  transition:transform .35s cubic-bezier(.22,1,.36,1), opacity .55s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
+  transition:transform .35s var(--ease-entrance), opacity .55s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
 }
 .benefit-card:not(.featured):hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
 .benefit-card:not(.featured) .benefit-icon{
   width:48px; height:48px; border-radius:var(--radius-sm);
   background:var(--bg2); box-shadow:none; margin-bottom:var(--space-4);
-  transition:background .25s ease, transform .35s cubic-bezier(.22,1,.36,1);
+  transition:background .25s ease, transform .35s var(--ease-entrance);
 }
 .benefit-card:not(.featured):hover .benefit-icon{background:var(--wash-blue-2); transform:scale(1.07);}
 .benefit-card:not(.featured) .benefit-icon .ic{width:23px; height:23px; color:var(--blue); stroke-width:2;}
