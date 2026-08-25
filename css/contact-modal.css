@@ -1,0 +1,203 @@
+/* Contact modal: lead form overlay, states (form/success/error), responsive.
+   Reuses existing design tokens exclusively — no hardcoded colors. */
+
+/* ===== Overlay ===== */
+.cm-overlay{
+  position:fixed; inset:0; z-index:200;
+  display:flex; align-items:center; justify-content:center;
+  padding:var(--space-5);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .3s ease, visibility 0s linear .3s;
+}
+.cm-overlay.cm-open{
+  opacity:1; visibility:visible; pointer-events:auto;
+  transition:opacity .3s ease;
+}
+
+/* ===== Backdrop ===== */
+.cm-backdrop{
+  position:absolute; inset:0;
+  background:rgba(5,11,24,0.6);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+}
+
+/* ===== Panel ===== */
+.cm-panel{
+  position:relative; z-index:1;
+  width:100%; max-width:480px;
+  max-height:calc(100vh - 40px);
+  background:var(--paper);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  opacity:0; transform:translateY(24px) scale(0.97);
+  transition:opacity .4s var(--ease-entrance), transform .4s var(--ease-entrance);
+}
+.cm-open .cm-panel{
+  opacity:1; transform:none;
+}
+
+/* Gold crown hairline — echoes the hero panel signature */
+.cm-panel::before{
+  content:''; position:absolute; top:0; right:28px; left:28px; height:3px;
+  background:var(--grad-gold); border-radius:0 0 4px 4px; opacity:0.9; z-index:2;
+}
+
+/* ===== Close button ===== */
+.cm-close{
+  position:absolute; top:var(--space-4); left:var(--space-4);
+  width:36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg2); border:none; border-radius:50%;
+  color:var(--slate); cursor:pointer; z-index:3;
+  transition:background .2s ease, color .2s ease;
+}
+.cm-close:hover{background:var(--border); color:var(--navy);}
+
+/* ===== Form state ===== */
+.cm-form-state{padding:var(--space-8) var(--space-7) var(--space-7);}
+.cm-form-state h2{
+  font-size:clamp(22px, 3vw, 28px); font-weight:700; color:var(--navy);
+  margin-bottom:var(--space-2);
+}
+.cm-desc{
+  font-size:var(--fs-base); color:var(--slate); line-height:1.8;
+  margin-bottom:var(--space-7);
+}
+
+/* ===== Form fields ===== */
+.cm-field{margin-bottom:var(--space-5);}
+.cm-field label{
+  display:block; font-size:var(--fs-sm); font-weight:600; color:var(--navy);
+  margin-bottom:var(--space-2);
+}
+.cm-field input,
+.cm-field select{
+  width:100%; padding:13px var(--space-4);
+  background:var(--bg); border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-sm);
+  font-family:var(--font-ar); font-size:var(--fs-base); color:var(--text);
+  transition:border-color .2s ease, box-shadow .2s ease;
+  -webkit-appearance:none; appearance:none;
+}
+.cm-field input:focus,
+.cm-field select:focus{
+  outline:none; border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.15);
+}
+.cm-field input.cm-invalid,
+.cm-field select.cm-invalid{
+  border-color:var(--danger);
+  box-shadow:0 0 0 3px rgba(192,38,38,0.1);
+}
+
+/* Select dropdown chevron */
+.cm-field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355647E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:40px;
+}
+
+/* ===== Phone input ===== */
+.cm-phone-wrap{
+  display:flex; flex-direction:row; align-items:stretch;
+  direction:ltr;
+  background:var(--bg); border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.cm-phone-wrap:focus-within{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.15);
+}
+.cm-phone-wrap.cm-invalid{
+  border-color:var(--danger);
+  box-shadow:0 0 0 3px rgba(192,38,38,0.1);
+}
+.cm-phone-prefix{
+  display:flex; align-items:center; padding:0 var(--space-3);
+  background:var(--bg2); border-right:1.5px solid var(--border-strong);
+  font-size:var(--fs-base); font-weight:600; color:var(--slate);
+  user-select:none; white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.cm-phone-prefix.cm-hidden{opacity:0; width:0; padding:0; overflow:hidden; border:none;}
+.cm-phone-wrap input{
+  border:none; background:transparent;
+  padding:13px var(--space-4);
+  flex:1; min-width:0;
+  font-family:var(--font-lat); font-size:var(--fs-base); color:var(--text);
+}
+.cm-phone-wrap input:focus{outline:none; box-shadow:none;}
+.cm-phone-wrap input::placeholder{color:var(--slate); opacity:0.6;}
+
+/* ===== Validation errors ===== */
+.cm-error{
+  display:block; font-size:var(--fs-xs); color:var(--danger);
+  margin-top:var(--space-1); min-height:0;
+  opacity:0; max-height:0; overflow:hidden;
+  transition:opacity .2s ease, max-height .2s ease;
+}
+.cm-error:not(:empty){
+  opacity:1; max-height:40px;
+}
+
+/* ===== Result state (shared by success & error) ===== */
+.cm-result-state{
+  padding:var(--space-9) var(--space-7) var(--space-7);
+  text-align:center;
+}
+.cm-result-icon{
+  width:64px; height:64px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto var(--space-5);
+}
+.cm-success-icon{background:var(--tint-green); color:var(--green);}
+.cm-success-icon .ic{width:36px; height:36px; stroke-width:1.8;}
+.cm-error-icon{background:var(--tint-red); color:var(--danger);}
+.cm-error-icon .ic{width:36px; height:36px; stroke-width:1.8;}
+
+.cm-result-title{
+  font-size:clamp(22px, 3vw, 28px); font-weight:700; color:var(--navy);
+  margin-bottom:var(--space-3);
+}
+.cm-result-msg{
+  font-size:var(--fs-base); color:var(--slate); line-height:1.9;
+  margin-bottom:var(--space-7);
+}
+.cm-result-actions{
+  display:flex; flex-direction:column; gap:var(--space-3);
+}
+
+/* ===== Submit button loading ===== */
+#cm-submit.cm-submit-loading{
+  opacity:.7; cursor:not-allowed; pointer-events:none;
+}
+
+/* ===== Body scroll lock ===== */
+body.modal-open{overflow:hidden;}
+
+/* ===== Reduced motion ===== */
+/* The global * { transition-duration:0.001ms !important } in animations.css
+   already covers modal transitions under prefers-reduced-motion. */
+
+/* ===== Responsive: ≤980px (modal appears on tablet too) ===== */
+@media(max-width:980px){
+  .cm-overlay{padding:var(--space-4);}
+}
+
+/* ===== Responsive: ≤600px — bottom sheet ===== */
+@media(max-width:600px){
+  .cm-overlay{padding:0; align-items:flex-end;}
+  .cm-panel{
+    max-width:100%; max-height:92vh;
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    transform:translateY(100%);
+  }
+  .cm-open .cm-panel{transform:none;}
+  .cm-form-state{padding:var(--space-6) var(--space-5) var(--space-5);}
+  .cm-result-state{padding:var(--space-7) var(--space-5) var(--space-5);}
+}

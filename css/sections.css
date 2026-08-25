@@ -449,7 +449,6 @@
 .value-box{
   margin-top:44px; text-align:center;
   background:var(--grad-navy); border-radius:var(--radius-lg); padding:var(--space-9) var(--space-8);
-  max-width:760px; margin-left:auto; margin-right:auto;
   box-shadow:var(--shadow-navy); position:relative; overflow:hidden;
 }
 .value-box::before{
@@ -465,6 +464,16 @@
   font-weight:700; padding:var(--space-3) var(--space-6); border-radius:var(--radius-pill); font-size:var(--fs-sm); box-shadow:var(--shadow-gold);
   position:relative;
 }
+.vb-features{
+  list-style:none; padding:0; margin:var(--space-4) auto var(--space-5);
+  display:inline-flex; flex-direction:column; gap:var(--space-2);
+  text-align:start; max-width:420px; position:relative;
+}
+.vb-features li{
+  font-size:var(--fs-base); color:rgba(255,255,255,0.85); line-height:1.8;
+  display:flex; align-items:flex-start; gap:var(--space-2);
+}
+.vb-features .ic{width:16px; height:16px; color:var(--green); flex-shrink:0; margin-top:4px; stroke-width:2.5;}
 
 /* ============================================================
    WHO IS IT FOR
@@ -498,44 +507,23 @@
 /* ============================================================
    FINAL CTA
    ============================================================ */
-.final-cta{
-  background: var(--grad-navy);
-  color:#fff; text-align:center; padding:112px 0; position:relative; overflow:hidden;
-}
-.final-cta::before{
-  content:'';
-  position:absolute; inset:0;
-  background:
-    radial-gradient(760px 460px at 16% -12%, rgba(59,130,246,0.34), transparent 60%),
-    radial-gradient(640px 400px at 88% 112%, rgba(16,185,129,0.15), transparent 60%);
-  pointer-events:none;
-}
-.final-cta::after{ /* same technical grid as the hero — bookends the page */
-  content:''; position:absolute; inset:0;
-  background:
-    linear-gradient(to left, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size:56px 56px;
-  -webkit-mask-image:radial-gradient(640px 420px at 50% 100%, #000 0%, transparent 72%);
-  mask-image:radial-gradient(640px 420px at 50% 100%, #000 0%, transparent 72%);
-  pointer-events:none;
-}
-.final-cta .container{position:relative; z-index:1;}
-.final-cta h2{font-size:clamp(32px,4.4vw,50px); font-weight:700; margin-bottom:var(--space-4); line-height:1.36;}
-.final-cta p{font-size:var(--fs-lg); color:rgba(255,255,255,0.78); max-width:580px; margin:0 auto 38px; line-height:1.9;}
-.final-ctas{display:flex; justify-content:center; gap:var(--space-4); flex-wrap:wrap; margin-bottom:var(--space-6);}
-.final-note{text-align:center; font-size:var(--fs-sm); color:rgba(255,255,255,0.6); margin:0;}
-
 /* ============================================================
    FOOTER
    ============================================================ */
 footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;}
 .footer-top{
-  display:flex; justify-content:space-between; gap:48px; flex-wrap:wrap;
+  display:grid; grid-template-columns:1fr 1.2fr auto; gap:48px; align-items:start;
   padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .footer-brand .logo-img{height:54px; width:auto; display:block;}
 .footer-brand p{margin-top:var(--space-4); font-size:var(--fs-sm); color:rgba(255,255,255,0.58); max-width:300px; line-height:1.9;}
+.footer-cta{
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg); padding:var(--space-7) var(--space-6);
+}
+.footer-cta h4{font-size:20px; font-weight:700; color:#fff; margin-bottom:var(--space-3); line-height:1.5;}
+.footer-cta p{font-size:var(--fs-sm); color:rgba(255,255,255,0.66); line-height:1.9; margin-bottom:var(--space-5);}
+.footer-cta .btn{width:100%;}
 .footer-links{display:flex; gap:72px; flex-wrap:wrap;}
 .footer-col h5{font-size:var(--fs-xs); font-weight:700; color:#fff; margin-bottom:var(--space-4); letter-spacing:0.3px;}
 .footer-col li{margin-bottom:var(--space-3); font-size:var(--fs-sm);}
@@ -547,6 +535,11 @@ footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;
   max-width:880px; margin:34px auto 0; text-align:center;
 }
 .footer-bottom{
-  display:flex; justify-content:center; align-items:center; margin-top:var(--space-7); padding-top:var(--space-6);
+  display:flex; justify-content:center; align-items:center; gap:var(--space-3); margin-top:var(--space-7); padding-top:var(--space-6);
   border-top:1px solid rgba(255,255,255,0.08); font-size:var(--fs-xs); color:rgba(255,255,255,0.5);
 }
+.footer-sep{opacity:0.35;}
+.footer-legal-link{
+  color:rgba(255,255,255,0.6); transition:color .2s ease;
+}
+.footer-legal-link:hover{color:var(--gold-1);}

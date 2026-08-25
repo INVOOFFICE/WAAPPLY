@@ -47,6 +47,8 @@
 
   .pricing-grid{grid-template-columns:1fr; max-width:480px; margin-left:auto; margin-right:auto;}
 
+  .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
+
   .who-grid{grid-template-columns:1fr;}
 
   .sticky-mobile-cta{display:block;}
@@ -98,13 +100,8 @@
   .faq-q{padding:var(--space-4) var(--space-4); font-size:var(--fs-base);}
   .faq-a-inner{padding:0 var(--space-4) var(--space-5);}
 
-  .final-cta{padding:72px 0;}
-  .btn-lg{padding:15px 26px; font-size:15.5px;}
-
   .btn{width:100%;}
   .hero-ctas{flex-direction:column; width:100%;}
   .hero-ctas .btn{width:100%;}
-  .final-ctas{flex-direction:column; width:100%;}
-  .final-ctas .btn{width:100%;}
   .footer-links{gap:var(--space-10);}
 }

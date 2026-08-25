@@ -158,7 +158,7 @@
           "name": "شنو الفرق بين باقة 3 أشهر وباقة 6 أشهر؟",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "نفس الخدمة — الفرق فهاد المدة: باقة 6 أشهر كتخليك مقدّم لمدة أطول، يعني طلبات أكثر ومتابعة أطول. باقة 3 أشهر بـ 1,000 DH وباقة 6 أشهر بـ 1,400 DH."
+            "text": "نفس الخدمة — الفرق فهاد المدة: باقة 6 أشهر كتخليك مقدّم لمدة أطول، يعني طلبات أكثر ومتابعة أطول. باقة 3 أشهر بـ 1,000 درهم وباقة 6 أشهر بـ 1,400 درهم."
           }
         }
       ]
@@ -177,6 +177,7 @@
 <link rel="stylesheet" href="css/sections.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/contact-modal.css">
 </head>
 <body>
 
@@ -230,7 +231,7 @@
     </nav>
     <div class="header-cta">
       <a href="#pricing" class="btn btn-outline">شوف الباقات</a>
-      <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-gold">ابدأ الآن</a>
+      <button type="button" data-contact-package="info" class="btn btn-gold">ابدأ الآن</button>
       <button class="hamburger" id="hamburger" aria-label="القائمة" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
       </button>
@@ -245,7 +246,7 @@
     <a href="#how" onclick="toggleMobileNav()">كيفاش كتخدم</a>
     <a href="#pricing" onclick="toggleMobileNav()">الباقات</a>
     <a href="#faq" onclick="toggleMobileNav()">الأسئلة الشائعة</a>
-    <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-gold btn-block" onclick="toggleMobileNav()">ابدأ الآن</a>
+    <a href="#" data-contact-package="info" class="btn btn-gold btn-block" onclick="toggleMobileNav()">ابدأ الآن</a>
   </nav>
 </div>
 
@@ -261,7 +262,7 @@
       <h2 class="sub">خلي البحث والتقديم اليومي على الشركات علينا حنا — ونتا ركّز على مهاراتك والاستعداد للمقابلات.</h2>
       <p class="desc">كنتكلفو بالجزء المتعب ديال العملية: كنبحثو على الفرص المناسبة لبروفايلك، كنجهزو <span class="latin">CV</span> و<span class="latin">Lettre de Motivation</span>، وكنرسلو طلباتك للشركات بشكل منظم ومستمر، مع تسجيل وتتبع كل طلب من بلاصة وحدة.</p>
       <div class="hero-ctas">
-        <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-gold btn-lg">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+        <button type="button" data-contact-package="info" class="btn btn-gold btn-lg">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
         <a href="#pricing" class="btn btn-ghost-light btn-lg">شوف الباقات</a>
       </div>
     </div>
@@ -568,7 +569,7 @@
     <div class="pricing-grid">
       <div class="price-card reveal" data-delay="300">
         <h3>باقة 3 أشهر</h3>
-        <div class="price-tag latin">1,000 DH</div>
+        <div class="price-tag latin">1,000 درهم</div>
         <p class="pdesc">مناسبة إلا بغيتي تبدا وتشوف كيفاش كتخدم الخدمة قبل ما تكمل على مدة أطول.</p>
         <ul class="price-features">
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> 3 أشهر من الخدمة</li>
@@ -577,12 +578,12 @@
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> البحث على الشركات المناسبة وتنظيم معلومات التواصل ديالها</li>
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> إرسال منظم كل نهار وتتبع حالة كل طلب</li>
         </ul>
-        <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%A8%D8%A7%D9%82%D8%A9%203%20%D8%A3%D8%B4%D9%87%D8%B1%20%D8%A8%D9%80%201%2C000%20DH.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%AF%D9%8A%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%D8%9F" target="_blank" rel="noopener" class="btn btn-outline btn-block">اختار باقة 3 أشهر</a>
+        <button type="button" data-contact-package="3months" class="btn btn-outline btn-block">اختار باقة 3 أشهر</button>
       </div>
       <div class="price-card featured reveal" data-delay="380">
         <span class="price-badge"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>الأكثر طلباً</span>
         <h3>باقة 6 أشهر</h3>
-        <div class="price-tag latin">1,400 DH</div>
+        <div class="price-tag latin">1,400 درهم</div>
         <p class="pdesc">إلا كنت باغي تستمر مدة أطول فالبحث والتقديم، هادي هي الباقة الأنسب ليك.</p>
         <ul class="price-features">
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> 6 أشهر من الخدمة</li>
@@ -591,15 +592,23 @@
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> بحث مستمر على فرص جديدة وتحديث قاعدة الشركات</li>
           <li><span class="check"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> إرسال منظم وتتبع كامل، مع Dashboard لمتابعة النشاط</li>
         </ul>
-        <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%A8%D8%A7%D9%82%D8%A9%206%20%D8%A3%D8%B4%D9%87%D8%B1%20%D8%A8%D9%80%201%2C400%20DH.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%AF%D9%8A%D8%A7%D9%84%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%D8%9F" target="_blank" rel="noopener" class="btn btn-gold btn-block">اختار باقة 6 أشهر <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+        <button type="button" data-contact-package="6months" class="btn btn-gold btn-block">اختار باقة 6 أشهر <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
       </div>
     </div>
 
     <div class="value-box reveal" data-delay="500">
-      <h4>علاش باقة 6 أشهر هي الأكثر قيمة؟</h4>
-      <p>حيت البحث على خدمة فأوروبا ماشي بالضرورة كيجيب نتيجة فمدة قصيرة — مدة أطول يعني طلبات أكثر، فرص أكثر، ومتابعة أطول مع <span class="latin">Jobs</span> جديدة مناسبة لبروفايلك.</p>
-      <p class="value-math">جوج باقات ديال 3 أشهر = <span class="latin">2,000 DH</span> — باقة 6 أشهر غير بـ <span class="latin">1,400 DH</span>.</p>
-      <span class="save-badge">وفر <span class="latin">DH 600</span></span>
+      <h4><svg class="ic" aria-hidden="true" style="width:22px;height:22px;vertical-align:middle;margin-inline-end:6px;"><use href="#i-star"/></svg>عرض خاص بالطلبة لمدة <span class="latin">20</span> يوم</h4>
+      <p>طالب وباغي تلقى فرص مناسبة ليك فـأوروبا؟</p>
+      <p>خلي علينا البحث، وحنا نرسلو ليك رسالة وحدة كل نهار عبر واتساب لمدة <span class="latin">20</span> يوم، حسب القطاع والبلد اللي كتختار.</p>
+      <ul class="vb-features">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> اختار القطاع اللي مهتم به</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> اختار البلد اللي باغي تستهدف</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> توصلك رسالة وحدة كل نهار عبر واتساب</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> الخدمة أوتوماتيكية بالكامل</li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> المدة: <span class="latin">20</span> يوم</li>
+      </ul>
+      <span class="save-badge">الثمن: <span class="latin">500 درهم</span> فقط</span>
+      <button type="button" data-contact-package="20days" class="btn btn-gold btn-block" style="margin-top:var(--space-5);">استافد من العرض <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
     </div>
   </div>
 </section>
@@ -670,22 +679,9 @@
       </div>
       <div class="faq-item reveal">
         <div class="faq-q" id="faq-q7" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a7" onclick="toggleFaq(this)"><span>شنو الفرق بين باقة 3 أشهر وباقة 6 أشهر؟</span><span class="plus"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></span></div>
-        <div class="faq-a" id="faq-a7"><div class="faq-a-inner">نفس الخدمة — الفرق فهاد المدة: باقة <span class="latin">3</span> أشهر بـ <span class="latin">1,000 DH</span> وباقة <span class="latin">6</span> أشهر بـ <span class="latin">1,400 DH</span>. باقة 6 أشهر كتخليك مقدّم لمدة أطول، يعني طلبات أكثر ومتابعة أطول.</div></div>
+        <div class="faq-a" id="faq-a7"><div class="faq-a-inner">نفس الخدمة — الفرق فهاد المدة: باقة <span class="latin">3</span> أشهر بـ <span class="latin">1,000 درهم</span> وباقة <span class="latin">6</span> أشهر بـ <span class="latin">1,400 درهم</span>. باقة 6 أشهر كتخليك مقدّم لمدة أطول، يعني طلبات أكثر ومتابعة أطول.</div></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== FINAL CTA ===================== -->
-<section class="final-cta">
-  <div class="container">
-    <h2 class="reveal">حبس تضيع وقتك فالتقديم كل نهار.</h2>
-    <p class="reveal">طور مهاراتك، حسن اللغة ديالك، وجد للمقابلات — وحنا نهتمو بالجزء المتكرر والمتعب من التقديم.</p>
-    <div class="final-ctas reveal">
-      <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-gold btn-lg">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
-      <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-ghost-light"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> تواصل معنا فالواتساب</a>
-    </div>
-    <p class="final-note">وابلاي — كننظمو ليك التقديم، ونتا ركز على الوصول للفرصة. تواصل معانا فالواتساب وغادي نجاوبوك على جميع الأسئلة.</p>
   </div>
 </section>
 
@@ -699,13 +695,18 @@
         <img src="assets/logo.svg" alt="شعار وابلاي" class="logo-img" width="512" height="512">
         <p>خلي البحث والتقديم اليومي على الشركات علينا حنا — ونتا ركّز على مهاراتك.</p>
       </div>
+      <div class="footer-cta">
+        <h4>حبس تضيع وقتك فالتقديم كل نهار.</h4>
+        <p>طوّر مهاراتك، حسن اللغة ديالك، وجد للمقابلات — وحنا نهمّو بالجزء المتكرر والمتعب من التقديم.</p>
+        <button type="button" data-contact-package="info" class="btn btn-gold btn-block">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+      </div>
       <div class="footer-links">
         <div class="footer-col">
           <h5>روابط</h5>
           <ul>
             <li><a href="#top">الرئيسية</a></li>
             <li><a href="#why">الخدمات</a></li>
-            <li><a href="#how">كيفاش كتخدم</a></li>
+            <li><a href="#how">كيفاش كنخدم</a></li>
             <li><a href="#pricing">الباقات</a></li>
             <li><a href="#faq">الأسئلة الشائعة</a></li>
           </ul>
@@ -713,7 +714,7 @@
         <div class="footer-col">
           <h5>تواصل</h5>
           <ul>
-            <li><a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg>واتساب</a></li>
+            <li><a href="#" data-contact-package="info"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg>واتساب</a></li>
           </ul>
         </div>
       </div>
@@ -721,19 +722,91 @@
     <p class="footer-disclaimer">هاد الخدمة كتعاونك فالبحث على فرص العمل وإرسال وتنظيم طلبات التوظيف، ولكن ما كتضمنش ليك خدمة ولا <span class="latin">Visa</span>. القرار النهائي كيرجع للشركة والجهات المختصة.</p>
     <div class="footer-bottom">
       <span>© 2026 وابلاي — جميع الحقوق محفوظة.</span>
+      <span class="footer-sep" aria-hidden="true">|</span>
+      <a href="terms.html" class="footer-legal-link">شروط الخدمة</a>
     </div>
   </div>
 </footer>
 
 <!-- ===================== STICKY MOBILE CTA ===================== -->
 <div class="sticky-mobile-cta">
-  <a href="https://wa.me/32465327875?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D8%A3%D9%83%D8%AB%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20WAAPPLY%20%D9%88%D9%83%D9%8A%D9%81%D8%A7%D8%B4%20%D9%83%D8%AA%D8%AE%D8%AF%D9%85.%20%D9%85%D9%85%D9%83%D9%86%20%D8%AA%D8%B9%D8%B7%D9%8A%D9%86%D9%8A%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" rel="noopener" class="btn btn-gold btn-block">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+  <button type="button" data-contact-package="info" class="btn btn-gold btn-block">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+</div>
+
+<!-- ===================== CONTACT MODAL ===================== -->
+<div class="cm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="نموذج التواصل مع WAAPPLY" aria-hidden="true">
+  <div class="cm-backdrop" data-close-modal></div>
+  <div class="cm-panel">
+    <button class="cm-close" type="button" aria-label="إغلاق" data-close-modal>
+      <svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+
+    <!-- Form state -->
+    <div class="cm-form-state" id="cmFormState">
+      <h2 id="cm-title">بغيت تعرف أكثر؟</h2>
+      <p class="cm-desc">عمر المعلومات ديالك وخلي فريق WAAPPLY يتواصل معاك ويعطيك جميع التفاصيل.</p>
+      <form id="cmForm" novalidate>
+        <div class="cm-field">
+          <label for="cm-name">الاسم الكامل</label>
+          <input type="text" id="cm-name" name="name" placeholder="دخل الاسم الكامل ديالك" required autocomplete="name">
+          <span class="cm-error" id="cm-name-error" role="alert"></span>
+        </div>
+        <div class="cm-field">
+          <label for="cm-phone">رقم واتساب</label>
+          <div class="cm-phone-wrap">
+            <span class="cm-phone-prefix latin" aria-hidden="true">+212</span>
+            <input type="tel" id="cm-phone" name="whatsapp" placeholder="6XXXXXXXX" required autocomplete="tel">
+          </div>
+          <span class="cm-error" id="cm-phone-error" role="alert"></span>
+        </div>
+        <div class="cm-field">
+          <label for="cm-package">الباقة</label>
+          <select id="cm-package" name="package" required>
+            <option value="info">بغيت نعرف أكثر</option>
+            <option value="20days">عرض 20 يوم — 500 درهم</option>
+            <option value="3months">باقة 3 أشهر — 1,000 درهم</option>
+            <option value="6months">باقة 6 أشهر — 1,400 درهم</option>
+          </select>
+          <span class="cm-error" id="cm-package-error" role="alert"></span>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block btn-lg" id="cm-submit"><span id="cm-submit-text">أكد الطلب</span></button>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="cm-result-state" id="cmSuccessState" style="display:none">
+      <div class="cm-result-icon cm-success-icon">
+        <svg class="ic" aria-hidden="true"><use href="#i-circle-check-big"/></svg>
+      </div>
+      <h2 class="cm-result-title">شكراً لك!</h2>
+      <p class="cm-result-msg">توصلنا بالمعلومات ديالك بنجاح. فريق الدعم ديال WAAPPLY غادي يتواصل معاك قريباً باش يعطيك جميع التفاصيل.</p>
+      <div class="cm-result-actions">
+        <button type="button" class="btn btn-gold btn-block" data-close-modal>حسناً</button>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div class="cm-result-state" id="cmErrorState" style="display:none">
+      <div class="cm-result-icon cm-error-icon">
+        <svg class="ic" aria-hidden="true"><use href="#i-circle-alert"/></svg>
+      </div>
+      <h2 class="cm-result-title">وقع مشكل مؤقت</h2>
+      <p class="cm-result-msg">ما قدرناش نسجلو المعلومات ديالك دابا. حاول مرة أخرى أو تواصل معنا مباشرة فالواتساب.</p>
+      <div class="cm-result-actions">
+        <a href="#" class="btn btn-whatsapp btn-block" id="cm-whatsapp-fallback-btn" target="_blank" rel="noopener">
+          <svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> تواصل معنا فالواتساب
+        </a>
+        <button type="button" class="btn btn-outline btn-block" data-close-modal>حسناً</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="js/navigation.js"></script>
 <script src="js/faq.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/app.js"></script>
+<script src="js/contact-modal.js"></script>
 
 </body>
 </html>

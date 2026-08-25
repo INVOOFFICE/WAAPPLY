@@ -32,6 +32,10 @@ function toggleMobileNav(){
     // handlers — restoring synchronously gets overwritten.
     requestAnimationFrame(function(){
       if(!nav.classList.contains('open') && document.contains(restoreTo)){
+        /* Skip focus restore when the contact modal is opening/open —
+           its own focus management handles the transition. */
+        var cm = document.getElementById('contactModal');
+        if(cm && cm.classList.contains('cm-open')) return;
         restoreTo.focus({preventScroll:true});
       }
     });
