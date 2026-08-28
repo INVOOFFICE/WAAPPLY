@@ -66,8 +66,7 @@
     </a>
     <nav class="main-nav">
       <a href="index.html">الرئيسية</a>
-      <a href="index.html#why">الخدمات</a>
-      <a href="index.html#how">كيفاش كتخدم</a>
+      <a href="index.html#sectors">الخدمات</a>
       <a href="index.html#pricing">الباقات</a>
       <a href="index.html#faq">الأسئلة الشائعة</a>
     </nav>
@@ -85,8 +84,7 @@
 <div class="mobile-nav" id="mobileNav">
   <nav class="mobile-nav-panel" aria-label="قائمة التنقل">
     <a href="index.html" onclick="toggleMobileNav()">الرئيسية</a>
-    <a href="index.html#why" onclick="toggleMobileNav()">الخدمات</a>
-    <a href="index.html#how" onclick="toggleMobileNav()">كيفاش كتخدم</a>
+    <a href="index.html#sectors" onclick="toggleMobileNav()">الخدمات</a>
     <a href="index.html#pricing" onclick="toggleMobileNav()">الباقات</a>
     <a href="index.html#faq" onclick="toggleMobileNav()">الأسئلة الشائعة</a>
     <a href="#" data-contact-package="info" class="btn btn-gold btn-block" onclick="toggleMobileNav()">ابدأ الآن</a>
@@ -328,8 +326,7 @@
           <h5>روابط</h5>
           <ul>
             <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="index.html#why">الخدمات</a></li>
-            <li><a href="index.html#how">كيفاش كنخدم</a></li>
+            <li><a href="index.html#sectors">الخدمات</a></li>
             <li><a href="index.html#pricing">الباقات</a></li>
             <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
           </ul>
@@ -357,15 +354,23 @@
 </div>
 
 <!-- ===================== CONTACT MODAL ===================== -->
-<div class="cm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="نموذج التواصل مع WAAPPLY" aria-hidden="true">
+<div class="cm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="نموذج التواصل مع وابلاي" aria-hidden="true">
   <div class="cm-backdrop" data-close-modal></div>
   <div class="cm-panel">
     <button class="cm-close" type="button" aria-label="إغلاق" data-close-modal>
       <svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>
     </button>
     <div class="cm-form-state" id="cmFormState">
+      <div class="cm-audio-anim" aria-hidden="true">
+        <span class="cm-audio-badge"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg></span>
+        <span class="cm-wave"></span>
+        <span class="cm-wave"></span>
+        <span class="cm-wave"></span>
+        <span class="cm-wave"></span>
+        <span class="cm-wave"></span>
+      </div>
       <h2 id="cm-title">بغيت تعرف أكثر؟</h2>
-      <p class="cm-desc">عمر المعلومات ديالك وخلي فريق WAAPPLY يتواصل معاك ويعطيك جميع التفاصيل.</p>
+      <p class="cm-desc">عمر المعلومات ديالك وخلي فريق وابلاي يتواصل معاك ويعطيك جميع التفاصيل.</p>
       <form id="cmForm" novalidate>
         <div class="cm-field">
           <label for="cm-name">الاسم الكامل</label>
@@ -398,7 +403,7 @@
         <svg class="ic" aria-hidden="true"><use href="#i-circle-check-big"/></svg>
       </div>
       <h2 class="cm-result-title">شكراً لك!</h2>
-      <p class="cm-result-msg">توصلنا بالمعلومات ديالك بنجاح. فريق الدعم ديال WAAPPLY غادي يتواصل معاك قريباً باش يعطيك جميع التفاصيل.</p>
+      <p class="cm-result-msg">توصلنا بالمعلومات ديالك بنجاح. فريق الدعم ديال وابلاي غادي يتواصل معاك قريباً باش يعطيك جميع التفاصيل.</p>
       <div class="cm-result-actions">
         <button type="button" class="btn btn-gold btn-block" data-close-modal>حسناً</button>
       </div>

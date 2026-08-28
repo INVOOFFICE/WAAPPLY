@@ -21,6 +21,9 @@
   var lastFocus = null;
   var isOpen = false;
   var isSubmitting = false;
+  var introAudio = null;
+  var audioUnlockHandler = null;
+  var currentSector = '';
 
   /* ===== DOM refs (cached on init) ===== */
   var overlay, panel, form, nameInput, phoneInput, packageSelect, submitBtn, submitText;
@@ -73,12 +76,13 @@
   }
 
   /* ===== Open / Close ===== */
-  function openContactModal(packageType){
+  function openContactModal(packageType, sector){
     if(isOpen) return;
     isOpen = true;
 
     lastFocus = document.activeElement;
     resetModal();
+    currentSector = sector || '';
 
     if(packageType && PACKAGES[packageType]){
       packageSelect.value = packageType;
@@ -95,11 +99,15 @@
     requestAnimationFrame(function(){
       nameInput.focus();
     });
+
+    tryPlayIntroAudio();
   }
 
   function closeContactModal(){
     if(!isOpen) return;
     isOpen = false;
+    stopIntroAudio();
+    cleanupAudioUnlock();
 
     overlay.classList.remove('cm-open');
     overlay.setAttribute('aria-hidden', 'true');
@@ -139,13 +147,60 @@
     }
   }
 
+  /* ===== Intro audio (Wzaa.mp3 — plays once from 00:06) ===== */
+  function getIntroAudio(){
+    if(!introAudio){
+      introAudio = new Audio('assets/audio/Wzaa.mp3');
+      introAudio.preload = 'auto';
+      introAudio.loop = false;
+    }
+    return introAudio;
+  }
+
+  function tryPlayIntroAudio(){
+    if(!isOpen) return;
+    var audio = getIntroAudio();
+    if(!audio.paused && !audio.ended) return; /* never overlap */
+    audio.currentTime = 0;
+    var promise;
+    try { promise = audio.play(); }
+    catch(e){ promise = null; }
+    if(promise && typeof promise.catch === 'function'){
+      promise.catch(bindAudioUnlock);
+    } else if(!promise){
+      bindAudioUnlock();
+    }
+  }
+
+  function bindAudioUnlock(){
+    if(audioUnlockHandler) return;
+    audioUnlockHandler = function(){
+      if(isOpen){ tryPlayIntroAudio(); }
+      cleanupAudioUnlock();
+    };
+    document.addEventListener('pointerdown', audioUnlockHandler);
+    document.addEventListener('keydown', audioUnlockHandler);
+  }
+
+  function cleanupAudioUnlock(){
+    if(!audioUnlockHandler) return;
+    document.removeEventListener('pointerdown', audioUnlockHandler);
+    document.removeEventListener('keydown', audioUnlockHandler);
+    audioUnlockHandler = null;
+  }
+
+  function stopIntroAudio(){
+    if(introAudio && !introAudio.paused){ introAudio.pause(); }
+  }
+
   /* ===== Event handlers ===== */
   function handleTriggerClick(e){
     var trigger = e.target.closest('[data-contact-package]');
     if(!trigger) return;
     e.preventDefault();
     var packageType = trigger.getAttribute('data-contact-package');
-    openContactModal(packageType);
+    var sector = trigger.getAttribute('data-sector') || '';
+    openContactModal(packageType, sector);
   }
 
   function handleOverlayClick(e){
@@ -255,6 +310,7 @@
       whatsapp:     fullPhone,
       package:      pkg,
       packagePrice: pkgData.price || '',
+      sector:       currentSector || '',
       source:       'waapply.com',
       page:         window.location.pathname + window.location.hash,
       timestamp:    new Date().toISOString()
@@ -320,13 +376,13 @@
   function buildWhatsAppUrl(name, pkg){
     var message;
     if(pkg === '20days'){
-      message = 'سلام، أنا ' + name + '. مهتم بعرض 20 يوم بـ 500 درهم ديال WAAPPLY وبغيت نكمل المعلومات.';
+      message = 'سلام، أنا ' + name + '. مهتم بعرض 20 يوم بـ 500 درهم ديال وابلاي وبغيت نكمل المعلومات.';
     } else if(pkg === '3months'){
-      message = 'سلام، أنا ' + name + '. مهتم بباقة 3 أشهر بـ 1,000 درهم ديال WAAPPLY وبغيت نكمل المعلومات.';
+      message = 'سلام، أنا ' + name + '. مهتم بباقة 3 أشهر بـ 1,000 درهم ديال وابلاي وبغيت نكمل المعلومات.';
     } else if(pkg === '6months'){
-      message = 'سلام، أنا ' + name + '. مهتم بباقة 6 أشهر بـ 1,400 درهم ديال WAAPPLY وبغيت نكمل المعلومات.';
+      message = 'سلام، أنا ' + name + '. مهتم بباقة 6 أشهر بـ 1,400 درهم ديال وابلاي وبغيت نكمل المعلومات.';
     } else {
-      message = 'سلام، أنا ' + name + '. بغيت نعرف أكثر على خدمة WAAPPLY وكيفاش كتخدم. ممكن تعطيني المعلومات والتفاصيل؟';
+      message = 'سلام، أنا ' + name + '. بغيت نعرف أكثر على خدمة وابلاي وكيفاش كتخدم. ممكن تعطيني المعلومات والتفاصيل؟';
     }
     return 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(message);
   }

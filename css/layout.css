@@ -18,13 +18,13 @@ header.scrolled{
 }
 .header-inner{
   max-width:1180px; margin:0 auto; padding:var(--space-3) var(--space-6);
-  display:flex; align-items:center; justify-content:space-between; gap:var(--space-5);
+  display:flex; align-items:center; gap:var(--space-5);
 }
 .logo{display:flex; align-items:center;}
 .logo-img{height:42px; width:auto; display:block; flex-shrink:0;}
 
 /* ===== Desktop nav ===== */
-nav.main-nav{display:flex; align-items:center; gap:var(--space-7);}
+nav.main-nav{display:flex; align-items:center; gap:var(--space-7); margin-inline-start:var(--space-4);}
 nav.main-nav a{
   font-size:var(--fs-sm); font-weight:600; color:var(--slate); position:relative; padding:6px 2px;
   transition:color .2s ease;
@@ -38,7 +38,7 @@ nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:calc(100% - 4px);}
 nav.main-nav a.active{color:var(--navy);}
 
-.header-cta{display:flex; align-items:center; gap:var(--space-3);}
+.header-cta{display:flex; align-items:center; gap:var(--space-3); margin-inline-start:auto;}
 
 /* ===== Hamburger ===== */
 .hamburger{display:none; flex-direction:column; gap:var(--space-1); width:26px; background:none; padding:var(--space-1) 0;}

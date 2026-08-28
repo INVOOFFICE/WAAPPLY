@@ -82,8 +82,8 @@ var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
 
 The Google Sheet should have these columns:
 
-| Date | Nom | WhatsApp | Pack | Prix | Source | Page | Statut |
-|------|-----|----------|------|------|--------|------|--------|
+| Date | Nom | WhatsApp | Pack | Prix | Secteur | Source | Page | Statut |
+|------|-----|----------|------|------|---------|--------|------|--------|
 
 Each form submission adds one row with:
 - **Date** — timestamp (Paris timezone)
@@ -91,6 +91,7 @@ Each form submission adds one row with:
 - **WhatsApp** — formatted phone number with country code
 - **Pack** — `info`, `3months`, or `6months`
 - **Prix** — price text or empty for info requests
+- **Secteur** — the sector the user picked on « خدماتنا حسب القطاع » (empty for generic CTAs)
 - **Source** — always `waapply.com`
 - **Page** — the page path and hash where the form was submitted
 - **Statut** — always `Nouveau` (new lead)

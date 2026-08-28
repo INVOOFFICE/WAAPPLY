@@ -1,47 +1,17 @@
 /* Motion system: scroll-reveal classes, shared @keyframes, reduced-motion overrides. */
 
-/* Scroll reveal — one premium ease-out curve for the whole page.
-   Variants below only restyle the pre-entrance state (:not(.in) keeps them
-   specificity-safe against .reveal.in regardless of source order). */
+/* Scroll reveal — one premium ease-out curve for the whole page. */
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .55s var(--ease-entrance), transform .55s var(--ease-entrance);}
 .reveal.in{opacity:1; transform:none;}
 
-/* Directional entrances (page is RTL: inline start = right, end = left) */
-.reveal.from-start:not(.in){transform:translateX(32px);}
-.reveal.from-end:not(.in){transform:translateX(-32px);}
-
-/* Soft pop entrance: rise + gentle scale */
-.reveal.pop:not(.in){transform:translateY(16px) scale(0.965);}
-
-@keyframes floaty{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-9px);}
-}
-@keyframes pulse-dot{
-  0%,100%{box-shadow:0 0 0 0 rgba(21,128,61,0.45);}
-  60%{box-shadow:0 0 0 7px rgba(21,128,61,0);}
-}
 /* Barely-there emerald heartbeat for eyebrow dots */
 @keyframes pulse-gold{
   0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.35);}
   60%{box-shadow:0 0 0 6px rgba(16,185,129,0);}
 }
 
-/* Dashboard status badges pop once their preview container is revealed
-   (same descendant-of-reveal pattern as .pp-bar). Rows stagger via nth-child:
-   .pp-feed children are [ctitle, row1, row2, row3] → rows start at children 2/3/4. */
-.reveal.in .pp-badge{animation:chip-pop .45s var(--ease-entrance) backwards;}
-.reveal.in .pp-feedrow:nth-child(3) .pp-badge{animation-delay:.12s;}
-.reveal.in .pp-feedrow:nth-child(4) .pp-badge{animation-delay:.24s;}
-@keyframes chip-pop{
-  0%{opacity:0; transform:scale(.55);}
-  65%{opacity:1; transform:scale(1.07);}
-  100%{opacity:1; transform:none;}
-}
-
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1; transform:none; transition:none;}
-  .reveal.in .pp-badge{animation:none;}
   *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
 }

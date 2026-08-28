@@ -8,7 +8,7 @@
   --navy-2:#12203D;           /* lighter night blue for gradients */
   --blue:#3B82F6;             /* secondary accent / technology */
   --blue-light:#60A5FA;
-  --blue-strong:#2563EB;      /* darker blue for small labels on tinted backgrounds (AA) */
+  --blue-strong:rgb(3, 129, 79);      /* small labels on tinted backgrounds */
   /* ⚠️ NAMING DEBT — assumé : --gold-1/2/3 et --grad-gold désignent désormais la famille ÉMERAUDE
      (accent principal). Noms conservés pour compat descendante ; ne pas recréer de vrais tokens or. */
   --gold-1:#6EE7B7;           /* emerald light — top of accent gradient (decorative surfaces only) */
@@ -29,7 +29,6 @@
   --tint-green:rgba(21,128,61,0.12);
   --tint-gold:rgba(16,185,129,0.20);
   --tint-red:rgba(192,38,38,0.10);
-  --wash-gold:rgba(16,185,129,0.09);
   --wash-blue:rgba(59,130,246,0.05);
   --wash-blue-2:rgba(59,130,246,0.09);
   --wash-green:rgba(21,128,61,0.05);
@@ -41,7 +40,6 @@
   --border: rgba(10,23,48,0.08);
   --border-strong: rgba(10,23,48,0.15);
   --line-blue: rgba(59,130,246,0.32);     /* hover/open accents on light cards */
-  --line-gold: rgba(16,185,129,0.42);     /* featured-card accent hairlines */
 
   /* ===== Depth (subtle by design) ===== */
   --shadow-xs: 0 1px 2px rgba(10,23,48,0.05);
@@ -50,15 +48,14 @@
   --shadow-lg: 0 28px 64px -28px rgba(10,23,48,0.26);
   --shadow-gold: 0 14px 34px -14px rgba(16,185,129,0.45);
   --shadow-blue: 0 8px 20px -8px rgba(59,130,246,0.5);
-  --shadow-navy: 0 30px 64px -24px rgba(10,23,48,0.45);
 
   /* ===== Shape ===== */
   --radius: 18px;
   --radius-lg: 24px;
-  /* Radius scale (audit 2026-08) : --radius-sm = médiane du cluster des petites
-     valeurs isolées réelles (11–14px, éléments compacts). --radius-pill pour les
-     pills/badges 100%. Hors échelle (volontairement en dur) : hairlines 2–3px,
-     bandes décoratives 0 0 4px 4px, cercles géométriques 50%, et tout le mock .pp-*. */
+   /* Radius scale (audit 2026-08) : --radius-sm = médiane du cluster des petites
+      valeurs isolées réelles (11–14px, éléments compacts). --radius-pill pour les
+      pills/badges 100%. Hors échelle (volontairement en dur) : hairlines 2–3px,
+      bandes décoratives 0 0 4px 4px, cercles géométriques 50%. */
   --radius-sm: 12px;
   --radius-pill: 100px;
 
@@ -88,7 +85,7 @@
   /* ===== Typographic scale (audit 2026-08) =====
      Paliers calés sur les tailles dominantes extraites du CSS ; tolérance de
      remplacement ≤1px. Hors échelle (volontairement en dur) : titres fluides
-     clamp(), .price-tag (display), et tout le mock produit .pp-* (rôle="img"). */
+     clamp() et les tailles display des titres fluides. */
   --fs-xs: 13px;      /* eyebrows, micro-labels */
   --fs-sm: 14px;      /* chips, listes secondaires */
   --fs-base: 16px;    /* corps de texte, boutons */

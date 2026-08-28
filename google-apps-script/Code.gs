@@ -19,6 +19,7 @@ var CONFIG = {
  *   "whatsapp": "...",
  *   "package": "info|3months|6months",
  *   "packagePrice": "...",
+ *   "sector": "...",
  *   "source": "waapply.com",
  *   "page": "...",
  *   "timestamp": "..."
@@ -43,6 +44,7 @@ function doPost(e) {
     if (!pack)     return jsonResponse(false, 'Package is required');
 
     var price  = sanitize(data.packagePrice || '');
+    var sector = sanitize(data.sector || '');
     var source = sanitize(data.source || 'waapply.com');
     var page   = sanitize(data.page || '');
 
@@ -57,7 +59,7 @@ function doPost(e) {
     // Create header row if sheet is empty
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
-        'Date', 'Nom', 'WhatsApp', 'Pack', 'Prix', 'Source', 'Page', 'Statut'
+        'Date', 'Nom', 'WhatsApp', 'Pack', 'Prix', 'Secteur', 'Source', 'Page', 'Statut'
       ]);
     }
 
@@ -76,6 +78,7 @@ function doPost(e) {
       whatsapp,
       pack,
       price,
+      sector,
       source,
       page,
       'Nouveau'

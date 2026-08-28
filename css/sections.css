@@ -1,10 +1,8 @@
 /* Styles specific to each page section, in page order: shared section headings,
-   hero (+ product tracking panel), why (benefits+services), how-it-works (+ dashboard proof),
-   pricing, who-is-it-for, faq helpers, final CTA, footer. */
+   hero, pricing, faq helpers, final CTA, footer. */
 
 /* ===== Section rhythm ===== */
 .section-pad{padding:96px 0;}
-.alt-bg{background:var(--bg2);}
 
 .section-head{margin-bottom:56px;}
 .section-head.center{text-align:center; max-width:780px; margin-left:auto; margin-right:auto;}
@@ -90,7 +88,7 @@
 .note-ico{color:var(--gold-1); display:flex; margin-top:var(--space-1);}
 .note-ico .ic{width:15px; height:15px;}
 
-/* --- Hero visual : product tracking panel --- */
+/* --- Hero visual : real interface capture (assets/wpl.png) --- */
 .hero-visual{
   position:relative; z-index:2; min-height:480px;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -105,404 +103,73 @@
   pointer-events:none;
 }
 
-/* --- Hero visual : product preview (réplique de l'interface réelle du système) ---
-   Structure fidèle au vrai dashboard : sidebar (brand + nav + statut), topbar,
-   4 KPI, quota + automatisation, activité récente. Données statiques fictives.
-   L'interface réelle est FR/LTR : le bloc porte dir="ltr" dans le HTML. */
-.app-preview{
-  position:relative; z-index:2; width:100%; max-width:520px;
-  display:flex; align-items:stretch;
-  background:var(--bg); border-radius:var(--radius-lg);
+/* --- Hero visual : image principale (capture réelle de l'interface) --- */
+.hero-image{
+  position:relative; z-index:2; width:100%; max-width:480px; height:auto;
+  border-radius:var(--radius-lg);
   box-shadow:var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
-  font-family:var(--font-lat); overflow:hidden;
 }
-.app-preview::before{ /* gold crown hairline — signature du produit sur la landing */
-  content:''; position:absolute; top:0; right:24px; left:24px; height:3px;
-  background:var(--grad-gold); border-radius:0 0 4px 4px; opacity:0.9; z-index:3;
-}
-
-/* Sidebar */
-.pp-side{
-  width:124px; flex-shrink:0; background:var(--paper);
-  padding:14px 11px 12px; display:flex; flex-direction:column; gap:3px;
-  border-right:1px solid var(--border);
-}
-.pp-brand{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
-.pp-mark{
-  width:30px; height:30px; border-radius:9px; background:var(--grad-blue); color:#fff;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  box-shadow:var(--shadow-blue);
-}
-.pp-mark .ic{width:15px; height:15px;}
-.pp-brand-txt{display:flex; flex-direction:column; line-height:1.25; min-width:0;}
-.pp-brand-txt strong{font-size:12.5px; font-weight:700; color:var(--navy); letter-spacing:0.02em;}
-.pp-brand-txt small{font-size:8.5px; font-weight:500; color:var(--slate); white-space:nowrap;}
-.pp-nav-label{
-  font-size:8px; font-weight:700; text-transform:uppercase; letter-spacing:0.09em;
-  color:var(--slate); opacity:0.7; padding:0 7px; margin:7px 0 3px;
-}
-.pp-item{
-  display:flex; align-items:center; gap:7px; padding:6px 8px; border-radius:8px;
-  font-size:10.5px; font-weight:600; color:var(--slate);
-}
-.pp-item .ic{width:11.5px; height:11.5px;}
-.pp-item.active{background:var(--wash-blue-2); color:var(--blue);}
-.pp-sysstatus{
-  margin-top:auto; background:var(--bg); border:1px solid var(--border); border-radius:10px;
-  padding:8px 9px; display:flex; flex-direction:column; gap:5px;
-}
-.pp-ss-label{font-size:8px; font-weight:600; color:var(--slate);}
-.pp-row{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:700; color:var(--text);}
-
-/* Statut pulsé — partagé sidebar/topbar/pill automation */
-.pp-dot{
-  width:7px; height:7px; border-radius:50%; background:var(--green); flex-shrink:0;
-  box-shadow:0 0 0 3px rgba(21,128,61,0.16);
-  animation:pulse-dot 2.4s ease-in-out infinite;
-}
-
-/* Main column */
-.pp-main{flex:1; min-width:0; padding:11px 14px 12px; display:flex; flex-direction:column; gap:7px;}
-.pp-topbar{display:flex; align-items:center; justify-content:space-between; gap:10px;}
-.pp-tb-txt{display:flex; flex-direction:column; line-height:1.3; min-width:0;}
-.pp-tb-txt strong{font-size:14.5px; font-weight:700; color:var(--navy);}
-.pp-tb-txt small{font-size:9.5px; color:var(--slate); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.pp-pill{
-  display:inline-flex; align-items:center; gap:6px; background:var(--paper);
-  border:1px solid var(--border); border-radius:100px; padding:4px 10px;
-  font-size:9.5px; font-weight:700; color:var(--green-deep); box-shadow:var(--shadow-xs); white-space:nowrap;
-}
-
-/* KPI cards */
-.pp-kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
-.pp-kpi{
-  background:var(--paper); border:1px solid var(--border); border-radius:12px;
-  padding:8px 10px 9px; display:flex; flex-direction:column; gap:3px;
-  box-shadow:var(--shadow-xs);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.pp-kpi:hover{transform:translateY(-2px); box-shadow:var(--shadow-sm);}
-.pp-tile{width:24px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:3px;}
-.pp-tile .ic{width:12px; height:12px;}
-.pp-tile.ok{background:var(--tint-green); color:var(--green);}
-.pp-tile.blue{background:var(--wash-blue-2); color:var(--blue);}
-.pp-tile.danger{background:var(--tint-red); color:var(--danger);}
-.pp-klabel{font-size:9px; font-weight:600; color:var(--slate); line-height:1.25;}
-.pp-kvalue{font-size:19px; font-weight:700; color:var(--navy); line-height:1.05; letter-spacing:-0.01em;}
-.pp-ksub{font-size:9px; color:var(--slate); opacity:0.85; line-height:1.3;}
-
-/* Quota + Automation */
-.pp-duo{display:grid; grid-template-columns:3fr 2fr; gap:8px;}
-.pp-card{
-  background:var(--paper); border:1px solid var(--border); border-radius:12px;
-  padding:10px 12px 11px; box-shadow:var(--shadow-xs);
-}
-.pp-ctitle{display:flex; align-items:center; gap:6px; font-size:10px; font-weight:700; color:var(--navy); margin-bottom:6px;}
-.pp-ctitle .ic{width:11px; height:11px; color:var(--blue);}
-.pp-quota-big{font-size:17px; font-weight:700; color:var(--navy); letter-spacing:-0.01em; line-height:1.2;}
-.pp-quota-big em{font-style:normal; font-size:9.5px; font-weight:600; color:var(--slate);}
-.pp-bar{
-  height:7px; border-radius:100px; background:var(--bg2); overflow:hidden; margin:7px 0 5px;
-  box-shadow:inset 0 1px 2px rgba(10,23,48,0.06);
-}
-.pp-bar span{
-  display:block; height:100%; width:0; border-radius:100px;
-  background:linear-gradient(to right, var(--blue-light), var(--blue));
-  transition:width 1s var(--ease-entrance) .4s;
-}
-/* La barre se remplit quand le hero entre dans le viewport (reveal existant) */
-.reveal.in .pp-bar span{width:93%;}
-.pp-meta-row{display:flex; justify-content:space-between; font-size:9px; font-weight:500; color:var(--slate);}
-.pp-active{
-  display:inline-flex; align-items:center; gap:5px; border-radius:100px;
-  background:var(--tint-green); color:var(--green-deep); font-size:9.5px; font-weight:700; padding:3px 9px;
-}
-.pp-auto-list{display:flex; flex-direction:column; gap:5px; margin-top:6px;}
-.pp-auto-item{display:flex; align-items:center; gap:6px;}
-.pp-auto-item .ic{width:10.5px; height:10.5px; color:var(--slate); opacity:0.75; flex-shrink:0;}
-.pp-auto-item > div{display:flex; flex-direction:column; line-height:1.3; min-width:0;}
-.pp-auto-item .k{font-size:8px; color:var(--slate); white-space:nowrap;}
-.pp-auto-item .v{font-size:9.75px; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-
-/* Activité récente */
-.pp-feedrow{display:flex; align-items:center; gap:8px; padding:5px 0;}
-.pp-feedrow + .pp-feedrow{border-top:1px solid var(--border);}
-.pp-avatar{
-  width:22px; height:22px; border-radius:7px; background:var(--grad-blue); color:#fff;
-  font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.pp-who{flex:1; min-width:0; display:flex; flex-direction:column; line-height:1.25;}
-.pp-who strong{font-size:10.5px; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.pp-who small{font-size:8.5px; color:var(--slate);}
-.pp-time{font-size:9px; color:var(--slate); font-variant-numeric:tabular-nums; flex-shrink:0;}
-.pp-badge{font-size:9px; font-weight:700; padding:2.5px 8px; border-radius:100px; flex-shrink:0; white-space:nowrap;}
-.pp-badge.sent{background:var(--tint-green); color:var(--green-deep);}
-.pp-badge.plan{background:var(--bg2); color:var(--slate);}
-
-/* Hero : variante compacte du preview — la version large de #how garde tous les détails */
-.hero-visual .pp-main{gap:6px;}
-.hero-visual .pp-ksub{display:none;}
-.hero-visual .pp-auto-list{gap:4px; margin-top:5px;}
-.hero-visual .pp-feed .pp-feedrow:last-child{display:none;}
-
-/* Floating proof badge — caption strip under the preview (no data overlap) */
-.float-chip{
-  position:relative; z-index:3;
-  display:inline-flex; align-items:center; gap:var(--space-2); margin-top:var(--space-4);
-  background:var(--paper); color:var(--navy); border-radius:var(--radius-sm); padding:var(--space-2) var(--space-3);
-  font-size:var(--fs-xs); font-weight:600; box-shadow:var(--shadow-lg);
-  animation:floaty 7s ease-in-out infinite;
-}
-.fc-ico{
-  width:28px; height:28px; border-radius:9px; flex-shrink:0;
-  background:var(--wash-blue); color:var(--blue);
-  display:inline-flex; align-items:center; justify-content:center;
-}
-.fc-ico .ic{width:15px; height:15px; stroke-width:2.2;}
 
 /* ============================================================
-   WHY — 2 major benefits + 4 secondary advantages
+   PRICING — sectors sub-block container
    ============================================================ */
-.benefits-grid{
+.pricing-section{position:relative;}
+
+/* ============================================================
+   SECTORS — full grid of 22 sector cards (inside the pricing section)
+   ============================================================ */
+.sectors{margin-top:var(--space-10);}
+.sectors-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
+.sectors-head .section-title{margin-bottom:var(--space-3);}
+.sectors-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
+
+.sectors-grid{
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-5);
 }
 
-/* Principal benefits: large horizontal cards, gold accent — exactly two */
-.benefit-card.featured{
-  grid-column:span 2;
-  display:flex; align-items:flex-start; gap:var(--space-6);
-  background:linear-gradient(150deg, #FFFFFF 52%, var(--wash-gold));
-  border:1px solid var(--line-gold); border-radius:var(--radius-lg);
-  padding:var(--space-8) var(--space-8);
-  box-shadow:var(--shadow-sm);
-  transition:transform .45s var(--ease-entrance), opacity .55s var(--ease-entrance), box-shadow .35s ease, border-color .35s ease;
-}
-.benefit-card.featured:hover{
-  transform:translateY(-5px); border-color:rgba(16,185,129,0.65); box-shadow:var(--shadow);
-}
-.benefit-icon{
-  width:60px; height:60px; border-radius:var(--radius); background:var(--grad-gold);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  box-shadow:0 10px 22px -10px rgba(16,185,129,0.55), inset 0 1px 0 rgba(255,255,255,0.55);
-  transition:transform .35s var(--ease-entrance);
-}
-.benefit-card.featured:hover .benefit-icon{transform:scale(1.06) rotate(-3deg);}
-.benefit-icon .ic{width:28px; height:28px; color:var(--ink); stroke-width:2.1;}
-.benefit-card.featured h3{font-size:var(--fs-xl); font-weight:700; color:var(--navy); margin-bottom:var(--space-2);}
-.benefit-card.featured p{font-size:var(--fs-base); color:var(--slate); line-height:1.85;}
-
-/* Secondary advantages: real cards, quieter than the featured pair */
-.benefit-card:not(.featured){
+.sector-card{
+  display:flex; flex-direction:column; overflow:hidden;
   background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
   box-shadow:var(--shadow-xs);
-  padding:var(--space-6) var(--space-6);
-  transition:transform .35s var(--ease-entrance), opacity .55s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
-}
-.benefit-card:not(.featured):hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
-.benefit-card:not(.featured) .benefit-icon{
-  width:48px; height:48px; border-radius:var(--radius-sm);
-  background:var(--bg2); box-shadow:none; margin-bottom:var(--space-4);
-  transition:background .25s ease, transform .35s var(--ease-entrance);
-}
-.benefit-card:not(.featured):hover .benefit-icon{background:var(--wash-blue-2); transform:scale(1.07);}
-.benefit-card:not(.featured) .benefit-icon .ic{width:23px; height:23px; color:var(--blue); stroke-width:2;}
-.benefit-card:not(.featured) h3{font-size:var(--fs-lg); font-weight:700; color:var(--navy); margin-bottom:var(--space-2);}
-.benefit-card:not(.featured) p{font-size:var(--fs-sm); color:var(--slate); line-height:1.85;}
-
-/* ============================================================
-   HOW IT WORKS — 5-step timeline
-   ============================================================ */
-.timeline{display:grid; grid-template-columns:repeat(5,1fr); gap:var(--space-6); margin-top:var(--space-2); position:relative;}
-.timeline::before{
-  content:''; position:absolute; top:29px; right:10%; left:10%; height:2.5px;
-  background:linear-gradient(to left, var(--blue-light), var(--gold-2));
-  opacity:0.55; border-radius:3px;
-}
-.tl-step{position:relative; text-align:center; padding:0 var(--space-1);}
-.tl-num{
-  width:60px; height:60px; border-radius:50%; background:var(--paper);
-  border:2px solid var(--border-strong);
-  display:flex; align-items:center; justify-content:center; font-family:var(--font-lat); font-weight:700;
-  font-size:var(--fs-lg); color:var(--navy); margin:0 auto 20px; position:relative; z-index:2;
-  box-shadow:var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.6);
-}
-/* Journey cues: first step filled blue (start), last filled gold (goal) */
-.tl-step:first-child .tl-num{border:none; background:var(--grad-blue); color:#fff; box-shadow:var(--shadow-blue);}
-.tl-step:last-child .tl-num{border:none; background:var(--grad-gold-deep); color:var(--paper); box-shadow:var(--shadow-gold);}
-.tl-step h4{
-  font-size:var(--fs-base); font-weight:700; margin-bottom:var(--space-2); color:var(--navy);
-  display:flex; align-items:center; justify-content:center; gap:var(--space-2); line-height:1.6;
-}
-.tl-ico{width:17px; height:17px; color:var(--blue); stroke-width:2.2;}
-.tl-step p{font-size:var(--fs-sm); color:var(--slate); line-height:1.8; max-width:200px; margin:0 auto;}
-
-/* ===== How proof (dashboard sub-block) ===== */
-.how-proof{margin-top:72px;}
-.how-proof h3{font-size:clamp(21px,2.4vw,27px); font-weight:700; color:var(--navy); text-align:center; margin-bottom:var(--space-3);}
-.how-proof > p{text-align:center; color:var(--slate); font-size:var(--fs-base); max-width:640px; margin:0 auto 20px; line-height:1.9;}
-.proof-chips{
-  display:flex; justify-content:center; gap:var(--space-2); flex-wrap:wrap; margin-bottom:var(--space-9);
-}
-.proof-chips .chip{
-  display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-2) var(--space-4); border-radius:var(--radius-pill);
-  background:var(--paper); border:1px solid var(--border);
-  font-size:var(--fs-sm); font-weight:600; color:var(--navy);
-}
-.proof-chips .chip .c{color:var(--green); display:inline-flex; align-items:center;}
-.proof-chips .chip .c .ic{width:14px; height:14px; stroke-width:2.6;}
-
-/* ===== How proof : même aperçu produit que le hero, en format large paysage ===== */
-.how-proof .app-preview{margin-inline:auto;}
-
-/* Format large uniquement là où il tient (le hero garde son format compact 520px) */
-@media(min-width:981px){
-  .how-proof .app-preview{max-width:920px;}
-  .how-proof .pp-side{width:150px; padding:16px 13px 14px;}
-  .how-proof .pp-brand-txt strong{font-size:14px;}
-  .how-proof .pp-item{font-size:11.5px; padding:7px 9px;}
-  .how-proof .pp-main{padding:16px 18px 18px; gap:12px;}
-  .how-proof .pp-tb-txt strong{font-size:17px;}
-  .how-proof .pp-tb-txt small{font-size:11px;}
-  .how-proof .pp-pill{font-size:10.5px; padding:5px 12px;}
-  .how-proof .pp-kpis{gap:10px;}
-  .how-proof .pp-kpi{padding:13px 15px 14px; gap:4px;}
-  .how-proof .pp-tile{width:27px; height:27px; border-radius:9px;}
-  .how-proof .pp-klabel{font-size:10.5px;}
-  .how-proof .pp-kvalue{font-size:25px;}
-  .how-proof .pp-ksub{font-size:10px;}
-  .how-proof .pp-duo{gap:10px;}
-  .how-proof .pp-card{padding:13px 16px 14px;}
-  .how-proof .pp-quota-big{font-size:20px;}
-  .how-proof .pp-bar{height:9px;}
-  .how-proof .pp-feedrow{padding:10px 2px;}
-  .how-proof .pp-avatar{width:27px; height:27px; border-radius:8px; font-size:10.5px;}
-  .how-proof .pp-who strong{font-size:12.5px;}
-  .how-proof .pp-who small{font-size:10px;}
-}
-.how-proof > .dash-note{
-  max-width:640px; margin:18px auto 0; text-align:center;
-  font-size:var(--fs-xs); color:var(--slate); line-height:1.8;
-}
-
-/* ============================================================
-   PRICING
-   ============================================================ */
-.pricing-section{position:relative;}
-.pricing-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); margin-top:var(--space-3);}
-
-.price-card{
-  background:var(--paper); border-radius:var(--radius-lg); padding:var(--space-9) var(--space-8); border:1px solid var(--border);
-  box-shadow:var(--shadow-sm); position:relative;
-  display:flex; flex-direction:column;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-/* .pricing-grid scope keeps hover specificity above .reveal.in */
-.pricing-grid .price-card:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
-
-.price-card.featured{
-  background:var(--grad-navy); border-color:transparent;
-  box-shadow:var(--shadow-navy);
-}
-.price-card.featured::before{
-  content:''; position:absolute; inset:0; border-radius:inherit;
-  background:radial-gradient(420px 220px at 88% 0%, rgba(16,185,129,0.2), transparent 65%);
-  pointer-events:none;
-}
-.price-card.featured::after{ /* gold crown hairline — echoes the hero panel */
-  content:''; position:absolute; top:0; right:28px; left:28px; height:3px;
-  background:var(--grad-gold); border-radius:0 0 4px 4px;
-}
-.price-card.featured:hover{transform:translateY(-5px); box-shadow:0 36px 72px -24px rgba(10,23,48,0.5);}
-.price-card.featured h3, .price-card.featured .price-tag{color:#fff; position:relative; z-index:1;}
-.price-card.featured .pdesc{color:rgba(255,255,255,0.72);}
-.price-card.featured .price-features li{color:rgba(255,255,255,0.92);}
-
-.price-badge{
-  position:absolute; top:-16px; right:30px; background:var(--grad-gold-deep);
-  color:var(--paper); font-size:var(--fs-xs); font-weight:700; padding:var(--space-2) var(--space-4); border-radius:var(--radius-pill);
-  box-shadow:var(--shadow-gold); z-index:2; display:inline-flex; align-items:center; gap:var(--space-1);
-  transition:transform .3s ease, filter .3s ease;
-}
-.price-badge .ic{width:13px; height:13px; stroke-width:2.4;}
-.pricing-grid .price-card.featured:hover .price-badge{transform:translateY(-2px); filter:brightness(1.05);}
-
-.price-card h3{font-size:19px; font-weight:700; color:var(--navy); margin-bottom:var(--space-1);}
-.price-tag{
-  font-family:var(--font-lat); font-size:48px; font-weight:700; color:var(--navy);
-  margin:14px 0 10px; line-height:1.15; position:relative; z-index:1;
-}
-.price-card > p.pdesc{font-size:var(--fs-base); color:var(--slate); margin-bottom:var(--space-6); position:relative; z-index:1; line-height:1.85;}
-
-.price-features{flex:1; margin-bottom:var(--space-7); position:relative; z-index:1;}
-.price-features li{
-  display:flex; align-items:flex-start; gap:var(--space-3); font-size:var(--fs-base); padding:var(--space-2) 0; color:var(--text); line-height:1.75;
-}
-.price-features li .check{
-  width:20px; height:20px; border-radius:50%; background:var(--tint-green); color:var(--green);
-  display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:var(--space-1);
-}
-.price-features li .check .ic{width:11px; height:11px; stroke-width:3;}
-.featured .price-features li .check{background:rgba(16,185,129,0.18); color:var(--gold-2);}
-.price-card .btn{position:relative; z-index:1; margin-top:auto;}
-
-/* Value banner — why the 6-month pack (navy panel: bridges pricing → final CTA) */
-.value-box{
-  margin-top:44px; text-align:center;
-  background:var(--grad-navy); border-radius:var(--radius-lg); padding:var(--space-9) var(--space-8);
-  box-shadow:var(--shadow-navy); position:relative; overflow:hidden;
-}
-.value-box::before{
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(380px 200px at 85% 0%, rgba(16,185,129,0.16), transparent 62%);
-  pointer-events:none;
-}
-.value-box h4{font-size:20px; font-weight:700; color:#fff; margin-bottom:var(--space-3); position:relative;}
-.value-box p{font-size:var(--fs-base); color:rgba(255,255,255,0.78); margin-bottom:var(--space-2); line-height:1.9; position:relative;}
-.value-box .value-math{font-size:var(--fs-sm); color:rgba(255,255,255,0.66); margin-bottom:var(--space-5); position:relative;}
-.save-badge{
-  display:inline-block; background:var(--grad-gold-deep); color:var(--paper);
-  font-weight:700; padding:var(--space-3) var(--space-6); border-radius:var(--radius-pill); font-size:var(--fs-sm); box-shadow:var(--shadow-gold);
   position:relative;
+  transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
 }
-.vb-features{
-  list-style:none; padding:0; margin:var(--space-4) auto var(--space-5);
-  display:inline-flex; flex-direction:column; gap:var(--space-2);
-  text-align:start; max-width:420px; position:relative;
-}
-.vb-features li{
-  font-size:var(--fs-base); color:rgba(255,255,255,0.85); line-height:1.8;
-  display:flex; align-items:flex-start; gap:var(--space-2);
-}
-.vb-features .ic{width:16px; height:16px; color:var(--green); flex-shrink:0; margin-top:4px; stroke-width:2.5;}
+.sector-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
 
-/* ============================================================
-   WHO IS IT FOR
-   ============================================================ */
-.who-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8);}
-.who-card{border-radius:var(--radius-lg); padding:var(--space-8) var(--space-8); border:1px solid transparent; box-shadow:var(--shadow-xs);}
-.who-card.yes{background:linear-gradient(160deg, #FFFFFF 30%, var(--wash-green)); border-color:var(--line-green);}
-.who-card.no{background:linear-gradient(160deg, #FFFFFF 30%, var(--wash-red)); border-color:var(--line-red);}
-.who-card h4{
-  font-size:19px; font-weight:700; margin-bottom:var(--space-5); color:var(--navy);
-  display:flex; align-items:center; gap:var(--space-3); padding-bottom:var(--space-4);
+/* Photo placeholder zone — sits on top of the card; a matching sector image
+   (assets/job/<sector name>.jpg) fills it when present, otherwise the gradient stays */
+.sector-media{
+  height:118px; flex-shrink:0;
+  background:
+    radial-gradient(150px 150px at 78% 0%, rgba(16,185,129,0.10), transparent 64%),
+    radial-gradient(160px 160px at 14% 110%, rgba(96,165,250,0.16), transparent 62%),
+    var(--bg2);
 }
-.who-card.yes h4{border-bottom:1px solid var(--line-green);}
-.who-card.no h4{border-bottom:1px solid var(--line-red);}
-.who-mark{
-  width:38px; height:38px; border-radius:var(--radius-sm); flex-shrink:0;
+.sector-media .sector-img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.sector-card:hover .sector-media{filter:brightness(1.02);}
+
+.sector-body{
+  display:flex; flex-direction:column; flex:1; text-align:center;
+  padding:44px var(--space-6) var(--space-6);
+}
+
+/* Icon badge — absolutely positioned, straddling the media/body boundary (50/50) */
+.sector-ico{
+  position:absolute; top:90px; left:50%; transform:translateX(-50%);
+  width:56px; height:56px; border-radius:16px;
+  background:rgb(11 47 91); color:rgb(255 255 255); border:1px solid var(--line-blue);
   display:flex; align-items:center; justify-content:center;
+  z-index:1; box-shadow:0 0 0 3px var(--paper);
 }
-.who-card.yes .who-mark{background:var(--tint-green); color:var(--green);}
-.who-card.no .who-mark{background:var(--tint-red); color:var(--danger);}
-.who-mark .ic{width:19px; height:19px; stroke-width:2.4;}
-.who-card li{display:flex; align-items:flex-start; gap:var(--space-3); font-size:var(--fs-base); padding:var(--space-2) 0; line-height:1.75; color:var(--text);}
-.who-card li span.mark{
-  width:24px; height:24px; border-radius:50%; flex-shrink:0; margin-top:var(--space-1);
-  display:flex; align-items:center; justify-content:center;
-}
-.who-card.yes li span.mark{background:var(--tint-green); color:var(--green);}
-.who-card.no li span.mark{background:var(--tint-red); color:var(--danger);}
-.who-card li span.mark .ic{width:13px; height:13px; stroke-width:2.6;}
+.sector-ico .ic{width:26px; height:26px; stroke-width:2;}
+
+/* Title reserves a consistent two-line zone so descriptions start level across cards */
+.sector-card h3{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.5; min-height:3em; margin-bottom:var(--space-3);}
+.sector-card p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin-bottom:var(--space-5);}
+
+.sector-card .sector-cta{margin-top:auto; width:100%;}
 
 /* ============================================================
    FINAL CTA
@@ -517,10 +184,7 @@ footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;
 }
 .footer-brand .logo-img{height:54px; width:auto; display:block;}
 .footer-brand p{margin-top:var(--space-4); font-size:var(--fs-sm); color:rgba(255,255,255,0.58); max-width:300px; line-height:1.9;}
-.footer-cta{
-  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-  border-radius:var(--radius-lg); padding:var(--space-7) var(--space-6);
-}
+.footer-cta{ /* no card frame — content sits directly in the footer */ }
 .footer-cta h4{font-size:20px; font-weight:700; color:#fff; margin-bottom:var(--space-3); line-height:1.5;}
 .footer-cta p{font-size:var(--fs-sm); color:rgba(255,255,255,0.66); line-height:1.9; margin-bottom:var(--space-5);}
 .footer-cta .btn{width:100%;}
