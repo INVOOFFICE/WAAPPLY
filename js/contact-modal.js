@@ -147,10 +147,10 @@
     }
   }
 
-  /* ===== Intro audio (Wzaa.mp3 — plays once from 00:06) ===== */
+  /* ===== Intro audio (Wapp.m4a — plays once from 00:06) ===== */
   function getIntroAudio(){
     if(!introAudio){
-      introAudio = new Audio('assets/audio/Wzaa.mp3');
+      introAudio = new Audio('assets/audio/Wapp.m4a');
       introAudio.preload = 'auto';
       introAudio.loop = false;
     }
