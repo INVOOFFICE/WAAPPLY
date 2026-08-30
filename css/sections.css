@@ -107,69 +107,70 @@
 .hero-image{
   position:relative; z-index:2; width:100%; max-width:480px; height:auto;
   border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
 /* ============================================================
-   PRICING — sectors sub-block container
+   PRICING — countries sub-block container
    ============================================================ */
 .pricing-section{position:relative;}
 
 /* ============================================================
-   SECTORS — full grid of 22 sector cards (inside the pricing section)
+   COUNTRIES — grid of 31 country cards (inside the pricing section)
    ============================================================ */
-.sectors{margin-top:var(--space-10);}
-.sectors-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
-.sectors-head .section-title{margin-bottom:var(--space-3);}
-.sectors-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
+.countries{margin-top:var(--space-10);}
+.countries-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
+.countries-head .section-title{margin-bottom:var(--space-3);}
+.countries-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
 
-.sectors-grid{
+.countries-grid{
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-5);
 }
 
-.sector-card{
+.country-card{
   display:flex; flex-direction:column; overflow:hidden;
   background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
   box-shadow:var(--shadow-xs);
   position:relative;
   transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
 }
-.sector-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
+.country-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
 
-/* Photo placeholder zone — sits on top of the card; a matching sector image
-   (assets/job/<sector name>.jpg) fills it when present, otherwise the gradient stays */
-.sector-media{
+/* Flag zone — sits on top of the card; the flag symbol is centered on a soft gradient */
+.country-media{
   height:118px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
   background:
     radial-gradient(150px 150px at 78% 0%, rgba(16,185,129,0.10), transparent 64%),
     radial-gradient(160px 160px at 14% 110%, rgba(96,165,250,0.16), transparent 62%),
     var(--bg2);
 }
-.sector-media .sector-img{
-  width:100%; height:100%; object-fit:cover; display:block;
+.country-flag{
+  height:84px; width:auto;
+  border-radius:5px; overflow:hidden;
+  box-shadow:0 8px 20px -10px rgba(10,23,48,0.4), 0 0 0 1px rgba(10,23,48,0.10);
 }
-.sector-card:hover .sector-media{filter:brightness(1.02);}
+.country-card:hover .country-media{filter:brightness(1.02);}
 
-.sector-body{
+.country-body{
   display:flex; flex-direction:column; flex:1; text-align:center;
   padding:44px var(--space-6) var(--space-6);
 }
 
 /* Icon badge — absolutely positioned, straddling the media/body boundary (50/50) */
-.sector-ico{
+.country-ico{
   position:absolute; top:90px; left:50%; transform:translateX(-50%);
   width:56px; height:56px; border-radius:16px;
   background:rgb(11 47 91); color:rgb(255 255 255); border:1px solid var(--line-blue);
   display:flex; align-items:center; justify-content:center;
   z-index:1; box-shadow:0 0 0 3px var(--paper);
 }
-.sector-ico .ic{width:26px; height:26px; stroke-width:2;}
+.country-ico .ic{width:26px; height:26px; stroke-width:2;}
 
-/* Title reserves a consistent two-line zone so descriptions start level across cards */
-.sector-card h3{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.5; min-height:3em; margin-bottom:var(--space-3);}
-.sector-card p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin-bottom:var(--space-5);}
+/* Title reserves a consistent zone so descriptions start level across cards */
+.country-card h3{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.5; min-height:2.5em; margin-bottom:var(--space-3);}
+.country-card p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin-bottom:var(--space-5);}
 
-.sector-card .sector-cta{margin-top:auto; width:100%;}
+.country-card .country-cta{margin-top:auto; width:100%;}
 
 /* ============================================================
    FINAL CTA

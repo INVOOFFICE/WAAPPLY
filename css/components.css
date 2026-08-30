@@ -54,7 +54,7 @@
 }
 .btn-ghost-light:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.45); transform:translateY(-2px);}
 
-/* Sector CTA — quiet navy-tinted button used inside the light sector cards */
+/* Country card CTA — quiet navy-tinted button used inside the light country cards */
 .btn-ghost-light-2{
   background:var(--wash-blue); border:1.5px solid var(--border-strong); color:var(--navy);
   font-size:14.5px; padding:11px 20px;
@@ -72,7 +72,7 @@
 
 /* ===== FAQ ===== */
 /* .faq-list fills its .container (1180px) so it shares the same horizontal
-   limits as the sectors grid — no extra max-width of its own. */
+   limits as the countries grid — no extra max-width of its own. */
 .faq-item{
   position:relative;
   background:var(--paper); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:var(--space-3); overflow:hidden;

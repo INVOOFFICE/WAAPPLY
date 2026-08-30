@@ -21,7 +21,7 @@
   .section-pad{padding:80px 0;}
   .section-head{margin-bottom:44px;}
 
-  .sectors-grid{grid-template-columns:repeat(2,1fr);}
+  .countries-grid{grid-template-columns:repeat(2,1fr);}
 
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
@@ -42,9 +42,10 @@
   .hero-note{font-size:var(--fs-xs); padding:var(--space-3) var(--space-3);}
   .hero-visual{padding-bottom:var(--space-7);}
 
-  .sectors-grid{grid-template-columns:1fr;}
-  .sector-media{height:96px;}
-  .sector-ico{top:68px;}
+  .countries-grid{grid-template-columns:1fr;}
+  .country-media{height:96px;}
+  .country-flag{height:58px;}
+  .country-ico{top:68px;}
 
   .faq-q{padding:var(--space-4) var(--space-4); font-size:var(--fs-base);}
   .faq-a-inner{padding:0 var(--space-4) var(--space-5);}

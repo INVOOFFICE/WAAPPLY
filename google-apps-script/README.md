@@ -82,8 +82,8 @@ var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
 
 The Google Sheet should have these columns:
 
-| Date | Nom | WhatsApp | Pack | Prix | Secteur | Source | Page | Statut |
-|------|-----|----------|------|------|---------|--------|------|--------|
+| Date | Nom | WhatsApp | Pack | Prix | Pays | Source | Page | Statut |
+|------|-----|----------|------|------|------|--------|------|--------|
 
 Each form submission adds one row with:
 - **Date** — timestamp (Paris timezone)
@@ -91,10 +91,29 @@ Each form submission adds one row with:
 - **WhatsApp** — formatted phone number with country code
 - **Pack** — `info`, `3months`, or `6months`
 - **Prix** — price text or empty for info requests
-- **Secteur** — the sector the user picked on « خدماتنا حسب القطاع » (empty for generic CTAs)
+- **Pays** — the **full Arabic name** of the selected country from « التقديم حسب الدول » (e.g. `ألمانيا`, `فرنسا`, `هولندا`). The frontend transmits the ISO code (`DE`, `FR`, `NL`) and the Apps Script converts it to the full name before writing; empty `""` for generic CTAs
 - **Source** — always `waapply.com`
 - **Page** — the page path and hash where the form was submitted
 - **Statut** — always `Nouveau` (new lead)
+
+### Expected POST payload
+
+The frontend sends the following JSON (the country card's `data-country` ISO code travels through the modal into the `country` field):
+
+```json
+{
+  "name": "...",
+  "whatsapp": "...",
+  "package": "...",
+  "packagePrice": "...",
+  "country": "DE",
+  "source": "waapply.com",
+  "page": "...",
+  "timestamp": "..."
+}
+```
+
+Generic CTAs (not tied to a country) send `"country": ""`. The Apps Script validates a non-empty country against the 31 allowed ISO codes (`DE`, `FR`, `NL`, `BE`, `SE`, `AT`, `CH`, `CZ`, `ES`, `PL`, `FI`, `NO`, `BG`, `SK`, `EE`, `HR`, `IT`, `IE`, `IS`, `HU`, `EL`, `CY`, `DK`, `LV`, `MT`, `LI`, `LT`, `LU`, `SI`, `RO`, `PT`) and rejects unknown codes without saving the lead. The ISO code is kept as the internal value; the **full Arabic name** is written in the `Pays` column (e.g. `DE` → `ألمانيا`). On first run the script creates the header row automatically; if the sheet already exists with a legacy `Secteur` header in column 6, that one header cell is renamed to `Pays` once (historical rows are preserved).
 
 ## Configuration Values to Replace
 
