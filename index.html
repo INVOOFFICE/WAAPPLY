@@ -229,6 +229,7 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/sections.css">
 <link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/promo.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/contact-modal.css">
 </head>
@@ -336,27 +337,289 @@
 <!-- ===================== MAIN ===================== -->
 <main id="main">
 
-<!-- ===================== HERO ===================== -->
-<section class="hero" id="top">
-  <div class="container hero-grid">
-    <div class="hero-copy reveal in">
-      <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg>تقديم منظم ومستمر على فرص العمل فأوروبا</span>
-      <h1>باغي تخدم فـ <span class="text-gradient-gold">أوروبا؟</span></h1>
-      <h2 class="sub">خلي البحث والتقديم اليومي على الشركات علينا حنا — ونتا ركّز على مهاراتك والاستعداد للمقابلات.</h2>
-      <p class="desc">كنتكلفو بالجزء المتعب ديال العملية: كنبحثو على الشركات والفرص اللي ممكن تناسب بروفايلك، كنجهزو <span class="latin">CV</span> و<span class="latin">Lettre de Motivation</span>، وكنوصلو الملف ديالك للشركات بشكل منظم باش الـrecruteur يشوف واش مناسب للمنصب المنشور أو لفرصة أخرى داخل الشركة، مع تسجيل وتتبع كل طلب من بلاصة وحدة.</p>
-      <div class="hero-ctas">
-        <button type="button" data-contact-package="info" class="btn btn-gold btn-lg">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
-        <a href="#sectors" class="btn btn-ghost-light btn-lg">التقديم حسب الدول</a>
-      </div>
-    </div>
-    <div class="hero-visual reveal">
-      <!-- Visuel principal : capture réelle de l'interface (assets/wpl.png) -->
-      <img src="assets/wpl.png" alt="وابلاي — لوحة تحكم أتمتة إرسال وتتبع طلبات التقديم" class="hero-image">
-    </div>
-    <div class="hero-note">
-      <span class="note-ico"><svg class="ic" aria-hidden="true"><use href="#i-triangle-alert"/></svg></span>
-      <span>وابلاي كتعاونك فالبحث، تجهيز الملف والإرسال باش تزيد فرصك، ولكن الخدمة ولا الـ<span class="latin">Visa</span> ماشي مضمونين... وكلشي على الله 🤲</span>
-    </div>
+<!-- ===================== PROMO BANNER SLIDER (section principale) ===================== -->
+<section class="promo-section" id="top" aria-label="عروض ترويجية">
+  <div class="container">
+    <div class="promo-slider" role="region" aria-label="بانر عروض ترويجية" aria-roledescription="شرائح">
+      <span class="promo-live sr-only" aria-live="polite" aria-atomic="true"></span>
+
+      <div class="promo-track">
+
+        <!-- ===== SLIDE 1: 31+ Countries ===== -->
+        <div class="promo-slide active" role="group" aria-roledescription="شريحة" aria-label="شريحة 1 من 3">
+          <div class="promo-content">
+            <span class="promo-badge">عرض خاص لفترة محدودة</span>
+            <h2 class="promo-title">وسّع فرصك فـ <span class="text-gradient-gold">أوروبا</span> بأكثر من <span class="latin">31</span> دولة</h2>
+            <p class="promo-desc">خلي وابلاي يبحث وينظم ويرسل طلبات التوظيف ديالك إلى العروض الحالية والشركات المناسبة لبروفايلك — بشكل يومي ومستمر.</p>
+            <div class="promo-metrics">
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="31" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">دولة أوروبية</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="30" data-suffix="">0</span></div>
+                <div class="promo-metric-label">طلب توظيف يوميًا</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="3" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">أشهر من الإرسال المستمر</div>
+              </div>
+            </div>
+            <button type="button" data-contact-package="info" class="btn btn-gold btn-lg promo-cta">استفد من العرض الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <p class="promo-disclaimer">البحث والتنظيم والإرسال من طرفنا، أما قرار القبول والتوظيف فهو بيد الشركة والجهات المختصة. الخدمة لا تضمن وظيفة ولا Visa.</p>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-visual-inner">
+              <svg class="promo-map" viewBox="0 0 460 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Europe continental outline -->
+                <path class="eu-outline" d="M68,72 L60,68 52,72 48,80 42,86 36,84 30,92 26,108 24,120 28,134 24,142 22,154 24,162 22,172 28,182 30,196 28,208 22,224 18,238 22,248 18,262 24,268 36,264 46,258 58,262 68,256 82,262 92,264 102,268 112,264 118,260 128,258 138,264 148,258 156,254 168,250 178,254 186,258 192,264 198,260 204,252 210,248 218,252 226,248 232,244 238,240 246,242 254,248 262,246 268,242 274,238 280,242 288,248 296,252 304,248 308,244 314,238 318,234 324,238 332,242 340,238 348,234 356,238 364,242 372,238 380,232 386,228 394,232 402,228 408,224 412,218 408,210 402,202 396,196 388,192 380,188 372,184 364,180 356,176 348,172 340,168 332,164 328,158 324,152 318,148 312,144 306,140 300,136 294,132 290,126 286,120 282,114 278,108 274,102 268,96 262,90 258,84 252,78 248,72 242,68 236,64 228,60 220,58 212,56 204,54 196,52 188,50 180,50 172,52 164,54 156,56 148,58 140,62 132,66 124,70 116,74 108,76 100,78 92,76 84,74 76,72Z"/>
+                <!-- British Isles -->
+                <path class="eu-outline" d="M108,100 L114,96 120,100 126,98 132,102 136,108 132,114 128,120 124,126 120,132 116,128 112,122 108,116 106,110Z"/>
+                <path class="eu-outline" d="M94,114 L98,108 104,106 108,112 106,118 102,124 98,120 94,118Z"/>
+                <!-- Scandinavian Peninsula -->
+                <path class="eu-outline" d="M228,58 L236,48 242,38 248,28 252,18 256,12 262,16 268,22 274,28 278,34 282,42 278,48 274,54 270,60 264,66 258,72 252,76 246,72 240,68 234,64Z"/>
+                <!-- Iceland -->
+                <path class="eu-outline" d="M36,46 L44,42 52,44 58,48 54,52 46,54 38,52 34,48Z"/>
+                <!-- Crete / Mediterranean islands hint -->
+                <path class="eu-outline" d="M268,262 L280,258 290,262 286,266 276,268 268,266Z"/>
+
+                <!-- Animated connection paths (opportunities flow) -->
+                <g class="eu-connections">
+                  <path class="eu-path" d="M156,180 Q200,140 226,114" style="animation-delay:0s"/>
+                  <path class="eu-path" d="M108,238 Q140,200 156,180" style="animation-delay:2s"/>
+                  <path class="eu-path" d="M226,216 Q234,160 226,114" style="animation-delay:4s"/>
+                  <path class="eu-path" d="M210,96 Q220,100 226,114" style="animation-delay:1s"/>
+                  <path class="eu-path" d="M290,56 Q260,80 226,114" style="animation-delay:3s"/>
+                  <path class="eu-path" d="M300,136 Q264,125 226,114" style="animation-delay:5s"/>
+                </g>
+
+                <!-- Major capital dots (large, with glow rings) -->
+                <circle class="eu-glow" cx="226" cy="114" r="10"/>
+                <circle class="eu-dot eu-dot--lg" cx="226" cy="114" r="4"/>
+                <circle class="eu-glow" cx="156" cy="180" r="10"/>
+                <circle class="eu-dot eu-dot--lg" cx="156" cy="180" r="4"/>
+                <circle class="eu-glow" cx="108" cy="238" r="10"/>
+                <circle class="eu-dot eu-dot--lg" cx="108" cy="238" r="4"/>
+                <circle class="eu-glow" cx="280" cy="238" r="10"/>
+                <circle class="eu-dot eu-dot--lg" cx="280" cy="238" r="4"/>
+                <circle class="eu-glow" cx="300" cy="56" r="10"/>
+                <circle class="eu-dot eu-dot--lg" cx="300" cy="56" r="4"/>
+
+                <!-- Medium capital dots -->
+                <circle class="eu-dot eu-dot--md" cx="210" cy="96" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="194" cy="120" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="250" cy="96" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="290" cy="136" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="114" cy="132" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="270" cy="144" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="262" cy="126" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="238" cy="148" r="3"/>
+                <circle class="eu-dot eu-dot--md" cx="218" cy="138" r="3"/>
+
+                <!-- Small country dots -->
+                <circle class="eu-dot" cx="240" cy="86" r="2"/>
+                <circle class="eu-dot" cx="190" cy="114" r="2"/>
+                <circle class="eu-dot" cx="82" cy="118" r="2"/>
+                <circle class="eu-dot" cx="300" cy="168" r="2"/>
+                <circle class="eu-dot" cx="320" cy="160" r="2"/>
+                <circle class="eu-dot" cx="290" cy="172" r="2"/>
+                <circle class="eu-dot" cx="258" cy="172" r="2"/>
+                <circle class="eu-dot" cx="280" cy="84" r="2"/>
+                <circle class="eu-dot" cx="310" cy="78" r="2"/>
+                <circle class="eu-dot" cx="320" cy="90" r="2"/>
+                <circle class="eu-dot" cx="184" cy="62" r="2"/>
+                <circle class="eu-dot" cx="320" cy="222" r="2"/>
+                <circle class="eu-dot" cx="348" cy="208" r="2"/>
+                <circle class="eu-dot" cx="310" cy="162" r="2"/>
+                <circle class="eu-dot" cx="244" cy="132" r="1.8"/>
+                <circle class="eu-dot" cx="220" cy="258" r="2"/>
+              </svg>
+              <!-- Dashboard floating cards -->
+              <div class="promo-dash-cards">
+                <div class="promo-dash-card" style="top:8%; right:5%;">
+                  <span class="promo-status-dot promo-status-dot--green"></span>
+                  <span>جاري البحث...</span>
+                </div>
+                <div class="promo-dash-card" style="bottom:18%; right:8%;">
+                  <span class="promo-dash-ico promo-dash-ico--amber"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+                  <span>فرص جديدة</span>
+                </div>
+              </div>
+              <!-- Progress bar -->
+              <div class="promo-progress" aria-hidden="true">
+                <span class="promo-progress-label latin">30 طلب/يوم</span>
+                <div class="promo-progress-bar"><div class="promo-progress-fill"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SLIDE 2: Candidature Spontanée ===== -->
+        <div class="promo-slide" role="group" aria-roledescription="شريحة" aria-label="شريحة 2 من 3">
+          <div class="promo-content">
+            <span class="promo-badge">فرصتك أكبر مما تتخيل</span>
+            <h2 class="promo-title">كنصيفطو البروفايل ديالك كـ <span class="text-gradient-gold">Candidature Spontanée</span></h2>
+            <p class="promo-desc">ماشي غير لمنصب واحد — كنقدموك للشركات مباشرة باش يبقى ملفك مفتوح لأي فرصة داخل الشركة، سواء كانت معلنة دابا أو تظهر مستقبلاً.</p>
+            <div class="promo-metrics">
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+                <div class="promo-metric-label">بروفايلك متقدم</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="3" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">فرص لكل شركة</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="31" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">دولة أوروبية</div>
+              </div>
+            </div>
+            <button type="button" data-contact-package="info" class="btn btn-gold btn-lg promo-cta">ابدأ التقديم الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <p class="promo-disclaimer">الخدمة كتزوّد فرصك ولكن ما كتضمنش القبول أو التوظيف. القرار النهائي يرجع للشركة والجهات المختصة.</p>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-visual-inner">
+              <svg class="promo-map" viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Central profile node -->
+                <circle cx="250" cy="180" r="30" fill="rgba(16,185,129,0.1)" stroke="#10B981" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="250" cy="180" r="50" fill="none" stroke="#10B981" stroke-width="0.5" opacity="0.2"/>
+                <text x="250" y="186" text-anchor="middle" fill="#10B981" font-size="14" font-weight="700" font-family="IBM Plex Sans Arabic, sans-serif">البروفايل</text>
+                <!-- Radiating lines to companies -->
+                <path class="conn conn-active" d="M280,180 L370,120" stroke-dasharray="5 4"/>
+                <path class="conn conn-active" d="M280,180 L370,180" stroke-dasharray="5 4"/>
+                <path class="conn conn-active" d="M280,180 L370,240" stroke-dasharray="5 4"/>
+                <path class="conn conn-active" d="M220,180 L130,120" stroke-dasharray="5 4"/>
+                <path class="conn conn-active" d="M220,180 L130,180" stroke-dasharray="5 4"/>
+                <path class="conn conn-active" d="M220,180 L130,240" stroke-dasharray="5 4"/>
+                <!-- Company nodes (right) -->
+                <rect x="370" y="105" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="420" y="124" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة ألمانية</text>
+                <rect x="370" y="165" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="420" y="184" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة فرنسية</text>
+                <rect x="370" y="225" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="420" y="244" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة إسبانية</text>
+                <!-- Company nodes (left) -->
+                <rect x="30" y="105" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="80" y="124" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة إيطالية</text>
+                <rect x="30" y="165" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="80" y="184" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة بلجيكية</text>
+                <rect x="30" y="225" width="100" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <text x="80" y="244" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-weight="600" font-family="IBM Plex Sans Arabic, sans-serif">شركة هولندية</text>
+                <!-- Opportunity branches inside companies -->
+                <rect x="375" y="140" width="90" height="16" rx="4" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="0.5"/>
+                <text x="420" y="151" text-anchor="middle" fill="#6EE7B7" font-size="7" font-family="IBM Plex Sans Arabic, sans-serif">فرص إضافية داخل الشركة</text>
+                <rect x="35" y="140" width="90" height="16" rx="4" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="0.5"/>
+                <text x="80" y="151" text-anchor="middle" fill="#6EE7B7" font-size="7" font-family="IBM Plex Sans Arabic, sans-serif">فرص إضافية داخل الشركة</text>
+              </svg>
+              <div class="promo-dash-cards">
+                <div class="promo-dash-card" style="top:5%; left:10%;">
+                  <span class="promo-status-dot promo-status-dot--green"></span>
+                  <span>تم الترشيح ✓</span>
+                </div>
+              </div>
+              <div class="promo-progress" aria-hidden="true">
+                <span class="promo-progress-label">ترشيح مباشر للشركات</span>
+                <div class="promo-progress-bar"><div class="promo-progress-fill"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SLIDE 3: Daily Applications ===== -->
+        <div class="promo-slide" role="group" aria-roledescription="شريحة" aria-label="شريحة 3 من 3">
+          <div class="promo-content">
+            <span class="promo-badge">نشرّح عليك التقديم</span>
+            <h2 class="promo-title">كنقدمو أكثر من <span class="latin text-gradient-gold">30</span> طلب توظيف كل نهار</h2>
+            <p class="promo-desc">كنبحثو على الشركات والفرص المناسبة، كنجهزو البروفايل ديالك، وكنرسلو الطلبات بشكل يومي ومستمر — باش فرصك تزيد مع الوقت.</p>
+            <div class="promo-metrics">
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="30" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">طلب توظيف يوميًا</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="900" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">طلب شهريًا (تقديري)</div>
+              </div>
+              <div class="promo-metric">
+                <div class="promo-metric-value"><span class="counter" data-target="31" data-suffix="+">0</span></div>
+                <div class="promo-metric-label">دولة أوروبية</div>
+              </div>
+            </div>
+            <button type="button" data-contact-package="info" class="btn btn-gold btn-lg promo-cta">استفد من العرض الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <p class="promo-disclaimer">الأرقام تقديرية وقد تختلف حسب الدولة والبروفايل. الأولوية هي الجودة والملاءمة، ماشي مجرد كمية.</p>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-visual-inner">
+              <div class="dash3" dir="rtl">
+                <div class="dash3-header">لوحة تتبع طلبات التقديم</div>
+                <div class="dash3-stats">
+                  <div class="dash3-stat dash3-stat--green">
+                    <div class="dash3-stat-val latin">30</div>
+                    <div class="dash3-stat-label">طلبات يوميًا</div>
+                  </div>
+                  <div class="dash3-stat dash3-stat--blue">
+                    <div class="dash3-stat-val latin">31+</div>
+                    <div class="dash3-stat-label">دولة مستهدفة</div>
+                  </div>
+                  <div class="dash3-stat dash3-stat--amber">
+                    <div class="dash3-stat-val latin">3+</div>
+                    <div class="dash3-stat-label">أشهر خدمة</div>
+                  </div>
+                </div>
+                <div class="dash3-queue">
+                  <div class="dash3-queue-title">آخر الطلبات المرسلة</div>
+                  <div class="dash3-rows">
+                    <div class="dash3-row dash3-row--green">
+                      <span class="dash3-dot" style="background:#10B981"></span>
+                      <span class="dash3-name">تم الإرسال — شركة ألمانية (برلين)</span>
+                      <span class="dash3-status dash3-status--green latin">✓ Sent</span>
+                    </div>
+                    <div class="dash3-row dash3-row--green">
+                      <span class="dash3-dot" style="background:#10B981"></span>
+                      <span class="dash3-name">تم الإرسال — شركة فرنسية (باريس)</span>
+                      <span class="dash3-status dash3-status--green latin">✓ Sent</span>
+                    </div>
+                    <div class="dash3-row dash3-row--blue">
+                      <span class="dash3-dot" style="background:#3B82F6"></span>
+                      <span class="dash3-name">جاري المعالجة — شركة إسبانية (مدريد)</span>
+                      <span class="dash3-status dash3-status--blue latin">Processing</span>
+                    </div>
+                    <div class="dash3-row dash3-row--blue">
+                      <span class="dash3-dot" style="background:#3B82F6"></span>
+                      <span class="dash3-name">جاري المعالجة — شركة إيطالية (روما)</span>
+                      <span class="dash3-status dash3-status--blue latin">Processing</span>
+                    </div>
+                    <div class="dash3-row dash3-row--muted">
+                      <span class="dash3-dot" style="background:rgba(255,255,255,0.3)"></span>
+                      <span class="dash3-name">في الانتظار — شركة بولندية (وارسو)</span>
+                      <span class="dash3-status dash3-status--muted latin">Queued</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="promo-dash-cards">
+                <div class="promo-dash-card" style="top:2%; right:3%;">
+                  <span class="promo-status-dot promo-status-dot--green"></span>
+                  <span>نشط — جاري الإرسال</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .promo-track -->
+
+      <!-- Navigation arrows (RTL: next points left→ on the left, prev points right→ on the right) -->
+      <button class="promo-arrow promo-arrow--prev" aria-label="الشريحة السابقة" type="button">
+        <svg class="ic" aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow-left"/></svg>
+      </button>
+      <button class="promo-arrow promo-arrow--next" aria-label="الشريحة التالية" type="button">
+        <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+      </button>
+
+      <!-- Pagination dots -->
+      <div class="promo-dots" role="tablist" aria-label="التنقل بين الشرائح"></div>
+    </div><!-- .promo-slider -->
   </div>
 </section>
 
@@ -566,6 +829,7 @@
 
 <script src="js/navigation.js"></script>
 <script src="js/faq.js"></script>
+<script src="js/promo.js"></script>
 <script src="js/countries.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/app.js"></script>
