@@ -21,7 +21,7 @@ header.scrolled{
   display:flex; align-items:center; gap:var(--space-5);
 }
 .logo{display:flex; align-items:center;}
-.logo-img{height:42px; width:auto; display:block; flex-shrink:0;}
+.logo-img{height:64px; width:auto; display:block; flex-shrink:0;}
 
 /* ===== Desktop nav ===== */
 nav.main-nav{display:flex; align-items:center; gap:var(--space-7); margin-inline-start:var(--space-4);}
