@@ -1,14 +1,12 @@
 /* ============================================================
-   PROMO HERO — Premium SaaS hero carousel
-   Kept lean: ~5 animations total, no backdrop-filter, no blur blobs.
+   PROMO HERO — single slide with YouTube background video
    ============================================================ */
 
-/* ===== Wider container override (promo-section lives inside .container
-   but .promo-slider extends wider than the default 1180px cap) ===== */
+/* ===== Section (full-width, relative for video positioning) ===== */
 .promo-section{
-  padding:0;
-  overflow:hidden;
   position:relative;
+  overflow:hidden;
+  min-height:540px;
 }
 .promo-section .container{
   max-width:min(94vw, 1440px);
@@ -17,44 +15,51 @@
   z-index:2;
 }
 
-/* ===== Slider Wrapper ===== */
-.promo-slider{
-  position:relative;
-  border-radius:var(--radius-lg);
+/* ===== Background Video ===== */
+.promo-video-bg{
+  position:absolute; inset:0;
+  z-index:0;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,0.07);
 }
-
-/* ===== Slides Track ===== */
-.promo-track{
-  display:flex;
+.promo-video-bg video{
+  position:absolute;
+  top:50%; left:50%;
+  width:100%; height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  border:none;
+}
+.promo-video-overlay{
+  position:absolute; inset:0;
+  z-index:1;
+  background:linear-gradient(
+    135deg,
+    rgba(10,15,30,0.88) 0%,
+    rgba(10,15,30,0.78) 40%,
+    rgba(10,15,30,0.65) 100%
+  );
 }
 
 /* ===== Single Slide ===== */
-.promo-slide{
-  flex:0 0 100%;
-  min-width:0;
+.promo-slide--single{
   position:relative;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:stretch;
-  background:var(--grad-navy);
   min-height:480px;
+  display:flex;
+  align-items:center;
 }
 
-/* ===== Two-column layout ===== */
+/* ===== Content ===== */
 .promo-content{
-  padding:52px 56px;
+  width:100%;
+  max-width:720px;
+  margin:0 auto;
+  padding:52px 20px;
   display:flex; flex-direction:column; justify-content:center;
   position:relative; z-index:5;
+  text-align:center;
+  align-items:center;
 }
-.promo-visual{
-  position:relative;
-  display:flex; align-items:center; justify-content:center;
-  padding:40px 48px 40px 16px;
-  z-index:5;
-  min-height:380px;
-}
+.promo-badge{ margin-inline:auto; }
 
 /* ===== Promo Badge ===== */
 .promo-badge{
@@ -72,14 +77,14 @@
   font-size:clamp(28px, 3.4vw, 42px);
   font-weight:700; line-height:1.35;
   color:#fff; margin-bottom:var(--space-5);
-  max-width:540px;
+  max-width:640px;
 }
 
 /* ===== Slide Description ===== */
 .promo-desc{
   font-size:var(--fs-base); line-height:1.9;
   color:rgba(255,255,255,0.72);
-  max-width:480px;
+  max-width:580px;
   margin-bottom:32px;
 }
 
@@ -106,29 +111,6 @@
   margin-top:4px;
 }
 
-/* ===== CTA Button ===== */
-.promo-cta{
-  width:fit-content;
-  padding:16px 36px;
-  font-size:15.5px;
-  position:relative;
-  overflow:hidden;
-}
-.promo-cta .ic{
-  transition:transform .25s var(--ease-entrance);
-}
-.promo-cta:hover .ic{
-  transform:translateX(-3px);
-}
-.promo-cta::after{
-  content:''; position:absolute; inset:0;
-  border-radius:inherit;
-  background:linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.12) 50%, transparent 62%);
-  opacity:0; transition:opacity .35s ease;
-  pointer-events:none;
-}
-.promo-cta:hover::after{ opacity:1; }
-
 /* ===== Disclaimer ===== */
 .promo-disclaimer{
   font-size:11.5px;
@@ -138,259 +120,20 @@
   padding-top:16px;
 }
 
-/* ===== Visual — SaaS Composition ===== */
-.promo-visual-inner{
-  width:100%; max-width:520px;
-  position:relative;
-}
-
-/* --- Europe Map SVG --- */
-.promo-map{
-  width:100%; height:auto;
-}
-/* Continental outline */
-.eu-outline{
-  fill:rgba(16,185,129,0.04);
-  stroke:rgba(16,185,129,0.18);
-  stroke-width:0.8;
-  stroke-linejoin:round;
-}
-/* Country dots — base */
-.eu-dot{
-  fill:var(--gold-1);
-  opacity:0.55;
-}
-.eu-dot--md{
-  opacity:0.65;
-}
-.eu-dot--lg{
-  fill:var(--gold-2);
-  opacity:0.85;
-}
-/* Glow rings behind major capitals */
-.eu-glow{
-  fill:#10B981;
-  opacity:0.08;
-  animation:eu-glow-pulse 5s ease-in-out infinite;
-}
-.eu-glow:nth-of-type(2){ animation-delay:1.5s; }
-.eu-glow:nth-of-type(3){ animation-delay:3s; }
-.eu-glow:nth-of-type(4){ animation-delay:4.5s; }
-.eu-glow:nth-of-type(5){ animation-delay:2s; }
-
-@keyframes eu-glow-pulse{
-  0%,100%{ opacity:0.06; r:8; }
-  50%{ opacity:0.14; r:12; }
-}
-
-/* Pulse on large dots */
-@keyframes promo-dot-pulse{
-  0%,100%{ opacity:0.65; }
-  50%{ opacity:1; }
-}
-.eu-dot--lg{
-  animation:promo-dot-pulse 4s ease-in-out infinite;
-}
-.eu-dot--lg:nth-of-type(2){ animation-delay:1.2s; }
-.eu-dot--lg:nth-of-type(3){ animation-delay:2.4s; }
-.eu-dot--lg:nth-of-type(4){ animation-delay:0.8s; }
-.eu-dot--lg:nth-of-type(5){ animation-delay:3.6s; }
-
-/* Animated connection paths — opportunity flow */
-.eu-connections{
-  pointer-events:none;
-}
-.eu-path{
-  fill:none;
-  stroke:var(--gold-1);
-  stroke-width:1.2;
-  stroke-linecap:round;
-  opacity:0;
-  stroke-dasharray:6 10;
-  animation:eu-path-draw 6s ease-in-out infinite;
-}
-.eu-path:nth-child(2){ animation-delay:1.5s; }
-.eu-path:nth-child(3){ animation-delay:3s; }
-.eu-path:nth-child(4){ animation-delay:4.5s; }
-.eu-path:nth-child(5){ animation-delay:0.8s; }
-.eu-path:nth-child(6){ animation-delay:2.2s; }
-
-@keyframes eu-path-draw{
-  0%{ opacity:0; stroke-dashoffset:100; }
-  10%{ opacity:0.5; }
-  40%{ opacity:0.5; stroke-dashoffset:0; }
-  50%{ opacity:0; stroke-dashoffset:-100; }
-  100%{ opacity:0; }
-}
-
-/* Legacy .conn / .conn-active kept for slide 2 compatibility */
-.promo-map .conn{
-  stroke:var(--gold-1);
-  stroke-opacity:0.18;
-  fill:none;
-  stroke-width:1;
-  stroke-dasharray:4 6;
-}
-.promo-map .conn-active{
-  stroke-opacity:0.38;
-  stroke-width:1.5;
-  stroke-dasharray:6 4;
-}
-
-/* --- Dashboard Cards (floating) --- */
-.promo-dash-cards{
-  position:absolute; inset:0;
-  pointer-events:none;
-}
-.promo-dash-card{
-  position:absolute;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:var(--radius-sm);
-  padding:10px 14px;
-  display:flex; align-items:center; gap:8px;
-  font-size:11.5px; font-weight:600; color:rgba(255,255,255,0.75);
-  white-space:nowrap;
-}
-/* Only the first card floats — reduced to 1 animation */
-.promo-dash-card:first-child{
-  animation:promo-float 8s ease-in-out infinite;
-}
-@keyframes promo-float{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-5px); }
-}
-
-.promo-dash-ico{
-  width:22px; height:22px; border-radius:6px;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0;
-}
-.promo-dash-ico svg{ width:13px; height:13px; stroke-width:2; }
-.promo-dash-ico--green{ background:rgba(16,185,129,0.18); color:var(--gold-1); }
-.promo-dash-ico--blue{ background:rgba(59,130,246,0.18); color:var(--blue-light); }
-.promo-dash-ico--amber{ background:rgba(251,191,36,0.18); color:#fbbf24; }
-
-/* Status indicator dot */
-.promo-status-dot{
-  width:6px; height:6px; border-radius:50%;
-  flex-shrink:0;
-}
-.promo-status-dot--green{ background:var(--gold-2); }
-.promo-status-dot--blue{ background:var(--blue); }
-
-/* --- Application Flow Cards --- */
-.promo-flow{
-  position:absolute; inset:0;
-  pointer-events:none;
-}
-.promo-flow-card{
-  position:absolute;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:8px;
-  padding:8px 10px;
-  display:flex; align-items:center; gap:6px;
-  font-size:10px; font-weight:600; color:rgba(255,255,255,0.65);
-}
-.promo-flow-ico{
-  width:18px; height:18px; border-radius:5px;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0;
-  background:rgba(16,185,129,0.15); color:var(--gold-1);
-}
-.promo-flow-ico svg{ width:11px; height:11px; stroke-width:2; }
-
-/* --- Progress Bar --- */
-.promo-progress{
-  position:absolute;
-  bottom:28px; left:20px; right:20px;
-  display:flex; align-items:center; gap:10px;
-}
-.promo-progress-bar{
-  flex:1; height:4px;
-  background:rgba(255,255,255,0.08);
-  border-radius:2px;
-  overflow:hidden;
-}
-.promo-progress-fill{
-  height:100%; width:65%;
-  background:var(--grad-gold);
-  border-radius:2px;
-}
-.promo-progress-label{
-  font-size:10px; font-weight:600; color:var(--gold-1);
-  white-space:nowrap;
-}
-
-/* ===== Navigation Arrows ===== */
-.promo-arrow{
-  position:absolute; top:50%;
-  transform:translateY(-50%);
-  width:44px; height:44px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.14);
-  color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; z-index:10;
-  transition:background .25s ease, border-color .25s ease, transform .22s var(--ease-interact);
-}
-.promo-arrow:hover{
-  background:rgba(255,255,255,0.15);
-  border-color:rgba(255,255,255,0.28);
-}
-.promo-arrow:active{
-  transform:translateY(-50%) scale(0.94);
-}
-.promo-arrow .ic{width:18px; height:18px;}
-
-/* RTL: arrows swap sides */
-.promo-arrow--prev{right:16px;}
-.promo-arrow--next{left:16px;}
-
-/* ===== Pagination Dots ===== */
-.promo-dots{
-  display:flex; justify-content:center; align-items:center; gap:8px;
-  padding:20px 0;
-}
-.promo-dot{
-  width:8px; height:8px; border-radius:50%;
-  background:rgba(255,255,255,0.22);
-  border:none; padding:0; cursor:pointer;
-  transition:background .3s ease, transform .22s var(--ease-interact), width .3s ease;
-}
-.promo-dot:hover{
-  background:rgba(255,255,255,0.40);
-}
-.promo-dot.active{
-  width:28px; border-radius:4px;
-  background:var(--gold-1);
-}
-
-/* ===== Slide Content Entrance ===== */
-.promo-slide .promo-content > *{
+/* ===== Content Entrance Animation ===== */
+.promo-slide--single .promo-content > *{
   opacity:0; transform:translateY(14px);
   transition:opacity .5s var(--ease-entrance), transform .5s var(--ease-entrance);
 }
-.promo-slide.active .promo-content > *{
+.promo-slide--single.revealed .promo-content > *{
   opacity:1; transform:none;
 }
-.promo-slide.active .promo-content > :nth-child(1){ transition-delay:.06s; }
-.promo-slide.active .promo-content > :nth-child(2){ transition-delay:.12s; }
-.promo-slide.active .promo-content > :nth-child(3){ transition-delay:.20s; }
-.promo-slide.active .promo-content > :nth-child(4){ transition-delay:.28s; }
-.promo-slide.active .promo-content > :nth-child(5){ transition-delay:.36s; }
-.promo-slide.active .promo-content > :nth-child(6){ transition-delay:.44s; }
-
-/* Visual entrance */
-.promo-visual-inner{
-  opacity:0; transform:translateX(20px);
-  transition:opacity .6s var(--ease-entrance) .15s, transform .6s var(--ease-entrance) .15s;
-}
-.promo-slide.active .promo-visual-inner{
-  opacity:1; transform:none;
-}
+.promo-slide--single.revealed .promo-content > :nth-child(1){ transition-delay:.06s; }
+.promo-slide--single.revealed .promo-content > :nth-child(2){ transition-delay:.12s; }
+.promo-slide--single.revealed .promo-content > :nth-child(3){ transition-delay:.20s; }
+.promo-slide--single.revealed .promo-content > :nth-child(4){ transition-delay:.28s; }
+.promo-slide--single.revealed .promo-content > :nth-child(5){ transition-delay:.36s; }
+.promo-slide--single.revealed .promo-content > :nth-child(6){ transition-delay:.44s; }
 
 /* ===== Counter entrance ===== */
 .promo-metric-value .counter{
@@ -404,93 +147,8 @@
   opacity:0; transform:translateY(8px);
 }
 
-/* ===== Slide 3 HTML Dashboard ===== */
-.dash3{
-  width:100%; max-width:480px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.dash3-header{
-  background:rgba(255,255,255,0.05);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  padding:10px 16px;
-  font-size:12px; font-weight:600;
-  color:rgba(255,255,255,0.7);
-  text-align:center;
-}
-.dash3-stats{
-  display:grid; grid-template-columns:repeat(3, 1fr);
-  gap:8px; padding:12px;
-}
-.dash3-stat{
-  text-align:center;
-  border-radius:var(--radius-sm);
-  padding:12px 8px;
-}
-.dash3-stat--green{ background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); }
-.dash3-stat--blue{ background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2); }
-.dash3-stat--amber{ background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.2); }
-.dash3-stat-val{
-  font-size:20px; font-weight:700; line-height:1.2;
-}
-.dash3-stat--green .dash3-stat-val{ color:#6EE7B7; }
-.dash3-stat--blue .dash3-stat-val{ color:#60A5FA; }
-.dash3-stat--amber .dash3-stat-val{ color:#fbbf24; }
-.dash3-stat-label{
-  font-size:10px; color:rgba(255,255,255,0.5);
-  margin-top:2px;
-}
-.dash3-queue{
-  padding:0 12px 12px;
-}
-.dash3-queue-title{
-  font-size:10px; font-weight:600;
-  color:rgba(255,255,255,0.45);
-  padding:8px 4px 6px;
-}
-.dash3-rows{
-  display:flex; flex-direction:column; gap:4px;
-}
-.dash3-row{
-  display:flex; align-items:center; gap:8px;
-  padding:6px 10px;
-  border-radius:6px;
-  min-height:30px;
-}
-.dash3-row--green{ background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.12); }
-.dash3-row--blue{ background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); }
-.dash3-row--muted{ background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); }
-.dash3-dot{
-  width:8px; height:8px; border-radius:50%;
-  flex-shrink:0; opacity:0.65;
-}
-.dash3-name{
-  flex:1; min-width:0;
-  font-size:11px; font-weight:500;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-.dash3-row--green .dash3-name{ color:rgba(255,255,255,0.65); }
-.dash3-row--blue .dash3-name{ color:rgba(255,255,255,0.65); }
-.dash3-row--muted .dash3-name{ color:rgba(255,255,255,0.4); }
-.dash3-status{
-  flex-shrink:0;
-  font-size:10px; font-weight:600;
-  white-space:nowrap;
-}
-.dash3-status--green{ color:#10B981; }
-.dash3-status--blue{ color:#60A5FA; }
-.dash3-status--muted{ color:rgba(255,255,255,0.35); }
-
 /* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce){
-  .promo-track{ transition:none !important; }
-  .promo-slide .promo-content > *,
-  .promo-visual-inner{ transition:none !important; opacity:1 !important; transform:none !important; }
-  .promo-dash-card,
-  .eu-dot--lg,
-  .eu-glow,
-  .eu-path{ animation:none !important; opacity:0.7 !important; }
+  .promo-slide--single .promo-content > *{ transition:none !important; opacity:1 !important; transform:none !important; }
   .promo-metric-value .counter{ opacity:1 !important; transform:none !important; }
 }
