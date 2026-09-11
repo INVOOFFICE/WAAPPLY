@@ -1,4 +1,4 @@
-/* All global responsive breakpoints live here: 980px and 600px. */
+/* All global responsive breakpoints live here: 980px, 768px, 600px (mobile) and min-width 1200px/1600px (large screens). */
 
 @media(max-width:980px){
   nav.main-nav{display:none;}
@@ -10,6 +10,7 @@
   .section-head{margin-bottom:44px;}
 
   .countries-grid{grid-template-columns:repeat(2,1fr);}
+  .sectors-grid{grid-template-columns:repeat(2,1fr);}
   .countries-pager{gap:var(--space-2);}
 
   /* Spontanée */
@@ -56,6 +57,10 @@
   .country-ico{top:68px;}
   .countries-pager{flex-wrap:wrap;}
   .countries-pager-num{min-width:36px; height:36px;}
+
+  .sectors-grid{grid-template-columns:1fr;}
+  .sector-media{height:150px;}
+  .sector-ico{top:122px;}
 
   /* Spontanée mobile */
   .spontanee-grid{gap:var(--space-7);}

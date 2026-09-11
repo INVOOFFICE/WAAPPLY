@@ -12,7 +12,7 @@
   /* ===== Package definitions ===== */
   var PACKAGES = {
     info:     { label: 'بغيت نعرف أكثر', price: null },
-    '20days':  { label: 'عرض 30 يوم — 500 درهم', price: '500 درهم' },
+    '20days':  { label: 'باقة شهر واحد (30 يوم) — 500 درهم', price: '500 درهم' },
     '3months': { label: 'باقة 3 أشهر — 1,000 درهم', price: '1,000 درهم' },
     '6months': { label: 'باقة 6 أشهر — 1,400 درهم', price: '1,400 درهم' }
   };
@@ -24,6 +24,7 @@
   var introAudio = null;
   var audioUnlockHandler = null;
   var currentCountry = '';
+  var currentSector = '';
 
   /* ===== DOM refs (cached on init) ===== */
   var overlay, panel, form, nameInput, phoneInput, packageSelect, submitBtn, submitText;
@@ -76,13 +77,14 @@
   }
 
   /* ===== Open / Close ===== */
-  function openContactModal(packageType, country){
+  function openContactModal(packageType, country, sector){
     if(isOpen) return;
     isOpen = true;
 
     lastFocus = document.activeElement;
     resetModal();
     currentCountry = country || '';
+    currentSector = sector || '';
 
     if(packageType && PACKAGES[packageType]){
       packageSelect.value = packageType;
@@ -200,7 +202,8 @@
     e.preventDefault();
     var packageType = trigger.getAttribute('data-contact-package');
     var country = trigger.getAttribute('data-country') || '';
-    openContactModal(packageType, country);
+    var sector  = trigger.getAttribute('data-sector')  || '';
+    openContactModal(packageType, country, sector);
   }
 
   function handleOverlayClick(e){
@@ -311,6 +314,7 @@
       package:      pkg,
       packagePrice: pkgData.price || '',
       country:      currentCountry || '',
+      sector:       currentSector  || '',
       source:       'waapply.com',
       page:         window.location.pathname + window.location.hash,
       timestamp:    new Date().toISOString()
@@ -376,7 +380,7 @@
   function buildWhatsAppUrl(name, pkg){
     var message;
     if(pkg === '20days'){
-      message = 'سلام، أنا ' + name + '. مهتم بعرض 30 يوم بـ 500 درهم ديال وابلاي وبغيت نكمل المعلومات.';
+      message = 'سلام، أنا ' + name + '. مهتم بباقة شهر واحد (30 يوم) بـ 500 درهم ديال وابلاي وبغيت نكمل المعلومات.';
     } else if(pkg === '3months'){
       message = 'سلام، أنا ' + name + '. مهتم بباقة 3 أشهر بـ 1,000 درهم ديال وابلاي وبغيت نكمل المعلومات.';
     } else if(pkg === '6months'){

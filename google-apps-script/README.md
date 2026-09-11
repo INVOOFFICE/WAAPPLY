@@ -82,8 +82,8 @@ var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
 
 The Google Sheet should have these columns:
 
-| Date | Nom | WhatsApp | Pack | Prix | Pays | Source | Page | Statut |
-|------|-----|----------|------|------|------|--------|------|--------|
+| Date | Nom | WhatsApp | Pack | Prix | Pays | Source | Page | Statut | Secteur |
+|------|-----|----------|------|------|------|--------|------|--------|---------|
 
 Each form submission adds one row with:
 - **Date** — timestamp (Paris timezone)
@@ -95,6 +95,7 @@ Each form submission adds one row with:
 - **Source** — always `waapply.com`
 - **Page** — the page path and hash where the form was submitted
 - **Statut** — always `Nouveau` (new lead)
+- **Secteur** — the canonical French name of the selected sector from « التقديم حسب القطاعات » (e.g. `Industrie manufacturière`, `Construction`); empty `""` for generic/package/country CTAs. The sector is never asked again in the modal — it travels from the sector card CTA via its `data-sector` attribute
 
 ### Expected POST payload
 
@@ -107,13 +108,14 @@ The frontend sends the following JSON (the country card's `data-country` ISO cod
   "package": "...",
   "packagePrice": "...",
   "country": "DE",
+  "sector": "Industrie manufacturière",
   "source": "waapply.com",
   "page": "...",
   "timestamp": "..."
 }
 ```
 
-Generic CTAs (not tied to a country) send `"country": ""`. The Apps Script validates a non-empty country against the 31 allowed ISO codes (`DE`, `FR`, `NL`, `BE`, `SE`, `AT`, `CH`, `CZ`, `ES`, `PL`, `FI`, `NO`, `BG`, `SK`, `EE`, `HR`, `IT`, `IE`, `IS`, `HU`, `EL`, `CY`, `DK`, `LV`, `MT`, `LI`, `LT`, `LU`, `SI`, `RO`, `PT`) and rejects unknown codes without saving the lead. The ISO code is kept as the internal value; the **full Arabic name** is written in the `Pays` column (e.g. `DE` → `ألمانيا`). On first run the script creates the header row automatically; if the sheet already exists with a legacy `Secteur` header in column 6, that one header cell is renamed to `Pays` once (historical rows are preserved).
+Generic CTAs (not tied to a country) send `"country": ""`, and CTAs not tied to a sector send `"sector": ""` (country cards, package/header/footer/sticky CTAs). Backward compatible: payloads without a `sector` field are still accepted — the sector is simply stored empty. The Apps Script validates a non-empty country against the 31 allowed ISO codes (`DE`, `FR`, `NL`, `BE`, `SE`, `AT`, `CH`, `CZ`, `ES`, `PL`, `FI`, `NO`, `BG`, `SK`, `EE`, `HR`, `IT`, `IE`, `IS`, `HU`, `EL`, `CY`, `DK`, `LV`, `MT`, `LI`, `LT`, `LU`, `SI`, `RO`, `PT`) and rejects unknown codes without saving the lead. The ISO code is kept as the internal value; the **full Arabic name** is written in the `Pays` column (e.g. `DE` → `ألمانيا`). On first run the script creates the header row automatically; if the sheet already exists with a legacy `Secteur` header in column 6, that one header cell is renamed to `Pays` once (historical rows are preserved).
 
 ## Configuration Values to Replace
 

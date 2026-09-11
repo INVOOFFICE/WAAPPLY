@@ -17,12 +17,6 @@
 }
 .btn:active{transform:translateY(0) scale(.98);}
 
-.btn-primary{
-  background: var(--grad-blue);
-  color:#fff; box-shadow:var(--shadow-blue);
-}
-.btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 28px -10px rgba(59,130,246,0.55);}
-
 .btn-outline{
   background:transparent; border:1.5px solid var(--border-strong); color:var(--navy);
 }
@@ -47,12 +41,6 @@
 .btn-block{width:100%;}
 .btn-lg{padding:17px 36px; font-size:16px; border-radius:var(--radius-sm);}
 .btn-lg .ic{width:18px; height:18px;}
-
-/* Light ghost button for dark sections (secondary action under a primary gold CTA) */
-.btn-ghost-light{
-  background:rgba(255,255,255,0.04); border:1.5px solid rgba(255,255,255,0.3); color:#fff;
-}
-.btn-ghost-light:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.45); transform:translateY(-2px);}
 
 /* Country card CTA — quiet navy-tinted button used inside the light country cards */
 .btn-ghost-light-2{

@@ -47,7 +47,6 @@
   --shadow: 0 8px 28px -14px rgba(10,23,48,0.14);
   --shadow-lg: 0 28px 64px -28px rgba(10,23,48,0.26);
   --shadow-gold: 0 14px 34px -14px rgba(16,185,129,0.45);
-  --shadow-blue: 0 8px 20px -8px rgba(59,130,246,0.5);
 
   /* ===== Shape ===== */
   --radius: 18px;
@@ -71,9 +70,6 @@
   /* ===== Motion curves (signature easings — use these, never raw cubic-bezier) ===== */
   --ease-entrance: cubic-bezier(.22, 1, .36, 1);   /* reveals, drawer, large transforms */
   --ease-interact: cubic-bezier(.2, .8, .2, 1);    /* hover micro-interactions (buttons) */
-
-  /* ===== Decorative surfaces (hero / final CTA overlays) ===== */
-  --grid-line: rgba(255,255,255,0.045);
 
   /* ===== Type ===== */
   /* IBM Plex Sans Arabic everywhere (headings + UI): modern SaaS voice.

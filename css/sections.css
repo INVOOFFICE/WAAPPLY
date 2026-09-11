@@ -1,5 +1,5 @@
 /* Styles specific to each page section, in page order: shared section headings,
-   hero, pricing, faq helpers, final CTA, footer. */
+   countries grid (pricing), job sectors, spontanée, footer. */
 
 /* ===== Section rhythm ===== */
 .section-pad{padding:96px 0;}
@@ -19,108 +19,17 @@
 .section-sub{font-size:var(--fs-lg); color:var(--slate); max-width:660px; line-height:1.9;}
 
 /* ============================================================
-   HERO
-   ============================================================ */
-.hero{
-  padding:92px 0 112px;
-  background: var(--grad-navy);
-  overflow:hidden;
-  position:relative;
-}
-.hero::before{
-  content:'';
-  position:absolute; inset:0;
-  background:
-    radial-gradient(850px 520px at 88% -10%, rgba(16,185,129,0.11), transparent 62%),
-    radial-gradient(920px 660px at -8% 36%, rgba(96,165,250,0.22), transparent 60%);
-  pointer-events:none;
-}
-/* Fine technical grid — the "product/technology" layer shared with the final CTA */
-.hero::after{
-  content:''; position:absolute; inset:0;
-  background:
-    linear-gradient(to left, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size:56px 56px;
-  -webkit-mask-image:radial-gradient(720px 480px at 72% 8%, #000 0%, transparent 74%);
-  mask-image:radial-gradient(720px 480px at 72% 8%, #000 0%, transparent 74%);
-  pointer-events:none;
-}
-/* Named areas: the disclaimer lives in its own row under the copy, while the
-   product panel spans both rows — copy and mockup read as one composition. */
-.hero-grid{
-  display:grid; grid-template-columns:1.04fr 0.96fr;
-  grid-template-areas:"copy visual" "note visual";
-  column-gap:64px; row-gap:var(--space-7); align-items:start;
-  position:relative; z-index:2;
-}
-.hero-copy{grid-area:copy;}
-.hero-note{grid-area:note;}
-.hero-visual{grid-area:visual; align-self:center;}
-
-/* --- Hero copy --- */
-.eyebrow{
-  display:inline-flex; align-items:center; gap:var(--space-2); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.16);
-  padding:var(--space-2) var(--space-4); border-radius:var(--radius-pill); font-size:var(--fs-xs); font-weight:500; color:var(--gold-1);
-  box-shadow:0 4px 18px -8px rgba(16,185,129,0.25);
-}
-.eyebrow .ic{width:15px; height:15px;}
-.hero h1{
-  font-size:clamp(35px, 4.5vw, 58px); line-height:1.3; margin:var(--space-5) 0 var(--space-4); color:#fff;
-  max-width:580px;
-}
-.hero h2.sub{
-  font-size:clamp(17px, 1.95vw, 21.5px); font-weight:500; margin-bottom:var(--space-4);
-  color:rgba(255,255,255,0.92); line-height:1.75;
-}
-.hero .desc{
-  font-size:var(--fs-base); color:rgba(255,255,255,0.75); max-width:520px; margin-bottom:var(--space-9); line-height:1.95;
-}
-.hero-ctas{display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;}
-
-/* --- Disclaimer (own row, reassures without competing with the CTA) --- */
-.hero-note{
-  display:flex; gap:var(--space-2); align-items:flex-start;
-  padding:var(--space-3) var(--space-4);
-  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.10); border-radius:var(--radius-sm);
-  font-size:var(--fs-xs); line-height:1.8; color:rgba(255,255,255,0.62);
-}
-.note-ico{color:var(--gold-1); display:flex; margin-top:var(--space-1);}
-.note-ico .ic{width:15px; height:15px;}
-
-/* --- Hero visual : real interface capture (assets/wpl.png) --- */
-.hero-visual{
-  position:relative; z-index:2; min-height:480px;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-}
-.hero-visual::before{
-  content:'';
-  position:absolute; inset:-10% -14%;
-  background:
-    radial-gradient(420px 320px at 68% 24%, rgba(16,185,129,0.10), transparent 66%),
-    radial-gradient(500px 360px at 24% 78%, rgba(96,165,250,0.22), transparent 64%);
-  filter:blur(8px);
-  pointer-events:none;
-}
-
-/* --- Hero visual : image principale (capture réelle de l'interface) --- */
-.hero-image{
-  position:relative; z-index:2; width:100%; max-width:480px; height:auto;
-  border-radius:var(--radius-lg);
-}
-
-/* ============================================================
    PRICING — countries sub-block container
    ============================================================ */
 .pricing-section{position:relative;}
 
 /* ============================================================
-   COUNTRIES — grid of 31 country cards (inside the pricing section)
+   COUNTRIES — grid of 12 country cards (8 per page, inside the pricing section)
    ============================================================ */
 .countries{margin-top:var(--space-10);}
-.countries-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
-.countries-head .section-title{margin-bottom:var(--space-3);}
-.countries-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
+.countries-head,.sectors-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
+.countries-head .section-title,.sectors-head .section-title{margin-bottom:var(--space-3);}
+.countries-head .section-sub,.sectors-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
 
 .countries-grid{
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-5);
@@ -210,6 +119,50 @@
 .countries-pager-num.active{
   background:var(--grad-gold); border-color:transparent; color:#fff;
 }
+
+/* ============================================================
+   JOB SECTORS — grid of 11 sector cards (immediately before the countries grid)
+   ============================================================ */
+.sectors-section{background:var(--bg2);}
+
+.sectors-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-5);
+}
+
+.sector-card{
+  display:flex; flex-direction:column; overflow:hidden;
+  background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow-xs);
+  position:relative;
+  transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
+}
+.sector-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
+
+/* Image zone — fixed height keeps cards aligned whatever the source ratio;
+   the portrait photos are cropped with object-fit:cover (no distortion). */
+.sector-media{
+  height:176px; flex-shrink:0; position:relative;
+  overflow:hidden; background:var(--bg2);
+}
+.sector-media img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .5s var(--ease-entrance);
+}
+.sector-card:hover .sector-media img{transform:scale(1.04);}
+
+.sector-body{
+  display:flex; flex-direction:column; flex:1; text-align:center;
+  padding:44px var(--space-6) var(--space-6);
+}
+
+/* Icon badge — reuses the country-ico component, repositioned to straddle the
+   sector image/body boundary (176px media, 56px badge). */
+.sector-ico{top:148px;}
+
+.sector-card h3{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.5; min-height:3em; margin-bottom:var(--space-3);}
+.sector-card p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin-bottom:var(--space-5);}
+
+.sector-card .sector-cta{margin-top:auto; width:100%;}
 
 /* ============================================================
    CANDIDATURE SPONTANÉE
@@ -349,9 +302,6 @@
   100%{transform:translate(215px,150px); opacity:0;}
 }
 
-/* ============================================================
-   FINAL CTA
-   ============================================================ */
 /* ============================================================
    FOOTER
    ============================================================ */

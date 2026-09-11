@@ -33,7 +33,8 @@ var ALLOWED_COUNTRIES = Object.keys(COUNTRY_NAMES);
  *   "whatsapp": "...",
  *   "package": "info|3months|6months",
  *   "packagePrice": "...",
- *   "country": "DE|FR|NL|...",  (ISO code sent by the frontend; stored as the full Arabic name)
+ *   "country": "DE|FR|NL|...",     (optional ISO code; written as full Arabic name under 'Pays')
+ *   "sector": "Industrie manufacturière",  (optional; canonical French sector name)
  *   "source": "waapply.com",
  *   "page": "...",
  *   "timestamp": "..."
@@ -59,6 +60,7 @@ function doPost(e) {
 
     var price    = sanitize(data.packagePrice || '');
     var countryCode = sanitize(data.country || '');
+    var sector   = sanitize(data.sector || '');
     var source = sanitize(data.source || 'waapply.com');
     var page   = sanitize(data.page || '');
 
@@ -78,19 +80,24 @@ function doPost(e) {
       sheet = ss.insertSheet(CONFIG.SHEET_NAME);
     }
 
-    // One-time migration: rename a legacy 'Secteur' header (column 6) to 'Pays'
-    // so the existing sheet keeps a single sixth column. Historical rows are left untouched.
+    // Migrations on existing sheets
     if (sheet.getLastRow() > 0) {
       var headerRow = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      // One-time: rename legacy 'Secteur' header (column 6) to 'Pays'
       if (headerRow && headerRow.length >= 6 && headerRow[5] === 'Secteur') {
         sheet.getRange(1, 6).setValue('Pays');
+        headerRow[5] = 'Pays';
+      }
+      // Ensure 'Secteur' header exists (appended at end so historical column positions stay intact)
+      if (headerRow.indexOf('Secteur') === -1) {
+        sheet.getRange(1, sheet.getLastColumn() + 1).setValue('Secteur');
       }
     }
 
-    // Create header row if sheet is empty
+    // Create header row if sheet is empty (10 columns including Secteur)
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
-        'Date', 'Nom', 'WhatsApp', 'Pack', 'Prix', 'Pays', 'Source', 'Page', 'Statut'
+        'Date', 'Nom', 'WhatsApp', 'Pack', 'Prix', 'Pays', 'Source', 'Page', 'Statut', 'Secteur'
       ]);
     }
 
@@ -112,7 +119,8 @@ function doPost(e) {
       country,
       source,
       page,
-      'Nouveau'
+      'Nouveau',
+      sector
     ]);
 
     return jsonResponse(true, 'Lead saved');
