@@ -81,31 +81,31 @@
 
 .country-card .country-cta{margin-top:auto; width:100%;}
 
-/* ===== Countries pagination ===== */
-.countries-pager{
+/* ===== Countries / sectors pagination ===== */
+.countries-pager,.sectors-pager{
   display:flex; align-items:center; justify-content:center; gap:var(--space-3);
   margin-top:var(--space-8);
 }
-.countries-pager-btn{
+.countries-pager-btn,.sectors-pager-btn{
   width:44px; height:44px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   background:var(--bg2); border:1px solid var(--border); color:var(--navy);
   cursor:pointer; transition:background .25s ease, border-color .25s ease, transform .22s var(--ease-interact), opacity .2s ease;
 }
-.countries-pager-btn:hover:not(:disabled){
+.countries-pager-btn:hover:not(:disabled),.sectors-pager-btn:hover:not(:disabled){
   background:var(--paper); border-color:var(--line-blue);
 }
-.countries-pager-btn:active:not(:disabled){
+.countries-pager-btn:active:not(:disabled),.sectors-pager-btn:active:not(:disabled){
   transform:scale(0.94);
 }
-.countries-pager-btn:disabled{
+.countries-pager-btn:disabled,.sectors-pager-btn:disabled{
   opacity:0.4; cursor:default;
 }
-.countries-pager-btn .ic{width:18px; height:18px;}
-.countries-pager-nums{
+.countries-pager-btn .ic,.sectors-pager-btn .ic{width:18px; height:18px;}
+.countries-pager-nums,.sectors-pager-nums{
   display:flex; align-items:center; gap:var(--space-2);
 }
-.countries-pager-num{
+.countries-pager-num,.sectors-pager-num{
   min-width:40px; height:40px; padding:0 var(--space-2);
   border-radius:var(--radius-sm);
   display:flex; align-items:center; justify-content:center;
@@ -113,10 +113,10 @@
   font-size:var(--fs-sm); font-weight:600; cursor:pointer;
   transition:background .25s ease, border-color .25s ease, color .25s ease;
 }
-.countries-pager-num:hover{
+.countries-pager-num:hover,.sectors-pager-num:hover{
   background:var(--paper); border-color:var(--line-blue); color:var(--navy);
 }
-.countries-pager-num.active{
+.countries-pager-num.active,.sectors-pager-num.active{
   background:var(--grad-gold); border-color:transparent; color:#fff;
 }
 
@@ -163,6 +163,98 @@
 .sector-card p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin-bottom:var(--space-5);}
 
 .sector-card .sector-cta{margin-top:auto; width:100%;}
+
+/* ============================================================
+   FREE OFFERS — free job offers teaser (immediately before the countries grid)
+   ============================================================ */
+.free-offers-section{
+  background:var(--paper);
+  border-block:1px solid var(--border);
+}
+.free-offers-grid{
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
+  gap:56px; align-items:center;
+}
+
+/* ---- Illustrative offer card (no real offers) ---- */
+.free-offers-visual{position:relative;}
+.free-card{
+  background:
+    radial-gradient(220px 220px at 82% 0%, rgba(16,185,129,0.16), transparent 60%),
+    radial-gradient(240px 240px at 10% 110%, rgba(96,165,250,0.14), transparent 62%),
+    var(--grad-navy);
+  border-radius:var(--radius-lg);
+  padding:var(--space-8) var(--space-8) var(--space-7);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+.free-card-head{
+  display:flex; align-items:center; gap:var(--space-3);
+  padding-bottom:var(--space-5); margin-bottom:var(--space-6);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+}
+.free-card-head-ic{width:20px; height:20px; color:var(--gold-2); flex-shrink:0;}
+.free-card-title{
+  font-size:var(--fs-md); font-weight:700; color:var(--paper); line-height:1.5; margin:0;
+}
+.free-card-list{list-style:none; display:grid; gap:var(--space-5);}
+.free-card-row{
+  display:flex; align-items:center; gap:var(--space-4);
+}
+.free-fi{
+  width:44px; height:44px; border-radius:var(--radius-sm); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.free-fi .ic{width:20px; height:20px;}
+.free-fi--company{background:rgba(16,185,129,0.14); color:var(--gold-1);}
+.free-fi--job{background:rgba(96,165,250,0.14); color:var(--blue-light);}
+.free-fi--location{background:rgba(16,185,129,0.14); color:var(--gold-1);}
+.free-fi--contact{background:rgba(96,165,250,0.14); color:var(--blue-light);}
+.free-row-text{display:flex; flex-direction:column; gap:var(--space-1); min-width:0;}
+.free-row-label{font-size:var(--fs-xs); font-weight:600; color:rgba(255,255,255,0.55);}
+.free-row-value{font-size:var(--fs-base); font-weight:600; color:var(--paper); line-height:1.5;}
+
+/* ---- Content / CTA ---- */
+.free-offers-content{max-width:520px;}
+.free-offers-badge{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin-bottom:var(--space-4); padding:var(--space-2) var(--space-4);
+  border:1px solid var(--line-green); border-radius:var(--radius-pill);
+  background:var(--wash-green); color:var(--blue-strong); font-size:var(--fs-xs); font-weight:700;
+}
+.free-offers-badge .ic{width:15px; height:15px; color:var(--gold-2);}
+.free-offers-title{
+  font-size:clamp(28px, 3.2vw, 42px); font-weight:700; color:var(--navy);
+  line-height:1.38; margin-bottom:var(--space-4);
+}
+.free-offers-sub{
+  font-size:var(--fs-lg); color:var(--slate); line-height:1.9; margin-bottom:var(--space-4);
+}
+.free-offers-text{
+  font-size:var(--fs-base); color:var(--slate); line-height:1.9; margin-bottom:var(--space-6);
+}
+.free-offers-hint{
+  font-size:var(--fs-sm); font-weight:600; color:var(--navy); margin-bottom:var(--space-3);
+}
+.free-offers-features{
+  list-style:none; display:grid; gap:var(--space-3); margin-bottom:var(--space-7);
+}
+.free-offers-features li{
+  display:flex; align-items:center; gap:var(--space-3);
+  font-size:var(--fs-base); font-weight:600; color:var(--navy); line-height:1.6;
+}
+.free-check{
+  width:24px; height:24px; border-radius:50%; flex-shrink:0;
+  background:var(--tint-gold); color:var(--gold-3);
+  display:flex; align-items:center; justify-content:center;
+}
+.free-check .ic{width:14px; height:14px; stroke-width:2.4;}
+.free-offers-note{
+  background:var(--wash-green); border:1px solid var(--line-green); border-radius:var(--radius-sm);
+  padding:var(--space-4) var(--space-5); margin-bottom:var(--space-6);
+  font-size:var(--fs-base); font-weight:600; color:var(--navy); line-height:1.9;
+}
+.free-offers-cta{margin-top:var(--space-2);}
 
 /* ============================================================
    CANDIDATURE SPONTANÉE

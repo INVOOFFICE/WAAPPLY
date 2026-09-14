@@ -11,13 +11,21 @@
 
   .countries-grid{grid-template-columns:repeat(2,1fr);}
   .sectors-grid{grid-template-columns:repeat(2,1fr);}
-  .countries-pager{gap:var(--space-2);}
+  .countries-pager,.sectors-pager{gap:var(--space-2);}
 
   /* Spontanée */
   .spontanee-grid{grid-template-columns:1fr; gap:40px;}
   .spontanee-visual{order:-1;}
   .spontanee-content{max-width:640px; margin:0 auto;} 
   .spontanee-features{grid-template-columns:1fr 1fr;}
+
+  /* Free offers */
+  .free-offers-grid{grid-template-columns:1fr; gap:40px;}
+  .free-offers-visual{order:-1;}
+  .free-offers-content{max-width:640px; margin:0 auto;}
+
+  /* Free offers page (offers.html) */
+  .offers-tools-inner{gap:var(--space-3);}
 
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
@@ -41,6 +49,10 @@
   .promo-metric{min-width:calc(33% - 8px); flex:1;}
   .promo-title{font-size:clamp(24px, 5vw, 32px);}
   .promo-desc{font-size:var(--fs-sm);}
+
+  /* Free offers page (offers.html) */
+  .offers-grid{grid-template-columns:1fr;}
+  .offers-selects select{flex:1;}
 }
 
 @media(max-width:600px){
@@ -55,8 +67,8 @@
   .country-media{height:96px;}
   .country-flag{height:58px;}
   .country-ico{top:68px;}
-  .countries-pager{flex-wrap:wrap;}
-  .countries-pager-num{min-width:36px; height:36px;}
+  .countries-pager,.sectors-pager{flex-wrap:wrap;}
+  .countries-pager-num,.sectors-pager-num{min-width:36px; height:36px;}
 
   .sectors-grid{grid-template-columns:1fr;}
   .sector-media{height:150px;}
@@ -72,6 +84,33 @@
   .sp-country-card .sp-cflag{width:18px;}
   .sp-country-card .sp-cname{font-size:var(--fs-xs);}
   .sp-country-card .sp-cstatus{font-size:11px;}
+
+  /* Free offers mobile */
+  .free-offers-grid{gap:var(--space-7);}
+  .free-offers-title{font-size:clamp(24px, 5.5vw, 32px);}
+  .free-offers-sub{font-size:var(--fs-base);}
+  .free-card{padding:var(--space-6) var(--space-6) var(--space-5);}
+  .free-fi{width:38px; height:38px;}
+  .free-fi .ic{width:18px; height:18px;}
+  .free-row-value{font-size:var(--fs-sm);}
+
+  /* Free offers page mobile (offers.html) */
+  .offers-hero .container{padding:44px var(--space-5) 40px;}
+  .offers-hero-sub{font-size:var(--fs-base);}
+  .offers-tools-inner{padding:var(--space-4) 0;}
+  .offers-selects{width:100%;}
+  .offers-search input{padding:12px 40px 12px 14px;}
+  .offers-search-ic{right:12px;}
+  .offer-card{padding:var(--space-5);}
+  .offer-actions{grid-template-columns:1fr;}
+  .offer-email-copy{margin-inline-start:0; width:100%; justify-content:center;}
+  .offers-pager{gap:var(--space-2);}
+  .offers-pager-num{min-width:36px; height:36px;}
+  .offers-pager-prev,.offers-pager-next{padding:10px 14px;}
+  .offer-cta-premium{flex-direction:column; gap:var(--space-2); text-align:center;}
+  .pm-panel{padding:var(--space-6) var(--space-4) var(--space-5); margin-top:auto; border-radius:var(--radius-lg) var(--radius-lg) 0 0; max-height:85vh; overflow-y:auto;}
+  .pm-overlay{align-items:flex-end; padding:0;}
+  .pm-list{grid-template-columns:1fr;}
 
   .faq-q{padding:var(--space-4) var(--space-4); font-size:var(--fs-base);}
   .faq-a-inner{padding:0 var(--space-4) var(--space-5);}

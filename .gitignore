@@ -1,11 +1,56 @@
-# Secrets / environment — never commit
+# ==============================
+# WAAPPLY — .gitignore
+# Only rules that are safe for a
+# static site repo (no build step).
+# ==============================
+
+# === OS noise ===
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# === Logs ===
+*.log
+logs/
+
+# === Temporary files ===
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+
+# === Caches ===
+.cache/
+cache/
+tmp/
+temp/
+
+# === Editors / IDE ===
+.vscode/
+.idea/
+*.code-workspace
+
+# === Python (tooling only — see tools/) ===
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# === Build / coverage output (none produced by this repo) ===
+dist/
+build/
+coverage/
+
+# === Secrets / environment — never commit ===
 .env
+.env.local
+.env.*.local
 *.env
 
-# OS noise
-Thumbs.db
-.DS_Store
-Desktop.ini
-
-# Logs
-*.log
+# === Deployment ===
+.vercel

@@ -1,0 +1,343 @@
+/* Styles specific to the free job offers page (offers.html). */
+
+/* ============================================================
+   HERO / TRUST
+   ============================================================ */
+.offers-hero{
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+}
+.offers-hero .container{
+  max-width:880px; text-align:center;
+  padding:68px var(--space-6) 56px;
+}
+.offers-hero-badge{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin-bottom:var(--space-4); padding:var(--space-2) var(--space-4);
+  border:1px solid var(--line-green); border-radius:var(--radius-pill);
+  background:var(--wash-green); color:var(--blue-strong); font-size:var(--fs-xs); font-weight:700;
+}
+.offers-hero-badge .ic{width:15px; height:15px; color:var(--gold-2);}
+.offers-hero-title{
+  font-size:clamp(30px, 3.6vw, 46px); font-weight:700; color:var(--navy);
+  line-height:1.35; margin-bottom:var(--space-4);
+}
+.offers-hero-sub{
+  font-size:var(--fs-lg); color:var(--slate); line-height:1.9; margin-bottom:var(--space-7);
+}
+.offers-trust{
+  list-style:none; display:flex; flex-wrap:wrap; justify-content:center;
+  gap:var(--space-3) var(--space-5); margin-bottom:var(--space-7);
+}
+.offers-trust li{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  font-size:var(--fs-sm); font-weight:600; color:var(--navy);
+}
+.offers-trust-ico{
+  width:22px; height:22px; border-radius:50%; flex-shrink:0;
+  background:var(--tint-gold); color:var(--gold-3);
+  display:flex; align-items:center; justify-content:center;
+}
+.offers-trust-ico .ic{width:13px; height:13px; stroke-width:2.4;}
+.offers-eures{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin:0 0 var(--space-4);
+  font-size:var(--fs-sm); font-weight:600; color:var(--navy);
+}
+.offers-eures .ic{width:16px; height:16px; color:var(--gold-2); flex-shrink:0;}
+.offers-eures a{color:var(--blue-strong); text-decoration:underline; text-underline-offset:3px; font-weight:700;}
+.offers-eures a:hover{color:var(--navy);}
+.offers-hero-note{
+  max-width:720px; margin:0 auto;
+  font-size:var(--fs-sm); color:var(--slate); line-height:1.9;
+  background:var(--paper); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:var(--space-3) var(--space-5);
+}
+
+/* ============================================================
+   TOOLS (search / filters / sort)
+   ============================================================ */
+.offers-tools{
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.offers-tools-inner{
+  display:flex; align-items:center; gap:var(--space-4);
+  padding:var(--space-5) 0; flex-wrap:wrap;
+}
+.offers-search{
+  position:relative; flex:1 1 280px; min-width:240px;
+}
+.offers-search-ic{
+  position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; color:var(--slate); pointer-events:none;
+}
+.offers-search input{
+  width:100%; padding:12px 44px 12px 16px;
+  border:1.5px solid var(--border-strong); border-radius:var(--radius-sm);
+  background:var(--paper); color:var(--text);
+  font-family:var(--font-ar); font-size:var(--fs-base);
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.offers-search input::placeholder{color:var(--slate); opacity:0.85;}
+.offers-search input:focus{
+  outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--wash-blue);
+}
+.offers-selects{
+  display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;
+}
+.offers-selects select{
+  appearance:none; -webkit-appearance:none;
+  padding:11px 38px 11px 14px;
+  border:1.5px solid var(--border-strong); border-radius:var(--radius-sm);
+  background:var(--paper); color:var(--navy);
+  font-family:var(--font-ar); font-size:var(--fs-sm); font-weight:600;
+  cursor:pointer; transition:border-color .25s ease, box-shadow .25s ease;
+  background-image:linear-gradient(45deg, transparent 50%, var(--slate) 50%),
+                   linear-gradient(135deg, var(--slate) 50%, transparent 50%);
+  background-position:calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size:5px 5px; background-repeat:no-repeat;
+}
+.offers-selects select:focus{
+  outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--wash-blue);
+}
+
+/* ============================================================
+   RESULTS / META / GRID
+   ============================================================ */
+.offers-results{background:var(--bg); scroll-margin-top:88px;}
+.offers-meta{
+  padding:var(--space-5) 0 var(--space-4);
+  font-size:var(--fs-sm); color:var(--slate); font-weight:600;
+}
+.offers-count .latin{color:var(--navy); font-weight:700;}
+
+.offers-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-5);
+}
+
+/* ============================================================
+   OFFER CARD
+   ============================================================ */
+.offer-card{
+  display:flex; flex-direction:column;
+  background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow-xs);
+  padding:var(--space-6);
+  transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
+}
+.offer-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
+
+.offer-title{
+  font-size:var(--fs-md); font-weight:700; color:var(--navy);
+  line-height:1.5; margin-bottom:var(--space-3);
+  overflow-wrap:anywhere;
+}
+.offer-employer{
+  display:flex; align-items:center; gap:var(--space-2);
+  font-size:var(--fs-sm); font-weight:600; color:var(--blue-strong);
+  margin-bottom:var(--space-4);
+  overflow-wrap:anywhere;
+}
+.offer-employer .ic{width:16px; height:16px; color:var(--gold-2); flex-shrink:0;}
+.offer-employer.is-muted{color:var(--slate); font-weight:500;}
+
+.offer-chips{
+  display:flex; flex-wrap:wrap; gap:var(--space-2);
+  margin-bottom:var(--space-4);
+}
+.offer-chip{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:var(--fs-xs); font-weight:600; color:var(--slate);
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-pill);
+  padding:5px 12px; line-height:1.6;
+  overflow-wrap:anywhere;
+}
+.offer-chip .ic{width:14px; height:14px; color:var(--gold-2); flex-shrink:0;}
+.offer-chip .offer-region{color:var(--navy); font-weight:600; font-size:12px;}
+.offer-chip .offer-date{color:var(--navy); font-weight:600;}
+
+.offer-divider{height:1px; background:var(--border); margin-bottom:var(--space-4);}
+
+.offer-refline{
+  display:flex; align-items:center; gap:var(--space-2);
+  font-size:var(--fs-xs); color:var(--slate); margin-bottom:var(--space-4);
+}
+.offer-refline .latin,.offer-refline .offer-type-val{color:var(--navy); font-weight:600;}
+
+.offer-actions{
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3);
+  margin-top:auto;
+}
+.offer-act{display:flex; flex-direction:column; gap:6px; min-width:0;}
+.offer-act-label{font-size:var(--fs-xs); font-weight:600; color:var(--slate);}
+.offer-act .btn{width:100%; justify-content:flex-start; text-align:center;}
+.offer-source-na{
+  display:block; padding:11px 14px; text-align:center;
+  font-size:var(--fs-sm); font-weight:600; color:var(--slate);
+  background:var(--bg2); border:1px dashed var(--border-strong); border-radius:var(--radius-sm);
+}
+
+/* Email reveal panel */
+.offer-email-panel{
+  margin-top:var(--space-3);
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:var(--space-3) var(--space-4);
+  display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-3);
+}
+.offer-email-panel.is-unavailable{background:var(--wash-red); border-color:var(--line-red); color:var(--danger);}
+.offer-email-label{
+  font-size:var(--fs-xs); font-weight:700; color:var(--slate);
+  display:inline-flex; align-items:center; gap:6px;
+}
+.offer-email-label .ic{width:14px; height:14px; color:var(--gold-2);}
+.offer-email-value{
+  font-size:var(--fs-sm); font-weight:600; color:var(--navy);
+  word-break:break-all;
+}
+.offer-email-copy{
+  margin-inline-start:auto;
+  background:none; border:1px solid var(--border-strong); border-radius:var(--radius-sm);
+  padding:6px 14px; cursor:pointer;
+  font-family:var(--font-ar); font-size:var(--fs-xs); font-weight:700; color:var(--navy);
+  display:inline-flex; align-items:center; gap:6px;
+  transition:border-color .25s ease, color .25s ease, background .25s ease;
+}
+.offer-email-copy:hover{border-color:var(--blue); color:var(--blue-strong);}
+.offer-email-copy .ic{width:14px; height:14px;}
+.offer-email-copy.copied{background:var(--tint-gold); border-color:var(--line-green); color:var(--green-deep);}
+.offer-email-unavailable{
+  font-size:var(--fs-sm); font-weight:600; color:var(--danger);
+}
+
+/* ============================================================
+   PREMIUM CTA (inside offer card — compact)
+   ============================================================ */
+.offer-cta-premium{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:var(--space-4);
+  padding:var(--space-3) var(--space-4);
+  background:var(--bg2);
+  border:1px solid var(--line-green);
+  border-radius:var(--radius-sm);
+}
+.offer-cta-premium-label{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:var(--fs-xs); font-weight:700; color:var(--navy);
+}
+.offer-cta-premium-label .ic{width:14px; height:14px; color:var(--gold-2);}
+.offer-cta-btn{flex-shrink:0;}
+
+/* ============================================================
+   PREMIUM INFO MODAL
+   ============================================================ */
+.pm-overlay{
+  position:fixed; inset:0; z-index:150;
+  display:flex; align-items:center; justify-content:center;
+  padding:var(--space-6);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s ease, visibility 0s .3s;
+}
+.pm-overlay[aria-hidden="false"]{opacity:1; visibility:visible; transition:opacity .3s ease, visibility 0s 0s;}
+.pm-backdrop{
+  position:absolute; inset:0;
+  background:rgba(10,15,30,.55);
+}
+.pm-panel{
+  position:relative; z-index:1;
+  width:100%; max-width:480px;
+  background:var(--paper); border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  padding:var(--space-7) var(--space-6) var(--space-6);
+  transform:translateY(20px); opacity:0;
+  transition:transform .35s var(--ease-entrance), opacity .3s ease;
+}
+.pm-overlay[aria-hidden="false"] .pm-panel{transform:translateY(0); opacity:1;}
+.pm-close{
+  position:absolute; top:var(--space-4); left:var(--space-4);
+  width:32px; height:32px;
+  border:none; background:var(--bg2); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--slate);
+  transition:background .2s ease, color .2s ease;
+}
+.pm-close:hover{background:var(--tint-red); color:var(--danger);}
+.pm-close .ic{width:16px; height:16px;}
+.pm-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  margin-bottom:var(--space-4);
+  padding:5px 14px;
+  background:var(--grad-gold-deep); color:var(--paper);
+  font-size:var(--fs-xs); font-weight:700;
+  border-radius:var(--radius-pill);
+}
+.pm-badge .ic{width:13px; height:13px; stroke-width:2.4;}
+.pm-lead{
+  font-size:var(--fs-sm); line-height:2; color:var(--navy);
+  margin:0 0 var(--space-5);
+}
+.pm-list{
+  list-style:none; padding:0; margin:0 0 var(--space-5);
+  display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3);
+}
+.pm-list li{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:var(--fs-sm); font-weight:600; color:var(--slate);
+}
+.pm-list li .ic{width:16px; height:16px; color:var(--gold-2); flex-shrink:0;}
+body.pm-lock{overflow:hidden;}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.offers-empty{
+  text-align:center; padding:64px var(--space-6);
+  background:var(--paper); border:1px dashed var(--border-strong); border-radius:var(--radius);
+}
+.offers-empty-ico{
+  width:56px; height:56px; border-radius:50%; margin:0 auto var(--space-4);
+  background:var(--bg2); color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+}
+.offers-empty-ico .ic{width:26px; height:26px;}
+.offers-empty h3{font-size:var(--fs-md); font-weight:700; color:var(--navy); margin-bottom:var(--space-2);}
+.offers-empty p{font-size:var(--fs-sm); color:var(--slate); line-height:1.8;}
+
+/* ============================================================
+   PAGER
+   ============================================================ */
+.offers-pager{
+  display:flex; align-items:center; justify-content:center; gap:var(--space-3);
+  padding:var(--space-8) 0 var(--space-7); flex-wrap:wrap;
+}
+.offers-pager-prev,.offers-pager-next{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px; border:1.5px solid var(--border-strong); border-radius:var(--radius-sm);
+  background:var(--paper); color:var(--navy);
+  font-family:var(--font-ar); font-size:var(--fs-sm); font-weight:600; cursor:pointer;
+  transition:background .25s ease, border-color .25s ease, transform .22s var(--ease-interact), opacity .2s ease;
+}
+.offers-pager-prev:hover:not(:disabled),.offers-pager-next:hover:not(:disabled){
+  background:var(--paper); border-color:var(--blue); color:var(--blue-strong);
+}
+.offers-pager-prev:active:not(:disabled),.offers-pager-next:active:not(:disabled){transform:scale(0.96);}
+.offers-pager-prev:disabled,.offers-pager-next:disabled{opacity:0.4; cursor:default;}
+.offers-pager-prev .ic,.offers-pager-next .ic{width:16px; height:16px;}
+.offers-pager-nums{display:flex; align-items:center; gap:var(--space-2);}
+.offers-pager-num{
+  min-width:40px; height:40px; padding:0 var(--space-2);
+  border-radius:var(--radius-sm);
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg2); border:1px solid var(--border); color:var(--slate);
+  font-size:var(--fs-sm); font-weight:600; cursor:pointer;
+  transition:background .25s ease, border-color .25s ease, color .25s ease;
+}
+.offers-pager-num:hover{background:var(--paper); border-color:var(--line-blue); color:var(--navy);}
+.offers-pager-num.active{background:var(--grad-gold); border-color:transparent; color:var(--paper);}
+.offers-pager-num.ellipsis{cursor:default; background:none; border-color:transparent; color:var(--slate);}
+.offers-pager-num.ellipsis:hover{background:none; border-color:transparent; color:var(--slate);}
+
+/* ============================================================
+   PAGINATION INFO / SCROLL ANCHOR
+   ============================================================ */
+.offers-pager-anchor{position:absolute; top:-96px; visibility:hidden;}

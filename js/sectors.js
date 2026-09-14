@@ -37,6 +37,9 @@
       desc:'الفلاحة والدفيئات والغابات والصيد البحري. فرص موسمية وثابتة، وكنقدمو طلبك للمقاولات الفلاحية والمستغلّين.' }
   ];
 
+  /* 6 sectors per page — same pagination pattern as the countries grid. */
+  var PER_PAGE = 6;
+
   function cardHtml(s){
     var src = 'assets/images/' + s.img;
     return '' +
@@ -53,15 +56,111 @@
       '</article>';
   }
 
-  function renderGrid(){
-    var grid = document.querySelector('.sectors-grid');
-    if(!grid){ return; }
+  function renderPage(grid, page){
+    var start = (page - 1) * PER_PAGE;
+    var end = Math.min(start + PER_PAGE, SECTORS.length);
     var html = '';
-    for(var i = 0; i < SECTORS.length; i++){
+    for(var i = start; i < end; i++){
       html += cardHtml(SECTORS[i]);
     }
     grid.innerHTML = html;
+
+    // The page is already visible (pagination is on-screen), so reveal cards
+    // immediately instead of waiting for the scroll observer.
+    var cards = grid.querySelectorAll('.sector-card.reveal');
+    for(var k = 0; k < cards.length; k++){
+      cards[k].classList.add('in');
+    }
   }
+
+  function renderGrid(){
+    var grid = document.querySelector('.sectors-grid');
+    if(!grid){ return; }
+
+    var page = 1;
+    renderPage(grid, page);
+
+    /* Pagination controls */
+    var totalPages = Math.ceil(SECTORS.length / PER_PAGE);
+    if(totalPages <= 1){ return; }
+
+    var pager = document.createElement('nav');
+    pager.className = 'sectors-pager';
+    pager.setAttribute('aria-label', 'التنقل بين الصفحات');
+
+    /* Prev button */
+    var prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'sectors-pager-btn';
+    prev.setAttribute('aria-label', 'الصفحة السابقة');
+    prev.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg>';
+    prev.disabled = true;
+    prev.addEventListener('click', function(){
+      if(page > 1){
+        page--;
+        update();
+      }
+    });
+
+    /* Page number buttons */
+    var numWrap = document.createElement('div');
+    numWrap.className = 'sectors-pager-nums';
+    var nums = [];
+    for(var p = 1; p <= totalPages; p++){
+      (function(pg){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sectors-pager-num' + (pg === page ? ' active' : '');
+        b.textContent = pg;
+        b.setAttribute('aria-label', 'الصفحة ' + pg);
+        b.addEventListener('click', function(){
+          if(page !== pg){
+            page = pg;
+            update();
+          }
+        });
+        nums.push(b);
+        numWrap.appendChild(b);
+      })(p);
+    }
+
+    /* Next button */
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'sectors-pager-btn';
+    next.setAttribute('aria-label', 'الصفحة التالية');
+    next.innerHTML = '<svg class="ic" aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow-left"/></svg>';
+    next.addEventListener('click', function(){
+      if(page < totalPages){
+        page++;
+        update();
+      }
+    });
+
+    pager.appendChild(prev);
+    pager.appendChild(numWrap);
+    pager.appendChild(next);
+
+    grid.parentNode.appendChild(pager);
+
+    function update(){
+      renderPage(grid, page);
+      prev.disabled = page <= 1;
+      next.disabled = page >= totalPages;
+      for(var n = 0; n < nums.length; n++){
+        nums[n].classList.toggle('active', n + 1 === page);
+      }
+      window.scrollToSectorsPager(grid);
+    }
+  }
+
+  // Keep sector pagination in view after switching pages
+  window.scrollToSectorsPager = function(grid){
+    var pager = document.querySelector('.sectors-pager');
+    if(pager){
+      pager.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    }
+  };
 
   renderGrid();
 })();

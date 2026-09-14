@@ -221,6 +221,14 @@
             "@type": "Answer",
             "text": "وابلاي كتقدم دابا ثلاث باقات: باقة شهر واحد (30 يوم) — 500 درهم: مناسبة لللي باغي يبدأ لمدة شهر ويستافد من البحث والتقديم والترشيح للشركات وتتبع الطلبات. باقة 3 أشهر — 1,000 درهم: لللي باغي يستافد من الخدمة لمدة أطول ويخلي البحث والتقديم مستمرين. باقة 6 أشهر — 1,400 درهم: لللي باغي استراتيجية طويلة المدى فاستهداف الشركات والتقديم والتتبع. الاختلاف الأساسي هو مدة الاستفادة من الخدمة، والباقة الأطول ما كتضمنش وظيفة ولا نسبة نجاح أكبر."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "شنو هي «فرصة مجانية للجميع»؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "«فرصة مجانية للجميع» هي قسم كيوفر مجموعة من عروض العمل الحالية فـ أوروبا بشكل مجاني تماماً — بدون اشتراك ولا دفع. كل عرض كيجمع معلومات الوظيفة: اسم الشركة أو المشغّل، مكان العمل، تاريخ النشر، والبريد الإلكتروني أو وسيلة التواصل المتوفرة، باش تقدر تدير طلبك بنفسك وبطريقة مباشرة مع الشركة. الهدف هو أن حتى واحد ما يفوّت فرصة عمل غير بسبب الإمكانيات المادية."
+          }
         }
       ]
     }
@@ -312,6 +320,7 @@
     <nav class="main-nav">
       <a href="#top">الرئيسية</a>
       <a href="#sectors">الخدمات</a>
+      <a href="#free-offers">فرصة مجانية للجميع</a>
       <a href="#faq">الأسئلة الشائعة</a>
     </nav>
     <div class="header-cta">
@@ -328,6 +337,7 @@
   <nav class="mobile-nav-panel" aria-label="قائمة التنقل">
     <a href="#top" onclick="toggleMobileNav()">الرئيسية</a>
     <a href="#sectors" onclick="toggleMobileNav()">الخدمات</a>
+    <a href="#free-offers" onclick="toggleMobileNav()">فرصة مجانية للجميع</a>
     <a href="#faq" onclick="toggleMobileNav()">الأسئلة الشائعة</a>
     <a href="#" data-contact-package="info" class="btn btn-gold btn-block" onclick="toggleMobileNav()">ابدأ الآن</a>
   </nav>
@@ -348,7 +358,7 @@
     <div class="promo-slide promo-slide--single" role="group" aria-roledescription="شريحة">
       <div class="promo-content">
         <span class="promo-badge">كل نهار، كنقلبو معاك على الخدمة</span>
-        <h1 class="promo-title">كنقدمو أكثر من <span class="latin text-gradient-gold">30</span> طلب توظيف كل نهار</h1>
+        <h1 class="promo-title">كنقدمو أكثر من <span class="latin text-gradient-gold">30</span> طلب توظيف كل نهار للشركات فـ أوروبا</h1>
         <p class="promo-desc">خلي وابلاي يبحث وينظم ويرسل طلبات التوظيف ديالك للفرص الحالية وللشركات المناسبة لبروفايلك — بشكل يومي ومستمر.</p>
         <div class="promo-metrics">
           <div class="promo-metric">
@@ -447,6 +457,62 @@
   </div>
 </section>
 
+<!-- ===================== FREE OFFERS — free job offers teaser (before the countries grid) ===================== -->
+<section class="section-pad free-offers-section" id="free-offers" aria-labelledby="free-offers-title">
+  <div class="container free-offers-grid">
+
+    <!-- ========== ILLUSTRATIVE OFFER CARD (no real offers) ========== -->
+    <div class="free-offers-visual reveal">
+      <div class="free-card" aria-hidden="true">
+        <div class="free-card-head">
+          <svg class="free-card-head-ic" aria-hidden="true"><use href="#i-sparkles"/></svg>
+          <p class="free-card-title">شنو كيحتوي كل عرض؟</p>
+        </div>
+        <ul class="free-card-list">
+          <li class="free-card-row">
+            <span class="free-fi free-fi--company"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+            <span class="free-row-text"><span class="free-row-label">الشركة</span><span class="free-row-value">اسم الشركة أو المشغّل</span></span>
+          </li>
+          <li class="free-card-row">
+            <span class="free-fi free-fi--job"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></span>
+            <span class="free-row-text"><span class="free-row-label">الوظيفة</span><span class="free-row-value">معلومات الوظيفة</span></span>
+          </li>
+          <li class="free-card-row">
+            <span class="free-fi free-fi--location"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg></span>
+            <span class="free-row-text"><span class="free-row-label">المكان</span><span class="free-row-value">مكان العمل</span></span>
+          </li>
+          <li class="free-card-row">
+            <span class="free-fi free-fi--contact"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg></span>
+            <span class="free-row-text"><span class="free-row-label">التواصل</span><span class="free-row-value">البريد الإلكتروني أو وسيلة التواصل</span></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ========== CONTENT / CTA ========== -->
+    <div class="free-offers-content">
+      <span class="free-offers-badge reveal"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg>مجاني للجميع</span>
+      <h2 class="free-offers-title reveal" data-delay="90" id="free-offers-title">فرصة مجانية للجميع</h2>
+      <p class="free-offers-sub reveal" data-delay="180">ما عندكش الإمكانيات باش تستافد من خدمات <span class="latin">WAAPPLY</span> المدفوعة؟ ماشي مشكل.</p>
+      <p class="free-offers-text reveal" data-delay="240">كنوفرو ليك مجانا مجموعة من عروض العمل المتاحة حاليا في أوروبا، باش تقدر تدير طلباتك بنفسك وبطريقة مباشرة.</p>
+
+      <p class="free-offers-hint reveal" data-delay="300">فكل عرض غادي تلقى هاد المعلومات:</p>
+      <ul class="free-offers-features reveal" data-delay="340">
+        <li><span class="free-check"><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg></span>اسم الشركة أو المشغّل</li>
+        <li><span class="free-check"><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg></span>معلومات الوظيفة</li>
+        <li><span class="free-check"><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg></span>مكان العمل</li>
+        <li><span class="free-check"><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg></span>تاريخ نشر العرض</li>
+        <li><span class="free-check"><svg class="ic" aria-hidden="true"><use href="#i-circle-check"/></svg></span>البريد الإلكتروني أو وسيلة التواصل المتوفرة</li>
+      </ul>
+
+      <p class="free-offers-note reveal" data-delay="380">الهدف ديالنا هو أن حتى واحد ما يفوّت فرصة عمل غير بسبب الإمكانيات المادية.</p>
+
+      <a href="offers.html" class="btn btn-gold btn-lg free-offers-cta reveal" data-delay="420">شوف عروض العمل المجانية <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===================== PRICING ===================== -->
 <section class="section-pad pricing-section" id="pricing">
   <div class="container">
@@ -522,6 +588,10 @@
       <div class="faq-item reveal">
         <h3 class="faq-q" id="faq-q13" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a13" onclick="toggleFaq(this)"><span>شنو هي الباقات المتاحة؟</span><span class="plus"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></span></h3>
         <div class="faq-a" id="faq-a13"><div class="faq-a-inner">وابلاي كتقدم دابا ثلاث باقات:<br>— باقة شهر واحد (<span class="latin">30</span> يوم) — <span class="latin">500 درهم</span>: مناسبة لللي باغي يبدأ لمدة شهر ويستافد من البحث والتقديم والترشيح للشركات وتتبع الطلبات.<br>— باقة <span class="latin">3</span> أشهر — <span class="latin">1,000 درهم</span>: لللي باغي يستافد من الخدمة لمدة أطول ويخلي البحث والتقديم مستمرين.<br>— باقة <span class="latin">6</span> أشهر — <span class="latin">1,400 درهم</span>: لللي باغي استراتيجية طويلة المدى فاستهداف الشركات والتقديم والتتبع.<br>الاختلاف الأساسي هو مدة الاستفادة من الخدمة، والباقة الأطول ما كتضمنش وظيفة ولا نسبة نجاح أكبر.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <h3 class="faq-q" id="faq-q14" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a14" onclick="toggleFaq(this)"><span>شنو هي «فرصة مجانية للجميع»؟</span><span class="plus"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></span></h3>
+        <div class="faq-a" id="faq-a14"><div class="faq-a-inner">«فرصة مجانية للجميع» هي قسم كيوفر ليك مجموعة من عروض العمل الحالية فـ أوروبا بشكل مجاني تماماً — بدون اشتراك ولا دفع. كل عرض كيجمع معلومات الوظيفة: اسم الشركة أو المشغّل، مكان العمل، تاريخ النشر، والبريد الإلكتروني أو وسيلة التواصل المتوفرة، باش تقدر تدير طلبك بنفسك وبطريقة مباشرة مع الشركة. الهدف ديالنا هو أن حتى واحد ما يفوّت فرصة عمل غير بسبب الإمكانيات المادية. تقدر توصل للقسم من القائمة الرئيسية «فرصة مجانية للجميع» ولا من الصفحة المخصصة للعروض.</div></div>
       </div>
     </div>
   </div>
