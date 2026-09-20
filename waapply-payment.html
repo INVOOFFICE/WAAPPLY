@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تفعيل باقة Waapply</title>
+<meta name="description" content="ادفع بسرعة عبر CIH Bank أو Cash Plus وفعّل باقة Waapply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf9f4; --bg-soft:#f2f8f4; --surface:#ffffff; --border:#e6e4da;
+    --ink:#16211d; --ink-soft:#5d6b63; --ink-faint:#93a099;
+    --brand:#0e9c73; --brand-2:#0b7d5c; --brand-tint:#e4f5ec;
+    --accent:#ff7a45; --accent-tint:#fff0e6;
+    --whatsapp:#25D366; --success:#1FAA59; --success-tint:#e8f8ef;
+    --shadow:0 1px 2px rgba(10,15,13,0.05), 0 10px 26px -14px rgba(10,15,13,0.16);
+    --r-lg:18px; --r-md:12px; --r-sm:9px;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101613; --bg-soft:#161d19; --surface:#1a2320; --border:#2c3733;
+      --ink:#eef3f0; --ink-soft:#a9b7b0; --ink-faint:#78897f;
+      --brand:#3ecb96; --brand-2:#4fd6a4; --brand-tint:#173327; --accent:#ff9466; --accent-tint:#2c1c14;
+      --success-tint:#0f2a1c;
+      --shadow:0 1px 2px rgba(0,0,0,0.35), 0 10px 26px -14px rgba(0,0,0,0.55);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101613; --bg-soft:#161d19; --surface:#1a2320; --border:#2c3733;
+    --ink:#eef3f0; --ink-soft:#a9b7b0; --ink-faint:#78897f;
+    --brand:#3ecb96; --brand-2:#4fd6a4; --brand-tint:#173327; --accent:#ff9466; --accent-tint:#2c1c14;
+    --success-tint:#0f2a1c;
+    --shadow:0 1px 2px rgba(0,0,0,0.35), 0 10px 26px -14px rgba(0,0,0,0.55);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:'Tajawal',Tahoma,sans-serif; color:var(--ink);
+    line-height:1.6; padding-top:env(safe-area-inset-top,0px); padding-bottom:calc(74px + env(safe-area-inset-bottom,0px));
+    background:
+      radial-gradient(560px 380px at 15% -6%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 60%),
+      radial-gradient(520px 360px at 100% 8%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  @media (min-width:760px){ body{background-attachment:fixed;} }
+  @media (min-width:760px){ body{padding-bottom:0;} }
+  a{color:inherit;text-decoration:none;} button{font-family:inherit;}
+  .wrap{max-width:620px; margin:0 auto; padding:0 18px;}
+
+  header{position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding-top:env(safe-area-inset-top,0px);}
+  .bar{display:flex; align-items:center; justify-content:space-between; padding:13px 0;}
+  .logo-wrap{display:flex; align-items:center; gap:9px;}
+  .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg, var(--brand), var(--brand-2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;box-shadow:0 4px 10px -4px color-mix(in srgb, var(--brand) 60%, transparent);}
+  .logo-txt b{display:block; font-size:15px; font-weight:800;}
+  .logo-txt span{display:block; font-size:11.5px; color:var(--ink-soft);}
+  .live{display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--ink-soft);}
+  .live i{width:6px;height:6px;border-radius:50%;background:var(--success);display:inline-block;}
+
+  .hero{padding:30px 0 18px; text-align:center;}
+  .hero .chip{
+    display:inline-flex; align-items:center; gap:6px; margin-bottom:12px;
+    background:var(--brand-tint); color:var(--brand-2); font-weight:800; font-size:12px;
+    padding:6px 13px; border-radius:999px;
+  }
+  .hero h1{font-size:clamp(22px,6vw,28px); font-weight:900; margin:0 0 8px;
+    background:linear-gradient(90deg, var(--ink), var(--brand-2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{margin:0 0 4px; color:var(--ink-soft); font-size:14.5px;}
+
+  .steps-mini{display:flex; justify-content:center; align-items:center; gap:8px; padding:16px 0 6px; font-size:13px; color:var(--ink-soft); flex-wrap:wrap;}
+  .steps-mini span{white-space:nowrap; display:flex; align-items:center; gap:7px; font-weight:700;}
+  .steps-mini b{
+    color:#fff; font-weight:800; font-size:11.5px;
+    width:20px; height:20px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--brand), var(--brand-2));
+  }
+  .steps-mini span:nth-child(3) b{background:linear-gradient(135deg, var(--accent), #ff9466);}
+  .steps-mini span:nth-child(5) b{background:linear-gradient(135deg, var(--whatsapp), #1fae57);}
+  .steps-mini .sep{color:var(--ink-faint); font-weight:400;}
+
+  .tabs{display:flex; gap:8px; padding:18px 0 0;}
+  .tab{
+    flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;
+    padding:14px 8px; border-radius:var(--r-md); border:1px solid var(--border);
+    background:var(--surface); cursor:pointer; font-weight:700; font-size:13.5px; color:var(--ink-soft);
+  }
+  .tab .ic{font-size:20px;}
+  .tab[aria-selected="true"]{border-color:transparent; color:#fff; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 6px 16px -8px color-mix(in srgb, var(--brand) 60%, transparent);}
+
+  .panel{display:none; padding-top:16px;}
+  .panel.active{display:block;}
+  .card{background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--brand); border-radius:var(--r-lg); box-shadow:var(--shadow); padding:20px 18px;}
+  #panel-cashplus .card{border-top-color:var(--accent);}
+  .card p.desc{margin:0 0 14px; font-size:13.5px; color:var(--ink-soft);}
+
+  .row{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 0; border-top:1px solid var(--border);}
+  .row:first-of-type{border-top:none; padding-top:0;}
+  .row .label{font-size:11.5px; color:var(--ink-faint); margin-bottom:2px;}
+  .row .value{font-size:15px; font-weight:800; direction:ltr; unicode-bidi:isolate; text-align:right; font-variant-numeric:tabular-nums; word-break:break-word;}
+  .row .value.ar{direction:rtl; text-align:right;}
+
+  .copy{flex-shrink:0; display:flex; align-items:center; gap:5px; background:var(--bg-soft); border:1px solid var(--border); color:var(--ink); border-radius:999px; padding:8px 13px; font-size:12.5px; font-weight:700; cursor:pointer; min-height:36px;}
+  .copy svg{width:13px;height:13px;}
+  .copy.copied{background:var(--success-tint); color:var(--success); border-color:var(--success);}
+
+  .copy-all{width:100%; margin-top:14px; justify-content:center; padding:12px;}
+
+  .wa-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px; width:100%;
+    background:linear-gradient(135deg, #2fe07c, var(--whatsapp)); color:#07361c; font-weight:800; font-size:15px;
+    padding:14px; border-radius:999px; margin-top:16px; border:none; cursor:pointer; min-height:50px;
+    box-shadow:0 8px 18px -10px rgba(37,211,102,0.55);
+  }
+  .wa-btn:active{filter:brightness(0.97);}
+  .wa-btn svg{width:19px;height:19px;}
+
+  .safety{display:flex; align-items:center; gap:9px; padding:16px 2px 0; font-size:12.5px; color:var(--ink-soft);}
+  .safety svg{width:16px;height:16px; flex-shrink:0; color:var(--brand-2);}
+
+  .faq{padding-top:26px;}
+  .faq h2{font-size:16px; font-weight:800; margin:0 0 10px; text-align:center;}
+  .accordion-item{border-top:1px solid var(--border);}
+  .accordion-item:last-child{border-bottom:1px solid var(--border);}
+  .q{width:100%; background:none; border:none; text-align:right; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:13px 2px; font-size:14px; font-weight:700; cursor:pointer; color:var(--ink);}
+  .q svg{width:16px;height:16px; flex-shrink:0; transition:transform .2s;}
+  .accordion-item[data-open="true"] .q svg{transform:rotate(180deg);}
+  .a{max-height:0; overflow:hidden; transition:max-height .2s ease; font-size:13.5px; color:var(--ink-soft); padding:0 2px;}
+  .a p{margin:0 0 13px;}
+  @media (prefers-reduced-motion:reduce){ .a{transition:none;} }
+
+  footer{padding:26px 0 30px; text-align:center; margin-top:10px;}
+  footer .n{font-weight:800; font-size:13.5px;}
+  footer .t{font-size:12px; color:var(--ink-faint); margin-top:3px;}
+
+  .sticky-cta{
+    position:fixed; bottom:0; inset-inline:0; z-index:40; background:var(--surface);
+    border-top:1px solid var(--border); padding:10px 18px calc(10px + env(safe-area-inset-bottom,0px));
+    display:flex; justify-content:center;
+  }
+  @media (min-width:760px){ .sticky-cta{display:none;} }
+  .sticky-cta a{width:100%; max-width:620px;}
+
+  .btn:focus-visible, .copy:focus-visible, .q:focus-visible, .tab:focus-visible{outline:3px solid var(--brand); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo-wrap">
+      <div class="logo">W</div>
+      <div class="logo-txt"><b>WAAPPLY</b><span>تفعيل الباقة</span></div>
+    </div>
+    <div class="live"><i></i>دفع مباشر</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="chip">✨ عملية سريعة وآمنة</div>
+    <h1>فعّل باقتك الآن 🚀</h1>
+    <p>اختر طريقة الدفع، ثم أرسل الوصل عبر WhatsApp.</p>
+  </section>
+
+  <div class="steps-mini">
+    <span><b>١</b> ادفع</span><span class="sep">←</span>
+    <span><b>٢</b> صوّر الوصل</span><span class="sep">←</span>
+    <span><b>٣</b> أرسله لنا</span>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-target="cih">
+      <span class="ic">🏦</span> CIH Bank
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-target="cashplus">
+      <span class="ic">💵</span> Cash Plus
+    </button>
+  </div>
+
+  <div class="panel active" id="panel-cih">
+    <div class="card">
+      <p class="desc">حوّل المبلغ مباشرة إلى الحساب التالي:</p>
+
+      <div class="row">
+        <div><div class="label">صاحب الحساب</div><div class="value ar">Youssef Onouari</div></div>
+        <button class="copy" data-copy="Youssef Onouari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ</span></button>
+      </div>
+      <div class="row">
+        <div><div class="label">رقم الحساب</div><div class="value">4366667211021400</div></div>
+        <button class="copy" data-copy="4366667211021400"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ</span></button>
+      </div>
+      <div class="row">
+        <div><div class="label">RIB</div><div class="value">230 010 4366667211021400 89</div></div>
+        <button class="copy" data-copy="230 010 4366667211021400 89"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ</span></button>
+      </div>
+      <div class="row">
+        <div><div class="label">IBAN</div><div class="value">MA64 2300 1043 6666 7211 0214 0089</div></div>
+        <button class="copy" data-copy="MA64 2300 1043 6666 7211 0214 0089"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ</span></button>
+      </div>
+      <div class="row">
+        <div><div class="label">SWIFT</div><div class="value">CIHMMAMC</div></div>
+        <button class="copy" data-copy="CIHMMAMC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>نسخ</span></button>
+      </div>
+
+      <button class="copy copy-all" data-copy="Youssef Onouari&#10;RIB: 230 010 4366667211021400 89&#10;IBAN: MA64 2300 1043 6666 7211 0214 0089&#10;SWIFT: CIHMMAMC">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        <span>نسخ كل المعلومات</span>
+      </button>
+
+      <a class="wa-btn wa-link" data-msg="السلام عليكم، قمت بتحويل مبلغ اشتراك Waapply عبر CIH Bank وأرسل لكم وصل التحويل لتفعيل الباقة." href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.24.68-1.38 1.3-1.9 1.36-.5.06-1.02.09-3.28-.68-2.76-.95-4.53-3.75-4.67-3.93-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34h.5c.16 0 .38-.02.58.44.24.55.8 1.9.87 2.04.07.14.11.3.02.48-.09.18-.13.29-.27.45-.14.16-.29.35-.41.47-.14.14-.28.29-.12.57.16.28.7 1.16 1.5 1.88 1.03.92 1.9 1.21 2.18 1.35.28.14.44.12.61-.07.16-.19.7-.81.89-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
+        <span>إرسال الوصل عبر WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-cashplus">
+    <div class="card">
+      <p class="desc">أودع المبلغ عبر أقرب وكالة Cash Plus باسم:</p>
+
+      <div class="row">
+        <div><div class="label">اسم المستفيد</div><div class="value ar">Youssef Onouari</div></div>
+      </div>
+      <div class="row">
+        <div><div class="label">رقم الهاتف</div><div class="value">0630230803</div></div>
+      </div>
+
+      <button class="copy copy-all" data-copy="Youssef Onouari&#10;0630230803">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        <span>نسخ المعلومات</span>
+      </button>
+
+      <a class="wa-btn wa-link" data-msg="السلام عليكم، قمت بإيداع مبلغ اشتراك Waapply عبر Cash Plus وأرسل لكم الوصل لتفعيل الباقة." href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.24.68-1.38 1.3-1.9 1.36-.5.06-1.02.09-3.28-.68-2.76-.95-4.53-3.75-4.67-3.93-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34h.5c.16 0 .38-.02.58.44.24.55.8 1.9.87 2.04.07.14.11.3.02.48-.09.18-.13.29-.27.45-.14.16-.29.35-.41.47-.14.14-.28.29-.12.57.16.28.7 1.16 1.5 1.88 1.03.92 1.9 1.21 2.18 1.35.28.14.44.12.61-.07.16-.19.7-.81.89-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
+        <span>إرسال الوصل عبر WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="safety">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+    <span>لن نطلب منك أبداً كلمة المرور أو رمز PIN أو SMS — فقط وصل الدفع.</span>
+  </div>
+
+  <div class="faq">
+    <h2>أسئلة سريعة</h2>
+
+    <div class="accordion-item" data-open="false">
+      <button class="q" aria-expanded="false">أين أرسل وصل الدفع؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="a"><p>عبر WhatsApp إلى <span style="direction:ltr; display:inline-block;">+32 465 327 875</span>، بالضغط على الزر الأخضر أعلاه.</p></div>
+    </div>
+    <div class="accordion-item" data-open="false">
+      <button class="q" aria-expanded="false">متى تُفعَّل باقتي؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="a"><p>بعد التحقق من وصل الدفع، نقوم بتفعيل الباقة مباشرة.</p></div>
+    </div>
+    <div class="accordion-item" data-open="false">
+      <button class="q" aria-expanded="false">هل المعلومات البنكية آمنة؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="a"><p>نعم، فقط ترسل لنا وصل الدفع. لا نطلب أي معلومة سرية.</p></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="n">WAAPPLY</div>
+  <div class="t">WhatsApp: +32 465 327 875</div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="wa-btn wa-link" data-msg="السلام عليكم، أريد إرسال وصل الدفع الخاص بـ Waapply." href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.24.68-1.38 1.3-1.9 1.36-.5.06-1.02.09-3.28-.68-2.76-.95-4.53-3.75-4.67-3.93-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.27.53-.34.71-.34h.5c.16 0 .38-.02.58.44.24.55.8 1.9.87 2.04.07.14.11.3.02.48-.09.18-.13.29-.27.45-.14.16-.29.35-.41.47-.14.14-.28.29-.12.57.16.28.7 1.16 1.5 1.88 1.03.92 1.9 1.21 2.18 1.35.28.14.44.12.61-.07.16-.19.7-.81.89-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.68-.17 1.36Z"/></svg>
+    <span>إرسال وصل الدفع</span>
+  </a>
+</div>
+
+<script>
+(function(){
+  var WA_NUMBER = "32465327875";
+
+  document.querySelectorAll('.wa-link').forEach(function(el){
+    el.setAttribute('href', 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(el.getAttribute('data-msg') || ''));
+  });
+
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy').replace(/&#10;/g,'\n');
+      var label = btn.querySelector('span');
+      var original = label ? label.textContent : null;
+      function done(){
+        btn.classList.add('copied');
+        if(label) label.textContent = 'تم النسخ ✓';
+        setTimeout(function(){ btn.classList.remove('copied'); if(label && original) label.textContent = original; }, 1600);
+      }
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+      } else { fallbackCopy(text); done(); }
+    });
+  });
+
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      tab.setAttribute('aria-selected','true');
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('panel-' + tab.getAttribute('data-target')).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.accordion-item').forEach(function(item){
+    var q = item.querySelector('.q'), a = item.querySelector('.a');
+    q.addEventListener('click', function(){
+      var open = item.getAttribute('data-open') === 'true';
+      document.querySelectorAll('.accordion-item').forEach(function(o){
+        if(o!==item){ o.setAttribute('data-open','false'); o.querySelector('.q').setAttribute('aria-expanded','false'); o.querySelector('.a').style.maxHeight=null; }
+      });
+      if(open){ item.setAttribute('data-open','false'); q.setAttribute('aria-expanded','false'); a.style.maxHeight=null; }
+      else{ item.setAttribute('data-open','true'); q.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight+'px'; }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
