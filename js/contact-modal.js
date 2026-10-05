@@ -9,12 +9,12 @@
   var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbwQoq81Au2syQFHk81gVhcLsbDQb-lJekxjFvb9dj4czZMV8Xqvg1vuH4DIv0hk-NaZtw/exec';
   var WHATSAPP_PHONE = '32465327875';
 
-  /* ===== Package definitions ===== */
+  /* ===== Package definitions (wa = short label for the WhatsApp message) ===== */
   var PACKAGES = {
-    info:     { label: 'بغيت نعرف أكثر', price: null },
-    '20days':  { label: 'باقة شهر واحد (30 يوم) — 500 درهم', price: '500 درهم' },
-    '3months': { label: 'باقة 3 أشهر — 1,000 درهم', price: '1,000 درهم' },
-    '6months': { label: 'باقة 6 أشهر — 1,400 درهم', price: '1,400 درهم' }
+    info:     { label: 'بغيت نعرف أكثر', price: null, wa: 'استفسار' },
+    '20days':  { label: 'باقة شهر واحد (30 يوم) — 500 درهم', price: '500 درهم', wa: 'باقة 30 يوم' },
+    '3months': { label: 'باقة 3 أشهر — 1,000 درهم', price: '1,000 درهم', wa: 'باقة 3 أشهر' },
+    '6months': { label: 'باقة 6 أشهر — 1,400 درهم', price: '1,400 درهم', wa: 'باقة 6 أشهر' }
   };
 
   /* ===== State ===== */
@@ -29,7 +29,7 @@
   /* ===== DOM refs (cached on init) ===== */
   var overlay, panel, form, nameInput, phoneInput, packageSelect, submitBtn, submitText;
   var formState, successState, errorState;
-  var whatsappFallbackBtn;
+  var whatsappFallbackBtn, whatsappSuccessBtn;
   var nameError, phoneError, packageError, phonePrefix;
 
   function init(){
@@ -47,6 +47,7 @@
     successState     = document.getElementById('cmSuccessState');
     errorState       = document.getElementById('cmErrorState');
     whatsappFallbackBtn = document.getElementById('cm-whatsapp-fallback-btn');
+    whatsappSuccessBtn = document.getElementById('cm-whatsapp-success-btn');
     nameError        = document.getElementById('cm-name-error');
     phoneError       = document.getElementById('cm-phone-error');
     packageError     = document.getElementById('cm-package-error');
@@ -132,6 +133,7 @@
     formState.style.display = '';
     successState.style.display = 'none';
     errorState.style.display = 'none';
+    if(whatsappSuccessBtn){ whatsappSuccessBtn.href = '#'; }
     isSubmitting = false;
     submitBtn.disabled = false;
     submitBtn.classList.remove('cm-submit-loading');
@@ -361,6 +363,9 @@
   function showSuccess(pkg, name){
     formState.style.display = 'none';
     successState.style.display = '';
+    if(whatsappSuccessBtn){
+      whatsappSuccessBtn.href = buildConfirmationWhatsAppUrl(pkg, name);
+    }
     requestAnimationFrame(function(){
       var firstBtn = successState.querySelector('button, a');
       if(firstBtn) firstBtn.focus();
@@ -389,6 +394,51 @@
       message = 'سلام، أنا ' + name + '. بغيت نعرف أكثر على خدمة وابلاي وكيفاش كتخدم. ممكن تعطيني المعلومات والتفاصيل؟';
     }
     return 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(message);
+  }
+
+  /* Confirmation message — shown only after the lead reached Google Apps Script.
+     Same useful data as the payload (name, package, country, sector); the
+     country/sector lines are skipped when they were not filled in. */
+  function buildConfirmationWhatsAppUrl(pkg, name){
+    var lines = [
+      'السلام عليكم، أكدت طلبي عبر WAAPPLY.',
+      '',
+      'الاسم: ' + name
+    ];
+
+    var pkgData = PACKAGES[pkg];
+    lines.push('الباقة: ' + (pkgData ? pkgData.wa : ''));
+
+    var country = countryLabel(currentCountry);
+    if(country){ lines.push('الدولة: ' + country); }
+
+    var sector = sectorLabel(currentSector);
+    if(sector){ lines.push('القطاع: ' + sector); }
+
+    lines.push('');
+    lines.push('أرغب في متابعة طلبي مع فريق WAAPPLY.');
+
+    return 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  /* Arabic country name from the ISO code (source of truth: countries.js) */
+  function countryLabel(code){
+    if(!code) return '';
+    var list = window.WA_COUNTRIES || [];
+    for(var i = 0; i < list.length; i++){
+      if(list[i].code === code) return list[i].name;
+    }
+    return code;
+  }
+
+  /* Arabic sector name from the canonical French name (source: sectors.js) */
+  function sectorLabel(fr){
+    if(!fr) return '';
+    var list = window.WA_SECTORS || [];
+    for(var i = 0; i < list.length; i++){
+      if(list[i].fr === fr) return list[i].name;
+    }
+    return fr;
   }
 
   /* ===== Init ===== */

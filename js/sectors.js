@@ -163,4 +163,7 @@
   };
 
   renderGrid();
+
+  /* Exposed for the contact modal (canonical French name -> Arabic name) */
+  window.WA_SECTORS = SECTORS;
 })();

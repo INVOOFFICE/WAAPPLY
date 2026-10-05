@@ -157,4 +157,7 @@
   };
 
   renderGrid();
+
+  /* Arabic names exposed for the contact modal (ISO code -> display name) */
+  window.WA_COUNTRIES = COUNTRIES;
 })();
