@@ -54,3 +54,8 @@ coverage/
 
 # === Deployment ===
 .vercel
+
+# === Internal source data — never commit, never publish ===
+# données sources internes, ne pas publier
+*.csv
+eures_jobs_SECI.csv
