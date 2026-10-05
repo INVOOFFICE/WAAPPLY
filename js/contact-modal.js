@@ -29,7 +29,7 @@
   /* ===== DOM refs (cached on init) ===== */
   var overlay, panel, form, nameInput, phoneInput, packageSelect, submitBtn, submitText;
   var formState, successState, errorState;
-  var whatsappFallbackBtn, whatsappSuccessBtn;
+  var whatsappFallbackBtn;
   var nameError, phoneError, packageError, phonePrefix;
 
   function init(){
@@ -47,7 +47,6 @@
     successState     = document.getElementById('cmSuccessState');
     errorState       = document.getElementById('cmErrorState');
     whatsappFallbackBtn = document.getElementById('cm-whatsapp-fallback-btn');
-    whatsappSuccessBtn = document.getElementById('cm-whatsapp-success-btn');
     nameError        = document.getElementById('cm-name-error');
     phoneError       = document.getElementById('cm-phone-error');
     packageError     = document.getElementById('cm-package-error');
@@ -133,7 +132,6 @@
     formState.style.display = '';
     successState.style.display = 'none';
     errorState.style.display = 'none';
-    if(whatsappSuccessBtn){ whatsappSuccessBtn.href = '#'; }
     isSubmitting = false;
     submitBtn.disabled = false;
     submitBtn.classList.remove('cm-submit-loading');
@@ -322,9 +320,22 @@
       timestamp:    new Date().toISOString()
     };
 
+    /* User gesture is still active here: open WhatsApp now, then let the API
+       call continue in the background exactly as before. */
+    openWhatsAppConfirmation(pkg, name);
+
     sendToApi(payload)
       .then(function(){ showSuccess(pkg, name); })
       .catch(function(){ showError(pkg, name); });
+  }
+
+  /* Opens WhatsApp with the prefilled confirmation. Called synchronously from
+     the submit click (before the API round-trip) so the popup blocker still
+     sees a user gesture. Never navigates this page: the in-flight POST to
+     Google Apps Script must not be cancelled. */
+  function openWhatsAppConfirmation(pkg, name){
+    var tab = window.open(buildConfirmationWhatsAppUrl(pkg, name), '_blank');
+    if(tab){ try { tab.opener = null; } catch(e){} }
   }
 
   function formatPhone(phone){
@@ -363,9 +374,6 @@
   function showSuccess(pkg, name){
     formState.style.display = 'none';
     successState.style.display = '';
-    if(whatsappSuccessBtn){
-      whatsappSuccessBtn.href = buildConfirmationWhatsAppUrl(pkg, name);
-    }
     requestAnimationFrame(function(){
       var firstBtn = successState.querySelector('button, a');
       if(firstBtn) firstBtn.focus();
