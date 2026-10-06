@@ -19,10 +19,10 @@
   .spontanee-content{max-width:640px; margin:0 auto;} 
   .spontanee-features{grid-template-columns:1fr 1fr;}
 
-  /* Free offers */
-  .free-offers-grid{grid-template-columns:1fr; gap:40px;}
-  .free-offers-visual{order:-1;}
-  .free-offers-content{max-width:640px; margin:0 auto;}
+  /* Offer banners (europe + italia) */
+  .italia-banner{grid-template-columns:1fr; gap:40px; padding:var(--space-6);}
+  .italia-media{order:-1;}
+  .italia-body{max-width:640px; margin:0 auto;}
 
   /* Free offers page (offers.html) */
   .offers-tools-inner{gap:var(--space-3);}
@@ -79,20 +79,10 @@
   .spontanee-features{grid-template-columns:1fr;}
   .spontanee-title{font-size:clamp(24px, 5.5vw, 32px);}
   .spontanee-sub{font-size:var(--fs-base);}
-  .spontanee-map-wrap{max-width:400px;}
-  .sp-country-card{font-size:var(--fs-xs); padding:8px 11px; gap:8px;}
-  .sp-country-card .sp-cflag{width:18px;}
-  .sp-country-card .sp-cname{font-size:var(--fs-xs);}
-  .sp-country-card .sp-cstatus{font-size:11px;}
+  .spontanee-media{max-width:400px;}
 
-  /* Free offers mobile */
-  .free-offers-grid{gap:var(--space-7);}
-  .free-offers-title{font-size:clamp(24px, 5.5vw, 32px);}
-  .free-offers-sub{font-size:var(--fs-base);}
-  .free-card{padding:var(--space-6) var(--space-6) var(--space-5);}
-  .free-fi{width:38px; height:38px;}
-  .free-fi .ic{width:18px; height:18px;}
-  .free-row-value{font-size:var(--fs-sm);}
+  /* Offer banners mobile (europe + italia) */
+  .italia-title{font-size:clamp(24px, 5.5vw, 32px);}
 
   /* Free offers page mobile (offers.html) */
   .offers-hero .container{padding:44px var(--space-5) 40px;}
