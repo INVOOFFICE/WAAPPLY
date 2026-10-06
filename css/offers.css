@@ -133,6 +133,14 @@
   line-height:1.5; margin-bottom:var(--space-3);
   overflow-wrap:anywhere;
 }
+/* Arabic helper line under the Italian title (offers-italia only). Negative top
+   margin keeps the close title->Arabic pairing while preserving the original
+   spacing before the employer. Never present on offers.html cards. */
+.offer-title-ar{
+  font-size:var(--fs-sm); font-weight:600; color:var(--blue-strong);
+  line-height:1.7; overflow-wrap:anywhere;
+  margin:calc(-1 * var(--space-2)) 0 var(--space-3);
+}
 .offer-employer{
   display:flex; align-items:center; gap:var(--space-2);
   font-size:var(--fs-sm); font-weight:600; color:var(--blue-strong);

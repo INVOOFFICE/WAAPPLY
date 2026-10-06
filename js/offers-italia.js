@@ -82,7 +82,8 @@
       if(state.provincia && o.pv !== state.provincia){ return false; }
       if(state.comune && o.cm !== state.comune){ return false; }
       if(q){
-        var hay = (o.t + ' ' + o.e + ' ' + o.cm + ' ' + o.pv).toLowerCase();
+        var aText = (has(o.a) && o.a) ? (o.a + ' ') : '';
+        var hay = (o.t + ' ' + aText + o.e + ' ' + o.cm + ' ' + o.pv).toLowerCase();
         if(hay.indexOf(q) === -1){ return false; }
       }
       return true;
@@ -107,6 +108,12 @@
       ? esc(o.t)
       : '<span class="is-muted">غير متوفر</span>';
 
+    // Arabic helper line under the Italian title (rendered in the natural RTL
+    // direction; omitted when the generated record has no Arabic translation).
+    var arLine = (has(o.a) && o.a)
+      ? '<p class="offer-title-ar" dir="auto">' + esc(o.a) + '</p>'
+      : '';
+
     var employer = has(o.e)
       ? '<div class="offer-employer">' + ic('building-2') + '<span>' + esc(o.e) + '</span></div>'
       : '<div class="offer-employer is-muted">' + ic('building-2') + '<span>غير متوفر</span></div>';
@@ -120,6 +127,7 @@
     return '' +
       '<article class="offer-card">' +
         '<h3 class="offer-title">' + title + '</h3>' +
+        arLine +
         employer +
         '<div class="offer-chips">' + chips + '</div>' +
         '<div class="offer-divider"></div>' +
