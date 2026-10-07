@@ -90,6 +90,7 @@
   .offers-opps{padding-bottom:64px;}
   .offers-tools-inner{padding:var(--space-4) 0;}
   .offers-selects{width:100%;}
+  .offers-selects select{min-width:0;}
   .offers-search input{padding:12px 40px 12px 14px;}
   .offers-search-ic{right:12px;}
   .offer-card{padding:var(--space-5);}
