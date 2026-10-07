@@ -1,0 +1,102 @@
+# -*- coding: utf-8 -*-
+"""Arabic title dictionary batch 6 - leftover 1-2 token blockers.
+
+Covers every key that was still missing after batches 1-5 with at most two
+uncovered content tokens (plus the two shared tokens 'land-'/'síla'/'innen-'
+that block several keys each).
+"""
+
+TITLE_AR_6 = {
+    # --- shared multi-row blockers ----------------------------------------
+    "land-": "زراعي",
+    "síla": "قوة",
+    "innen-": "داخلي",
+    "test": "اختبار",
+    "test-": "اختبار",
+
+    # --- roles / people ---------------------------------------------------
+    "metallhilfsarbeiter_innen": "عمّال مساعدون في المعادن",
+    "bauteileentwickler/konstrukteur": "مطوّر ومصمم للمكونات",
+    "extrusionstechniker": "فني السحب",
+    "freiberuflich/selbstständige/freelancer": "عمل مستقل",
+    "design": "تصميم",
+    "metallhelfer": "مساعد معدني",
+    "personalcontrolling": "مراقبة الموارد البشرية",
+    "mechanics": "ميكانيكا",
+    "cnc-operatører": "مشغّلو ماكينات سي إن سي",
+    "cnc-maschinenführer": "مشغّل ماكينة سي إن سي",
+    "šič/ka": "خياط",
+    "šič/šička": "خياط",
+    "comptable": "محاسب",
+    "fournisseurs": "موردون",
+    "facharbeiter/": "عامل مختص",
+    "molkereifachkraft": "فني ألبان",
+    "hospodyně": "ربة منزل",
+    "absolventy": "الخريجون",
+    "springer": "منقّل",
+    "produktionsmitarbeiter_innen": "عمّال إنتاج",
+    "verwaltungsangestellter/": "موظف إداري",
+    "techniker_innen": "فنيون",
+    "konstrukteur_innen": "مصممون هندسيون",
+    "lichtreklamerhersteller": "صانع الإعلانات الضوئية",
+    "artpro-operator": "مشغّل آرت برو",
+    "produkte": "منتجات",
+    "produkt": "منتج",
+    "product": "منتج",
+    "solutions": "حلول",
+    "presales": "مبيعات أولية",
+    "cosmetics": "مستحضرات تجميل",
+
+    # --- tasks / operations -----------------------------------------------
+    "-bediener": "مشغّل",
+    "reisetätigkeit": "تنقلات عمل",
+    "service-": "خدمة",
+    "komplettierung": "تكميل",
+    "pásových": "شريطية",
+    "lepícího": "اللاصق",
+    "service/wartung": "خدمة وصيانة",
+    "fleischvorbereitung": "تحضير اللحوم",
+    "schlachten": "ذبح",
+    "qualitätssicherung/": "ضمان الجودة",
+    "messtechnik": "تقنية القياس",
+    "thermoform-rollenautomaten": "ماكينات التشكيل الحراري",
+    "dreischicht": "ثلاث ورديات",
+    "serienfertigung": "إنتاج متسلسل",
+    "werbetechnik": "تقنية الإعلان",
+    "programm-": "برنامج",
+    "projektsteuerung": "توجيه المشاريع",
+    "testování": "اختبار",
+    "metodou": "بأسلوب",
+    "mig/mag-co2": "ميج ماج",
+    "řezači": "قواص",
+    "plamenem": "باللهب",
+    "weiterbildung": "تدريب مستمر",
+    "schilder-": "لافتات",
+
+    # --- materials / trades ------------------------------------------------
+    "haustechnik": "تقنية المنازل",
+    "elektro-": "كهربائي",
+    "konfektion": "تجميع ملابس",
+    "dřevařské": "خشبية",
+    "starterkulturen": "مخمّرات أولية",
+    "heizungstechnische": "تقنية التدفئة",
+    "transportbeton": "خرسانة نقلية",
+    "pil": "مناشير",
+    "dělník/": "عامل",
+    "zámečnická": "حدادة",
+    "schokoladen-theater": "مسرح الشوكولاتة",
+
+    # --- office / ad noise kept as words ----------------------------------
+    "finanzen": "المالية",
+    "lohn-": "أجر",
+    "werkstatt-": "ورشة",
+    "referenznummer": "رقم مرجعي",
+    "gesundheitswesen": "قطاع الصحة",
+    "pflegeversicherung": "تأمين الرعاية",
+    "serviceteam": "فريق خدمة",
+    "softwaru": "برمجيات",
+    "strategie": "استراتيجية",
+    "*quereinsteiger/innen": "وافدون من تخصصات أخرى",
+    "willkommen*": "أهلاً",
+    "in/": "في",
+}

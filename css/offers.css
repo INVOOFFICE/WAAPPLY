@@ -358,3 +358,9 @@ body.pm-lock{overflow:hidden;}
    ============================================================ */
 .offers-opps{padding:var(--space-8) 0 96px;}
 .opps-grid{display:grid; grid-template-columns:1fr; gap:var(--space-6);}
+/* Extra supporting line on the Europe / manufacturing card only — everything
+   else in the card reuses .italia-banner / .italia-media / .italia-body. */
+.offer-card--europe-manufacturing .opps-note{
+  margin-top:var(--space-3);
+  font-size:var(--fs-sm); color:var(--slate); line-height:1.9;
+}
