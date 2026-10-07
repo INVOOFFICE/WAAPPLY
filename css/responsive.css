@@ -87,6 +87,7 @@
   /* Free offers page mobile (offers.html) */
   .offers-hero .container{padding:44px var(--space-5) 40px;}
   .offers-hero-sub{font-size:var(--fs-base);}
+  .offers-opps{padding-bottom:64px;}
   .offers-tools-inner{padding:var(--space-4) 0;}
   .offers-selects{width:100%;}
   .offers-search input{padding:12px 40px 12px 14px;}
@@ -124,6 +125,21 @@
   .promo-metric-value{font-size:clamp(24px, 5vw, 28px);}
   .promo-metric-label{font-size:11px;}
   .promo-disclaimer{font-size:10.5px;}
+}
+
+/* ===== PWA surfaces (install invitation + update notice — js/pwa.js) ===== */
+@media(max-width:980px){
+  /* Float above the sticky mobile CTA (78px body offset + space-3 breathing room + safe area) */
+  .pwa-install, .pwa-update{
+    bottom:calc(78px + var(--space-3) + env(safe-area-inset-bottom, 0px));
+    width:min(440px, calc(100% - var(--space-5)));
+  }
+}
+@media(max-width:600px){
+  .pwa-install, .pwa-update{padding:var(--space-4);}
+  .pwa-install-actions{flex-direction:column;}
+  .pwa-update-actions{width:100%;}
+  .pwa-update-actions .btn{flex:1;}
 }
 
 /* ===== Desktop large (1440px+) ===== */

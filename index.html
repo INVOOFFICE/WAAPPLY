@@ -25,6 +25,13 @@
 <meta name="twitter:description" content="بحث على الشركات والفرص المناسبة لبروفايلك، تجهيز CV والرسالة التحفيزية، وتوصيل بروفايلك للشركات بشكل منظم. تواصل عبر واتساب.">
 <meta name="twitter:image" content="https://waapply.com/assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<!-- PWA: manifest + app-mode metadata (theme-color is declared above) -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/pwa/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WAAPPLY">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Structured data: entity graph (kept in sync with visible page content) -->
 <script type="application/ld+json">
 {
@@ -246,6 +253,7 @@
 <link rel="stylesheet" href="css/sections.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/promo.css">
+<link rel="stylesheet" href="css/pwa.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/contact-modal.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269008589730162"
@@ -276,6 +284,9 @@
   <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
   <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Z"/><path d="M21 11h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-5Z"/><path d="M3 11V9a9 9 0 0 1 18 0v2"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol>
   <!-- Country flags: flat SVG symbols for European flags (12 currently rendered in the « التقديم حسب الدول » grid; other flags kept as historical assets). Simplified government insignias rendered as styled flat shapes, keeping a consistent cross-browser result. -->
   <symbol id="i-flag-de" viewBox="0 0 30 18"><rect width="30" height="6" fill="#000"/><rect y="6" width="30" height="6" fill="#DD0000"/><rect y="12" width="30" height="6" fill="#FFCE00"/></symbol>
   <symbol id="i-flag-fr" viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></symbol>
@@ -425,33 +436,22 @@
   </div>
 </section>
 
-<!-- ===================== FREE OFFERS — free Europe job offers teaser (just before the italia banner) ===================== -->
+<!-- ===================== FREE OFFERS — teaser for the dedicated free-opportunity directory (offers.html) ===================== -->
 <section class="section-pad italia-section" id="free-offers" aria-labelledby="free-offers-title">
   <div class="container">
-    <div class="italia-banner reveal">
+    <div class="free-offers-head">
+      <span class="eyebrow-sm reveal">فرصة مجانية للجميع</span>
+      <h2 class="section-title reveal" id="free-offers-title" data-delay="90">فرصة مجانية للجميع</h2>
+      <p class="section-sub reveal" data-delay="180">كنوفرو ليك وصول مجاني لعروض العمل الحالية فـ أوروبا — بدون اشتراك ولا دفع، وتقدر تتصفح الفرص المتاحة وتختار العرض اللي مناسب لبروفايلك.</p>
+    </div>
+    <div class="italia-banner reveal" data-delay="240">
       <div class="italia-media">
         <img src="assets/images/europ.jpg" alt="عروض العمل في أوروبا" width="1774" height="887" loading="lazy" decoding="async">
       </div>
       <div class="italia-body">
-        <h2 class="italia-title" id="free-offers-title">فرصة مجانية للجميع</h2>
+        <h3 class="italia-title">فرصة مجانية للجميع</h3>
         <p class="italia-sub">ما عندكش الإمكانيات باش تستافد من خدمات <span class="latin">WAAPPLY</span> المدفوعة؟ ماشي مشكل. كنوفرو ليك مجانا مجموعة من عروض العمل المتاحة حاليا في أوروبا، باش تقدر تدير طلباتك بنفسك وبطريقة مباشرة.</p>
         <a href="offers.html" class="btn btn-gold italia-cta">شوف عروض العمل المجانية <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ITALIA BANNER — free Italian job offers teaser (just before the countries grid) ===================== -->
-<section class="section-pad italia-section" aria-labelledby="italia-title">
-  <div class="container">
-    <div class="italia-banner reveal">
-      <div class="italia-media">
-        <img src="assets/images/itali.jpg" alt="عروض العمل في إيطاليا" width="1774" height="887" loading="lazy" decoding="async">
-      </div>
-      <div class="italia-body">
-        <h2 class="italia-title" id="italia-title">خدمات التقديم على عروض العمل في إيطاليا مجانًا</h2>
-        <p class="italia-sub">تصفح عروض العمل الإيطالية وشاهد مباشرة المعلومات المتاحة.</p>
-        <a href="offers-italia.html" class="btn btn-gold italia-cta">تصفح عروض العمل في إيطاليا <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
       </div>
     </div>
   </div>
@@ -587,6 +587,35 @@
   <button type="button" data-contact-package="info" class="btn btn-gold btn-block">ابدأ الآن <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
 </div>
 
+<!-- ===================== PWA: INSTALL INVITATION ===================== -->
+<aside class="pwa-install" id="pwaInstall" aria-label="تثبيت تطبيق وابلاي" hidden>
+  <div class="pwa-install-head">
+    <span class="pwa-install-ico" aria-hidden="true"><svg class="ic"><use href="#i-download"/></svg></span>
+    <h2 class="pwa-install-title" id="pwa-install-title">ثبّت <span class="latin">WAAPPLY</span></h2>
+    <button type="button" class="pwa-install-x" id="pwaInstallClose" aria-label="إغلاق">
+      <svg class="ic" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <p class="pwa-install-desc" id="pwaInstallDesc">خلّي عروض العمل المجانية الجديدة فـ أوروبا قريبة منك، وافتح <span class="latin">WAAPPLY</span> بسرعة من جهازك.</p>
+  <p class="pwa-install-desc" id="pwaInstallIosDesc" hidden>اضغط على زر المشاركة، ثم اختر «إضافة إلى الشاشة الرئيسية».</p>
+  <div class="pwa-install-actions">
+    <button type="button" class="btn btn-gold" id="pwaInstallBtn"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>تثبيت التطبيق</button>
+    <button type="button" class="btn btn-outline" id="pwaInstallLater">لاحقاً</button>
+  </div>
+</aside>
+
+<!-- ===================== PWA: UPDATE NOTICE ===================== -->
+<aside class="pwa-update" id="pwaUpdate" aria-label="تحديث تطبيق وابلاي" hidden>
+  <p class="pwa-update-msg">
+    <span class="pwa-update-ico" aria-hidden="true"><svg class="ic"><use href="#i-refresh"/></svg></span>
+    يتوفر تحديث جديد لـ <span class="latin">WAAPPLY</span>
+  </p>
+  <div class="pwa-update-actions">
+    <button type="button" class="btn btn-gold" id="pwaUpdateApply">تحديث الآن</button>
+    <button type="button" class="btn btn-outline" id="pwaUpdateLater">لاحقاً</button>
+  </div>
+</aside>
+
 <!-- ===================== CONTACT MODAL ===================== -->
 <div class="cm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="نموذج التواصل مع وابلاي" aria-hidden="true">
   <div class="cm-backdrop" data-close-modal></div>
@@ -672,6 +701,7 @@
 <script src="js/animations.js"></script>
 <script src="js/app.js"></script>
 <script src="js/contact-modal.js"></script>
+<script src="js/pwa.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,58 @@
+/* PWA surfaces (js/pwa.js): install invitation + service-worker update notice.
+   Design tokens only — colors, radii, spacing, type and motion come from variables.css. */
+
+/* Shared floating card */
+.pwa-install, .pwa-update{
+  position:fixed; left:50%; bottom:var(--space-6); z-index:80;
+  width:min(440px, calc(100% - var(--space-6)));
+  transform:translateX(-50%) translateY(16px);
+  background:var(--paper); border:1px solid var(--border);
+  border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);
+  padding:var(--space-5);
+  opacity:0;
+  transition:opacity .4s var(--ease-entrance), transform .4s var(--ease-entrance);
+}
+.pwa-install[hidden], .pwa-update[hidden]{display:none;}
+.pwa-install.is-shown, .pwa-update.is-shown{opacity:1; transform:translateX(-50%) translateY(0);}
+
+/* Card head: icon badge + title + close */
+.pwa-install-head{display:flex; align-items:center; gap:var(--space-3);}
+.pwa-install-ico{
+  width:42px; height:42px; border-radius:50%; flex-shrink:0;
+  background:var(--grad-gold-deep); color:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+}
+.pwa-update-ico{
+  width:42px; height:42px; border-radius:50%; flex-shrink:0;
+  background:var(--grad-blue); color:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+}
+.pwa-install-ico .ic, .pwa-update-ico .ic{width:20px; height:20px;}
+
+.pwa-install-title{
+  flex:1; font-family:var(--font-heading); font-size:var(--fs-lg); font-weight:700;
+  color:var(--navy); line-height:1.5;
+}
+.pwa-install-x{
+  width:34px; height:34px; border-radius:50%; flex-shrink:0;
+  background:var(--bg2); color:var(--slate);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease, color .2s ease;
+}
+.pwa-install-x:hover{background:var(--wash-blue); color:var(--navy);}
+.pwa-install-x .ic{width:16px; height:16px;}
+
+.pwa-install-desc{
+  margin-top:var(--space-3); font-size:var(--fs-sm); color:var(--slate); line-height:1.8;
+}
+.pwa-install-actions{display:flex; gap:var(--space-3); margin-top:var(--space-4);}
+
+/* Update notice */
+.pwa-update{display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;}
+.pwa-update-msg{
+  flex:1 1 200px; display:flex; align-items:center; gap:var(--space-3);
+  font-size:var(--fs-base); font-weight:600; color:var(--navy); line-height:1.6;
+}
+.pwa-update-actions{display:flex; gap:var(--space-2);}
+.pwa-update-actions .btn{padding:11px 20px; font-size:var(--fs-sm);}
+.pwa-update-actions .btn:disabled{opacity:.6; cursor:wait;}

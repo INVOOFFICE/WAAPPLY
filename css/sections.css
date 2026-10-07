@@ -27,9 +27,9 @@
    COUNTRIES — grid of 12 country cards (8 per page, inside the pricing section)
    ============================================================ */
 .countries{margin-top:var(--space-10);}
-.countries-head,.sectors-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
-.countries-head .section-title,.sectors-head .section-title{margin-bottom:var(--space-3);}
-.countries-head .section-sub,.sectors-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
+.countries-head,.sectors-head,.free-offers-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
+.countries-head .section-title,.sectors-head .section-title,.free-offers-head .section-title{margin-bottom:var(--space-3);}
+.countries-head .section-sub,.sectors-head .section-sub,.free-offers-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
 
 .countries-grid{
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-5);
@@ -169,6 +169,12 @@
    (#free-offers, image europ.jpg) and free Italian offers (.italia-section,
    image itali.jpg). Same classes, same responsive behaviour.
    ============================================================ */
+/* The free-offers section opens with a normal section head, so only its top
+   rhythm is tightened (ID selector: stays in force at every breakpoint where
+   responsive.css re-declares .section-pad). scroll-margin-top keeps the
+   #free-offers nav anchor landing below the sticky header (>= 89px). */
+#free-offers{padding-top:var(--space-10); scroll-margin-top:96px;}
+
 .italia-banner{
   display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
   gap:56px; align-items:center;

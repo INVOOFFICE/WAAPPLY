@@ -349,3 +349,12 @@ body.pm-lock{overflow:hidden;}
    PAGINATION INFO / SCROLL ANCHOR
    ============================================================ */
 .offers-pager-anchor{position:absolute; top:-96px; visibility:hidden;}
+
+/* ============================================================
+   FREE OPPORTUNITY DIRECTORY (offers.html)
+   The page intro reuses .free-offers-head from sections.css; every free
+   opportunity is a card inside .opps-grid — add one card element per
+   database/resource and the grid stacks them with a uniform gap.
+   ============================================================ */
+.offers-opps{padding:var(--space-8) 0 96px;}
+.opps-grid{display:grid; grid-template-columns:1fr; gap:var(--space-6);}

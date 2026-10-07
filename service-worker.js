@@ -1,0 +1,164 @@
+// WAAPPLY service worker — conservative offline shell.
+//
+// Scope of this file (deliberately narrow):
+//   - versioned static cache (offline shell for the core assets),
+//   - network-first for HTML navigations (fresh pages when online),
+//   - cache-first (with background revalidation) for stable static assets,
+//   - versioned cache cleanup on activate,
+//   - user-controlled updates via SKIP_WAITING.
+//
+// What it never touches:
+//   - non-GET requests (form submissions, Google Apps Script POSTs),
+//   - cross-origin requests (Google Apps Script, WhatsApp, fonts, ads),
+//   - the generated offer datasets (js/offers-data.js, js/offers-italia-data.js)
+//     and heavy media — they stay network-only so users always get fresh offers
+//     and no stale-offers problem can exist.
+//
+// NOTE: bump SW_VERSION whenever a deploy changes cached assets — the versioned
+// cache name is what invalidates them on activate.
+
+var SW_VERSION = 'v1';
+var CACHE_NAME = 'waapply-static-' + SW_VERSION;
+
+// Core offline shell: everything index.html needs to render and navigate.
+// Never list the generated offer datasets here (they are large and volatile).
+var PRECACHE = [
+  './',
+  'index.html',
+  'manifest.webmanifest',
+  'css/variables.css',
+  'css/reset.css',
+  'css/base.css',
+  'css/layout.css',
+  'css/components.css',
+  'css/sections.css',
+  'css/animations.css',
+  'css/promo.css',
+  'css/responsive.css',
+  'css/contact-modal.css',
+  'css/pwa.css',
+  'js/navigation.js',
+  'js/faq.js',
+  'js/promo.js',
+  'js/countries.js',
+  'js/sectors.js',
+  'js/animations.js',
+  'js/app.js',
+  'js/contact-modal.js',
+  'js/pwa.js',
+  'assets/logo.svg',
+  'assets/pwa/icon-192.png',
+  'assets/pwa/icon-512.png',
+  'assets/pwa/maskable-icon-512.png'
+];
+
+// Same-origin paths that are NEVER read from or written to the cache.
+var NEVER_CACHE = /\/(?:offers-data|offers-italia-data)\.js$|\/(?:Career\.mp4|Wapp\.m4a|Wzaa\.mp3)$/;
+
+self.addEventListener('install', function(event){
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache){
+      // One failing asset must not block the whole install.
+      return Promise.all(PRECACHE.map(function(url){
+        return cache.add(new Request(url, {cache:'reload'})).catch(function(){});
+      }));
+    })
+  );
+  // No self.skipWaiting() here: the page offers the update to the user first.
+});
+
+self.addEventListener('activate', function(event){
+  event.waitUntil(
+    caches.keys().then(function(keys){
+      // Drop caches from previous versions of this app only.
+      var stale = keys.filter(function(key){
+        return key.indexOf('waapply-static-') === 0 && key !== CACHE_NAME;
+      });
+      return Promise.all(stale.map(function(key){ return caches.delete(key); }));
+    }).then(function(){
+      return self.clients.claim();
+    })
+  );
+});
+
+self.addEventListener('message', function(event){
+  if(event.data && event.data.type === 'SKIP_WAITING'){
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener('fetch', function(event){
+  var request = event.request;
+
+  // Never intercept non-GET (form posts, Google Apps Script, etc.).
+  if(request.method !== 'GET'){ return; }
+
+  var url;
+  try{ url = new URL(request.url); }
+  catch(e){ return; }
+
+  // Never intercept cross-origin (external source links, fonts, ads, WhatsApp…).
+  if(url.origin !== self.location.origin){ return; }
+
+  // Media/byte-range requests stream straight to the network.
+  if(request.headers && request.headers.has('Range')){ return; }
+  if(NEVER_CACHE.test(url.pathname)){ return; }
+
+  if(request.mode === 'navigate'){
+    event.respondWith(handleNavigation(request));
+  }else{
+    event.respondWith(handleStatic(request));
+  }
+});
+
+// HTML navigations: network-first, cached copy as the offline fallback.
+function handleNavigation(request){
+  return caches.open(CACHE_NAME).then(function(cache){
+    return fetch(request).then(function(response){
+      if(response && response.ok){
+        cache.put(request, response.clone()).catch(function(){});
+      }
+      return response;
+    }).catch(function(){
+      return cache.match(request).then(function(cached){
+        if(cached){ return cached; }
+        // Never pretend: only the app root falls back to the cached homepage —
+        // any other uncached page lets the browser show its own offline error.
+        if(request.url !== self.registration.scope){
+          throw new Error('WAAPPLY SW: offline and not cached');
+        }
+        return cache.match('./').then(function(shell){
+          if(shell){ return shell; }
+          return cache.match('index.html');
+        });
+      });
+    });
+  });
+}
+
+// Stable static assets: cache-first, then revalidate in the background so a
+// deploy is picked up on the next load (the versioned cache is the hard reset).
+function handleStatic(request){
+  return caches.open(CACHE_NAME).then(function(cache){
+    return cache.match(request).then(function(cached){
+      if(cached){
+        revalidate(request, cache);
+        return cached;
+      }
+      return fetch(request).then(function(response){
+        if(response && response.ok && response.type === 'basic'){
+          cache.put(request, response.clone()).catch(function(){});
+        }
+        return response;
+      });
+    });
+  });
+}
+
+function revalidate(request, cache){
+  fetch(request).then(function(response){
+    if(response && response.ok && response.type === 'basic'){
+      return cache.put(request, response.clone());
+    }
+  }).catch(function(){ /* offline or transient: keep the cached copy */ });
+}

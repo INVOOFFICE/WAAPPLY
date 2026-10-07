@@ -1,7 +1,6 @@
 // Free Italian job offers page — renders window.OFFERS_IT_DATA (generated from
 // italia.csv, MonzaFlora — Borsa Lavoro) with 50 offers per page, pagination,
-// search on Posizione/Ragione sociale/Comune/Provincia, Provincia + Comune
-// filters, alphabetical sort, email reveal/copy and original-source links.
+// email reveal/copy and original-source links (offers are listed A–Z).
 // Vanilla JS, no dependencies, works over file:// (data is a classic script).
 
 (function(){
@@ -9,7 +8,7 @@
 
   var DATA = window.OFFERS_IT_DATA || [];
   var PER_PAGE = 50;
-  var state = { page:1, search:'', provincia:'', comune:'', sort:'az' };
+  var state = { page:1 };
 
   var grid     = document.getElementById('offers-grid');
   var countEl  = document.getElementById('offers-count');
@@ -18,10 +17,6 @@
   var pagerNumsEl = document.getElementById('offers-pager-nums');
   var prevBtn  = document.getElementById('offers-pager-prev');
   var nextBtn  = document.getElementById('offers-pager-next');
-  var searchEl = document.getElementById('offers-search');
-  var provinciaEl = document.getElementById('offers-provincia');
-  var comuneEl = document.getElementById('offers-comune');
-  var sortEl   = document.getElementById('offers-sort');
 
   if(!grid || !DATA.length){ return; }
 
@@ -35,67 +30,14 @@
   function latin(s){ return '<span class="latin">' + esc(s) + '</span>'; }
   function has(v){ return v && String(v) !== '-'; }
 
-  /* ---------- build Provincia + Comune filter options from the data ---------- */
-  function uniqueValues(get, filterFn){
-    var seen = {};
-    var out = [];
-    DATA.forEach(function(o){
-      if(filterFn && !filterFn(o)) return;
-      var v = get(o);
-      if(!has(v) || seen[v]) return;
-      seen[v] = true;
-      out.push(v);
-    });
-    out.sort(function(a, b){ return a.localeCompare(b); });
-    return out;
-  }
-
-  uniqueValues(function(o){ return o.pv; }).forEach(function(v){
-    var opt = document.createElement('option');
-    opt.value = v;
-    opt.textContent = v;
-    provinciaEl.appendChild(opt);
-  });
-
-  function populateComune(){
-    var current = state.comune;
-    var options = uniqueValues(function(o){ return o.cm; }, function(o){
-      return !state.provincia || o.pv === state.provincia;
-    });
-    comuneEl.innerHTML = '<option value="">جميع المدن</option>';
-    var found = false;
-    options.forEach(function(v){
-      var opt = document.createElement('option');
-      opt.value = v;
-      opt.textContent = v;
-      comuneEl.appendChild(opt);
-      if(v === current){ found = true; }
-    });
-    if(!found){ comuneEl.value = ''; state.comune = ''; }
-  }
-  populateComune();
-
-  /* ---------- filtering / sorting ---------- */
-  function filtered(){
-    var q = state.search.toLowerCase();
-    var list = DATA.filter(function(o){
-      if(state.provincia && o.pv !== state.provincia){ return false; }
-      if(state.comune && o.cm !== state.comune){ return false; }
-      if(q){
-        var aText = (has(o.a) && o.a) ? (o.a + ' ') : '';
-        var hay = (o.t + ' ' + aText + o.e + ' ' + o.cm + ' ' + o.pv).toLowerCase();
-        if(hay.indexOf(q) === -1){ return false; }
-      }
-      return true;
-    });
-    list.sort(function(a, b){
+  /* ---------- full offer list (fixed A–Z order) ---------- */
+  function allOffers(){
+    return DATA.slice().sort(function(a, b){
       var x = (has(a.t) ? a.t : '').toLowerCase();
       var y = (has(b.t) ? b.t : '').toLowerCase();
       if(x === y){ return 0; }
-      var r = x < y ? -1 : 1;
-      return state.sort === 'za' ? -r : r;
+      return x < y ? -1 : 1;
     });
-    return list;
   }
 
   /* ---------- card rendering ---------- */
@@ -155,7 +97,7 @@
 
   /* ---------- rendering ---------- */
   function render(){
-    var list = filtered();
+    var list = allOffers();
     var total = list.length;
     var totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
     if(state.page > totalPages){ state.page = totalPages; }
@@ -226,25 +168,8 @@
   }
 
   /* ---------- events ---------- */
-  var searchTimer = null;
-  searchEl.addEventListener('input', function(){
-    state.search = searchEl.value;
-    state.page = 1;
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(render, 220);
-  });
-  provinciaEl.addEventListener('change', function(){
-    state.provincia = provinciaEl.value;
-    state.comune = '';
-    state.page = 1;
-    populateComune();
-    render();
-  });
-  comuneEl.addEventListener('change', function(){ state.comune = comuneEl.value; state.page = 1; render(); });
-  sortEl.addEventListener('change', function(){ state.sort = sortEl.value; state.page = 1; render(); });
-
   prevBtn.addEventListener('click', function(){ if(state.page > 1){ go(state.page - 1); } });
-  nextBtn.addEventListener('click', function(){ if(state.page < Math.ceil(filtered().length / PER_PAGE)){ go(state.page + 1); } });
+  nextBtn.addEventListener('click', function(){ if(state.page < Math.ceil(allOffers().length / PER_PAGE)){ go(state.page + 1); } });
   pagerNumsEl.addEventListener('click', function(e){
     var b = e.target.closest('.offers-pager-num');
     if(b && b.dataset.page){ go(parseInt(b.dataset.page, 10)); }
