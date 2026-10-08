@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-08T00:00:00.000Z",
+  "articles": [
+    {
+      "lang": "ar",
+      "slug": "comment-ecrire-lettre-de-motivation-europe",
+      "url": "/blog/comment-ecrire-lettre-de-motivation-europe.html",
+      "title": "كيف تكتب رسالة تحفيزية للعمل في أوروبا",
+      "excerpt": "خطوة بخطوة: كيف تبني رسالة تحفيزية مقنعة ترفع فرصك فالتقديم على الشركات الأوروبية.",
+      "category": "apply-guides",
+      "date": "2026-10-08",
+      "readingTime": 6,
+      "image": "/blog/images/lettre-motivation-europe.jpg",
+      "imageAlt": "شخص يكتب رسالة تحفيزية على حاسوبه للتقديم على عمل في أوروبا",
+      "imageWidth": 1774,
+      "imageHeight": 887
+    }
+  ]
+}

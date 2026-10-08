@@ -3,6 +3,8 @@
 @media(max-width:980px){
   nav.main-nav{display:none;}
   .header-cta .btn-outline{display:none;}
+  /* Mobile hides the two «ابدأ الآن» CTAs: the header button (the drawer keeps its own) */
+  .header-cta .btn-gold{display:none;}
   .hamburger{display:flex;}
 
   /* Sections */
@@ -29,7 +31,8 @@
 
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
-  .sticky-mobile-cta{display:block;}
+  /* Mobile hides the bottom «ابدأ الآن» sticky CTA too (base display:none in components.css) */
+  .sticky-mobile-cta{display:none;}
   body{padding-bottom:78px;}
 
   /* Promo hero */

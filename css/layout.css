@@ -69,4 +69,3 @@ body.nav-open{overflow:hidden;}
   transition:background .2s ease;
 }
 .mobile-nav-panel a:not(.btn):hover{background:var(--bg2);}
-.mobile-nav-panel .btn{margin-top:16px;}

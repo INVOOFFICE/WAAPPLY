@@ -119,14 +119,6 @@
   font-size:var(--fs-base); font-weight:600; color:var(--navy); cursor:pointer;
 }
 
-/* ===== Support CTA ===== */
-.terms-support{
-  text-align:center; padding:var(--space-8) 0 0;
-  margin-top:var(--space-6);
-}
-.terms-support h3{font-size:var(--fs-xl); font-weight:700; color:var(--navy); margin-bottom:var(--space-3);}
-.terms-support p{font-size:var(--fs-base); color:var(--slate); margin-bottom:var(--space-5); line-height:1.9;}
-
 /* ===== Responsive ===== */
 @media(max-width:600px){
   .terms-hero{padding:56px 0 36px;}

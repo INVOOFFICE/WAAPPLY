@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}" dir="{{DIR}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269008589730162"
+     crossorigin="anonymous"></script>
+<!-- TEMPLATE D'ARTICLE — gabarit unique de tous les articles du blog WAAPPLY.
+     Lu sur GitHub : le moteur y substitue les emplacements, ajoute le niveau
+     de profondeur aux assets, bascule les robots en mode indexable a la
+     publication puis valide la sortie. Le gestionnaire ci-dessus est le bloc
+     de vérification Google AdSense (examen), volontaire et copié tel quel
+     dans chaque article ; aucun autre script ni gestionnaire inline ici. -->
+<title>{{TITLE}}</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL_PATH}}">
+<meta name="theme-color" content="#0A0F1E">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="وابلاي">
+<meta property="og:locale" content="{{OG_LOCALE}}">
+<meta property="og:url" content="{{CANONICAL_PATH}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:image" content="{{ARTICLE_IMAGE}}">
+<meta property="og:image:alt" content="{{IMAGE_ALT}}">
+<meta property="og:image:width" content="{{IMAGE_WIDTH}}">
+<meta property="og:image:height" content="{{IMAGE_HEIGHT}}">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:image" content="{{ARTICLE_IMAGE}}">
+<!-- Article -->
+<meta property="article:published_time" content="{{DATE_PUBLISHED}}">
+<meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+<meta property="article:section" content="{{CATEGORY_NAME}}">
+{{HREFLANG_LINKS}}
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/pwa/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "{{TITLE}}",
+      "description": "{{DESCRIPTION}}",
+      "image": ["{{ARTICLE_IMAGE}}"],
+      "url": "{{CANONICAL_PATH}}",
+      "mainEntityOfPage": "{{CANONICAL_PATH}}",
+      "datePublished": "{{DATE_PUBLISHED}}",
+      "dateModified": "{{DATE_MODIFIED}}",
+      "inLanguage": "{{LANG}}",
+      "articleSection": "{{CATEGORY_NAME}}",
+      "author": {
+        "@type": "Organization",
+        "name": "وابلاي",
+        "url": "https://waapply.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "وابلاي",
+        "url": "https://waapply.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://waapply.com/assets/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "المدونة",
+          "item": "https://waapply.com/blog/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{TITLE}}",
+          "item": "{{CANONICAL_PATH}}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">تخطى إلى المحتوى</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+</svg>
+<header id="site-header">
+  <div class="header-inner">
+    <a href="../index.html#top" class="logo" aria-label="{{NAV_HOME_ARIA}}">
+      <span class="b-logo" aria-hidden="true"></span>
+    </a>
+    <nav class="main-nav" aria-label="{{NAV_ARIA}}">
+      <a href="../index.html#top">الرئيسية</a>
+<a href="../index.html#spontanee">خدمات مدفوعة</a>
+      <a href="../index.html#free-offers">فرصة مجانية للجميع</a>
+      <a class="b-nav-blog" href="index.html">{{NAV_BLOG}}</a>
+      <a href="../index.html#faq">الأسئلة الشائعة</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#cta" class="btn btn-gold">ابدأ الآن</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <article class="b-article" data-category="{{CATEGORY_SLUG}}">
+    <div class="b-container">
+      <p class="b-crumb">
+        <a href="index.html">{{NAV_BLOG}}</a>
+        <span aria-hidden="true"> ← </span>
+        <span>{{TITLE}}</span>
+      </p>
+      <h1>{{TITLE}}</h1>
+      <div class="b-meta">
+        <span class="b-cat">{{CATEGORY}}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime="{{DATE_PUBLISHED}}">{{DATE_PUBLISHED_FORMATTED}}</time>
+        <span aria-hidden="true">·</span>
+        <span>{{READING_TIME}}&nbsp;دقيقة</span>
+      </div>
+      <p class="article-excerpt">{{DESCRIPTION}}</p>
+      <figure class="b-hero-img">
+        <img src="{{ARTICLE_IMAGE}}" alt="{{IMAGE_ALT}}" width="{{IMAGE_WIDTH}}" height="{{IMAGE_HEIGHT}}" fetchpriority="high">
+      </figure>
+      <h2 class="b-toc-heading">{{TOC_HEADING}}</h2>
+      <nav class="toc"><ol>{{TOC_ITEMS}}</ol></nav>
+      <div class="b-body">{{ARTICLE_BODY}}</div>
+      {{FAQ_SECTION}}
+      <div class="b-cta-slot" id="cta">{{CTA_BLOCK}}</div>
+      {{RELATED_ARTICLES}}
+      <nav class="b-pager" aria-label="{{PAGER_ARIA}}">
+        {{PREV_LINK}}
+        {{NEXT_LINK}}
+      </nav>
+      <p class="b-back"><a href="index.html">{{NAV_BLOG}}</a></p>
+    </div>
+  </article>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="شعار وابلاي" class="logo-img" width="512" height="512">
+        <p>خلي البحث والتقديم اليومي على الشركات علينا حنا — ونتا ركّز على مهاراتك.</p>
+      </div>
+      <div class="footer-cta">
+        <h4>حبس تضيع وقتك فالتقديم كل نهار.</h4>
+        <p>طوّر مهاراتك، حسن اللغة ديالك، وجد للمقابلات — وحنا نهمّو بالجزء المتكرر والمتعب من التقديم.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>روابط</h5>
+          <ul>
+            <li><a href="../index.html#top">الرئيسية</a></li>
+            <li><a href="../index.html#spontanee">مدفوعة</a></li>
+            <li><a href="index.html">{{FOOTER_BLOG}}</a></li>
+            <li><a href="../index.html#faq">الأسئلة الشائعة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>تواصل</h5>
+          <ul>
+            <li><a href="https://wa.me/32465327875"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg>تواصل معنا</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="footer-disclaimer">هاد الخدمة كتعاونك فالبحث على فرص العمل وإرسال وتنظيم طلبات التوظيف، ولكن ما كتضمنش ليك خدمة ولا <span class="latin">Visa</span>. القرار النهائي كيرجع للشركة والجهات المختصة.</p>
+    <div class="footer-bottom">
+      <span>{{FOOTER_COPYRIGHT}}</span>
+      <span class="footer-sep" aria-hidden="true">|</span>
+      <a href="../terms.html" class="footer-legal-link">{{FOOTER_TERMS}}</a>
+      <span class="footer-sep" aria-hidden="true">|</span>
+      <a href="../privacy.html" class="footer-legal-link">سياسة الخصوصية</a>
+    </div>
+  </div>
+</footer>
+<script src="js/blog.js"></script>
+</body>
+</html>
