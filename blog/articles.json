@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-08T00:00:00.000Z",
+  "generatedAt": "2026-10-09T00:55:43.294Z",
   "articles": [
     {
       "lang": "ar",
-      "slug": "comment-ecrire-lettre-de-motivation-europe",
-      "url": "/blog/comment-ecrire-lettre-de-motivation-europe.html",
-      "title": "كيف تكتب رسالة تحفيزية للعمل في أوروبا",
-      "excerpt": "خطوة بخطوة: كيف تبني رسالة تحفيزية مقنعة ترفع فرصك فالتقديم على الشركات الأوروبية.",
-      "category": "apply-guides",
-      "date": "2026-10-08",
-      "readingTime": 6,
-      "image": "/blog/images/lettre-motivation-europe.jpg",
-      "imageAlt": "شخص يكتب رسالة تحفيزية على حاسوبه للتقديم على عمل في أوروبا",
-      "imageWidth": 1774,
-      "imageHeight": 887
+      "slug": "al-mihan-al-matlouba-fi-europe-eures",
+      "url": "/blog/al-mihan-al-matlouba-fi-europe-eures.html",
+      "title": "كيف أستخدم بوابة EURES لفهم المهن المطلوبة في أوروبا واختيار فرص مناسبة لخبرتي؟",
+      "excerpt": "دليل عملي لاستخدام بوابة EURES وقراءة معلومات سوق العمل الأوروبي، ومقارنة المهارات والمؤهلات واللغة لتحديد المهن الأقرب إلى خبرتك.",
+      "category": "work-in-europe",
+      "date": "2026-10-09",
+      "readingTime": 9,
+      "image": "/blog/images/image-18d42e23b2.jpg",
+      "imageAlt": "باحث عن عمل يراجع معلومات سوق العمل الأوروبي ويقارن المهارات والمؤهلات المطلوبة بالمهن المناسبة لخبرته",
+      "imageWidth": 1200,
+      "imageHeight": 600
     }
   ]
 }
