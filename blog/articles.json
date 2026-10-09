@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-09T00:55:43.294Z",
+  "generatedAt": "2026-10-09T15:29:32.672Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "motabaat-talab-alamal-baad-alirsal",
+      "url": "/blog/motabaat-talab-alamal-baad-alirsal.html",
+      "title": "كيف أكتب رسالة متابعة لطلب العمل بعد إرساله دون إزعاج صاحب العمل؟",
+      "excerpt": "دليل عملي لكتابة رسالة متابعة طلب التوظيف بعد الإرسال، مع نموذج جاهز ونصائح لاختيار التوقيت المناسب والتواصل باحترام مع مسؤول التوظيف.",
+      "category": "apply-guides",
+      "date": "2026-10-09",
+      "readingTime": 9,
+      "image": "/blog/images/motabaat-talab-alamal-baad-alirsal.jpg",
+      "imageAlt": "مرشح يراجع رسالة بريد إلكتروني لمتابعة طلب توظيف على حاسوب محمول",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "al-mihan-al-matlouba-fi-europe-eures",
@@ -9,7 +23,7 @@
       "title": "كيف أستخدم بوابة EURES لفهم المهن المطلوبة في أوروبا واختيار فرص مناسبة لخبرتي؟",
       "excerpt": "دليل عملي لاستخدام بوابة EURES وقراءة معلومات سوق العمل الأوروبي، ومقارنة المهارات والمؤهلات واللغة لتحديد المهن الأقرب إلى خبرتك.",
       "category": "work-in-europe",
-      "date": "2026-10-09",
+      "date": "2026-10-08",
       "readingTime": 9,
       "image": "/blog/images/al-mihan-al-matlouba-fi-europe-eures.jpg",
       "imageAlt": "باحث عن عمل يراجع معلومات سوق العمل الأوروبي ويقارن المهارات والمؤهلات المطلوبة بالمهن المناسبة لخبرته",
