@@ -205,45 +205,45 @@
    ============================================================ */
 .blog-section{background:var(--bg2);}
 
-.blog-preview-grid{
-  display:flex; flex-wrap:wrap; justify-content:center;
-  gap:var(--space-5); margin-bottom:var(--space-8);
+/* Liste des dernières cartes : MÊME vocabulaire que le hub (assets/blog.css),
+   mais SCOPÉE sous #blog — car sections.css est aussi @importé par
+   assets/blog.css : un sélecteur non scopé s'appliquerait donc aussi au hub.
+   Les cartes sont écrites par le moteur (BlogIndexes.gs) et portent des
+   href/image RELATIFS : la page d'accueil est servie depuis la racine et ne
+   charge pas js/blog.js (qui, lui, relativise le hub). */
+#blog .article-list{
+  list-style:none; padding:0; margin:0 0 var(--space-8);
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:var(--space-5);
 }
-
-.blog-card{
-  display:flex; flex-direction:column; overflow:hidden; text-decoration:none;
-  flex:1 1 300px; max-width:420px;
+#blog .article-item{
+  display:flex; flex-direction:column; gap:var(--space-3);
   background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
-  box-shadow:var(--shadow-xs);
-  transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
+  padding:var(--space-6); box-shadow:var(--shadow-xs); overflow:hidden;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
-.blog-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
+#blog .article-item:hover{border-color:var(--line-blue); box-shadow:var(--shadow); transform:translateY(-2px);}
+#blog .article-item .meta{font-size:var(--fs-xs); color:var(--slate); font-weight:600;}
+#blog .article-item h3{font-size:var(--fs-md); line-height:1.6;}
+#blog .article-item h3 a{color:var(--navy); text-decoration:none; transition:color .2s ease;}
+#blog .article-item h3 a:hover{color:var(--blue);}
+#blog .article-item p{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin:0;}
+#blog .article-thumb{
+  margin:calc(var(--space-6) * -1) calc(var(--space-6) * -1) 0;
+  aspect-ratio:2/1; overflow:hidden; background:var(--bg2);
+}
+#blog .article-thumb img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
+#blog .article-thumb:empty{display:none;}
 
-.blog-card-media{aspect-ratio:2/1; flex-shrink:0; overflow:hidden; background:var(--bg2);}
-.blog-card-media img{
-  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
-  transition:transform .5s var(--ease-entrance);
-}
-.blog-card:hover .blog-card-media img{transform:scale(1.04);}
-
-.blog-card-body{display:flex; flex-direction:column; flex:1; padding:var(--space-5) var(--space-6) var(--space-6);}
-.blog-card-meta{
-  display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;
-  margin-bottom:var(--space-3); font-size:var(--fs-xs); color:var(--slate); font-weight:600;
-}
-.blog-card-cat{
-  background:var(--tint-gold); color:var(--blue-strong);
-  font-size:var(--fs-xs); font-weight:700; padding:4px 12px; border-radius:var(--radius-pill);
-}
-.blog-card-title{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.6; margin-bottom:var(--space-3);}
-.blog-card-excerpt{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin:0 0 var(--space-5);}
+/* Lien « قراءة المقال » : composant PARTAGÉ avec le hub (assets/blog.css
+   importe ce fichier). Seul l'élément survolé diffère : `#blog .article-item`
+   ici, `.article-item` pour le hub (état :hover déclaré dans blog.css). */
 .blog-card-more{
   margin-top:auto; display:inline-flex; align-items:center; gap:var(--space-2);
   font-size:var(--fs-sm); font-weight:700; color:var(--blue);
 }
 .blog-card-more .ic{width:16px; height:16px; transition:transform .25s var(--ease-entrance);}
-.blog-card:hover .blog-card-more{color:var(--blue-strong);}
-.blog-card:hover .blog-card-more .ic{transform:translateX(-3px);}
+#blog .article-item:hover .blog-card-more{color:var(--blue-strong);}
+#blog .article-item:hover .blog-card-more .ic{transform:translateX(-3px);}
 
 .blog-preview-cta{display:flex; justify-content:center;}
 
