@@ -398,11 +398,12 @@
 <section class="section-pad spontanee-section" id="spontanee" aria-labelledby="spontanee-title">
   <div class="container spontanee-grid">
 
-    <!-- ========== LEFT — IMAGE ========== -->
+    <!-- ========== LEFT — VIDEO ========== -->
     <div class="spontanee-visual reveal">
       <div class="spontanee-media">
-        <img src="assets/images/wpli.jpg" alt="ترشّح تلقائي للشركات الأوروبية"
-             width="1254" height="1254" loading="lazy" decoding="async">
+        <video src="assets/job/Career.mp4" autoplay muted loop playsinline
+               disablepictureinpicture preload="metadata"
+               width="1280" height="720" aria-label="ترشّح تلقائي للشركات الأوروبية"></video>
       </div>
     </div>
 
@@ -410,7 +411,7 @@
     <div class="spontanee-content">
       <span class="spontanee-badge reveal"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg>ترشّح تلقائي</span>
       <h2 class="spontanee-title reveal" data-delay="90" id="spontanee-title">خدمات مدفوعة</h2>
-      <p class="spontanee-sub reveal" data-delay="180">ماشي غير لمنصب واحد — كنقدمو بروفايلك للشركات المناسبة للفرص الحالية والمستقبلية.</p>
+      <p class="spontanee-sub reveal" data-delay="180">كنقدّمو بروفايلك لأكثر من <span class="latin">30</span> شركة يومياً فـ أوروبا، باش نلقاو ليك فرص توظيف مناسبة.</p>
 
       <ul class="spontanee-features reveal" data-delay="240">
         <li><span class="sp-fi sp-fi--pin"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg></span><span>جميع الدول الأوروبية</span></li>
@@ -471,6 +472,36 @@
       </div>
       <div class="countries-grid" data-stagger></div>
     </section>
+  </div>
+</section>
+
+<!-- ===================== BLOG — latest-articles preview (links to blog/index.html) ===================== -->
+<section class="section-pad blog-section" id="blog" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="blog-head">
+      <span class="eyebrow-sm reveal">مدونة وابلاي</span>
+      <h2 class="section-title reveal" id="blog-title" data-delay="90">المدونة</h2>
+      <p class="section-sub reveal" data-delay="180">أدلة ونصائح عملية للتقديم على العمل فـ أوروبا: كيف تجهّز ملفك ورسالتك التحفيزية، شروط العمل حسب الدول، وحقوق العمال — قبل ما تبدا الطريق.</p>
+    </div>
+    <div class="blog-preview-grid" data-stagger>
+      <a class="blog-card reveal" href="blog/comment-ecrire-lettre-de-motivation-europe.html">
+        <div class="blog-card-media">
+          <img src="blog/images/lettre-motivation-europe.jpg" alt="شخص يكتب رسالة تحفيزية على حاسوبه للتقديم على عمل في أوروبا" width="1774" height="887" loading="lazy" decoding="async">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">دليل التقديم</span>
+            <span class="blog-card-date">8 أكتوبر 2026</span>
+          </div>
+          <h3 class="blog-card-title">كيف تكتب رسالة تحفيزية للعمل في أوروبا</h3>
+          <p class="blog-card-excerpt">خطوة بخطوة: كيف تبني رسالة تحفيزية مقنعة ترفع فرصك فالتقديم على الشركات الأوروبية.</p>
+          <span class="blog-card-more">قراءة المقال <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <div class="blog-preview-cta reveal">
+      <a class="btn btn-ghost-clear" href="blog/index.html">عرض جميع المقالات <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -702,6 +733,7 @@
 <script src="js/countries.js"></script>
 <script src="js/sectors.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/spontanee-video.js"></script>
 <script src="js/app.js"></script>
 <script src="js/contact-modal.js"></script>
 <script src="js/pwa.js"></script>

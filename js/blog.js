@@ -70,11 +70,13 @@ function initBlogHub() {
   var items = Array.prototype.slice.call(list.querySelectorAll('.article-item'));
 
   items.forEach(function (item) {
-    // 1) href racine-absolu du moteur → lien relatif (file:// + https://)
-    var link = item.querySelector('h3 a');
-    if (link) {
-      var href = link.getAttribute('href') || '';
-      if (href.indexOf('/blog/') === 0) link.setAttribute('href', href.slice('/blog/'.length));
+    // 1) hrefs racine-absolus du moteur → liens relatifs (file:// + https://).
+    //    Concerne le titre (h3 a) ET le lien « قراءة المقال » (.blog-card-more) :
+    //    les deux portent le MÊME href d'article, donc la même réécriture.
+    var links = item.querySelectorAll('a[href^="/blog/"]');
+    for (var j = 0; j < links.length; j += 1) {
+      var href = links[j].getAttribute('href') || '';
+      if (href.indexOf('/blog/') === 0) links[j].setAttribute('href', href.slice('/blog/'.length));
     }
     // 2) catégorie brute → libellé arabe + clé de filtrage
     item.setAttribute('data-category', blogRewriteMeta(item));

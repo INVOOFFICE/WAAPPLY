@@ -49,6 +49,15 @@
 }
 .btn-ghost-light-2:hover{background:#fff; border-color:var(--blue); color:var(--blue-strong); transform:translateY(-1px); box-shadow:var(--shadow-sm);}
 
+/* Fully transparent outlined link-button — stays unfilled at rest AND on hover */
+.btn-ghost-clear{
+  background:transparent; border:1.5px solid var(--border-strong); color:var(--navy);
+}
+.btn-ghost-clear:hover{
+  background:transparent; border-color:var(--blue); color:var(--blue-strong);
+  transform:translateY(-1px); box-shadow:var(--shadow-sm);
+}
+
 /* ===== Sticky mobile CTA ===== */
 .sticky-mobile-cta{
   display:none; position:fixed; bottom:0; right:0; left:0; z-index:90;

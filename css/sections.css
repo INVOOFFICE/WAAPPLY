@@ -27,9 +27,9 @@
    COUNTRIES — grid of 12 country cards (8 per page, inside the pricing section)
    ============================================================ */
 .countries{margin-top:var(--space-10);}
-.countries-head,.sectors-head,.free-offers-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
-.countries-head .section-title,.sectors-head .section-title,.free-offers-head .section-title{margin-bottom:var(--space-3);}
-.countries-head .section-sub,.sectors-head .section-sub,.free-offers-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
+.countries-head,.sectors-head,.free-offers-head,.blog-head{text-align:center; max-width:680px; margin:0 auto var(--space-8);}
+.countries-head .section-title,.sectors-head .section-title,.free-offers-head .section-title,.blog-head .section-title{margin-bottom:var(--space-3);}
+.countries-head .section-sub,.sectors-head .section-sub,.free-offers-head .section-sub,.blog-head .section-sub{font-size:var(--fs-md); color:var(--slate); margin:0 auto; line-height:1.9;}
 
 .countries-grid{
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-5);
@@ -199,6 +199,55 @@
 .italia-cta{margin-top:var(--space-6);}
 
 /* ============================================================
+   BLOG — latest-articles preview on the homepage (#blog, before #faq).
+   Cards mirror the blog hub vocabulary (cover image + category + date +
+   title + excerpt) and lead to the existing hub (blog/index.html).
+   ============================================================ */
+.blog-section{background:var(--bg2);}
+
+.blog-preview-grid{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:var(--space-5); margin-bottom:var(--space-8);
+}
+
+.blog-card{
+  display:flex; flex-direction:column; overflow:hidden; text-decoration:none;
+  flex:1 1 300px; max-width:420px;
+  background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow-xs);
+  transition:transform .35s var(--ease-entrance), box-shadow .3s ease, border-color .3s ease;
+}
+.blog-card:hover{transform:translateY(-4px); border-color:var(--line-blue); box-shadow:var(--shadow-sm);}
+
+.blog-card-media{aspect-ratio:2/1; flex-shrink:0; overflow:hidden; background:var(--bg2);}
+.blog-card-media img{
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+  transition:transform .5s var(--ease-entrance);
+}
+.blog-card:hover .blog-card-media img{transform:scale(1.04);}
+
+.blog-card-body{display:flex; flex-direction:column; flex:1; padding:var(--space-5) var(--space-6) var(--space-6);}
+.blog-card-meta{
+  display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap;
+  margin-bottom:var(--space-3); font-size:var(--fs-xs); color:var(--slate); font-weight:600;
+}
+.blog-card-cat{
+  background:var(--tint-gold); color:var(--blue-strong);
+  font-size:var(--fs-xs); font-weight:700; padding:4px 12px; border-radius:var(--radius-pill);
+}
+.blog-card-title{font-size:var(--fs-md); font-weight:700; color:var(--navy); line-height:1.6; margin-bottom:var(--space-3);}
+.blog-card-excerpt{font-size:var(--fs-sm); color:var(--slate); line-height:1.9; margin:0 0 var(--space-5);}
+.blog-card-more{
+  margin-top:auto; display:inline-flex; align-items:center; gap:var(--space-2);
+  font-size:var(--fs-sm); font-weight:700; color:var(--blue);
+}
+.blog-card-more .ic{width:16px; height:16px; transition:transform .25s var(--ease-entrance);}
+.blog-card:hover .blog-card-more{color:var(--blue-strong);}
+.blog-card:hover .blog-card-more .ic{transform:translateX(-3px);}
+
+.blog-preview-cta{display:flex; justify-content:center;}
+
+/* ============================================================
    CANDIDATURE SPONTANÉE
    ============================================================ */
 .spontanee-section{
@@ -213,13 +262,13 @@
 /* ---- Left: image ---- */
 .spontanee-visual{position:relative;}
 .spontanee-media{
-  position:relative; aspect-ratio:1/1; max-width:520px; width:100%;
+  position:relative; aspect-ratio:1480/1063; max-width:520px; width:100%;
   margin:0 auto; overflow:hidden;
   background:var(--bg2); border:1px solid var(--border);
   border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);
 }
-.spontanee-media img{
-  width:100%; height:100%; object-fit:cover; display:block;
+.spontanee-media video{
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
 }
 
 /* ---- Right: content / CTA ---- */
