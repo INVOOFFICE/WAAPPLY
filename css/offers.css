@@ -309,7 +309,7 @@ body.pm-lock{overflow:hidden;}
    database/resource and the grid stacks them with a uniform gap.
    ============================================================ */
 .offers-opps{padding:var(--space-8) 0 96px;}
-.opps-grid{display:grid; grid-template-columns:1fr; gap:var(--space-6);}
+.opps-grid{display:grid; grid-template-columns:minmax(0,1fr); gap:var(--space-6);}
 /* Extra supporting line on the Europe / manufacturing card and the hospitality
    card only — everything else in the card reuses .italia-banner / .italia-media
    / .italia-body. */

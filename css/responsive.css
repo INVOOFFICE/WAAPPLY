@@ -22,15 +22,17 @@
   .spontanee-features{grid-template-columns:1fr 1fr;}
 
   /* Offer banners (europe + italia) */
-  .italia-banner{grid-template-columns:1fr; gap:40px; padding:var(--space-6);}
+  .italia-banner{grid-template-columns:minmax(0,1fr); gap:40px; padding:var(--space-6);}
   .italia-media{order:-1;}
-  .italia-body{max-width:640px; margin:0 auto;}
+  .italia-body{max-width:640px; margin:0 auto; min-width:0;}
 
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
-  /* Mobile hides the bottom «ابدأ الآن» sticky CTA too (base display:none in components.css) */
+  /* Mobile hides the bottom «ابدأ الآن» sticky CTA too (base display:none in components.css).
+     With the CTA hidden there is no fixed bar to clear, so body keeps no bottom
+     offset — the old `padding-bottom:78px` left an empty 78px strip of body
+     background below the footer (visible as a light band on mobile). */
   .sticky-mobile-cta{display:none;}
-  body{padding-bottom:78px;}
 
   /* Promo hero */
   .promo-section .container{
@@ -124,9 +126,10 @@
 
 /* ===== PWA surfaces (install invitation + update notice — js/pwa.js) ===== */
 @media(max-width:980px){
-  /* Float above the sticky mobile CTA (78px body offset + space-3 breathing room + safe area) */
+  /* Near the bottom edge (space-3 breathing room + safe area). The sticky mobile CTA is
+     hidden at this breakpoint and body has no bottom offset, so there is no 78px bar to clear. */
   .pwa-install, .pwa-update{
-    bottom:calc(78px + var(--space-3) + env(safe-area-inset-bottom, 0px));
+    bottom:calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
     width:min(440px, calc(100% - var(--space-5)));
   }
 }
