@@ -1,0 +1,8 @@
+# Cloudflare Workers Assets — never upload internal/deployment files.
+# .gitignore format; entries are relative to the assets directory (repo root).
+.git/
+.vercel/
+.wrangler/
+planification/
+translation_progress.json
+*.csv
