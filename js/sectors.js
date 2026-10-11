@@ -17,7 +17,7 @@
       desc:'المصانع وخطوط الإنتاج فـ أوروبا كيبقاو باغين طاقات جديدة. كنستهدف شركات التصنيع اللي كتناسب الخبرة ديالك وكنوصّل ليهم البروفايل ديالك.' },
     { key:'hebergement-restauration', name:'الإيواء والمطاعم', fr:'Hébergement et restauration', img:'Hébergement et restauration .jpg', icon:'i-utensils',
       desc:'الفنادق والمطاعم والكوفيات قطاع كيدوّر على كادر بزاف. كنوجّهو البحث والترشيح للشركات المناسبة ليك فهاد المجال.' },
-    { key:'services-administratifs', name:'أنشطة الخدمات الإدارية والدعم', fr:'Activités de service administratif et de soutien', img:'Activités de service administratif et de soutien .jpg', icon:'i-headset',
+    { key:'services-administratifs', name:'أنشطة الخدمات الإدارية والدعم', fr:'Activités de service administratif et de soutien', img:'Activités de service administratif et de soutien.jpg', icon:'i-headset',
       desc:'الدعم الإداري والاستقبال والخدمات السندية. كنوصّلو البروفايل ديالك للشركات اللي محتاجة هاد النوع من الطاقات والكفاءات.' },
     { key:'commerce-gros-detail', name:'تجارة الجملة والتجزئة', fr:'Commerce de gros et de détail', img:'Commerce de gros et de détail .jpg', icon:'i-shopping-cart',
       desc:'البيع بالجملة والتجزئة والمخازن الكبيرة. كنعبرو بروفايلك للشركات التجارية المناسبة — فالمتاجر ولا فالتوزيع.' },
