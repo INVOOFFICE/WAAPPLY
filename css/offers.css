@@ -314,7 +314,8 @@ body.pm-lock{overflow:hidden;}
    card only — everything else in the card reuses .italia-banner / .italia-media
    / .italia-body. */
 .offer-card--europe-manufacturing .opps-note,
-.offer-card--hospitality-restauration .opps-note{
+.offer-card--hospitality-restauration .opps-note,
+.offer-card--administrative-support .opps-note{
   margin-top:var(--space-3);
   font-size:var(--fs-sm); color:var(--slate); line-height:1.9;
 }
