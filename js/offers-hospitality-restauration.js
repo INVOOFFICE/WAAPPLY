@@ -1,10 +1,12 @@
 // Free hospitality & restauration job offers page (الإيواء والمطاعم) — renders
 // window.OFFERS_HOSP_DATA (generated from eures_jobs_SECI.csv by
-// tools/generate-offers-hospitality-restauration-data.py) with 50 offers per
-// page, search on title / Arabic title / employer, country + sector filters,
-// date sorting, pagination, email reveal/copy and original-source links.
-// The page ships in its empty state: the tools bar and results meta stay
-// hidden and the Arabic empty state is shown unless the dataset has records.
+// tools/generate-offers-hospitality-restauration-data.py) directly (no
+// search/filter bar), newest publication date first, 50 offers per page,
+// pagination, email reveal/copy and original-source links. Each card shows
+// today's date, computed client-side and labelled «تاريخ العرض على الموقع»
+// (never the EURES `d` value, which stays untouched in the data).
+// The page ships in its empty state: the results meta stays hidden and the
+// Arabic empty state is shown unless the dataset has records.
 // Vanilla JS, no dependencies, works over file:// (data is a classic script).
 
 (function(){
@@ -12,48 +14,33 @@
 
   var DATA = window.OFFERS_HOSP_DATA || [];
   var PER_PAGE = 50;
-  var state = { page:1, search:'', country:'', sector:'', sort:'new' };
+  var state = { page:1 };
 
   var grid     = document.getElementById('offers-grid');
   var countEl  = document.getElementById('offers-count');
   var emptyEl  = document.getElementById('offers-empty');
-  var emptyTitleEl = document.getElementById('offers-empty-title');
-  var emptyTextEl  = document.getElementById('offers-empty-text');
   var pagerEl  = document.getElementById('offers-pager');
   var pagerNumsEl = document.getElementById('offers-pager-nums');
   var prevBtn  = document.getElementById('offers-pager-prev');
   var nextBtn  = document.getElementById('offers-pager-next');
-  var searchEl = document.getElementById('offers-search');
-  var countryEl = document.getElementById('offers-country');
-  var sectorEl = document.getElementById('offers-sector');
-  var sortEl   = document.getElementById('offers-sort');
-  var toolsEl  = document.querySelector('.offers-tools');
   var metaEl   = document.querySelector('.offers-meta');
 
   if(!grid){ return; }
 
-  // The page ships in its empty state (tools bar + counter hidden in the
-  // markup), so it also renders correctly if this script never runs. With real
-  // records the controls come back.
+  // The page ships in its empty state (counter hidden in the markup), so it
+  // also renders correctly if this script never runs. With real records the
+  // counter comes back.
   var NO_DATA = DATA.length === 0;
   if(!NO_DATA){
-    if(toolsEl){ toolsEl.hidden = false; }
     if(metaEl){ metaEl.hidden = false; }
   }
 
-  var EMPTY_TEXTS = {
-    none:    ['لا توجد عروض متاحة حالياً',
-              'كنجمعو العروض المتوفرة فهاد القطاع وغادي تتنشر هنا أول ما تتوصل بيها. رجع لهاد الصفحة من بعد.'],
-    filters: ['ما لقينا حتى عرض مطابق',
-              'جرب تغير كلمات البحث ولا المرشحات باش تلقى عروض أخرى.']
-  };
-
-  function setEmpty(kind){
-    var t = EMPTY_TEXTS[kind];
-    if(!t){ return; }
-    if(emptyTitleEl){ emptyTitleEl.textContent = t[0]; }
-    if(emptyTextEl){ emptyTextEl.textContent = t[1]; }
-  }
+  // Today's date, DD/MM/YYYY, computed once per load — the same value for
+  // every card. This is the date the offer is shown on the site today, NOT
+  // the employer's publication date, so it never fakes a republication.
+  function pad2(n){ return n < 10 ? '0' + n : '' + n; }
+  var _now = new Date();
+  var TODAY = pad2(_now.getDate()) + '/' + pad2(_now.getMonth() + 1) + '/' + _now.getFullYear();
 
   /* ---------- esc: escape text for safe insertion into HTML ---------- */
   function esc(s){
@@ -64,30 +51,7 @@
   function ic(name){ return '<svg class="ic" aria-hidden="true"><use href="#i-' + name + '"/></svg>'; }
   function has(v){ return v && String(v) !== '-'; }
 
-  /* ---------- build country + sector filter options from the data ---------- */
-  (function fillFilters(){
-    var seenC = {}, countries = [];
-    var seenS = {}, sectors = [];
-    DATA.forEach(function(o){
-      if(has(o.c) && !seenC[o.c]){ seenC[o.c] = 1; countries.push({ v:o.c, l:has(o.ca) ? o.ca : o.c }); }
-      if(has(o.sa) && !seenS[o.sa]){ seenS[o.sa] = 1; sectors.push({ v:o.sa, l:o.sa }); }
-    });
-    function byLabel(a, b){ return String(a.l).localeCompare(String(b.l), 'ar'); }
-    countries.sort(byLabel);
-    sectors.sort(byLabel);
-    function append(el, pairs){
-      pairs.forEach(function(p){
-        var opt = document.createElement('option');
-        opt.value = p.v;
-        opt.textContent = p.l;
-        el.appendChild(opt);
-      });
-    }
-    if(countryEl){ append(countryEl, countries); }
-    if(sectorEl){ append(sectorEl, sectors); }
-  })();
-
-  /* ---------- filtering / sorting ---------- */
+  /* ---------- ordering (newest EURES publication date first; `d` stays as-is) ---------- */
   function cmpTitle(a, b){
     var x = (has(a.t) ? a.t : '').toLowerCase();
     var y = (has(b.t) ? b.t : '').toLowerCase();
@@ -95,24 +59,12 @@
     return x < y ? -1 : 1;
   }
 
-  function filtered(){
-    var q = state.search.toLowerCase();
-    var list = DATA.filter(function(o){
-      if(state.country && o.c !== state.country){ return false; }
-      if(state.sector && o.sa !== state.sector){ return false; }
-      if(q){
-        var aText = (has(o.a) && o.a) ? (o.a + ' ') : '';
-        var hay = (o.t + ' ' + aText + o.e + ' ' + o.ca + ' ' + o.sa).toLowerCase();
-        if(hay.indexOf(q) === -1){ return false; }
-      }
-      return true;
-    });
+  function ordered(){
+    var list = DATA.slice();
     list.sort(function(a, b){
-      if(state.sort === 'az'){ return cmpTitle(a, b); }
       // d is an ISO "YYYY-MM-DD" string, so lexicographic order is chronological
-      var d = a.d < b.d ? -1 : (a.d > b.d ? 1 : 0);
-      if(state.sort === 'old'){ return d !== 0 ? d : cmpTitle(a, b); }
-      return d !== 0 ? -d : cmpTitle(a, b);
+      var d = a.d < b.d ? 1 : (a.d > b.d ? -1 : 0);
+      return d !== 0 ? d : cmpTitle(a, b);
     });
     return list;
   }
@@ -121,7 +73,7 @@
   function cardHtml(o){
     var chips = '';
     if(has(o.ca)){ chips += '<span class="offer-chip">' + ic('globe') + 'الدولة: ' + esc(o.ca) + '</span>'; }
-    if(has(o.d)){ chips += '<span class="offer-chip">' + ic('clock') + '<span class="offer-date latin">' + esc(o.d) + '</span></span>'; }
+    chips += '<span class="offer-chip">' + ic('clock') + 'تاريخ العرض على الموقع: <span class="offer-date latin">' + TODAY + '</span></span>';
 
     var title = has(o.t)
       ? esc(o.t)
@@ -174,7 +126,7 @@
 
   /* ---------- rendering ---------- */
   function render(){
-    var list = filtered();
+    var list = ordered();
     var total = list.length;
     var totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
     if(state.page > totalPages){ state.page = totalPages; }
@@ -195,11 +147,9 @@
       ? 'ما لقينا حتى عرض'
       : 'عرض <span class="latin">' + first + '</span> – <span class="latin">' + last + '</span> من أصل <span class="latin">' + total.toLocaleString('en-US') + '</span> عرض';
 
-    // empty state — "no offers yet" while the dataset is empty, otherwise the
-    // usual "no match for this search" copy
+    // empty state
     emptyEl.hidden = total !== 0;
     grid.hidden = total === 0;
-    if(total === 0){ setEmpty(NO_DATA ? 'none' : 'filters'); }
 
     // pager
     pagerEl.hidden = totalPages <= 1;
@@ -247,19 +197,8 @@
   }
 
   /* ---------- events ---------- */
-  var searchTimer = null;
-  searchEl.addEventListener('input', function(){
-    state.search = searchEl.value;
-    state.page = 1;
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(render, 220);
-  });
-  countryEl.addEventListener('change', function(){ state.country = countryEl.value; state.page = 1; render(); });
-  sectorEl.addEventListener('change', function(){ state.sector = sectorEl.value; state.page = 1; render(); });
-  sortEl.addEventListener('change', function(){ state.sort = sortEl.value; state.page = 1; render(); });
-
   prevBtn.addEventListener('click', function(){ if(state.page > 1){ go(state.page - 1); } });
-  nextBtn.addEventListener('click', function(){ if(state.page < Math.ceil(filtered().length / PER_PAGE)){ go(state.page + 1); } });
+  nextBtn.addEventListener('click', function(){ if(state.page < Math.ceil(DATA.length / PER_PAGE)){ go(state.page + 1); } });
   pagerNumsEl.addEventListener('click', function(e){
     var b = e.target.closest('.offers-pager-num');
     if(b && b.dataset.page){ go(parseInt(b.dataset.page, 10)); }

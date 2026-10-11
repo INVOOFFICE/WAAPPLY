@@ -26,9 +26,6 @@
   .italia-media{order:-1;}
   .italia-body{max-width:640px; margin:0 auto;}
 
-  /* Free offers page (offers.html) */
-  .offers-tools-inner{gap:var(--space-3);}
-
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
   /* Mobile hides the bottom «ابدأ الآن» sticky CTA too (base display:none in components.css) */
@@ -55,7 +52,6 @@
 
   /* Free offers page (offers.html) */
   .offers-grid{grid-template-columns:1fr;}
-  .offers-selects select{flex:1;}
 }
 
 @media(max-width:600px){
@@ -91,11 +87,6 @@
   .offers-hero .container{padding:44px var(--space-5) 40px;}
   .offers-hero-sub{font-size:var(--fs-base);}
   .offers-opps{padding-bottom:64px;}
-  .offers-tools-inner{padding:var(--space-4) 0;}
-  .offers-selects{width:100%;}
-  .offers-selects select{min-width:0;}
-  .offers-search input{padding:12px 40px 12px 14px;}
-  .offers-search-ic{right:12px;}
   .offer-card{padding:var(--space-5);}
   .offer-actions{grid-template-columns:1fr;}
   .offer-email-copy{margin-inline-start:0; width:100%; justify-content:center;}
