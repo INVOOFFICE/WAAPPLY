@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-09T15:29:32.672Z",
+  "generatedAt": "2026-10-11T23:29:12.956Z",
   "articles": [
     {
       "lang": "ar",
-      "slug": "motabaat-talab-alamal-baad-alirsal",
-      "url": "/blog/motabaat-talab-alamal-baad-alirsal.html",
-      "title": "كيف أكتب رسالة متابعة لطلب العمل بعد إرساله دون إزعاج صاحب العمل؟",
-      "excerpt": "دليل عملي لكتابة رسالة متابعة طلب التوظيف بعد الإرسال، مع نموذج جاهز ونصائح لاختيار التوقيت المناسب والتواصل باحترام مع مسؤول التوظيف.",
-      "category": "apply-guides",
-      "date": "2026-10-09",
+      "slug": "asila-qabla-tawqie-eaqd-al-eamal",
+      "url": "/blog/asila-qabla-tawqie-eaqd-al-eamal.html",
+      "title": "ما الأسئلة التي يجب أن أطرحها على صاحب العمل قبل توقيع عقد العمل في أوروبا؟",
+      "excerpt": "دليل عملي يساعدك على مراجعة عقد العمل قبل التوقيع، وطرح أسئلة واضحة عن المهام والراتب وساعات العمل والإجازات وفترة التجربة وإنهاء العقد.",
+      "category": "work-conditions",
+      "date": "2026-10-11",
       "readingTime": 9,
-      "image": "/blog/images/motabaat-talab-alamal-baad-alirsal.jpg",
-      "imageAlt": "مرشح يراجع رسالة بريد إلكتروني لمتابعة طلب توظيف على حاسوب محمول",
+      "image": "/blog/images/asila-qabla-tawqie-eaqd-al-eamal.jpg",
+      "imageAlt": "مرشح يراجع عقد عمل ويكتب أسئلة عن الراتب وساعات العمل والإجازات قبل التوقيع",
       "imageWidth": 1200,
       "imageHeight": 600
     },
@@ -27,6 +27,20 @@
       "readingTime": 9,
       "image": "/blog/images/al-mihan-al-matlouba-fi-europe-eures.jpg",
       "imageAlt": "باحث عن عمل يراجع معلومات سوق العمل الأوروبي ويقارن المهارات والمؤهلات المطلوبة بالمهن المناسبة لخبرته",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
+    {
+      "lang": "ar",
+      "slug": "motabaat-talab-alamal-baad-alirsal",
+      "url": "/blog/motabaat-talab-alamal-baad-alirsal.html",
+      "title": "كيف أكتب رسالة متابعة لطلب العمل بعد إرساله دون إزعاج صاحب العمل؟",
+      "excerpt": "دليل عملي لكتابة رسالة متابعة طلب التوظيف بعد الإرسال، مع نموذج جاهز ونصائح لاختيار التوقيت المناسب والتواصل باحترام مع مسؤول التوظيف.",
+      "category": "apply-guides",
+      "date": "2026-10-08",
+      "readingTime": 9,
+      "image": "/blog/images/motabaat-talab-alamal-baad-alirsal.jpg",
+      "imageAlt": "مرشح يراجع رسالة بريد إلكتروني لمتابعة طلب توظيف على حاسوب محمول",
       "imageWidth": 1200,
       "imageHeight": 600
     }
