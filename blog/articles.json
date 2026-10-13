@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-13T10:45:43.845Z",
+  "generatedAt": "2026-10-13T16:14:44.441Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "al-mihan-al-matluba-fi-qita-al-naql-wa-allujistik",
+      "url": "/blog/al-mihan-al-matluba-fi-qita-al-naql-wa-allujistik.html",
+      "title": "كيف أتعرف على المهن المطلوبة في قطاع النقل واللوجستيك في أوروبا وأحدد المهارات التي أحتاج إليها؟",
+      "excerpt": "دليل عملي للتعرف على وظائف النقل واللوجستيك في أوروبا، وفهم المهارات المطلوبة، وقراءة الإعلانات، واختيار العروض المناسبة لخبرتك.",
+      "category": "work-by-sector",
+      "date": "2026-10-13",
+      "readingTime": 9,
+      "image": "/blog/images/al-mihan-al-matluba-fi-qita-al-naql-wa-allujistik.jpg",
+      "imageAlt": "عامل ينظم البضائع في مستودع لوجستي مع قوائم الطلبات ومعدات تجهيز الشحن",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "work-in-netherlands-without-dutch-fluency",
@@ -9,7 +23,7 @@
       "title": "كيف أبحث عن عمل في هولندا إذا كانت لغتي الهولندية محدودة؟",
       "excerpt": "هل يمكنك البحث عن عمل في هولندا إذا كانت الهولندية محدودة؟ تعرف على قراءة الإعلانات واختيار كلمات البحث وتقييم متطلبات اللغة قبل التقديم.",
       "category": "work-by-country",
-      "date": "2026-10-13",
+      "date": "2026-10-12",
       "readingTime": 9,
       "image": "/blog/images/work-in-netherlands-without-dutch-fluency.jpg",
       "imageAlt": "باحث عن عمل يراجع إعلان وظيفة باللغة الإنجليزية ومتطلبات اللغة في هولندا",
