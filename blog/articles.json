@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11T23:29:12.956Z",
+  "generatedAt": "2026-10-13T10:45:43.845Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "work-in-netherlands-without-dutch-fluency",
+      "url": "/blog/work-in-netherlands-without-dutch-fluency.html",
+      "title": "كيف أبحث عن عمل في هولندا إذا كانت لغتي الهولندية محدودة؟",
+      "excerpt": "هل يمكنك البحث عن عمل في هولندا إذا كانت الهولندية محدودة؟ تعرف على قراءة الإعلانات واختيار كلمات البحث وتقييم متطلبات اللغة قبل التقديم.",
+      "category": "work-by-country",
+      "date": "2026-10-13",
+      "readingTime": 9,
+      "image": "/blog/images/work-in-netherlands-without-dutch-fluency.jpg",
+      "imageAlt": "باحث عن عمل يراجع إعلان وظيفة باللغة الإنجليزية ومتطلبات اللغة في هولندا",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "asila-qabla-tawqie-eaqd-al-eamal",
@@ -9,7 +23,7 @@
       "title": "ما الأسئلة التي يجب أن أطرحها على صاحب العمل قبل توقيع عقد العمل في أوروبا؟",
       "excerpt": "دليل عملي يساعدك على مراجعة عقد العمل قبل التوقيع، وطرح أسئلة واضحة عن المهام والراتب وساعات العمل والإجازات وفترة التجربة وإنهاء العقد.",
       "category": "work-conditions",
-      "date": "2026-10-11",
+      "date": "2026-10-10",
       "readingTime": 9,
       "image": "/blog/images/asila-qabla-tawqie-eaqd-al-eamal.jpg",
       "imageAlt": "مرشح يراجع عقد عمل ويكتب أسئلة عن الراتب وساعات العمل والإجازات قبل التوقيع",
