@@ -222,6 +222,7 @@
 .article-list{
   list-style:none; padding:0; margin:0 0 var(--space-7);
   display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:var(--space-5);
+  scroll-margin-top:96px; /* cible du défilement au changement de page (header collant) */
 }
 .article-item{
   display:flex; flex-direction:column; gap:var(--space-3);
@@ -265,6 +266,44 @@
   padding:var(--space-8) var(--space-6); margin-bottom:var(--space-7);
 }
 .blog-empty[hidden]{display:none;}
+
+/* ===== Pagination du hub (blog/index.html) =====
+   Construite par js/blog.js juste après la grille. Ce sont de vrais liens
+   (`href="index.html?page=N"`) pour rester navigables et crawlables ; le clic
+   est réhaussé côté client pour éviter le rechargement. Le bloc est masqué
+   dès qu'il ne reste qu'une seule page. */
+.blog-pagination{
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
+  gap:var(--space-2); margin:0 0 var(--space-7);
+}
+.blog-pagination[hidden]{display:none;}
+.blog-pager-nums{
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:var(--space-2);
+}
+.blog-pager-nav,.blog-pager-num{
+  min-width:44px; height:44px; padding:0 var(--space-3); /* cible tactile ≥ 44px */
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:inherit; font-size:var(--fs-sm); font-weight:600; text-decoration:none;
+  background:var(--paper); border:1.5px solid var(--border-strong); color:var(--navy);
+  border-radius:var(--radius-sm); cursor:pointer;
+  transition:background .2s ease, border-color .2s ease, color .2s ease, transform .22s var(--ease-interact);
+}
+.blog-pager-nav{padding:0 var(--space-4);}
+.blog-pager-nav:hover:not(.is-disabled),.blog-pager-num:hover:not(.is-current){
+  border-color:var(--blue); color:var(--blue-strong);
+}
+.blog-pager-nav:active:not(.is-disabled),.blog-pager-num:active:not(.is-current){transform:scale(0.96);}
+.blog-pager-num.is-current{
+  background:var(--grad-gold-deep); border-color:transparent; color:var(--paper); cursor:default;
+}
+.blog-pager-num.ellipsis{
+  min-width:24px; padding:0 var(--space-1);
+  background:none; border-color:transparent; color:var(--slate); cursor:default;
+}
+.blog-pager-nav.is-disabled{opacity:.4; cursor:default;}
+.blog-pager-nav:focus-visible,.blog-pager-num:focus-visible{
+  outline:3px solid var(--line-blue); outline-offset:2px;
+}
 
 /* ===== Breakpoints du blog (hors responsive.css) ===== */
 @media (max-width:600px){

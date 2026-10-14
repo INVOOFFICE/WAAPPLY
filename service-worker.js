@@ -21,7 +21,7 @@
 // NOTE: bump SW_VERSION whenever a deploy changes cached assets — the versioned
 // cache name is what invalidates them on activate.
 
-var SW_VERSION = 'v5';
+var SW_VERSION = 'v6';
 var CACHE_NAME = 'waapply-static-' + SW_VERSION;
 
 // Core offline shell: everything index.html needs to render and navigate.

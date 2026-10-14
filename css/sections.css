@@ -201,6 +201,9 @@
 /* Long Arabic CTA labels wrap instead of forcing the grid's min-content width
    (a nowrap button was blowing the banner up to ~462px at phone widths). */
 .italia-cta{margin-top:var(--space-6); white-space:normal; text-align:center; max-width:100%;}
+/* Two offer banners can stack in the same section (#free-offers: Europe offers
+   + WhatsApp channel): keep a consistent vertical rhythm between them. */
+.italia-banner + .italia-banner{margin-top:var(--space-7);}
 
 /* ============================================================
    BLOG — latest-articles preview on the homepage (#blog, before #faq).
