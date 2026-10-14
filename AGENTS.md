@@ -25,6 +25,56 @@ Single-page marketing site for WAAPPLY (Arabic service organizing job applicatio
 - MUST keep working when opening `index.html` directly over `file://`: no ES modules (`type="module"`), no bundler, no fetch of local JSON. Scripts stay classic `<script src>` tags.
 - Functions called from inline HTML attributes must remain on `window`: `toggleMobileNav()`, `toggleFaq(el)`. Each js file ends with explicit `window.fn = fn;` assignments — keep them when editing.
 
+## GitHub Synchronization & Automated Blog Publishing
+
+Two complementary workflows operate on this repo:
+
+- **Workflow A — automated publishing:** Google Sheets → Google Apps Script → GitHub → Cloudflare Pages (production `https://waapply.com`). Apps Script commits new articles straight to `origin/master`, and in the same run may regenerate `blog/index.html`, `blog/articles.json`, `index.html` (home preview) and `sitemap.xml`.
+- **Workflow B — local development:** OpenCode → `D:\waapply` → GitHub. Design/HTML/CSS/JS work happens here.
+
+Because of Workflow A, **the local clone can be behind GitHub at any time. Never assume `D:\waapply` already contains every published article.** The branch is `master` (not `main`); remote is `origin/master`.
+
+### Mandatory checks before any development
+
+1. `git status` and `git branch -vv` (confirm current branch).
+2. `git fetch origin` when remote access is available.
+3. `git rev-list --left-right --count master...origin/master` → left = local-only commits, right = remote commits to integrate.
+4. Identify and list uncommitted local changes.
+5. **Protect local changes first** (stage them into an explicit backup commit) before touching anything remote.
+6. Integrate the remote commits with a safe merge before starting work — or stop and report the blocker. Do not `git pull` blindly over an unprotected working tree.
+
+### Mandatory checks before any push
+
+1. Run a fresh `git fetch origin` (Apps Script may have published while we worked).
+2. Integrate any new remote commits; re-check for conflicts.
+3. Verify no published article disappeared: `git diff --diff-filter=D <base> HEAD --name-only` must come back empty.
+4. Test the affected features.
+5. Push only after validation. If new commits landed between the merge and the push, redo the synchronization — **never** force-push to catch up.
+
+### Protecting published articles
+
+Published articles are engine-owned. Never delete, rewrite or "tidy" their slug, URL, publication date, content, images, categories, SEO metadata, or the `blog/index.html` / `blog/articles.json` / `sitemap.xml` records that reference them. Keep hub scripts (`js/blog.js`, pagination, filtering) independent of article counts — never hard-code counts or slugs; they must scale with `blog/articles.json`. The home preview size is `HOMEPAGE_PREVIEW_LIMIT` in the **Apps Script copy** (the authoritative one); the local `planification/` copy is untracked and has no effect on production.
+
+### Forbidden without justification and explicit authorization
+
+`git reset --hard`, `git clean -fd`, `git push --force`. Never use a merge strategy that silently overwrites remote articles (`-X ours`, `checkout --ours`). Never delete articles to resolve a divergence.
+
+### Conflict handling
+
+If GitHub and local modify the same file: compare both sides, keep a backup of both versions, merge the compatible changes, and report anything ambiguous. Never auto-resolve everything by picking `ours` or `theirs` wholesale — ask when it cannot be resolved without risk.
+
+### Deployment
+
+`master` is wired to Cloudflare Pages: a push deploys to production. **Ask before pushing to `master`**; push to a dedicated backup/scratch branch only when it does not trigger a deployment. `.assetsignore` already excludes `planification/`, `translation_progress.json` and `*.csv` from the deployed assets.
+
+### Preserve the Apps Script workflow
+
+Do not modify the Google Apps Script automations, publish triggers, credentials/tokens, publishing formats or the file conventions the blog depends on without an explicit request. Do not publish `*.csv` source data (see `.gitignore`).
+
+### Scope
+
+These rules apply to every future OpenCode session and every WAAPPLY change. They add to, and do not replace, the existing instructions in this file.
+
 ## Conventions
 
 - Page is `<html lang="ar" dir="rtl">`; copy is Moroccan Darija / MSA. New UI must stay RTL-consistent (e.g., flow-chain arrows use `←`).
