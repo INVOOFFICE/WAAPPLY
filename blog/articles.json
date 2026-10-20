@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-16T16:14:23.015Z",
+  "generatedAt": "2026-10-20T16:14:52.903Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "adam-daf-al-ratib",
+      "url": "/blog/adam-daf-al-ratib.html",
+      "title": "كيف أتصرف إذا رفض صاحب العمل دفع راتبي المستحق؟",
+      "excerpt": "دليل عملي للتعامل مع عدم دفع الراتب، من مراجعة العقد وجمع الأدلة إلى المطالبة المكتوبة والتواصل مع الجهات المختصة بحقوق العمال.",
+      "category": "worker-rights",
+      "date": "2026-10-20",
+      "readingTime": 9,
+      "image": "/blog/images/adam-daf-al-ratib.jpg",
+      "imageAlt": "عامل يراجع عقد العمل وكشوف الدفع والمراسلات لتوثيق راتب مستحق لم يحصل عليه",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "al-farq-bayna-alratib-alijmali-walsafi",
@@ -9,7 +23,7 @@
       "title": "كيف أفهم الفرق بين الراتب الإجمالي والراتب الصافي في عرض العمل بأوروبا؟",
       "excerpt": "تعرف على الفرق بين الراتب الإجمالي والصافي، وكيف تتحقق من الاقتطاعات والمكافآت والمزايا المالية قبل قبول عرض عمل في أوروبا.",
       "category": "work-conditions",
-      "date": "2026-10-16",
+      "date": "2026-10-15",
       "readingTime": 8,
       "image": "/blog/images/al-farq-bayna-alratib-alijmali-walsafi.jpg",
       "imageAlt": "مرشح يراجع عرض عمل وعقدا يتضمنان تفاصيل الراتب الإجمالي والصافي والاقتطاعات المالية",
