@@ -1,0 +1,151 @@
+/* CV creation promo popup (homepage only): one-time, delayed overlay.
+   Reuses the contact-modal shell patterns and the shared design tokens. */
+
+.cvp-overlay{
+  position:fixed; inset:0; z-index:190;
+  display:flex; align-items:center; justify-content:center;
+  padding:var(--space-5);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .3s ease, visibility 0s linear .3s;
+}
+.cvp-overlay.cvp-open{
+  opacity:1; visibility:visible; pointer-events:auto;
+  transition:opacity .3s ease;
+}
+
+.cvp-backdrop{
+  position:absolute; inset:0;
+  background:rgba(5,11,24,0.6);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+}
+
+.cvp-panel{
+  position:relative; z-index:1;
+  width:100%; max-width:500px;
+  max-height:calc(100vh - 40px);
+  background:var(--paper);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
+  padding:var(--space-8) var(--space-7) var(--space-7);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  opacity:0; transform:translateY(24px) scale(0.97);
+  transition:opacity .4s var(--ease-entrance), transform .4s var(--ease-entrance);
+}
+.cvp-open .cvp-panel{opacity:1; transform:none;}
+
+/* Emerald crown hairline — same signature as the contact modal */
+.cvp-panel::before{
+  content:''; position:absolute; top:0; right:28px; left:28px; height:3px;
+  background:var(--grad-gold); border-radius:0 0 4px 4px; opacity:0.9; z-index:2;
+}
+
+.cvp-close{
+  position:absolute; top:var(--space-4); left:var(--space-4);
+  width:36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg2); border:none; border-radius:50%;
+  color:var(--slate); cursor:pointer; z-index:3;
+  transition:background .2s ease, color .2s ease;
+}
+.cvp-close:hover{background:var(--border); color:var(--navy);}
+.cvp-close:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+
+.cvp-head{
+  display:flex; align-items:center; gap:var(--space-3);
+  margin-bottom:var(--space-3);
+  padding-inline-end:44px;
+}
+.cvp-ico{
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--tint-gold); color:var(--gold-3);
+  flex-shrink:0;
+}
+.cvp-ico .ic{width:22px; height:22px; stroke-width:1.9;}
+.cvp-eyebrow{
+  font-size:var(--fs-xs); font-weight:600; color:var(--blue-strong);
+  line-height:1.5;
+}
+
+.cvp-title{
+  font-size:clamp(22px, 3vw, 27px); font-weight:700; color:var(--navy);
+  line-height:1.4; margin-bottom:var(--space-2);
+  overflow-wrap:anywhere;
+}
+.cvp-desc{
+  font-size:var(--fs-base); color:var(--slate); line-height:1.8;
+  margin-bottom:var(--space-5);
+  overflow-wrap:anywhere;
+}
+
+.cvp-badges{
+  display:flex; flex-wrap:wrap; gap:var(--space-2);
+  list-style:none; margin:0 0 var(--space-5); padding:0;
+}
+.cvp-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 12px;
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:var(--radius-pill);
+  font-size:var(--fs-xs); font-weight:600; color:var(--navy);
+  white-space:nowrap;
+}
+.cvp-badge .ic{width:14px; height:14px; stroke-width:2.4; color:var(--green);}
+
+.cvp-price{
+  display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-3);
+  padding:12px var(--space-4);
+  background:var(--wash-green); border:1px solid var(--line-green);
+  border-radius:var(--radius-sm);
+  margin-bottom:var(--space-5);
+}
+.cvp-price-label{font-size:var(--fs-sm); color:var(--slate);}
+.cvp-price-value{font-size:var(--fs-xl); font-weight:700; color:var(--gold-3);}
+
+.cvp-cta{margin-top:0;}
+
+.cvp-progress{
+  height:3px; margin-top:var(--space-5);
+  background:var(--bg2); border-radius:var(--radius-pill);
+  overflow:hidden;
+}
+.cvp-progress-bar{
+  display:block; width:100%; height:100%;
+  background:var(--grad-gold);
+  transform-origin:right center;
+}
+.cvp-open .cvp-progress-bar{animation:cvp-progress var(--cvp-duration, 20s) linear forwards;}
+
+@keyframes cvp-progress{
+  from{transform:scaleX(1);}
+  to{transform:scaleX(0);}
+}
+
+/* Body scroll lock while the promo is open */
+body.cvp-lock{overflow:hidden;}
+
+/* ===== Responsive: ≤600px — compact centered card ===== */
+@media(max-width:600px){
+  .cvp-overlay{padding:var(--space-3);}
+  .cvp-panel{
+    max-width:100%; max-height:calc(100vh - 24px);
+    padding:var(--space-6) var(--space-5) var(--space-5);
+  }
+  .cvp-close{top:var(--space-3); left:var(--space-3);}
+  .cvp-head{padding-inline-end:40px; gap:var(--space-2);}
+  .cvp-ico{width:40px; height:40px;}
+  .cvp-title{font-size:clamp(20px, 5.4vw, 24px);}
+  .cvp-desc{font-size:var(--fs-sm);}
+  .cvp-badges{gap:6px;}
+  .cvp-badge{padding:6px 10px;}
+  .cvp-price{padding:10px var(--space-3);}
+  .cvp-price-value{font-size:var(--fs-lg);}
+  .cvp-cta{padding:15px var(--space-5);}
+}
+
+/* ===== Reduced motion: keep a static remaining-time bar ===== */
+@media (prefers-reduced-motion: reduce){
+  .cvp-panel{transition:none;}
+  .cvp-open .cvp-progress-bar{animation:none; transform:none;}
+}
