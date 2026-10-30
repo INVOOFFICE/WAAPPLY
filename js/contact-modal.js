@@ -7,7 +7,7 @@
 
   /* ===== Configuration ===== */
   var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbwQoq81Au2syQFHk81gVhcLsbDQb-lJekxjFvb9dj4czZMV8Xqvg1vuH4DIv0hk-NaZtw/exec';
-  var WHATSAPP_PHONE = '32465327875';
+  var WHATSAPP_PHONE = '212703826473';
 
   /* ===== Package definitions (wa = short label for the WhatsApp message) ===== */
   var PACKAGES = {
