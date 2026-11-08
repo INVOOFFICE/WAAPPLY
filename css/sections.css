@@ -409,3 +409,42 @@ footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;
   color:rgba(255,255,255,0.6); transition:color .2s ease;
 }
 .footer-legal-link:hover{color:var(--gold-1);}
+
+/* ============================================================
+   TRUSTPILOT — official Review Collector in the footer.
+   The TrustBox is rendered by Trustpilot's own bootstrap script;
+   the markup's link stays visible and usable as a fallback when
+   the third-party script is blocked or unavailable.
+   ============================================================ */
+.tp-footer{
+  max-width:620px; margin:var(--space-8) auto 0; text-align:center;
+}
+.tp-footer-title{
+  font-size:clamp(18px, 2.2vw, var(--fs-xl)); font-weight:700;
+  color:var(--paper); line-height:1.6;
+}
+.tp-footer-sub{
+  margin-top:var(--space-2); font-size:var(--fs-sm);
+  color:rgba(255,255,255,0.62); line-height:1.9;
+}
+.tp-footer-widget{
+  width:100%; max-width:100%; margin:var(--space-5) auto 0;
+}
+.tp-footer-widget .trustpilot-widget{
+  width:100%; max-width:100%; margin:0 auto;
+}
+.tp-footer-widget .trustpilot-widget iframe{
+  display:block; max-width:100%; margin:0 auto; border:0;
+}
+/* Fallback link (kept accessible if Trustpilot cannot render) */
+.tp-footer-widget .trustpilot-widget > a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:52px; padding:0 var(--space-6);
+  border:1px solid rgba(255,255,255,0.22); border-radius:var(--radius-pill);
+  color:var(--paper); font-family:var(--font-lat);
+  font-size:var(--fs-sm); font-weight:600;
+  transition:border-color .2s ease, color .2s ease;
+}
+.tp-footer-widget .trustpilot-widget > a:hover{
+  border-color:var(--gold-2); color:var(--gold-1);
+}
