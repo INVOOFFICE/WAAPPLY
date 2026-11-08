@@ -206,6 +206,68 @@
 .italia-banner + .italia-banner{margin-top:var(--space-7);}
 
 /* ============================================================
+   TRUSTPILOT — independent reviews (homepage, placed between
+   #free-offers and #job-sectors). No widget, no invented data:
+   the card only links out to the real Trustpilot pages.
+   ============================================================ */
+.trustpilot-section{
+  background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+
+.tp-card{
+  position:relative; overflow:hidden; text-align:center;
+  max-width:900px; margin:0 auto;
+  padding:64px var(--space-10) 60px;
+  background:
+    radial-gradient(620px 300px at 100% 0%, var(--tint-gold), transparent 68%),
+    radial-gradient(520px 280px at 0% 100%, var(--wash-blue-2), transparent 70%),
+    var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+}
+/* Thin emerald accent strip, matching the decorative strips used site-wide */
+.tp-card::after{
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:min(180px, 42%); height:4px; border-radius:0 0 4px 4px;
+  background:var(--grad-gold);
+}
+
+.tp-brand{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin-bottom:var(--space-5);
+  padding:var(--space-2) var(--space-4);
+  border:1px solid var(--line-green); border-radius:var(--radius-pill);
+  background:var(--wash-green); color:var(--blue-strong);
+  font-size:var(--fs-sm); font-weight:600;
+}
+.tp-brand .ic{width:16px; height:16px; color:var(--gold-2); fill:var(--gold-2);}
+.tp-brand-name{color:var(--navy); font-weight:700;}
+.tp-brand-tag{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  font-weight:500; color:var(--slate);
+}
+.tp-brand-tag::before{
+  content:''; width:3px; height:3px; border-radius:50%; background:var(--border-strong);
+}
+
+.tp-title{
+  font-size:clamp(27px, 3.2vw, 40px); font-weight:700; color:var(--navy);
+  line-height:1.4; margin-bottom:var(--space-4);
+}
+.tp-sub{
+  font-size:var(--fs-md); color:var(--slate); line-height:1.95;
+  max-width:620px; margin:0 auto;
+}
+
+.tp-actions{
+  display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
+  gap:var(--space-4); margin-top:var(--space-8);
+}
+.tp-actions .btn{min-width:230px; white-space:normal; text-align:center;}
+.tp-actions .btn .ic{width:18px; height:18px;}
+
+/* ============================================================
    BLOG — latest-articles preview on the homepage (#blog, before #faq).
    Cards mirror the blog hub vocabulary (cover image + category + date +
    title + excerpt) and lead to the existing hub (blog/index.html).
