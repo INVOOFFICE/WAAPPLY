@@ -206,15 +206,15 @@
 .italia-banner + .italia-banner{margin-top:var(--space-7);}
 
 /* ============================================================
-   TRUSTPILOT — independent reviews (homepage, placed between
+   GOOGLE REVIEWS — customer reviews (homepage, placed between
    #free-offers and #job-sectors). No widget, no invented data:
-   the card only links out to the real Trustpilot pages.
+   the card only links out to the official Google review page.
    ============================================================ */
-.trustpilot-section{
+.reviews-section{
   background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
 }
 
-.tp-card{
+.gr-card{
   position:relative; overflow:hidden; text-align:center;
   max-width:900px; margin:0 auto;
   padding:64px var(--space-10) 60px;
@@ -227,13 +227,13 @@
   box-shadow:var(--shadow);
 }
 /* Thin emerald accent strip, matching the decorative strips used site-wide */
-.tp-card::after{
+.gr-card::after{
   content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
   width:min(180px, 42%); height:4px; border-radius:0 0 4px 4px;
   background:var(--grad-gold);
 }
 
-.tp-brand{
+.gr-brand{
   display:inline-flex; align-items:center; gap:var(--space-2);
   margin-bottom:var(--space-5);
   padding:var(--space-2) var(--space-4);
@@ -241,31 +241,31 @@
   background:var(--wash-green); color:var(--blue-strong);
   font-size:var(--fs-sm); font-weight:600;
 }
-.tp-brand .ic{width:16px; height:16px; color:var(--gold-2); fill:var(--gold-2);}
-.tp-brand-name{color:var(--navy); font-weight:700;}
-.tp-brand-tag{
+.gr-brand .ic{width:16px; height:16px; color:var(--gold-2); fill:var(--gold-2);}
+.gr-brand-name{color:var(--navy); font-weight:700;}
+.gr-brand-tag{
   display:inline-flex; align-items:center; gap:var(--space-2);
   font-weight:500; color:var(--slate);
 }
-.tp-brand-tag::before{
+.gr-brand-tag::before{
   content:''; width:3px; height:3px; border-radius:50%; background:var(--border-strong);
 }
 
-.tp-title{
+.gr-title{
   font-size:clamp(27px, 3.2vw, 40px); font-weight:700; color:var(--navy);
   line-height:1.4; margin-bottom:var(--space-4);
 }
-.tp-sub{
+.gr-sub{
   font-size:var(--fs-md); color:var(--slate); line-height:1.95;
   max-width:620px; margin:0 auto;
 }
 
-.tp-actions{
+.gr-actions{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:var(--space-4); margin-top:var(--space-8);
 }
-.tp-actions .btn{min-width:230px; white-space:normal; text-align:center;}
-.tp-actions .btn .ic{width:18px; height:18px;}
+.gr-actions .btn{min-width:230px; white-space:normal; text-align:center;}
+.gr-actions .btn .ic{width:18px; height:18px;}
 
 /* ============================================================
    BLOG — latest-articles preview on the homepage (#blog, before #faq).
@@ -411,40 +411,29 @@ footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;
 .footer-legal-link:hover{color:var(--gold-1);}
 
 /* ============================================================
-   TRUSTPILOT — official Review Collector in the footer.
-   The TrustBox is rendered by Trustpilot's own bootstrap script;
-   the markup's link stays visible and usable as a fallback when
-   the third-party script is blocked or unavailable.
+   GOOGLE REVIEWS — discreet footer link to the official
+   Google review page. No widget, no third-party script.
    ============================================================ */
-.tp-footer{
+.gr-footer{
   max-width:620px; margin:var(--space-8) auto 0; text-align:center;
 }
-.tp-footer-title{
+.gr-footer-title{
   font-size:clamp(18px, 2.2vw, var(--fs-xl)); font-weight:700;
   color:var(--paper); line-height:1.6;
 }
-.tp-footer-sub{
+.gr-footer-sub{
   margin-top:var(--space-2); font-size:var(--fs-sm);
   color:rgba(255,255,255,0.62); line-height:1.9;
 }
-.tp-footer-widget{
-  width:100%; max-width:100%; margin:var(--space-5) auto 0;
-}
-.tp-footer-widget .trustpilot-widget{
-  width:100%; max-width:100%; margin:0 auto;
-}
-.tp-footer-widget .trustpilot-widget iframe{
-  display:block; max-width:100%; margin:0 auto; border:0;
-}
-/* Fallback link (kept accessible if Trustpilot cannot render) */
-.tp-footer-widget .trustpilot-widget > a{
-  display:inline-flex; align-items:center; justify-content:center;
-  min-height:52px; padding:0 var(--space-6);
+.gr-footer-link{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2);
+  min-height:52px; margin-top:var(--space-5); padding:0 var(--space-6);
   border:1px solid rgba(255,255,255,0.22); border-radius:var(--radius-pill);
-  color:var(--paper); font-family:var(--font-lat);
+  color:var(--paper);
   font-size:var(--fs-sm); font-weight:600;
   transition:border-color .2s ease, color .2s ease;
 }
-.tp-footer-widget .trustpilot-widget > a:hover{
+.gr-footer-link .ic{width:16px; height:16px; color:var(--gold-1); fill:var(--gold-1);}
+.gr-footer-link:hover{
   border-color:var(--gold-2); color:var(--gold-1);
 }

@@ -55,8 +55,8 @@
   /* Free offers page (offers.html) */
   .offers-grid{grid-template-columns:1fr;}
 
-  /* Trustpilot */
-  .tp-card{padding:52px var(--space-7) 48px;}
+  /* Google Reviews */
+  .gr-card{padding:52px var(--space-7) 48px;}
 }
 
 @media(max-width:600px){
@@ -88,18 +88,18 @@
   /* Offer banners mobile (europe + italia) */
   .italia-title{font-size:clamp(24px, 5.5vw, 32px);}
 
-  /* Trustpilot mobile */
-  .tp-card{padding:40px var(--space-5) 36px; border-radius:var(--radius);}
-  .tp-brand{flex-wrap:wrap; justify-content:center; row-gap:var(--space-1);}
-  .tp-title{font-size:clamp(24px, 6vw, 32px);}
-  .tp-sub{font-size:var(--fs-base);}
-  .tp-actions{flex-direction:column; align-items:stretch; gap:var(--space-3); margin-top:var(--space-7);}
-  .tp-actions .btn{width:100%; min-width:0;}
+  /* Google Reviews mobile */
+  .gr-card{padding:40px var(--space-5) 36px; border-radius:var(--radius);}
+  .gr-brand{flex-wrap:wrap; justify-content:center; row-gap:var(--space-1);}
+  .gr-title{font-size:clamp(24px, 6vw, 32px);}
+  .gr-sub{font-size:var(--fs-base);}
+  .gr-actions{flex-direction:column; align-items:stretch; gap:var(--space-3); margin-top:var(--space-7);}
+  .gr-actions .btn{width:100%; min-width:0;}
 
-  /* Trustpilot footer collector */
-  .tp-footer{margin-top:var(--space-7);}
-  .tp-footer-title{font-size:var(--fs-lg);}
-  .tp-footer-widget{margin-top:var(--space-4);}
+  /* Google Reviews footer link */
+  .gr-footer{margin-top:var(--space-7);}
+  .gr-footer-title{font-size:var(--fs-lg);}
+  .gr-footer-link{margin-top:var(--space-4);}
 
   /* Free offers page mobile (offers.html) */
   .offers-hero .container{padding:44px var(--space-5) 40px;}
