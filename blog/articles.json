@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-20T16:14:52.903Z",
+  "generatedAt": "2026-11-11T16:10:25.536Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "seasonal-work-housing-transport-checklist",
+      "url": "/blog/seasonal-work-housing-transport-checklist.html",
+      "title": "كيف أتحقق من شروط السكن والنقل قبل قبول عرض عمل موسمي في أوروبا؟",
+      "excerpt": "تعرف على أهم المعلومات التي ينبغي التحقق منها بشأن السكن والنقل في العمل الموسمي، والأسئلة التي تساعدك على تقييم العرض قبل الموافقة.",
+      "category": "seasonal-work",
+      "date": "2026-11-11",
+      "readingTime": 9,
+      "image": "/blog/images/seasonal-work-housing-transport-checklist.jpg",
+      "imageAlt": "عامل موسمي يحمل حقيبته بجانب سكن للعمال ووسيلة نقل متجهة إلى مكان العمل",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "adam-daf-al-ratib",
@@ -9,7 +23,7 @@
       "title": "كيف أتصرف إذا رفض صاحب العمل دفع راتبي المستحق؟",
       "excerpt": "دليل عملي للتعامل مع عدم دفع الراتب، من مراجعة العقد وجمع الأدلة إلى المطالبة المكتوبة والتواصل مع الجهات المختصة بحقوق العمال.",
       "category": "worker-rights",
-      "date": "2026-10-20",
+      "date": "2026-10-19",
       "readingTime": 9,
       "image": "/blog/images/adam-daf-al-ratib.jpg",
       "imageAlt": "عامل يراجع عقد العمل وكشوف الدفع والمراسلات لتوثيق راتب مستحق لم يحصل عليه",
