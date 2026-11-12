@@ -7,7 +7,7 @@
 
   /* ===== Configuration ===== */
   var CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbwQoq81Au2syQFHk81gVhcLsbDQb-lJekxjFvb9dj4czZMV8Xqvg1vuH4DIv0hk-NaZtw/exec';
-  var WHATSAPP_PHONE = '212703826473';
+  var WHATSAPP_PHONE = '34603875644';
 
   /* ===== Package definitions (wa = short label for the WhatsApp message) ===== */
   var PACKAGES = {
@@ -90,7 +90,7 @@
       packageSelect.value = packageType;
     }
 
-    /* Show prefix for Moroccan default */
+    /* Show prefix for default country code */
     if(phonePrefix){ phonePrefix.classList.remove('cm-hidden'); }
 
     overlay.classList.add('cm-open');
@@ -341,7 +341,7 @@
   function formatPhone(phone){
     var cleaned = phone.replace(/[\s\-\.\(\)]/g, '');
     if(cleaned.charAt(0) === '+') return cleaned;
-    return '+212' + cleaned;
+    return '+34' + cleaned;
   }
 
   function sendToApi(payload){
