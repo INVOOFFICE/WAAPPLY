@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11T16:10:25.536Z",
+  "generatedAt": "2026-11-12T16:21:33.332Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "ithbat-almaharat-dun-khibra",
+      "url": "/blog/ithbat-almaharat-dun-khibra.html",
+      "title": "كيف أثبت مهاراتي العملية عند التقديم للعمل في أوروبا دون خبرة سابقة؟",
+      "excerpt": "يمكنك إثبات مهاراتك دون خبرة مهنية من خلال مشاريع دراسية وشخصية وأمثلة واقعية توضح قدراتك، مع عرض صادق لمستواك وما تستطيع إنجازه.",
+      "category": "work-no-experience",
+      "date": "2026-11-12",
+      "readingTime": 8,
+      "image": "/blog/images/ithbat-almaharat-dun-khibra.jpg",
+      "imageAlt": "شخص مبتدئ ينظم مشروعا عمليا وملفات أعمال لإظهار مهاراته عند التقديم لوظيفة في أوروبا",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "seasonal-work-housing-transport-checklist",
@@ -9,7 +23,7 @@
       "title": "كيف أتحقق من شروط السكن والنقل قبل قبول عرض عمل موسمي في أوروبا؟",
       "excerpt": "تعرف على أهم المعلومات التي ينبغي التحقق منها بشأن السكن والنقل في العمل الموسمي، والأسئلة التي تساعدك على تقييم العرض قبل الموافقة.",
       "category": "seasonal-work",
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "readingTime": 9,
       "image": "/blog/images/seasonal-work-housing-transport-checklist.jpg",
       "imageAlt": "عامل موسمي يحمل حقيبته بجانب سكن للعمال ووسيلة نقل متجهة إلى مكان العمل",
