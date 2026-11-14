@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-13T16:21:54.525Z",
+  "generatedAt": "2026-11-14T16:21:08.878Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "spontaneous-job-application-letter-europe",
+      "url": "/blog/spontaneous-job-application-letter-europe.html",
+      "title": "كيف أكتب رسالة ترشح عفوي لشركة في أوروبا عندما لا تعلن عن وظيفة شاغرة؟",
+      "excerpt": "دليل عملي لكتابة رسالة ترشح عفوي للعمل في أوروبا، يشمل اختيار الشركة، وصياغة البريد الإلكتروني، وإرفاق السيرة الذاتية، وتجنب الأخطاء الشائعة.",
+      "category": "apply-guides",
+      "date": "2026-11-14",
+      "readingTime": 9,
+      "image": "/blog/images/spontaneous-job-application-letter-europe.jpg",
+      "imageAlt": "باحث عن عمل يراجع رسالة ترشح عفوي وسيرة ذاتية قبل التواصل مع شركة أوروبية",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "labor-shortage-surplus-europe",
@@ -9,7 +23,7 @@
       "title": "كيف أختار بين سوق عمل يعاني من نقص العمال وسوق تتوفر فيه منافسة أكبر؟",
       "excerpt": "تعرف على الفرق بين نقص العمالة وفائضها في أوروبا، وكيف تستخدم مؤشرات سوق العمل لمقارنة متطلبات الوظائف بخبرتك ولغتك ومؤهلاتك.",
       "category": "work-in-europe",
-      "date": "2026-11-13",
+      "date": "2026-11-12",
       "readingTime": 9,
       "image": "/blog/images/labor-shortage-surplus-europe.jpg",
       "imageAlt": "باحث عن عمل يراجع مؤشرات سوق العمل الأوروبي ويقارن متطلبات الوظائف بخبرته ومهاراته",
