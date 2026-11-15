@@ -165,9 +165,9 @@
 .sector-card .sector-cta{margin-top:auto; width:100%;}
 
 /* ============================================================
-   OFFER BANNERS — shared horizontal teaser card used for free Europe offers
-   (#free-offers, image europ.jpg) and free Italian offers (.italia-section,
-   image itali.jpg). Same classes, same responsive behaviour.
+   OFFER BANNERS — horizontal teaser card used by offers.html
+   (.italia-banner + .italia-media/.italia-body). The homepage
+   #free-offers now uses the uniform .ff-card grid instead.
    ============================================================ */
 /* The free-offers section opens with a normal section head, so only its top
    rhythm is tightened (ID selector: stays in force at every breakpoint where
@@ -206,32 +206,95 @@
 .italia-banner + .italia-banner{margin-top:var(--space-7);}
 
 /* ============================================================
-   GOOGLE REVIEWS — customer reviews (homepage, placed between
-   #free-offers and #job-sectors). No widget, no invented data:
-   the card only links out to the official Google review page.
+   FREE OFFERS GRID — uniform 3-up card grid on the homepage
+   (#free-offers only). offers.html keeps the .italia-banner
+   directory presentation untouched.
+   ============================================================ */
+.free-offers-grid{
+  display:grid; grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:var(--space-6); align-items:stretch;
+}
+
+.ff-card{
+  display:flex; flex-direction:column; min-width:0;
+  padding:var(--space-4);
+  background:var(--paper); border:1px solid var(--border);
+  border-radius:var(--radius-lg); box-shadow:var(--shadow);
+}
+.ff-media{
+  aspect-ratio:16/9; border-radius:var(--radius);
+  overflow:hidden; background:var(--bg2);
+}
+.ff-media img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
+.ff-body{
+  display:flex; flex-direction:column; flex:1;
+  padding:var(--space-4) var(--space-1) var(--space-1);
+}
+.ff-title{
+  font-size:var(--fs-xl); font-weight:700; color:var(--navy);
+  line-height:1.45; margin-bottom:var(--space-2); overflow-wrap:anywhere;
+}
+.ff-sub{
+  font-size:var(--fs-sm); color:var(--slate); line-height:1.85;
+  margin-bottom:var(--space-3); overflow-wrap:anywhere;
+}
+.ff-cond{
+  font-size:var(--fs-xs); font-weight:600; color:var(--navy);
+  line-height:1.8; margin:0 0 var(--space-4);
+  padding-top:var(--space-3); border-top:1px solid var(--border-strong);
+  overflow-wrap:anywhere;
+}
+.ff-cta{margin-top:auto; width:100%; white-space:normal; text-align:center;}
+
+/* ============================================================
+   GOOGLE REVIEWS + CANADA OFFERS — two equal homepage cards
+   (between #free-offers and #job-sectors). The Google card has
+   no widget and invents no data: it only links out to the
+   official review page. The Canada card links to /ca.
    ============================================================ */
 .reviews-section{
   background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
 }
 
-.gr-card{
+/* Two equal columns: Google Reviews sits on the right in RTL (first in
+   DOM), the Canada card right next to it. Buttons align at the bottom. */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:var(--space-7);
+  align-items:stretch;
+}
+
+.gr-card,
+.ca-card{
   position:relative; overflow:hidden; text-align:center;
-  max-width:900px; margin:0 auto;
-  padding:64px var(--space-10) 60px;
-  background:
-    radial-gradient(620px 300px at 100% 0%, var(--tint-gold), transparent 68%),
-    radial-gradient(520px 280px at 0% 100%, var(--wash-blue-2), transparent 70%),
-    var(--paper);
+  display:flex; flex-direction:column; align-items:center;
+  padding:48px var(--space-7) 44px;
   border:1px solid var(--border);
   border-radius:var(--radius-lg);
   box-shadow:var(--shadow);
 }
-/* Thin emerald accent strip, matching the decorative strips used site-wide */
-.gr-card::after{
+.gr-card{
+  background:
+    radial-gradient(620px 300px at 100% 0%, var(--tint-gold), transparent 68%),
+    radial-gradient(520px 280px at 0% 100%, var(--wash-blue-2), transparent 70%),
+    var(--paper);
+}
+/* Canada card: white paper with a light red accent, so the maple leaf reads instantly */
+.ca-card{
+  background:
+    radial-gradient(620px 300px at 100% 0%, var(--tint-red), transparent 68%),
+    radial-gradient(520px 280px at 0% 100%, var(--wash-red), transparent 70%),
+    var(--paper);
+}
+/* Thin accent strip, matching the decorative strips used site-wide */
+.gr-card::after,
+.ca-card::after{
   content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
   width:min(180px, 42%); height:4px; border-radius:0 0 4px 4px;
-  background:var(--grad-gold);
 }
+.gr-card::after{background:var(--grad-gold);}
+.ca-card::after{background:linear-gradient(135deg, var(--danger) 0%, var(--tint-red) 100%);}
 
 .gr-brand{
   display:inline-flex; align-items:center; gap:var(--space-2);
@@ -251,21 +314,36 @@
   content:''; width:3px; height:3px; border-radius:50%; background:var(--border-strong);
 }
 
-.gr-title{
+.ca-brand{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin-bottom:var(--space-5);
+  padding:var(--space-2) var(--space-4);
+  border:1px solid var(--line-red); border-radius:var(--radius-pill);
+  background:var(--wash-red); color:var(--danger);
+  font-size:var(--fs-sm); font-weight:600;
+}
+.ca-brand .ic{width:16px; height:16px; color:var(--danger); fill:var(--danger);}
+
+.gr-title,
+.ca-title{
   font-size:clamp(27px, 3.2vw, 40px); font-weight:700; color:var(--navy);
   line-height:1.4; margin-bottom:var(--space-4);
 }
-.gr-sub{
+.gr-sub,
+.ca-sub{
   font-size:var(--fs-md); color:var(--slate); line-height:1.95;
   max-width:620px; margin:0 auto;
 }
 
-.gr-actions{
+.gr-actions,
+.ca-actions{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
-  gap:var(--space-4); margin-top:var(--space-8);
+  gap:var(--space-4); width:100%; margin-top:auto; padding-top:var(--space-8);
 }
-.gr-actions .btn{min-width:230px; white-space:normal; text-align:center;}
-.gr-actions .btn .ic{width:18px; height:18px;}
+.gr-actions .btn,
+.ca-actions .btn{min-width:230px; white-space:normal; text-align:center;}
+.gr-actions .btn .ic,
+.ca-actions .btn .ic{width:18px; height:18px;}
 
 /* ============================================================
    BLOG — latest-articles preview on the homepage (#blog, before #faq).

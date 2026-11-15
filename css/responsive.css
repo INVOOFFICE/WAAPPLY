@@ -26,6 +26,9 @@
   .italia-media{order:-1;}
   .italia-body{max-width:640px; margin:0 auto; min-width:0;}
 
+  /* Free offers grid — two cards per row on tablet */
+  .free-offers-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+
   .footer-top{grid-template-columns:1fr; gap:var(--space-6);}
 
   /* Mobile hides the bottom «ابدأ الآن» sticky CTA too (base display:none in components.css).
@@ -55,8 +58,10 @@
   /* Free offers page (offers.html) */
   .offers-grid{grid-template-columns:1fr;}
 
-  /* Google Reviews */
-  .gr-card{padding:52px var(--space-7) 48px;}
+  /* Google Reviews + Canada */
+  .reviews-grid{grid-template-columns:1fr;}
+  .gr-card,
+  .ca-card{padding:52px var(--space-7) 48px;}
 }
 
 @media(max-width:600px){
@@ -88,13 +93,22 @@
   /* Offer banners mobile (europe + italia) */
   .italia-title{font-size:clamp(24px, 5.5vw, 32px);}
 
-  /* Google Reviews mobile */
-  .gr-card{padding:40px var(--space-5) 36px; border-radius:var(--radius);}
-  .gr-brand{flex-wrap:wrap; justify-content:center; row-gap:var(--space-1);}
-  .gr-title{font-size:clamp(24px, 6vw, 32px);}
-  .gr-sub{font-size:var(--fs-base);}
-  .gr-actions{flex-direction:column; align-items:stretch; gap:var(--space-3); margin-top:var(--space-7);}
-  .gr-actions .btn{width:100%; min-width:0;}
+  /* Free offers grid — one card per row on mobile */
+  .free-offers-grid{grid-template-columns:1fr;}
+
+  /* Google Reviews + Canada mobile */
+  .gr-card,
+  .ca-card{padding:40px var(--space-5) 36px; border-radius:var(--radius);}
+  .gr-brand,
+  .ca-brand{flex-wrap:wrap; justify-content:center; row-gap:var(--space-1);}
+  .gr-title,
+  .ca-title{font-size:clamp(24px, 6vw, 32px);}
+  .gr-sub,
+  .ca-sub{font-size:var(--fs-base);}
+  .gr-actions,
+  .ca-actions{flex-direction:column; align-items:stretch; gap:var(--space-3); padding-top:var(--space-7);}
+  .gr-actions .btn,
+  .ca-actions .btn{width:100%; min-width:0;}
 
   /* Google Reviews footer link */
   .gr-footer{margin-top:var(--space-7);}
