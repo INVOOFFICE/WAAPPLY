@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-14T16:21:08.878Z",
+  "generatedAt": "2026-11-15T16:21:05.403Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "work-in-portugal-experience-outside-europe",
+      "url": "/blog/work-in-portugal-experience-outside-europe.html",
+      "title": "كيف أبحث عن عمل في البرتغال إذا كانت خبرتي المهنية من خارج أوروبا؟",
+      "excerpt": "تعرف على كيفية عرض خبرتك المهنية المكتسبة خارج أوروبا، واختيار وظائف مناسبة في البرتغال، والتحقق من متطلبات اللغة والمؤهلات والمراجع قبل التقديم.",
+      "category": "work-by-country",
+      "date": "2026-11-15",
+      "readingTime": 8,
+      "image": "/blog/images/work-in-portugal-experience-outside-europe.jpg",
+      "imageAlt": "مرشح يراجع سيرته الذاتية وخبرته المهنية للبحث عن عمل في البرتغال",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "spontaneous-job-application-letter-europe",
@@ -9,7 +23,7 @@
       "title": "كيف أكتب رسالة ترشح عفوي لشركة في أوروبا عندما لا تعلن عن وظيفة شاغرة؟",
       "excerpt": "دليل عملي لكتابة رسالة ترشح عفوي للعمل في أوروبا، يشمل اختيار الشركة، وصياغة البريد الإلكتروني، وإرفاق السيرة الذاتية، وتجنب الأخطاء الشائعة.",
       "category": "apply-guides",
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "readingTime": 9,
       "image": "/blog/images/spontaneous-job-application-letter-europe.jpg",
       "imageAlt": "باحث عن عمل يراجع رسالة ترشح عفوي وسيرة ذاتية قبل التواصل مع شركة أوروبية",
