@@ -247,10 +247,11 @@
 .ff-cta{margin-top:auto; width:100%; white-space:normal; text-align:center;}
 
 /* ============================================================
-   GOOGLE REVIEWS + CANADA OFFERS — two equal homepage cards
-   (between #free-offers and #job-sectors). The Google card has
-   no widget and invents no data: it only links out to the
-   official review page. The Canada card links to /ca.
+   GOOGLE REVIEWS + CANADA OFFERS — homepage cards (between
+   #free-offers and #job-sectors). The Google card has no widget
+   and invents no data: it only links out to the official review
+   page. The Canada card links to /ca. The WhatsApp-contacts card
+   spans both columns and opens a prefilled wa.me conversation.
    ============================================================ */
 .reviews-section{
   background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
@@ -266,7 +267,8 @@
 }
 
 .gr-card,
-.ca-card{
+.ca-card,
+.wa-card{
   position:relative; overflow:hidden; text-align:center;
   display:flex; flex-direction:column; align-items:center;
   padding:48px var(--space-7) 44px;
@@ -287,14 +289,24 @@
     radial-gradient(520px 280px at 0% 100%, var(--wash-red), transparent 70%),
     var(--paper);
 }
+/* Paid WhatsApp-contacts service: full-width third card below the pair */
+.wa-card{
+  grid-column:1 / -1;
+  background:
+    radial-gradient(760px 320px at 100% 0%, var(--wash-blue-2), transparent 68%),
+    radial-gradient(620px 300px at 0% 100%, var(--wash-green), transparent 70%),
+    var(--paper);
+}
 /* Thin accent strip, matching the decorative strips used site-wide */
 .gr-card::after,
-.ca-card::after{
+.ca-card::after,
+.wa-card::after{
   content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
   width:min(180px, 42%); height:4px; border-radius:0 0 4px 4px;
 }
 .gr-card::after{background:var(--grad-gold);}
 .ca-card::after{background:linear-gradient(135deg, var(--danger) 0%, var(--tint-red) 100%);}
+.wa-card::after{background:var(--grad-blue);}
 
 .gr-brand{
   display:inline-flex; align-items:center; gap:var(--space-2);
@@ -324,26 +336,41 @@
 }
 .ca-brand .ic{width:16px; height:16px; color:var(--danger); fill:var(--danger);}
 
+.wa-brand{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  margin-bottom:var(--space-5);
+  padding:var(--space-2) var(--space-4);
+  border:1px solid var(--line-blue); border-radius:var(--radius-pill);
+  background:var(--wash-blue-2); color:var(--navy-2);
+  font-size:var(--fs-sm); font-weight:600;
+}
+.wa-brand .ic{width:16px; height:16px; color:var(--blue);}
+
 .gr-title,
-.ca-title{
+.ca-title,
+.wa-title{
   font-size:clamp(27px, 3.2vw, 40px); font-weight:700; color:var(--navy);
   line-height:1.4; margin-bottom:var(--space-4);
 }
 .gr-sub,
-.ca-sub{
+.ca-sub,
+.wa-sub{
   font-size:var(--fs-md); color:var(--slate); line-height:1.95;
   max-width:620px; margin:0 auto;
 }
 
 .gr-actions,
-.ca-actions{
+.ca-actions,
+.wa-actions{
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   gap:var(--space-4); width:100%; margin-top:auto; padding-top:var(--space-8);
 }
 .gr-actions .btn,
-.ca-actions .btn{min-width:230px; white-space:normal; text-align:center;}
+.ca-actions .btn,
+.wa-actions .btn{min-width:230px; white-space:normal; text-align:center;}
 .gr-actions .btn .ic,
-.ca-actions .btn .ic{width:18px; height:18px;}
+.ca-actions .btn .ic,
+.wa-actions .btn .ic{width:18px; height:18px;}
 
 /* ============================================================
    BLOG — latest-articles preview on the homepage (#blog, before #faq).
