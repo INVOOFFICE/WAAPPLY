@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T16:21:05.403Z",
+  "generatedAt": "2026-11-16T16:21:12.891Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "al-amal-fi-qita-al-fanadiq-wa-al-matam-fi-ur",
+      "url": "/blog/al-amal-fi-qita-al-fanadiq-wa-al-matam-fi-ur.html",
+      "title": "كيف أستعد للعمل في قطاع الفنادق والمطاعم في أوروبا إذا كانت خبرتي محدودة؟",
+      "excerpt": "كيف تختار وظيفة مناسبة في الفنادق والمطاعم في أوروبا عندما تكون خبرتك محدودة؟ تعرف على المهارات المطلوبة وكيفية إعداد السيرة الذاتية والاستعداد للمقابلة.",
+      "category": "work-by-sector",
+      "date": "2026-11-16",
+      "readingTime": 9,
+      "image": "/blog/images/al-amal-fi-qita-al-fanadiq-wa-al-matam-fi-ur.jpg",
+      "imageAlt": "مرشح يراجع قائمة مهام في مطعم استعدادا للتقديم على وظيفة في قطاع الفنادق والمطاعم في أوروبا",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "work-in-portugal-experience-outside-europe",
@@ -9,7 +23,7 @@
       "title": "كيف أبحث عن عمل في البرتغال إذا كانت خبرتي المهنية من خارج أوروبا؟",
       "excerpt": "تعرف على كيفية عرض خبرتك المهنية المكتسبة خارج أوروبا، واختيار وظائف مناسبة في البرتغال، والتحقق من متطلبات اللغة والمؤهلات والمراجع قبل التقديم.",
       "category": "work-by-country",
-      "date": "2026-11-15",
+      "date": "2026-11-14",
       "readingTime": 8,
       "image": "/blog/images/work-in-portugal-experience-outside-europe.jpg",
       "imageAlt": "مرشح يراجع سيرته الذاتية وخبرته المهنية للبحث عن عمل في البرتغال",
