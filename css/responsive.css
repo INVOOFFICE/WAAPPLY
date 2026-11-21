@@ -173,3 +173,26 @@
   .promo-hero-inner{max-width:min(92vw,1600px); padding:64px 72px 52px;}
   .promo-hero-title{font-size:clamp(36px,3vw,50px);}
 }
+
+/* ===== Short-height desktops — keep the promo hero within the first viewport.
+   Reduces vertical margins, block gaps and card padding first, then title sizes,
+   so the whole #top content (badge + title + 3 cards + metrics + disclaimer) fits
+   under the header without scrolling on a ~768px-tall laptop (Chrome bars visible).
+   Scoped to desktop widths only: on mobile the hero stacks and may scroll. ===== */
+@media(max-height:780px) and (min-width:981px){
+  .promo-hero-inner{padding:24px var(--space-6) 20px;}
+  .promo-brand-stack{margin-bottom:16px;}
+  .promo-badge{margin-bottom:12px;}
+  .promo-hero-title{font-size:clamp(28px,3.4vw,38px);}
+  .promo-choice-box{margin-bottom:16px;}
+  .promo-choice-card{padding:16px 20px 18px;}
+  .promo-choice-tag{margin:0 0 6px;}
+  .promo-choice-title{font-size:clamp(18px,1.6vw,21px); margin:0 0 12px;}
+  .promo-offer-title{font-size:clamp(20px,2vw,25px); margin:0 0 10px;}
+  .promo-metric-n{min-height:34px;}
+  .promo-metric-n .counter,.promo-metric-text{font-size:clamp(24px,2.4vw,32px);}
+  .promo-metric-text{font-size:clamp(18px,1.7vw,22px);}
+  .promo-metric-prefix{font-size:clamp(16px,1.6vw,20px);}
+  .promo-metric-l{margin-top:4px;}
+  .promo-disclaimer{margin:12px 0 0;}
+}
