@@ -351,9 +351,8 @@
       <a href="blog/index.html">المدونة</a>
       <a href="#faq">الأسئلة الشائعة</a>
     </nav>
-    <div class="header-cta">
-      <a href="#sectors" class="btn btn-outline">التقديم حسب الدول</a>
-      <button type="button" data-contact-package="info" class="btn btn-gold">ابدأ الآن</button>
+    <div class="header-cta">
+<button type="button" data-contact-package="info" class="btn btn-gold">ابدأ الآن</button>
       <button class="hamburger" id="hamburger" aria-label="القائمة" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
       </button>
@@ -374,40 +373,42 @@
 <!-- ===================== MAIN ===================== -->
 <main id="main">
 
-<!-- ===================== PROMO HERO — single slide with YouTube background ===================== -->
-<section class="promo-section" id="top" aria-label="كل نهار، كنقلبو معاك على الخدمة">
-  <!-- Background video -->
-  <div class="promo-video-bg" aria-hidden="true">
-    <video src="assets/job/Career.mp4" autoplay muted loop playsinline></video>
-  </div>
-  <div class="promo-video-overlay"></div>
-
-  <div class="container">
-    <div class="promo-slide promo-slide--single" role="group" aria-roledescription="شريحة">
-      <div class="promo-content">
-        <span class="promo-badge">كل نهار، كنقلبو معاك على الخدمة</span>
-        <h1 class="promo-title">كنقدمو أكثر من <span class="latin text-gradient-gold">30</span> طلب توظيف كل نهار للشركات فـ أوروبا</h1>
-        <p class="promo-desc">خلي وابلاي يبحث وينظم ويرسل طلبات التوظيف ديالك للفرص الحالية وللشركات المناسبة لبروفايلك — بشكل يومي ومستمر.</p>
-        <div class="promo-metrics">
-          <div class="promo-metric">
-            <div class="promo-metric-value"><span class="counter" data-target="30" data-suffix="+">0</span></div>
-            <div class="promo-metric-label">طلب توظيف يوميًا</div>
-          </div>
-          <div class="promo-metric">
-            <div class="promo-metric-value"><span class="counter" data-target="3" data-suffix="+">0</span></div>
-            <div class="promo-metric-label">أشهر من الإرسال المستمر</div>
-          </div>
-          <div class="promo-metric">
-            <div class="promo-metric-value"><span class="counter" data-target="12" data-suffix="+">0</span></div>
-            <div class="promo-metric-label">دولة أوروبية</div>
-          </div>
-        </div>
-        <p class="promo-disclaimer">الخدمة كتزوّد فرصك ولكن ما كتضمنش القبول أو التوظيف. القرار النهائي يرجع للشركة والجهات المختصة.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ===================== PROMO HERO ===================== -->
+<section class="promo-hero" id="top" aria-label="WAAPPLY — خدمة إرسال الطلبات">
+  <div class="container promo-hero-inner">
+    <div class="promo-brand-stack reveal">
+      <span class="promo-badge"><span class="promo-badge-dot"></span> إرسال الطلبات نيابةً عنك</span>
+      <h1 class="promo-hero-title">قلّب على خدمة فـ أوروبا مع <span class="promo-brand">وابلاي</span></h1>
+    </div>
+    <div class="promo-choice-box reveal" data-delay="80" aria-label="اختيارات الخدمة">
+      <article class="promo-choice-card">
+        <p class="promo-choice-tag">خدمة مدفوعة</p>
+        <h2 class="promo-choice-title">نقدّمو بالنيابة عنك</h2>
+        <div class="promo-choice-cta"><button type="button" class="btn btn-gold" data-contact-package="info">شوف الباقات</button></div>
+      </article>
+      <article class="promo-choice-card">
+        <p class="promo-choice-tag">خدمة مدفوعة</p>
+        <h2 class="promo-choice-title">إعداد السيرة الذاتية ورسالة التحفيز</h2>
+        <div class="promo-choice-cta"><a class="btn btn-gold" href="https://waapply.com/cv">شوف خدمة الـ<span class="latin">CV</span></a></div>
+      </article>
+      <article class="promo-choice-card">
+        <p class="promo-choice-tag promo-choice-tag--free">موارد مجانية</p>
+        <h2 class="promo-choice-title">قلّب وقدّم بنفسك</h2>
+        <div class="promo-choice-cta"><a class="promo-btn-outline-green" href="#free-offers">شوف الموارد المجانية</a></div>
+      </article>
+    </div>
+    <div class="promo-offer reveal" data-delay="140">
+      <p class="promo-offer-title">شنو كتقدّم ليك باقة إرسال الطلبات؟</p>
+      <div class="promo-metrics" aria-label="إحصائيات الخدمة">
+        <div class="promo-metric"><div class="promo-metric-n"><strong class="counter" data-target="30" data-suffix="+">0</strong></div><span class="promo-metric-l">طلب يوميًا</span></div>
+        <div class="promo-metric"><div class="promo-metric-n"><strong class="counter" data-target="12" data-suffix="+">0</strong></div><span class="promo-metric-l">دولة أوروبية</span></div>
+        <div class="promo-metric"><div class="promo-metric-n"><strong class="promo-metric-text">ابتداءً من شهر</strong></div><span class="promo-metric-l">حسب الباقة</span></div>
+      </div>
+      <p class="promo-disclaimer">هاد الخدمة كتعاونك فالتقديم على عروض العمل، ولكن ما كتضمنش التوظيف ولا الحصول على الفيزا.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CANDIDATURE SPONTANÉE ===================== -->
 <section class="section-pad spontanee-section" id="spontanee" aria-labelledby="spontanee-title">
   <div class="container spontanee-grid">
@@ -553,48 +554,12 @@
         </div>
       </article>
       <article class="wa-card reveal" data-delay="180">
-        <span class="wa-brand">
-          <svg class="ic" aria-hidden="true"><use href="#i-file-text"/></svg>
-          <span>???? ??????</span>
-        </span>
-        <h2 class="wa-title">????? ?????? ??????? ?????? ???????</h2>
-        <p class="wa-sub">??????? ??? ?????? ??????? ?????? ??????? ??? ??????? ????? ???? ?????? ???? ???? ????? ????.</p>
-        <div class="wa-actions">
-          <a class="btn btn-gold btn-lg" href="https://waapply.com/cv">
-            <span>??? ?????? ??????</span>
-            <svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg>
-          </a>
-        </div>
+        <span class="wa-brand"><svg class="ic" aria-hidden="true"><use href="#i-file-text"/></svg><span>خدمة مدفوعة</span></span>
+        <h2 class="wa-title">إعداد السيرة الذاتية ورسالة التحفيز</h2>
+        <p class="wa-sub">كنجهّزو ليك السيرة الذاتية ورسالة التحفيز حسب التجربة ديالك ونوع الخدمة اللي باغي تقدّم ليها.</p>
+        <div class="wa-actions"><a class="btn btn-gold btn-lg" href="https://waapply.com/cv"><span>شوف تفاصيل الخدمة</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg></a></div>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- ===================== JOB SECTORS ===================== -->
-<section class="section-pad sectors-section" id="job-sectors" aria-labelledby="job-sectors-title">
-  <div class="container">
-    <div class="sectors-head">
-      <span class="eyebrow-sm reveal">التقديم حسب القطاعات</span>
-      <h2 class="section-title reveal" id="job-sectors-title" data-delay="90">التقديم حسب القطاعات</h2>
-      <p class="section-sub reveal" data-delay="180">اختار المجال اللي باغي تخدم فيه، وحنا كنستهدفو الشركات والفرص المناسبة لبروفايلك داخل أوروبا، وكنوصلو طلبك للمُشغِّل — سواء كانت فرصة حالية أو فرصة مستقبلية.</p>
-    </div>
-    <div class="sectors-grid" data-stagger></div>
-  </div>
-</section>
-
-<!-- ===================== PRICING ===================== -->
-<section class="section-pad pricing-section" id="pricing">
-  <div class="container">
-
-    <!-- ===================== SERVICES / COUNTRIES ===================== -->
-    <section class="countries" id="sectors" aria-labelledby="sectors-title">
-      <div class="countries-head">
-        <span class="eyebrow-sm reveal">التقديم حسب الدول</span>
-        <h2 class="section-title reveal" id="sectors-title" data-delay="90">التقديم حسب الدول</h2>
-        <p class="section-sub reveal" data-delay="180">اختار الدولة اللي باغي تخدم فيها، وحنا كنستهدفو الشركات والفرص المناسبة لبروفايلك، وكنوصلو طلبك للمُشغِّل — حتى للفرص الحالية أو المستقبلية.</p>
-      </div>
-      <div class="countries-grid" data-stagger></div>
-    </section>
   </div>
 </section>
 
@@ -718,15 +683,6 @@
       </div>
     </div>
     <p class="footer-disclaimer">هاد الخدمة كتعاونك فالبحث على فرص العمل وإرسال وتنظيم طلبات التوظيف، ولكن ما كتضمنش ليك خدمة ولا <span class="latin">Visa</span>. القرار النهائي كيرجع للشركة والجهات المختصة.</p>
-    <!-- ===================== GOOGLE REVIEWS LINK ===================== -->
-    <section class="gr-footer" aria-labelledby="gr-footer-title">
-      <h2 class="gr-footer-title" id="gr-footer-title">رأيك كيهمنا</h2>
-      <p class="gr-footer-sub">شاركنا تجربتك مع <span class="latin">WAAPPLY</span> على <span class="latin">Google</span> وساعدنا نتحسنو.</p>
-      <a class="gr-footer-link" href="https://g.page/r/CZqvac-d9oYpEBM/review" target="_blank" rel="noopener noreferrer">
-        <svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <span>قيّمنا على <span class="latin">Google</span></span>
-      </a>
-    </section>
     <div class="footer-bottom">
       <span>© 2026 وابلاي</span>
       <span class="footer-sep" aria-hidden="true">|</span>
