@@ -429,7 +429,7 @@
     return 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
   }
 
-  /* Arabic country name from the ISO code (source of truth: countries.js) */
+  /* Arabic country name from the ISO code (frontend source of truth when available) */
   function countryLabel(code){
     if(!code) return '';
     var list = window.WA_COUNTRIES || [];
@@ -439,7 +439,7 @@
     return code;
   }
 
-  /* Arabic sector name from the canonical French name (source: sectors.js) */
+  /* Arabic sector name from the canonical French name (frontend source of truth when available) */
   function sectorLabel(fr){
     if(!fr) return '';
     var list = window.WA_SECTORS || [];

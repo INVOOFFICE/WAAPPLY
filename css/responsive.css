@@ -11,9 +11,6 @@
   .section-pad{padding:80px 0;}
   .section-head{margin-bottom:44px;}
 
-  .countries-grid{grid-template-columns:repeat(2,1fr);}
-  .sectors-grid{grid-template-columns:repeat(2,1fr);}
-  .countries-pager,.sectors-pager{gap:var(--space-2);}
 
   /* Spontanée */
   .spontanee-grid{grid-template-columns:1fr; gap:40px;}
@@ -42,18 +39,24 @@
     max-width:min(96vw, 1180px);
   }
   .promo-slide--single{min-height:400px;}
-  .promo-content{padding:40px 44px;}
-  .promo-metrics{gap:var(--space-3);}
-  .promo-metric{padding:12px 16px;}
+  .promo-content{padding:40px 32px;}
+  .promo-choice-box{max-width:100%;}
+  .promo-choice{padding:24px 16px 26px;}
+  .promo-choice-text{font-size:clamp(18px, 1.9vw, 24px);}
+  .promo-offer-line{gap:14px;}
 }
 
 @media(max-width:768px){
   .promo-slide--single{min-height:auto;}
-  .promo-content{padding:36px 28px 24px;}
-  .promo-metrics{flex-wrap:wrap; gap:var(--space-2);}
-  .promo-metric{min-width:calc(33% - 8px); flex:1;}
-  .promo-title{font-size:clamp(24px, 5vw, 32px);}
-  .promo-desc{font-size:var(--fs-sm);}
+  .promo-content{padding:36px 24px 24px;}
+  .promo-title{font-size:clamp(26px, 5.4vw, 36px); margin-bottom:24px;}
+  .promo-choice-box{grid-template-columns:1fr; max-width:560px;}
+  .promo-choice{padding:24px 20px;}
+  .promo-choice-divider{width:auto; height:1px; margin:0 24px;}
+  .promo-choice-btn{width:100%; max-width:320px;}
+  .promo-offer-line{flex-wrap:wrap; gap:14px 18px;}
+  .promo-offer-sep{height:40px;}
+  .promo-offer-value{font-size:clamp(18px, 3.4vw, 24px);}
 
   /* Free offers page (offers.html) */
   .offers-grid{grid-template-columns:1fr;}
@@ -73,16 +76,7 @@
   .section-pad{padding:64px 0;}
   .section-title{margin-bottom:var(--space-3);}
 
-  .countries-grid{grid-template-columns:1fr;}
-  .country-media{height:96px;}
-  .country-flag{height:58px;}
-  .country-ico{top:68px;}
-  .countries-pager,.sectors-pager{flex-wrap:wrap;}
-  .countries-pager-num,.sectors-pager-num{min-width:36px; height:36px;}
 
-  .sectors-grid{grid-template-columns:1fr;}
-  .sector-media{height:150px;}
-  .sector-ico{top:122px;}
 
   /* Spontanée mobile */
   .spontanee-grid{gap:var(--space-7);}
@@ -118,9 +112,7 @@
   .wa-actions .btn{width:100%; min-width:0;}
 
   /* Google Reviews footer link */
-  .gr-footer{margin-top:var(--space-7);}
-  .gr-footer-title{font-size:var(--fs-lg);}
-  .gr-footer-link{margin-top:var(--space-4);}
+
 
   /* Free offers page mobile (offers.html) */
   .offers-hero .container{padding:44px var(--space-5) 40px;}
@@ -150,14 +142,20 @@
     padding-inline:var(--space-5);
   }
   .promo-slide--single{border-radius:var(--radius) var(--radius) 0 0;}
-  .promo-content{padding:28px 20px 20px;}
+  .promo-content{padding:28px 16px 20px;}
   .promo-badge{font-size:11px; padding:5px 14px;}
-  .promo-title{font-size:clamp(21px, 5.5vw, 27px); margin-bottom:var(--space-3);}
-  .promo-desc{margin-bottom:20px; line-height:1.8;}
-  .promo-metrics{gap:6px; margin-bottom:24px;}
-  .promo-metric{min-width:calc(33% - 4px); padding:10px 12px;}
-  .promo-metric-value{font-size:clamp(24px, 5vw, 28px);}
-  .promo-metric-label{font-size:11px;}
+  .promo-title{font-size:clamp(24px, 7vw, 32px); margin-bottom:20px;}
+  .promo-choice-box{margin-bottom:24px; border-radius:var(--radius);}
+  .promo-choice{padding:20px 16px;}
+  .promo-choice-text{font-size:clamp(20px, 5.4vw, 24px); margin-bottom:16px;}
+  .promo-choice-divider{margin:0 16px;}
+  .promo-choice-btn{width:100%; max-width:100%;}
+  .promo-offer-title{font-size:clamp(20px, 5.6vw, 26px); margin-bottom:14px;}
+  .promo-offer-line{gap:12px 14px;}
+  .promo-offer-item{flex:1 1 calc(50% - 14px);}
+  .promo-offer-sep{display:none;}
+  .promo-offer-value{white-space:normal; font-size:clamp(19px, 5.2vw, 24px);}
+  .promo-offer-label{font-size:12px;}
   .promo-disclaimer{font-size:10.5px;}
 }
 
@@ -188,6 +186,6 @@
   .promo-section .container{
     max-width:min(92vw, 1600px);
   }
-  .promo-content{padding:60px 72px;}
-  .promo-title{font-size:clamp(34px, 3vw, 46px);}
+  .promo-content{padding:60px 72px; max-width:860px;}
+  .promo-title{font-size:clamp(36px, 3vw, 50px);}
 }

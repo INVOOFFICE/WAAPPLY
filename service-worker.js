@@ -44,8 +44,6 @@ var PRECACHE = [
   'js/navigation.js',
   'js/faq.js',
   'js/promo.js',
-  'js/countries.js',
-  'js/sectors.js',
   'js/animations.js',
   'js/app.js',
   'js/contact-modal.js',
