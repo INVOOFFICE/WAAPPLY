@@ -27,7 +27,11 @@
    rhythm is tightened (ID selector: stays in force at every breakpoint where
    responsive.css re-declares .section-pad). scroll-margin-top keeps the
    #free-offers nav anchor landing below the sticky header (>= 89px). */
-#free-offers{padding-top:var(--space-10); scroll-margin-top:96px;}
+#free-offers{padding-top:var(--space-10); padding-bottom:var(--space-10); scroll-margin-top:96px;}
+/* Tighten the free-offers → reviews → blog run: the three blocks sit close
+   together, using the same 40px rhythm as #free-offers' own top padding. */
+#google-reviews{padding-top:var(--space-10); padding-bottom:var(--space-10);}
+#blog{padding-top:var(--space-10);}
 
 .italia-banner{
   display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
@@ -335,12 +339,33 @@
 
 .spontanee-cta{margin-top:var(--space-2);}
 
+/* ---- 3-step path (replaces the old feature grid) ---- */
+.spontanee-steps{
+  list-style:none; margin:0 0 var(--space-8); padding:0;
+  display:flex; flex-direction:column; gap:var(--space-5);
+}
+.spontanee-steps li{
+  display:flex; align-items:flex-start; gap:var(--space-4);
+}
+.sp-step-num{
+  width:34px; height:34px; border-radius:50%; flex-shrink:0;
+  background:var(--grad-gold-deep); color:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+  font-size:var(--fs-base); font-weight:700; line-height:1;
+}
+.sp-step-title{
+  font-size:var(--fs-base); font-weight:700; color:var(--navy); line-height:1.5; margin:0 0 var(--space-1);
+}
+.sp-step-desc{
+  font-size:var(--fs-sm); color:var(--slate); line-height:1.85; margin:0;
+}
+
 /* ============================================================
    FOOTER
    ============================================================ */
 footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:68px 0 30px;}
 .footer-top{
-  display:grid; grid-template-columns:1fr 1.2fr auto; gap:48px; align-items:start;
+  display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start;
   padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .footer-brand .logo-img{height:54px; width:auto; display:block;}

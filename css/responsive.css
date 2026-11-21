@@ -14,8 +14,7 @@
 
   /* Spontanée */
   .spontanee-grid{grid-template-columns:1fr; gap:40px;}
-  .spontanee-visual{order:-1;}
-  .spontanee-content{max-width:640px; margin:0 auto;} 
+  .spontanee-content{order:-1; max-width:640px; margin:0 auto;} 
   .spontanee-features{grid-template-columns:1fr 1fr;}
 
   /* Offer banners (europe + italia) */

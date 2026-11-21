@@ -10,6 +10,14 @@
   var isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var countersAnimated = false;
 
+  // Final values are authored in the HTML (readable even if this script never
+  // runs). For the count-up we reset to 0 here, before first paint, so the
+  // reader never sees a flash of the final number first.
+  var counterEls = hero.querySelectorAll('.counter');
+  if(!isReducedMotion){
+    for(var i = 0; i < counterEls.length; i++){ counterEls[i].textContent = '0'; }
+  }
+
   function animateCounters(){
     if(countersAnimated) return;
     countersAnimated = true;

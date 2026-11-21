@@ -25,17 +25,10 @@ document.querySelectorAll('.faq-q[role="button"]').forEach(q => {
   });
 });
 
-// Open the first question by default (definition-first) and re-measure once
-// fonts finish loading so the animated max-height is never clipped.
+// The accordion starts CLOSED on first display (no auto-open) so mobile
+// readers can scan the questions first. Re-measure any open answer on viewport
+// resize so the animated max-height never clips.
 (function(){
-  const firstQ = document.querySelector('.faq-item .faq-q');
-  if(firstQ){ toggleFaq(firstQ); }
-  window.addEventListener('load', function(){
-    const openA = document.querySelector('.faq-item.open .faq-a');
-    if(openA){ openA.style.maxHeight = openA.scrollHeight + 'px'; }
-  });
-  // Keep the open answer's max-height in sync on viewport resize (rotation,
-  // window resize): recompute from the real scrollHeight, rAF-throttled.
   let resizeRaf = null;
   if(!window.__faqResizeBound){
     window.__faqResizeBound = true;
