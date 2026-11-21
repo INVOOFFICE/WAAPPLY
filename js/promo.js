@@ -4,23 +4,17 @@
 (function(){
   'use strict';
 
-  var slide = document.querySelector('.promo-slide--single');
-  if(!slide) return;
+  var hero = document.querySelector('.promo-hero');
+  if(!hero) return;
 
   var isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var countersAnimated = false;
 
-  /* ===== Reveal slide content on load ===== */
-  function revealSlide(){
-    slide.classList.add('revealed');
-  }
-
-  /* ===== Number counter animation ===== */
   function animateCounters(){
     if(countersAnimated) return;
     countersAnimated = true;
 
-    var counters = slide.querySelectorAll('.counter');
+    var counters = hero.querySelectorAll('.counter');
     var duration = isReducedMotion ? 0 : 800;
 
     for(var c = 0; c < counters.length; c++){
@@ -50,20 +44,26 @@
             }
           }
           requestAnimationFrame(step);
-        }, 400);
+        }, 300);
       })(counters[c]);
     }
   }
 
-  /* ===== Initialize ===== */
   if(isReducedMotion){
-    revealSlide();
     animateCounters();
-  } else {
-    // Small delay so paint settles before entrance transition
-    setTimeout(revealSlide, 120);
-    // Start counters after content has appeared
-    setTimeout(animateCounters, 500);
+    return;
   }
 
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        animateCounters();
+        io.disconnect();
+      });
+    }, {threshold: 0.2});
+    io.observe(hero);
+  } else {
+    animateCounters();
+  }
 })();
