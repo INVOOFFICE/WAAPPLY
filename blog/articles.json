@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T16:21:12.891Z",
+  "generatedAt": "2026-11-22T16:21:12.879Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "fake-seasonal-job-offer",
+      "url": "/blog/fake-seasonal-job-offer.html",
+      "title": "كيف أكتشف عرض عمل موسمي وهمياً في أوروبا قبل إرسال وثائقي؟",
+      "excerpt": "خطوات عملية للتحقق من عروض العمل الموسمية في أوروبا، وحماية وثائقك، واكتشاف التناقضات قبل دفع المال أو الالتزام بالسفر.",
+      "category": "seasonal-work",
+      "date": "2026-11-22",
+      "readingTime": 7,
+      "image": "/blog/images/WA-015_fake-seasonal-job-offer.jpg",
+      "imageAlt": "باحث عن عمل يراجع إعلان وظيفة موسمية ووثائق التوظيف ويتحقق من بيانات صاحب العمل قبل إرسال معلوماته الشخصية",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "al-amal-fi-qita-al-fanadiq-wa-al-matam-fi-ur",
@@ -9,7 +23,7 @@
       "title": "كيف أستعد للعمل في قطاع الفنادق والمطاعم في أوروبا إذا كانت خبرتي محدودة؟",
       "excerpt": "كيف تختار وظيفة مناسبة في الفنادق والمطاعم في أوروبا عندما تكون خبرتك محدودة؟ تعرف على المهارات المطلوبة وكيفية إعداد السيرة الذاتية والاستعداد للمقابلة.",
       "category": "work-by-sector",
-      "date": "2026-11-16",
+      "date": "2026-11-15",
       "readingTime": 9,
       "image": "/blog/images/al-amal-fi-qita-al-fanadiq-wa-al-matam-fi-ur.jpg",
       "imageAlt": "مرشح يراجع قائمة مهام في مطعم استعدادا للتقديم على وظيفة في قطاع الفنادق والمطاعم في أوروبا",
