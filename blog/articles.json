@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-22T16:21:12.879Z",
+  "generatedAt": "2026-11-23T16:21:22.134Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "job-interview-without-experience",
+      "url": "/blog/job-interview-without-experience.html",
+      "title": "كيف أجيب عن سؤال الخبرة في مقابلة عمل إذا كانت هذه أول وظيفة لي؟",
+      "excerpt": "اكتشف كيف تجيب عن سؤال الخبرة في أول مقابلة عمل، وتحول ما تعلمته من الدراسة والتدريب والمسؤوليات اليومية إلى أمثلة صادقة.",
+      "category": "work-no-experience",
+      "date": "2026-11-23",
+      "readingTime": 8,
+      "image": "/blog/images/WA-015_fake-seasonal-job-offer.jpg",
+      "imageAlt": "مرشح مبتدئ يستعد لمقابلة عمل ويدوّن أمثلة من دراسته ومهاراته في دفتر ملاحظات",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "fake-seasonal-job-offer",
@@ -9,7 +23,7 @@
       "title": "كيف أكتشف عرض عمل موسمي وهمياً في أوروبا قبل إرسال وثائقي؟",
       "excerpt": "خطوات عملية للتحقق من عروض العمل الموسمية في أوروبا، وحماية وثائقك، واكتشاف التناقضات قبل دفع المال أو الالتزام بالسفر.",
       "category": "seasonal-work",
-      "date": "2026-11-22",
+      "date": "2026-11-21",
       "readingTime": 7,
       "image": "/blog/images/WA-015_fake-seasonal-job-offer.jpg",
       "imageAlt": "باحث عن عمل يراجع إعلان وظيفة موسمية ووثائق التوظيف ويتحقق من بيانات صاحب العمل قبل إرسال معلوماته الشخصية",
