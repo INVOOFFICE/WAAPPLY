@@ -1,7 +1,35 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-23T16:21:22.134Z",
+  "generatedAt": "2026-11-25T16:21:26.976Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "resume-rejection-reasons",
+      "url": "/blog/resume-rejection-reasons.html",
+      "title": "لماذا تُرفض سيرتك الذاتية رغم امتلاكك الخبرة المناسبة؟",
+      "excerpt": "قد لا يكون سبب رفض طلبك نقص الخبرة، بل طريقة عرضها أو عدم تطابقها مع الإعلان. تعلّم كيف تراجع سيرتك الذاتية وتختار الوظائف الملائمة.",
+      "category": "apply-guides",
+      "date": "2026-11-25",
+      "readingTime": 7,
+      "image": "/blog/images/WA-017_recognition-professional-qualifications-europe.jpg",
+      "imageAlt": "باحث عن عمل يراجع سيرته الذاتية ويقارن مهاراته بمتطلبات إعلان وظيفة على شاشة حاسوب",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
+    {
+      "lang": "ar",
+      "slug": "recognition-professional-qualifications-europe",
+      "url": "/blog/recognition-professional-qualifications-europe.html",
+      "title": "كيف أتحقق من الاعتراف بشهادتي المهنية قبل البحث عن عمل في أوروبا؟",
+      "excerpt": "تعرف على الفرق بين الاعتراف الرسمي بالشهادة وقبولها لدى صاحب العمل، وكيف تتحقق من شروط المهنة في البلد المستهدف دون إيقاف بحثك عن فرص العمل.",
+      "category": "work-in-europe",
+      "date": "2026-11-23",
+      "readingTime": 8,
+      "image": "/blog/images/WA-016_job-interview-without-experience.jpg",
+      "imageAlt": "باحث عن عمل يراجع شهادة مهنية ووثائق مؤهله أمام حاسوب أثناء الاستعداد للعمل في أوروبا",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "job-interview-without-experience",
@@ -9,7 +37,7 @@
       "title": "كيف أجيب عن سؤال الخبرة في مقابلة عمل إذا كانت هذه أول وظيفة لي؟",
       "excerpt": "اكتشف كيف تجيب عن سؤال الخبرة في أول مقابلة عمل، وتحول ما تعلمته من الدراسة والتدريب والمسؤوليات اليومية إلى أمثلة صادقة.",
       "category": "work-no-experience",
-      "date": "2026-11-23",
+      "date": "2026-11-22",
       "readingTime": 8,
       "image": "/blog/images/WA-015_fake-seasonal-job-offer.jpg",
       "imageAlt": "مرشح مبتدئ يستعد لمقابلة عمل ويدوّن أمثلة من دراسته ومهاراته في دفتر ملاحظات",
