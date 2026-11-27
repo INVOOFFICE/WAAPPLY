@@ -30,7 +30,7 @@
   var overlay, panel, form, nameInput, phoneInput, packageSelect, submitBtn, submitText;
   var formState, successState, errorState;
   var whatsappFallbackBtn;
-  var nameError, phoneError, packageError, phonePrefix;
+  var nameError, phoneError, packageError;
 
   function init(){
     overlay = document.getElementById('contactModal');
@@ -50,7 +50,6 @@
     nameError        = document.getElementById('cm-name-error');
     phoneError       = document.getElementById('cm-phone-error');
     packageError     = document.getElementById('cm-package-error');
-    phonePrefix      = overlay.querySelector('.cm-phone-prefix');
 
     overlay.addEventListener('click', handleOverlayClick);
     form.addEventListener('submit', handleSubmit);
@@ -65,10 +64,6 @@
     phoneInput.addEventListener('input', function(){
       phoneError.textContent = '';
       phoneInput.closest('.cm-phone-wrap').classList.remove('cm-invalid');
-      /* Hide prefix when user types a full international number */
-      if(phonePrefix){
-        phonePrefix.classList.toggle('cm-hidden', phoneInput.value.charAt(0) === '+');
-      }
     });
     packageSelect.addEventListener('change', function(){
       packageError.textContent = '';
@@ -89,9 +84,6 @@
     if(packageType && PACKAGES[packageType]){
       packageSelect.value = packageType;
     }
-
-    /* Show prefix for default country code */
-    if(phonePrefix){ phonePrefix.classList.remove('cm-hidden'); }
 
     overlay.classList.add('cm-open');
     overlay.setAttribute('aria-hidden', 'false');
@@ -257,11 +249,11 @@
 
     var phone = phoneInput.value.trim();
     if(!phone){
-      phoneError.textContent = 'عافاك دخل رقم واتساب صحيح.';
+      phoneError.textContent = 'عافاك دخل رقم واتساب ديالك.';
       phoneInput.closest('.cm-phone-wrap').classList.add('cm-invalid');
       valid = false;
     } else if(!isValidPhone(phone)){
-      phoneError.textContent = 'عافاك دخل رقم واتساب صحيح.';
+      phoneError.textContent = 'عافاك دخل رقم واتساب ديالك مع كود البلاد ديالك، مثلاً المغرب ‎+212، فرنسا ‎+33، إسبانيا ‎+34.';
       phoneInput.closest('.cm-phone-wrap').classList.add('cm-invalid');
       valid = false;
     }
@@ -278,8 +270,9 @@
 
   function isValidPhone(phone){
     var cleaned = phone.replace(/[\s\-\.\(\)]/g, '');
+    if(cleaned.charAt(0) !== '+') return false;
     var digits = cleaned.replace(/\D/g, '');
-    return digits.length >= 6;
+    return digits.length >= 8 && digits.length <= 15;
   }
 
   function clearErrors(){
@@ -339,9 +332,7 @@
   }
 
   function formatPhone(phone){
-    var cleaned = phone.replace(/[\s\-\.\(\)]/g, '');
-    if(cleaned.charAt(0) === '+') return cleaned;
-    return '+34' + cleaned;
+    return phone.replace(/[\s\-\.\(\)]/g, '');
   }
 
   function sendToApi(payload){
