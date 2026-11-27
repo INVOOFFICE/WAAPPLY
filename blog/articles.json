@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-25T16:21:26.976Z",
+  "generatedAt": "2026-11-26T16:21:24.055Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "german-labor-market-requirements",
+      "url": "/blog/german-labor-market-requirements.html",
+      "title": "لماذا يصعب على الباحث عن عمل فهم متطلبات سوق العمل الألماني قبل التقديم؟",
+      "excerpt": "دليل عملي لفهم متطلبات سوق العمل الألماني، ومقارنة شروط الوظائف بمهاراتك، والتمييز بين متطلبات صاحب العمل والأهلية القانونية للعمل.",
+      "category": "work-by-country",
+      "date": "2026-11-26",
+      "readingTime": 8,
+      "image": "/blog/images/WA-018_resume-rejection-reasons.jpg",
+      "imageAlt": "باحث عن عمل يراجع إعلانات الوظائف الألمانية ويقارن متطلبات المهارات واللغة والمؤهلات",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "resume-rejection-reasons",
@@ -9,7 +23,7 @@
       "title": "لماذا تُرفض سيرتك الذاتية رغم امتلاكك الخبرة المناسبة؟",
       "excerpt": "قد لا يكون سبب رفض طلبك نقص الخبرة، بل طريقة عرضها أو عدم تطابقها مع الإعلان. تعلّم كيف تراجع سيرتك الذاتية وتختار الوظائف الملائمة.",
       "category": "apply-guides",
-      "date": "2026-11-25",
+      "date": "2026-11-24",
       "readingTime": 7,
       "image": "/blog/images/WA-017_recognition-professional-qualifications-europe.jpg",
       "imageAlt": "باحث عن عمل يراجع سيرته الذاتية ويقارن مهاراته بمتطلبات إعلان وظيفة على شاشة حاسوب",
