@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-26T16:21:24.055Z",
+  "generatedAt": "2026-11-27T16:21:16.153Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "difference-between-permanent-and-temporary-contracts",
+      "url": "/blog/difference-between-permanent-and-temporary-contracts.html",
+      "title": "ما الفرق بين عقد العمل الدائم والعقد المؤقت في أوروبا، وكيف تختار بينهما؟",
+      "excerpt": "مقارنة عملية بين العقد الدائم والمؤقت في أوروبا لفهم استمرارية العمل والالتزامات التعاقدية والبنود التي ينبغي التحقق منها قبل التوقيع.",
+      "category": "work-conditions",
+      "date": "2026-11-27",
+      "readingTime": 8,
+      "image": "/blog/images/WA-019_german-labor-market-requirements.jpg",
+      "imageAlt": "باحث عن عمل يقارن بين عرضين وظيفيين ويقرأ بنود عقدي عمل قبل اتخاذ قرار مهني",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "german-labor-market-requirements",
@@ -9,7 +23,7 @@
       "title": "لماذا يصعب على الباحث عن عمل فهم متطلبات سوق العمل الألماني قبل التقديم؟",
       "excerpt": "دليل عملي لفهم متطلبات سوق العمل الألماني، ومقارنة شروط الوظائف بمهاراتك، والتمييز بين متطلبات صاحب العمل والأهلية القانونية للعمل.",
       "category": "work-by-country",
-      "date": "2026-11-26",
+      "date": "2026-11-25",
       "readingTime": 8,
       "image": "/blog/images/WA-018_resume-rejection-reasons.jpg",
       "imageAlt": "باحث عن عمل يراجع إعلانات الوظائف الألمانية ويقارن متطلبات المهارات واللغة والمؤهلات",
