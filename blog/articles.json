@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-27T16:21:16.153Z",
+  "generatedAt": "2026-11-28T16:22:13.887Z",
   "articles": [
+    {
+      "lang": "ar",
+      "slug": "discrimination-at-work-europe",
+      "url": "/blog/discrimination-at-work-europe.html",
+      "title": "كيف تتصرف إذا تعرضت للتمييز في العمل بأوروبا بسبب لغتك أو جنسيتك؟",
+      "excerpt": "تعرف على كيفية التمييز بين الخلاف المهني والسلوك التمييزي، وتوثيق الوقائع وحفظ الأدلة والتوجه إلى الجهة المختصة مع مواصلة البحث عن فرص أخرى.",
+      "category": "worker-rights",
+      "date": "2026-11-28",
+      "readingTime": 9,
+      "image": "/blog/images/WA-020_difference-between-permanent-and-temporary-contracts.jpg",
+      "imageAlt": "عامل يراجع ملاحظات ومراسلات مهنية على مكتب استعداداً لتوثيق واقعة تمييز في مكان العمل",
+      "imageWidth": 1200,
+      "imageHeight": 600
+    },
     {
       "lang": "ar",
       "slug": "difference-between-permanent-and-temporary-contracts",
@@ -9,7 +23,7 @@
       "title": "ما الفرق بين عقد العمل الدائم والعقد المؤقت في أوروبا، وكيف تختار بينهما؟",
       "excerpt": "مقارنة عملية بين العقد الدائم والمؤقت في أوروبا لفهم استمرارية العمل والالتزامات التعاقدية والبنود التي ينبغي التحقق منها قبل التوقيع.",
       "category": "work-conditions",
-      "date": "2026-11-27",
+      "date": "2026-11-26",
       "readingTime": 8,
       "image": "/blog/images/WA-019_german-labor-market-requirements.jpg",
       "imageAlt": "باحث عن عمل يقارن بين عرضين وظيفيين ويقرأ بنود عقدي عمل قبل اتخاذ قرار مهني",
